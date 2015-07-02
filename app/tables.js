@@ -1,0 +1,30 @@
+module.exports = {
+
+  DVM_SISTEMA : {
+
+    NOMBRE : ""
+
+  },
+
+  DVM_ENTIDAD_CANONICA : {
+
+    NOMBRE : ""
+
+  },
+
+  DVM_VALOR_CANONICO : {
+
+    ID_ENTIDAD_CANONICA : "DVM_ENTIDAD_CANONICA",
+    VALOR_CANONICA : ""
+
+  },
+
+  DVM_VALOR_SISTEMA : {
+
+    ID_SISTEMA : "DVM_SISTEMA",
+    ID_ENTIDAD_CANONICA : "DVM_ENTIDAD_CANONICA",
+    ID_VALOR_CANONICO : "DVM_VALOR_CANONICO"
+
+  }
+
+}
