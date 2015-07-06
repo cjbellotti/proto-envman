@@ -1,29 +1,64 @@
+var Tipos = require('./tipos');
+
 module.exports = {
 
   DVM_SISTEMA : {
 
-    NOMBRE : ""
+    NOMBRE : {
+      tipo : Tipos.Clave 
+    },
+    DESCRIPCION : {
+      tipo : Tipos.Normal 
+    },
+    PAIS : {
+      tipo : Tipos.Clave
+    }
 
   },
 
   DVM_ENTIDAD_CANONICA : {
 
-    NOMBRE : ""
+    NOMBRE : {
+      tipo : Tipos.Clave
+    },
+    DESCRIPCION : {
+      tipo : Tipos.Normal
+    }
 
   },
 
   DVM_VALOR_CANONICO : {
 
-    ID_ENTIDAD_CANONICA : "DVM_ENTIDAD_CANONICA",
-    VALOR_CANONICA : ""
+    ID_ENTIDAD_CANONICA : {
+      tipo : Tipos.Clave,
+      ref : "DVM_ENTIDAD_CANONICA"
+    },
+    VALOR_CANONICO : {
+      tipo : Tipos.Clave
+    },
+    DESCRIPCION : {
+      tipo : Tipos.Normal
+    }
 
   },
 
   DVM_VALOR_SISTEMA : {
 
-    ID_SISTEMA : "DVM_SISTEMA",
-    ID_ENTIDAD_CANONICA : "DVM_ENTIDAD_CANONICA",
-    ID_VALOR_CANONICO : "DVM_VALOR_CANONICO"
+    ID_SISTEMA : {
+      tipo : Tipos.Clave,
+      ref : "DVM_SISTEMA"
+    },
+    ID_ENTIDAD_CANONICA : {
+      tipo : Tipos.Clave,
+      ref : "DVM_ENTIDAD_CANONICA"
+    },
+    ID_VALOR_CANONICO : {
+      tipo : Tipos.Clave,
+      ref : "DVM_VALOR_CANONICO"
+    },
+    VALOR_SISTEMA : {
+      tipo : Tipos.Normal
+    }
 
   }
 

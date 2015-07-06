@@ -1,4 +1,5 @@
 var defTablas = require('../../tables');
+var Tipos = require('../../tipos');
 var async = require('async');
 var _ = require('underscore');
 
@@ -6,27 +7,29 @@ var dbData = {};
 
 function verificar(tabla, registro) {
 
+    var reg = null;
     var query = {};
 
     for (var field in defTablas[tabla]) {
 
-      if (registro[field])
+      if (registro[field] && defTablas[tabla][field].tipo == Tipos.Clave)
         query[field] = registro[field];
 
     }
 
-    var index = _.findIndex(dbData, query);
+    var index = _.findIndex(dbData[tabla], query);
 
     if (index < 0) {
 
       // - Obtiene ultimo ID libre
       // - Asigna ID nuevo en IDN
+      registro.IDN = dbData[tabla][ dbData[tabla].length - 1 ].ID + 1;
       // - 
     } else {
 
       // - Verifica si algun campo cambío
       registro.MOD = false;
-      for (var field in registro) {
+      for (var field in defTablas[tabla]) {
 
         if (registro[field] != dbData[tabla][index][field]) {
             registro.MOD = true;
@@ -41,33 +44,59 @@ function verificar(tabla, registro) {
       registro.IDN = dbData[tabla][index][field].ID;
     }
 
+    if (registro.IDN)
+      reg = registro;
+
+    return reg;
+
 }
 
 module.exports = function (manDB, ambiente, dc, tablas, callback){
 
-  dbData = {};
+  var result = {};
   var listaTablas = _.keys(defTablas);
+  dbData = {};
 
   async.each(listaTablas, function (tabla, callback) {
 
-     manDB(ambiente, dc, 'DTVLA.' + tabla, undefined, function (err, result) {
+     var query = 'select * from DTVLA.' + tabla;
+     manDB(ambiente, dc, query, function (err, result) {
        dbData[tabla] = result;
+       dbData[tabla].sort(function (a, b) {
+          return (a.ID - b.ID);
+       });
        callback(err);
      });
 
   }, function (err) {
 
-      for (var tabla in tablas) {
+      async.each(Object.keys(tablas), function (tabla, next) {
 
-        for (var index in tablas[tabla]){
+        async.each(tablas[tabla], function (registro, callback) {
 
-          verificar(tabla, tablas[tabla][index]);
+          var reg = verificar(tabla, registro);
+          if (reg) {
 
-        }
+            if (!result[tabla])
+              result[tabla] = [];
 
-      }
+            result[tabla].push(reg);
 
-      callback(err, tablas); 
+          }
+
+          callback();
+
+        }, function (err) {
+
+          next(); 
+
+        });
+
+      }, function (err) {
+
+        callback(err, result);
+
+      });
 
   });
 

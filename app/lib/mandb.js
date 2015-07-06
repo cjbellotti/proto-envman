@@ -36,7 +36,7 @@ for (var ambiente in config.ambientes) {
   }
 }
 
-module.exports = function (ambiente, dc, table, query, callback){
+module.exports = function (ambiente, dc, query, callback){
 
   if (pool[ambiente]) {
 
@@ -47,7 +47,8 @@ module.exports = function (ambiente, dc, table, query, callback){
         var where = query || "";
         if (where.length > 0)
           where = 'where ' + where;
-        var q = "select * from " + table + " " + where + " ORDER BY ID";
+        //var q = "select * from " + table + " " + where + " ORDER BY ID";
+        var q = query;
         console.log('Query: %s', q);
         connection.execute(q, {}, {maxRows: 1000000}, 
             function (err, result) {
