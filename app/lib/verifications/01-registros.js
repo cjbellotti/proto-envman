@@ -10,41 +10,41 @@ function verificar(tabla, registro) {
     var reg = null;
     var query = {};
 
-    for (var field in defTablas[tabla]) {
+    for (var field in defTablas[tabla].campos) {
 
-      if (registro[field] && defTablas[tabla][field].tipo == Tipos.Clave)
+      if (registro[field] && defTablas[tabla].campos[field].tipo == Tipos.Clave)
         query[field] = registro[field];
 
     }
 
     var index = _.findIndex(dbData[tabla], query);
 
+    registro.MOD = false;
     if (index < 0) {
 
       // - Obtiene ultimo ID libre
       // - Asigna ID nuevo en IDN
       registro.IDN = dbData[tabla][ dbData[tabla].length - 1 ].ID + 1;
-      // - 
+
     } else {
 
       // - Verifica si algun campo cambío
-      registro.MOD = false;
-      for (var field in defTablas[tabla]) {
+      for (var field in defTablas[tabla].campos) {
 
         if (registro[field] != dbData[tabla][index][field]) {
             registro.MOD = true;
-            registro.origenReg = dbData[tabla][index][field];
+            registro.origenReg = dbData[tabla][index];
         }
 
       }
 
+      if (registro.ID != dbData[tabla][index].ID){
+        registro.IDN = dbData[tabla][index].ID;
+      }
+
     }
 
-    if (registro.MOD && registro.ID != dbData[tabla][index][field].ID) {
-      registro.IDN = dbData[tabla][index][field].ID;
-    }
-
-    if (registro.IDN)
+    if (registro.IDN || registro.MOD)
       reg = registro;
 
     return reg;
