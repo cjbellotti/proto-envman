@@ -3,16 +3,26 @@ var Tipos = require('../../tipos');
 var async = require('async');
 var _ = require('underscore');
 
+/* Momentaneo por diferencias entre los nombres de las tablas utilizados en el frontend*/
+var nombresTablas = {
+  sistema : "DVM_SISTEMA",
+  entidadcanonica : "DVM_ENTIDAD_CANONICA",
+  valorcanonico : "DVM_VALOR_CANONICO",
+  valorsistema : "DVM_VALOR_SISTEMA"
+};
+
 function actualizarIntegridad (registros, ref, id, idn, callback) {
 
   async.each(Object.keys(registros), function (tabla, next) {
 
       async.each(registros[tabla], function (registro, callbackNext) {
 
-          for (var field in defTablas[tabla].campos) {
+          var nombreTabla = nombresTablas[tabla];
 
-            if (defTablas[tabla].campos[field].ref)
-              if (defTablas[tabla].campos[field].ref == ref &&
+          for (var field in defTablas[nombreTabla].campos) {
+
+            if (defTablas[nombreTabla].campos[field].ref)
+              if (defTablas[nombreTabla].campos[field].ref == ref &&
                   registro[field] == id)
                 registro[field] = idn;
             

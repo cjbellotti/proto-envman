@@ -11,6 +11,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 		config.headers.push("Job");
 		config.headers.push("Proyecto");
 		config.headers.push("Descripcion");
+    config.headers.push("Ambiente");
 		this.table = MyTable(config);
 		this.table.setHeight(350);
 
@@ -33,7 +34,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 		var view = new EnvMan.Views.Job();
 		$('#modals').html(view.el);
 		view.render(window.job);
-		$('#jobScr').modal({
+		view.$el.modal({
 			backdrop : 'static',
 			keyboard : false
 		});
@@ -67,7 +68,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 			var view = new EnvMan.Views.Job();
 			$('#modals').html(view.el);
 			view.render(window.job);
-			$('#jobScr').modal({
+			view.$el.modal({
 				backdrop : 'static',
 				keyboard : false
 			});
@@ -130,6 +131,8 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 	filtrar : function () {
 
 		var filtro = this.$el.find('#filtro').val();
+    filtro = filtro.toUpperCase();
+
 		console.log(filtro);
 		var ordenarPor = this.$el.find('#ordenar').val();
 		this.$el.find('#ordenar .ordenar-temporal').remove();
@@ -171,6 +174,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 				for (var index in tmpJobArray) {
 
 					var proyecto = tmpJobArray[index].proyecto;
+          proyecto = proyecto.toUpperCase();
 					if (proyecto.indexOf(filtro) >= 0)
 						arrayData.push(this.cargarJobArray(tmpJobArray[index]));
 
@@ -213,6 +217,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 				data.Job = '<a href="#" class="link-job" job="'+ tmpJobArray[index].job +'">' + tmpJobArray[index].job + '</a>';
 				data.Proyecto = tmpJobArray[index].proyecto;
 				data.Descripcion = tmpJobArray[index].descripcion;
+        data.Ambiente = tmpJobArray[index].target;
 				arrayData.push(data);
 			}
 

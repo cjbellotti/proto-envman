@@ -1,5 +1,6 @@
 var app = require('express')();
 var manDB = require('./lib/mandb');
+var manjob = require('./lib/manjob');
 var async = require('async');
 var bodyParser = require('body-parser');
 var config = require('./config');
@@ -10,9 +11,58 @@ var integridad = require('./lib/verifications/02-integridad');
 app.use(bodyParser({ extended : false}));
 app.use(bodyParser.json());
 
-app.post('/verificar', function (req, res) {
+function verificar(job, callback) {
 
     var response = {};
+
+    async.each(config.ambientes[job.target], function (dc, callback) {
+
+      verif(manDB, job.target, dc.name, job.registros, function (err, result) {
+
+          if (err) {
+            response.err = err;
+          } else {
+            response[dc.name] = result;
+          }
+
+          integridad(response[dc.name], function() {
+            callback();
+          });
+
+      });
+    }, function (err) {
+
+      callback(err, response);
+
+    });
+
+}
+
+app.post('/verificar/:id?', function (req, res) {
+
+    if (req.params.id)
+      manjob.read(parseInt(req.params.id), function (err, job) {
+
+        verificar(job, function (err, response) {
+
+          res.json(response)
+            .end();
+
+        });
+
+      });
+    else {
+
+      var job = req.body;
+      verificar(job, function (err, response) {
+
+        res.json(response)
+          .end();
+
+      });
+
+    }
+    /*var response = {};
     var job = req.body;
     async.each(config.ambientes[job.target], function (dc, callback) {
 
@@ -34,7 +84,7 @@ app.post('/verificar', function (req, res) {
       res.json(response)
         .end();
 
-    });
+    });*/
 
 });
 

@@ -5,7 +5,8 @@ module.exports.ambientes = {
         username : 'DTVLA',
         password : '12345678',
         host : 'localhost/XE',
-        port : 1521
+        port : 1521,
+        db_name : 'dbdesa'
       }
     ]
     /*,

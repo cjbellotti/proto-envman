@@ -25,16 +25,34 @@ function crearTabla(config) {
 		var selected = env.table.getSelectedRows();
 		if (selected.length > 0 ) {
 
-			var index = selected[0];
-			var data = env.table.getRowArrayData(index);
-			var model = new config.model(data);
-			var view = new config.view({ model : model});
-			view.render();
-			$('#modals').append(view.$el);
-			view.$el.modal({
-				backdrop : 'static',
-				keyboard : false
-			});
+      if (selected.length == 1) {
+
+        var index = selected[0];
+        var data = env.table.getRowArrayData(index);
+        var model = new config.model(data);
+        var view = new config.view({ model : model});
+        view.render();
+        $('#modals').append(view.$el);
+        view.$el.modal({
+          backdrop : 'static',
+          keyboard : false
+        });
+
+      } else {
+
+        var dialogo = new EnvMan.Views.DialogBox({
+          titulo : 'Importante',
+          texto : 'Debe seleccionar solo un elemento a editar'
+        });
+
+        $('#modals').append(dialogo.el);
+        dialogo.render();
+        dialogo.$el.modal({
+          backdrop : 'static',
+          keyboard : false
+        });
+    
+      }
 
 		}
 
@@ -45,26 +63,44 @@ function crearTabla(config) {
 		var selected = env.table.getSelectedRows();
 		if (selected.length > 0 ) {
 
-			var index = selected[0];
-			var rowData = env.table.getRowArrayData(index);
-			var data = {};
-			data.titulo = 'Eliminar ' + config.title;
-			data.texto = '¿Desea eliminar el registro seleccionado?';
-			data.env = this;
+      if (selected.length == 1) {
 
-			data.onAceptar = function (env) {
+        var index = selected[0];
+        var rowData = env.table.getRowArrayData(index);
+        var data = {};
+        data.titulo = 'Eliminar ' + config.title;
+        data.texto = '¿Desea eliminar el registro seleccionado?';
+        data.env = this;
 
-				generales.eliminarRegistroDeJob(config.table, rowData);
+        data.onAceptar = function (env) {
 
-			}
+          generales.eliminarRegistroDeJob(config.table, rowData);
 
-			var view = new EnvMan.Views.DialogBox(data);
-			view.render();
-			$('#modals').append(view.$el);
-			view.$el.modal({
-				backdrop : 'static',
-				keyboard : false
-			});
+        }
+
+        var view = new EnvMan.Views.DialogBox(data);
+        view.render();
+        $('#modals').append(view.$el);
+        view.$el.modal({
+          backdrop : 'static',
+          keyboard : false
+        });
+
+      } else {
+
+        var dialogo = new EnvMan.Views.DialogBox({
+          titulo : 'Importante',
+          texto : 'Debe seleccionar solo un elemento a Eliminar'
+        });
+
+        $('#modals').append(dialogo.el);
+        dialogo.render();
+        dialogo.$el.modal({
+          backdrop : 'static',
+          keyboard : false
+        });
+    
+      }
 
 		}
 

@@ -4,6 +4,18 @@ var async = require('async');
 var _ = require('underscore');
 
 var dbData = {};
+var indices = {};
+for (var tabla in defTablas)
+  indices[tabla] = 0;
+
+/* Momentaneo por diferencias entre los nombres de las tablas utilizados en el frontend*/
+var nombresTablas = {
+  sistema : "DVM_SISTEMA",
+  entidadcanonica : "DVM_ENTIDAD_CANONICA",
+  valorcanonico : "DVM_VALOR_CANONICO",
+  valorsistema : "DVM_VALOR_SISTEMA"
+};
+
 
 function verificar(tabla, registro) {
 
@@ -24,7 +36,8 @@ function verificar(tabla, registro) {
 
       // - Obtiene ultimo ID libre
       // - Asigna ID nuevo en IDN
-      registro.IDN = dbData[tabla][ dbData[tabla].length - 1 ].ID + 1;
+      indices[tabla]++;
+      registro.IDN = dbData[tabla][ dbData[tabla].length - 1 ].ID + indices[tabla];
 
     } else {
 
@@ -57,6 +70,9 @@ module.exports = function (manDB, ambiente, dc, tablas, callback){
   var listaTablas = _.keys(defTablas);
   dbData = {};
 
+  for (var indice in indices)
+    indices[indice] = 0;
+
   async.each(listaTablas, function (tabla, callback) {
 
      var query = 'select * from DTVLA.' + tabla;
@@ -74,7 +90,9 @@ module.exports = function (manDB, ambiente, dc, tablas, callback){
 
         async.each(tablas[tabla], function (registro, callback) {
 
-          var reg = verificar(tabla, registro);
+          var nombreTabla = nombresTablas[tabla];
+
+          var reg = verificar(nombreTabla, registro);
           if (reg) {
 
             if (!result[tabla])

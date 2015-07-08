@@ -1,5 +1,11 @@
 EnvMan.Views.Job = Backbone.View.extend({
 
+	className : "modal fade",
+	attributes : {
+		"aria-hidden" : "true",
+		"style" : "z-index: 1060"
+	},
+
 	initialize : function () {
 	
 		this.template = swig.compile( $('#job-screen-template').html() );
@@ -324,17 +330,55 @@ EnvMan.Views.Job = Backbone.View.extend({
 
 	guardar : function (e) {
 
-			if (window.job.job == '')
-					delete window.job.job;
+	  if (window.job.job == '')
+				delete window.job.job;
+
 		window.job.fecha = window.job.fecha || new Date();
 		window.job.proyecto = this.$el.find('#proyecto').val();
 		window.job.descripcion = this.$el.find('#descripcion').val();
-		window.generales.limpiarRegistros(window.job.registros);
-		var jobModel = new EnvMan.Models.Job(window.job);
-		jobModel.save();
-		window.job = jobModel.toJSON();
-		window.collections.jobs.reset();
-		window.collections.jobs.fetch();
+    if (window.job.proyecto.length > 0) {
+
+      if (window.collections.jobs.where({proyecto : window.job.proyecto }).length > 0) {
+
+        var dialog = new EnvMan.Views.DialogBox({
+          titulo : "Error",
+          texto : 'Proyecto "' + window.job.proyecto + '" existente.'
+        });
+
+        $('#modals').append(dialog.el);
+        dialog.render();
+        dialog.$el.modal({
+            backdrop : 'static',
+            keyboard : false
+        });
+
+      } else {
+
+        window.generales.limpiarRegistros(window.job.registros);
+        var jobModel = new EnvMan.Models.Job(window.job);
+        jobModel.save();
+        window.job = jobModel.toJSON();
+        window.collections.jobs.reset();
+        window.collections.jobs.fetch();
+        this.$el.modal('hide');
+
+      }
+
+    } else {
+
+      var dialog = new EnvMan.Views.DialogBox({
+        titulo : "Error",
+        texto : 'Campo "Proyecto" obligatorio'
+      });
+
+      $('#modals').append(dialog.el);
+      dialog.render();
+      dialog.$el.modal({
+          backdrop : 'static',
+          keyboard : false
+      });
+
+    }
 
 	},
 
@@ -387,6 +431,11 @@ EnvMan.Views.Job = Backbone.View.extend({
 				}); 
 
 		}
+
+		var self = this;
+		this.$el.on('hidden.bs.modal', function () {
+			self.$el.remove();
+		});
 
 	}
 

@@ -363,7 +363,6 @@
 	</script>
 
 	<script type="text/template" id="job-screen-template">
-		<div class="modal fade" id="jobScr" aria-hidden="true" style="z-index: 1060">
 			<div class="modal-dialog" style="width: 80%">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -439,7 +438,7 @@
 							</div>
 
 							<label for="proyecto">Proyecto</label>
-							<input class="form-control" type="text" id="proyecto" name="proyecto" value="{{ proyecto }}"></input>
+							<input class="form-control" type="text" id="proyecto" name="proyecto" value="{{ proyecto }}" minlength="10" required="required"></input>
 							<label for="descripcion">Descripcion</label>
 							<textarea name="descripcion" id="descripcion" class="form-control" style="margin-bottom: 1em">{{ descripcion }}</textarea>
 							<div id="tabla-dvms" style="height: 230px">
@@ -460,13 +459,12 @@
 							<button class="btn btn-success" id="importar">Importar</button>
 						</div>
 						<div class="seccion-right">
-							<button id="aceptar" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+							<button id="aceptar" class="btn btn-primary">Aceptar</button>
 							<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</script>
 
 	<script type="text/template" id="job-table-template">
