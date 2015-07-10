@@ -40,27 +40,47 @@ EnvMan.Views.Sistema = Backbone.View.extend({
 		var descripcion = this.$el.find('#descripcion').val();
 		var pais = this.$el.find('#pais').val();
 
-		this.model.set('NOMBRE', nombre);
-		this.model.set('DESCRIPCION', descripcion);
-		this.model.set('PAIS', pais);
+    if (nombre.length == 0) {
 
-		if (nuevo) {
+      var dialog = new EnvMan.Views.DialogBox({
+          titulo : "Error",
+          texto : 'Debe especificar un nombre para el sistema'
+      });
 
-			var index = _.findIndex(window.job.registros.sistema, { NOMBRE : nombre, PAIS: pais });
+      $('#modals').append(dialog.el);
+      dialog.render();
+      dialog.$el.modal({
+            backdrop : 'static',
+            keyboard : false
+      });
 
-			if (index < 0) {
+    } else {
 
-					window.collections.sistemas.add(this.model);
-					generales.agregarRegistroAlJob("sistema", this.model.toJSON());
+      this.model.set('NOMBRE', nombre);
+      this.model.set('DESCRIPCION', descripcion);
+      this.model.set('PAIS', pais);
 
-			}
+      if (nuevo) {
 
-		} else {
+        var index = _.findIndex(window.job.registros.sistema, { NOMBRE : nombre, PAIS: pais });
 
-			window.collections.sistemas.set(this.model, {remove : false});
-			generales.modificarRegistroEnJob("sistema", this.model.toJSON());
+        if (index < 0) {
 
-		}
+            window.collections.sistemas.add(this.model);
+            generales.agregarRegistroAlJob("sistema", this.model.toJSON());
+
+        }
+
+      } else {
+
+        window.collections.sistemas.set(this.model, {remove : false});
+        generales.modificarRegistroEnJob("sistema", this.model.toJSON());
+
+      }
+
+      this.$el.modal('hide');
+
+    }
 
 	},
 

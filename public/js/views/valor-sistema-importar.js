@@ -73,7 +73,8 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
 	events : {
 
-		"change #ambiente" : "cargarTabla",			
+		"change #ambiente" : "cargarTabla",		
+    "change #pais" : "cargarSistemas",
 		"change #id-entidad" : "cargarTabla",
 		"change #id-sistema" : "cargarTabla",
 		"click #importar" : "onImportar"
@@ -86,12 +87,22 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
 	},
 
+  cargarSistemas : function (e) {
+
+			var ambiente = this.$el.find('#ambiente').val();
+      var pais = this.$el.find('#pais').val();
+
+		  window.generales.cargarComboSistemas(this.$el.find('#id-sistema'), window.job.target, '*', pais);
+      this.cargarTabla();
+
+  },
+
 	cargarTabla : function (e) {
 
 			var ambiente = this.$el.find('#ambiente').val();
+      var pais = this.$el.find('#pais').val();
 			var sistema = this.$el.find('#id-sistema').val();
 			var entidad = this.$el.find('#id-entidad').val();
-
 
 			var self = this;
 			var espera = new EnvMan.Views.Espera({
@@ -131,6 +142,7 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
 		this.$el.find('#ambiente').val(window.job.target);
 
+    window.generales.cargarComboPaises(this.$el.find('#pais'), window.job.target, '*');
 		window.generales.cargarComboSistemas(this.$el.find('#id-sistema'), window.job.target, '*');
 		window.generales.cargarComboEntidades(this.$el.find('#id-entidad'), window.job.target, '*');
 

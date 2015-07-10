@@ -408,7 +408,31 @@ window.generales.cargarComboAmbientes = function (elemento) {
 	}
 }
 
-window.generales.cargarComboSistemas = function (elemento, ambiente, modalidad) {
+window.generales.cargarComboPaises = function (elemento, ambiente, modalidad, callback) {
+
+	elemento.html('');
+
+	if (modalidad == '*')
+		elemento.append('<option value="*">Todas</option>');
+
+  $.get('/paises/' + ambiente, function (data) {
+
+    for (var index in data) {
+
+			var option = $('<option/>');
+			option.attr('value', data[index].PAIS);
+			option.html(data[index].PAIS);
+			elemento.append(option);
+
+    }
+
+    callback(data);
+
+  });
+
+}
+
+window.generales.cargarComboSistemas = function (elemento, ambiente, modalidad, pais) {
 
 	elemento.html('');
 
@@ -418,10 +442,12 @@ window.generales.cargarComboSistemas = function (elemento, ambiente, modalidad) 
 	var sistemas = window.generales.datos.sistemas(ambiente);
 	for (var index in sistemas){
 
-			var option = $('<option/>');
-			option.attr('value', sistemas[index].ID);
-			option.html(sistemas[index].NOMBRE + ' - ' + sistemas[index].PAIS);
-			elemento.append(option);
+      if (!pais || pais == '*' || sistemas[index].PAIS == pais) {
+        var option = $('<option/>');
+        option.attr('value', sistemas[index].ID);
+        option.html(sistemas[index].NOMBRE + ' - ' + sistemas[index].PAIS);
+        elemento.append(option);
+      }
 
 	}
 

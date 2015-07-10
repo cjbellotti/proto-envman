@@ -7,5 +7,6 @@ app.use(require('./get-ambientes'));
 app.use(require('./get-config'));
 app.use(require('./crud-job'));
 app.use(require('./generar-script'));
+app.use(require('./get-paises'));
 
 module.exports = app;

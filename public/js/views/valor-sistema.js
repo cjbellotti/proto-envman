@@ -19,7 +19,8 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
 		"click #aceptar" : "guardar",
 		"click #cancelar" : "cancelar",
-		"change #entidad" : "cargarComboValorCanonico"
+		"change #entidad" : "cargarComboValorCanonico",
+    "change #pais-sel" : "cargarComboSistema"
 
 	},
 
@@ -46,28 +47,48 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 		var id_valor_canonico = parseInt(this.$el.find('#valor-canonico').val());
 		var valor_sistema = this.$el.find('#valor-sistema').val() || "";
 
-		this.model.set('ID_SISTEMA', id_sistema);
-		this.model.set('ID_ENTIDAD_CANONICA', id_entidad_canonica);
-		this.model.set('ID_VALOR_CANONICO', id_valor_canonico);
-		this.model.set('VALOR_SISTEMA', valor_sistema)
+    if (valor_sistema.length == 0) {
 
-		if (nuevo) {
+      var dialog = new EnvMan.Views.DialogBox({
+          titulo : "Error",
+          texto : 'Debe especificar un valor.'
+      });
 
-			var index = _.findIndex(window.job.registros.valorsistema, { ID_SISTEMA : id_sistema,
-																			ID_ENTIDAD_CANONICA : id_entidad_canonica,
-																			ID_VALOR_CANONICO : id_valor_canonico });
+      $('#modals').append(dialog.el);
+      dialog.render();
+      dialog.$el.modal({
+            backdrop : 'static',
+            keyboard : false
+      });
 
-			if (index < 0) {
+    } else {
 
-					window.collections.valoresSistema.add(this.model);
-					generales.agregarValorSistemaAJob(this.model.toJSON());
+      this.model.set('ID_SISTEMA', id_sistema);
+      this.model.set('ID_ENTIDAD_CANONICA', id_entidad_canonica);
+      this.model.set('ID_VALOR_CANONICO', id_valor_canonico);
+      this.model.set('VALOR_SISTEMA', valor_sistema)
 
-			}
+      if (nuevo) {
 
-		} else {
-			window.collections.valoresSistema.set(this.model, {remove : false});
-			generales.modificarValorSistemaEnJob(this.model.toJSON());
-		}
+        var index = _.findIndex(window.job.registros.valorsistema, { ID_SISTEMA : id_sistema,
+                                        ID_ENTIDAD_CANONICA : id_entidad_canonica,
+                                        ID_VALOR_CANONICO : id_valor_canonico });
+
+        if (index < 0) {
+
+            window.collections.valoresSistema.add(this.model);
+            generales.agregarValorSistemaAJob(this.model.toJSON());
+
+        }
+
+      } else {
+        window.collections.valoresSistema.set(this.model, {remove : false});
+        generales.modificarValorSistemaEnJob(this.model.toJSON());
+      }
+
+      this.$el.modal('hide');
+
+    }
 
 	},
 
@@ -75,6 +96,21 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
 		
 	},
+
+  cargarComboSistema : function (e) {
+
+		this.$el.find('#sistema').html('');
+    var pais = this.$el.find('#pais-sel').val();
+
+    var self = this;
+		window.collections.sistemas.each(function (sistema) {
+   
+      if (sistema.get('PAIS') == pais)
+			  self.renderItemComboSistema(sistema);
+
+		});
+
+  },
 
 	render : function () {
 
@@ -88,20 +124,27 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 		this.$el.html(this.template(data));
 
 		var self = this;
-		window.collections.sistemas.each(function (sistema) {
+    window.generales.cargarComboPaises(this.$el.find('#pais-sel'), window.job.target, '', function () {
 
-			self.renderItemComboSistema(sistema);
+      if (data['ID_SISTEMA']) {
 
-		});
+        var sistema = window.collections.sistemas.get(data['ID_SISTEMA']);
+        self.$el.find('#pais-sel').val(sistema.get('PAIS'));
+        self.cargarComboSistema();
+        self.$el.find('#sistema').val(data['ID_SISTEMA']);
+
+      } else {
+        self.cargarComboSistema();
+      }
+
+    });
+
 		window.collections.entidades.each(function (entidad) {
 
 			self.renderItemComboEntidad(entidad);
 
 		});
 
-		if (data['ID_SISTEMA']) {
-			this.$el.find('#sistema').val(data['ID_SISTEMA']);
-		}
 
 		if (data['ID_ENTIDAD_CANONICA']) {
 
@@ -163,7 +206,7 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
 		var item = $('<option/>');
 		item.attr('value', sistema.get('ID'));
-		item.html(sistema.get('NOMBRE'));
+		item.html(sistema.get('NOMBRE') + ' - ' + sistema.get('PAIS'));
 
 		this.$el.find('#sistema').append(item);
 

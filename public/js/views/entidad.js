@@ -37,23 +37,43 @@ EnvMan.Views.Entidad = Backbone.View.extend({
 		var nombre = this.$el.find('#nombre').val();
 		var descripcion = this.$el.find('#descripcion').val();
 
-		this.model.set('NOMBRE', nombre);
-		this.model.set('DESCRIPCION', descripcion);
+    if (nombre.length == 0) {
 
-		window.collections.entidades.add(this.model);
+      var dialog = new EnvMan.Views.DialogBox({
+          titulo : "Error",
+          texto : 'Debe especificar un nombre para la entidad'
+      });
 
-		if (nuevo) {
+      $('#modals').append(dialog.el);
+      dialog.render();
+      dialog.$el.modal({
+            backdrop : 'static',
+            keyboard : false
+      });
 
-			var index = _.findIndex(window.job.registros.entidadcanonica, { NOMBRE : nombre });
-			if (index < 0) {	
-					window.collections.entidades.add(this.model);
-					generales.agregarRegistroAlJob("entidadcanonica", this.model.toJSON());
-			}
+    } else {
 
-		} else {
-			window.collections.entidades.set(this.model, { remove : false });
-			generales.modificarRegistroEnJob("entidadcanonica", this.model.toJSON());
-		}
+      this.model.set('NOMBRE', nombre);
+      this.model.set('DESCRIPCION', descripcion);
+
+      window.collections.entidades.add(this.model);
+
+      if (nuevo) {
+
+        var index = _.findIndex(window.job.registros.entidadcanonica, { NOMBRE : nombre });
+        if (index < 0) {	
+            window.collections.entidades.add(this.model);
+            generales.agregarRegistroAlJob("entidadcanonica", this.model.toJSON());
+        }
+
+      } else {
+        window.collections.entidades.set(this.model, { remove : false });
+        generales.modificarRegistroEnJob("entidadcanonica", this.model.toJSON());
+      }
+
+      this.$el.modal('hide');
+
+    }
 
 	},
 

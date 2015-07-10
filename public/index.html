@@ -245,7 +245,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button id="aceptar" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+					<button id="aceptar" class="btn btn-primary">Aceptar</button>
 					<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -273,7 +273,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button id="aceptar" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+					<button id="aceptar" class="btn btn-primary">Aceptar</button>
 					<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -309,7 +309,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button id="aceptar" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+					<button id="aceptar" class="btn btn-primary">Aceptar</button>
 					<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -324,6 +324,13 @@
 				</div>
 				<div class="modal-body">
 					<div action="" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="pais-sel" class="col-lg-2 control-label">Pais</label>
+							<div class="col-lg-10">
+								<select id="pais-sel" name="pais-sel" class="form-control">
+								</select>
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="sistema" class="col-lg-2 control-label">Sistema</label>
 							<div class="col-lg-10">
@@ -355,7 +362,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button id="aceptar" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+					<button id="aceptar" class="btn btn-primary">Aceptar</button>
 					<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>
@@ -594,34 +601,45 @@
 					<h3>Importar Valor Sistema</h3>
 				</div>
 				<div class="modal-body">
-					<div style="width: 30%; display: inline-block; margin-left: 5px">
+					<div style="width: 22.5%; display: inline-block; margin-left: 5px">
 						<div class="form-group">
-							<div style="display: inline-block; width: 25%; text-align: right">
+							<div style="display: inline-block; width: 33%; text-align: right">
 								<label for="ambiente">Ambiente</label>
 							</div>
-							<div style="display: inline-block; width: 73%">
+							<div style="display: inline-block; width: 64%">
 								<select id="ambiente" name="ambiente" class="form-control">
 								</select>
 							</div>
 						</div>
 					</div>
-					<div style="width: 30%; display: inline-block; margin-left: 5px">
+					<div style="width: 22.5%; display: inline-block; margin-left: 5px">
 						<div class="form-group">
-							<div style="display: inline-block; width: 25%; text-align: right">
+							<div style="display: inline-block; width: 33%; text-align: right">
+								<label for="pais">Pais</label>
+							</div>
+							<div style="display: inline-block; width: 64%">
+								<select id="pais" name="pais" class="form-control">
+								</select>
+							</div>
+						</div>
+					</div>
+					<div style="width: 22.5%; display: inline-block; margin-left: 5px">
+						<div class="form-group">
+							<div style="display: inline-block; width: 33%; text-align: right">
 								<label for="id-sistema">Sistema</label>
 							</div>
-							<div style="display: inline-block; width: 73%">
+							<div style="display: inline-block; width: 64%">
 								<select id="id-sistema" name="id-sistema" class="form-control">
 								</select>
 							</div>
 						</div>
 					</div>
-					<div style="width: 30%; display: inline-block; margin-left: 5px">
+					<div style="width: 22.5%; display: inline-block; margin-left: 5px">
 						<div class="form-group">
-							<div style="display: inline-block; width: 25%; text-align: right">
+							<div style="display: inline-block; width: 33%; text-align: right">
 								<label for="id-entidad">Entidad</label>
 							</div>
-							<div style="display: inline-block; width: 73%">
+							<div style="display: inline-block; width: 64%">
 								<select id="id-entidad" name="id-entidad" class="form-control">
 								</select>
 							</div>
@@ -649,6 +667,10 @@
 					<div>
 						<h2>Environment Manager</h2>
 					</div>
+          <div style="float: right; position: absolute; top: 5px; right: 10px; width: 10%">
+            <h4 style="display: inline-block">Contacto</h4>
+             <a href="mailto:env-man-support@everis.com" class="btn btn-default glyphicon glyphicon-envelope" data-toggle="tooltip" title="Contacto"></a>
+          </div>
 				</div>
 			</div>
 			<div class="panel-body">
@@ -668,9 +690,6 @@
 			<div class="panel-footer">
 				<button class="btn btn-success glyphicon glyphicon-plus" id="agregar"></button>
 				<button class="btn btn-primary glyphicon glyphicon-sort" id="comparar"></button>
-        <div style="float: right">
-           <a href="mailto:env-man-support@everis.com" class="btn btn-primary glyphicon glyphicon-envelope" data-toggle="tooltip" title="Contacto"></a>
-        </div>
 			</div>
 		</div>
 	</script>

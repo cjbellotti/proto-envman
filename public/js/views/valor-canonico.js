@@ -39,29 +39,49 @@ EnvMan.Views.ValorCanonico = Backbone.View.extend({
 
 		var id_entidad_canonica = parseInt(this.$el.find('#entidad').val());
 		var valor_canonico = this.$el.find('#valor-canonico').val();
-	   	var descripcion = this.$el.find('#descripcion').val();
+	 	var descripcion = this.$el.find('#descripcion').val();
 
-		this.model.set('ID_ENTIDAD_CANONICA', id_entidad_canonica);
-		this.model.set('VALOR_CANONICO', valor_canonico);
-		this.model.set('DESCRIPCION', descripcion);
+    if (valor_canonico.length == 0) {
 
-		if (nuevo) {
+      var dialog = new EnvMan.Views.DialogBox({
+          titulo : "Error",
+          texto : 'Debe especificar un valor canonico'
+      });
 
-			var index = _.findIndex(window.job.registros.valorcanonico, { ID_ENTIDAD_CANONICA : id_entidad_canonica,
-																			VALOR_CANONICO : valor_canonico});
+      $('#modals').append(dialog.el);
+      dialog.render();
+      dialog.$el.modal({
+            backdrop : 'static',
+            keyboard : false
+      });
 
-			if (index < 0) {
+    } else {
 
-					window.collections.valoresCanonicos.add(this.model);
-					generales.agregarValorCanonicoAJob(this.model.toJSON());
+      this.model.set('ID_ENTIDAD_CANONICA', id_entidad_canonica);
+      this.model.set('VALOR_CANONICO', valor_canonico);
+      this.model.set('DESCRIPCION', descripcion);
 
-			}
+      if (nuevo) {
 
-		} else {
+        var index = _.findIndex(window.job.registros.valorcanonico, { ID_ENTIDAD_CANONICA : id_entidad_canonica,
+                                        VALOR_CANONICO : valor_canonico});
 
-			window.collections.valoresCanonicos.set(this.model, { remove : false});
-			generales.modificarValorCanonicoEnJob(this.model.toJSON());
-		}
+        if (index < 0) {
+
+            window.collections.valoresCanonicos.add(this.model);
+            generales.agregarValorCanonicoAJob(this.model.toJSON());
+
+        }
+
+      } else {
+
+        window.collections.valoresCanonicos.set(this.model, { remove : false});
+        generales.modificarValorCanonicoEnJob(this.model.toJSON());
+      }
+
+      this.$el.modal('hide');
+
+    }
 
 	},
 

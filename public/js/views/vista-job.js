@@ -338,7 +338,7 @@ EnvMan.Views.Job = Backbone.View.extend({
 		window.job.descripcion = this.$el.find('#descripcion').val();
     if (window.job.proyecto.length > 0) {
 
-      if (window.collections.jobs.where({proyecto : window.job.proyecto }).length > 0) {
+      if (window.collections.jobs.where({proyecto : window.job.proyecto }).length > 0 && !window.job.job) {
 
         var dialog = new EnvMan.Views.DialogBox({
           titulo : "Error",
