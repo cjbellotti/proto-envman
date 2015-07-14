@@ -187,23 +187,23 @@
 
 	<script>
 		$(function() {
-			var j = new EnvMan.Models.Job( { job : 12353 });
-			var xhr = j.fetch();
-			xhr.done (function (data) {
-				window.job = data;
+			//var j = new EnvMan.Models.Job( { job : 12353 });
+			//var xhr = j.fetch();
+			//xhr.done (function (data) {
+				//window.job = data;
 				//var view = new EnvMan.Views.Job();
 				var view = new EnvMan.Views.ListaJobs();
 				$('#main').html(view.el);
 				//view.render(window.job);
 				view.render();
-				$('#jobScr').modal('show');
+				//$('#jobScr').modal('show');
 				//view.mostrarTablaSistemas()
-				collections.sistemas.fetchData();
-				collections.entidades.fetchData();
-				collections.valoresCanonicos.fetchData();
-				collections.valoresSistema.fetchData();
+				//collections.sistemas.fetchData();
+				//collections.entidades.fetchData();
+				//collections.valoresCanonicos.fetchData();
+				//collections.valoresSistema.fetchData();
 
-			});
+			//});
 		});
 	</script>
 
@@ -595,7 +595,7 @@
 	</script>
 
 	<script type="text/template" id="valor-sistema-importar-template">
-		<div class="modal-dialog" style="width: 70%">
+		<div class="modal-dialog" style="width: 80%">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h3>Importar Valor Sistema</h3>

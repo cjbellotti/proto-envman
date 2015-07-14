@@ -44,6 +44,8 @@ module.exports = function (ambiente, dc, query, callback){
 
       pool[ambiente][dc].getConnection(function(err, connection) {
 
+        if (err)
+          console.log(err);
         var where = query || "";
         if (where.length > 0)
           where = 'where ' + where;

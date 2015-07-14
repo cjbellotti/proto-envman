@@ -426,7 +426,8 @@ window.generales.cargarComboPaises = function (elemento, ambiente, modalidad, ca
 
     }
 
-    callback(data);
+    if (callback)
+      callback(data);
 
   });
 

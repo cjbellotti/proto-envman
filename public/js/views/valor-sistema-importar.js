@@ -1,163 +1,194 @@
 EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
-	className : "modal fade",
-	attributes : {
-		"aria-hidden" : "true",
-		"style" : "z-index: 1100"
-	},
+  className : "modal fade",
+  attributes : {
+    "aria-hidden" : "true",
+    "style" : "z-index: 1100"
+  },
 
-	initialize : function (config) {
+  initialize : function (config) {
 
-		this.template = swig.compile( $('#valor-sistema-importar-template').html() );
+    this.template = swig.compile( $('#valor-sistema-importar-template').html() );
 
-		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
-		this.env = config.env;
+    this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
+    this.env = config.env;
 
-		var config = {}
-		config.headers = [];
-		config.headers.push("ID");
-		config.headers.push("ID_SISTEMA");
-		config.headers.push("ID_ENTIDAD_CANONICA");
-		config.headers.push("ID_VALOR_CANONICO");
-		config.headers.push("VALOR_SISTEMA")
-		config.selectable = true;
-		config.processCell = function (field, content) {
+    var config = {}
+    config.headers = [];
+    config.headers.push("ID");
+    config.headers.push("ID_SISTEMA");
+    config.headers.push("PAIS");
+    config.headers.push("ID_ENTIDAD_CANONICA");
+    config.headers.push("ID_VALOR_CANONICO");
+    config.headers.push("VALOR_SISTEMA")
+    config.selectable = true;
+    config.processCell = function (field, content, rowData) {
 
-			var nombre = content;
-			if (field == "ID_ENTIDAD_CANONICA"){
+      var nombre = content;
+      if (field == "ID_ENTIDAD_CANONICA"){
 
-				if (parseInt(content)) {
+        if (parseInt(content)) {
 
-					var entidad = window.collections.entidades.get(content);
-				  	if (entidad)
-						nombre = entidad.get('NOMBRE');
-				  	else
-						nombre = content;
+          var entidad = window.collections.entidades.get(content);
+          if (entidad)
+            nombre = entidad.get('NOMBRE');
+          else
+            nombre = content;
 
-				}
+        }
 
 
-			} else if (field == "ID_SISTEMA") {
+      } else if (field == "ID_SISTEMA") {
 
-				if (parseInt(content)) {
+        if (parseInt(content)) {
 
-					var valorCanonico = window.collections.sistemas.get(content);
-				  	if (valorCanonico)
-						nombre = valorCanonico.get('NOMBRE');
-				  	else
-						nombre = content;
+          var valorCanonico = window.collections.sistemas.get(content);
+          if (valorCanonico)
+            nombre = valorCanonico.get('NOMBRE');
+          else
+            nombre = content;
 
-				}
+        }
 
-			} else if (field == "ID_VALOR_CANONICO") {
+      } else if (field == "PAIS") {
 
-				if (parseInt(content)) {	
+        var sistema = window.collections.sistemas.get(rowData.ID_SISTEMA);
+        if (!sistema)
+          nombre = "Sin Pais";
+        else
+          nombre = sistema.get('PAIS');		
 
-					var valorCanonico = window.collections.valoresCanonicos.get(content);
-				  	if (valorCanonico)
-						nombre = valorCanonico.get('VALOR_CANONICO');
-				  	else
-						nombre = content;
+      } else if (field == "ID_VALOR_CANONICO") {
 
-				}
+        if (parseInt(content)) {	
 
-			} 
+          var valorCanonico = window.collections.valoresCanonicos.get(content);
+          if (valorCanonico)
+            nombre = valorCanonico.get('VALOR_CANONICO');
+          else
+            nombre = content;
 
-			return nombre;
+        }
 
-		}
+      } 
 
-		this.table = MyTable(config);
+      return nombre;
 
-	},
+    }
 
-	events : {
-
-		"change #ambiente" : "cargarTabla",		
-    "change #pais" : "cargarSistemas",
-		"change #id-entidad" : "cargarTabla",
-		"change #id-sistema" : "cargarTabla",
-		"click #importar" : "onImportar"
-
-	},
-
-	onImportar : function (e) {
-
-		this.onImportarFunction(this);
-
-	},
-
-  cargarSistemas : function (e) {
-
-			var ambiente = this.$el.find('#ambiente').val();
-      var pais = this.$el.find('#pais').val();
-
-		  window.generales.cargarComboSistemas(this.$el.find('#id-sistema'), window.job.target, '*', pais);
-      this.cargarTabla();
+    this.table = MyTable(config);
 
   },
 
-	cargarTabla : function (e) {
+  events : {
 
-			var ambiente = this.$el.find('#ambiente').val();
-      var pais = this.$el.find('#pais').val();
-			var sistema = this.$el.find('#id-sistema').val();
-			var entidad = this.$el.find('#id-entidad').val();
+    "change #ambiente" : "cargarDatos",		
+    "change #pais" : "cargarSistemas",
+    "change #id-entidad" : "cargarTabla",
+    "change #id-sistema" : "cargarTabla",
+    "click #importar" : "onImportar"
 
-			var self = this;
-			var espera = new EnvMan.Views.Espera({
+  },
 
-					onshow : function () {
-							var lista = window.generales.datos.valoresSistema(ambiente);
+  onImportar : function (e) {
 
-							var arrayData = [];
-							for (var index in lista) {
-								if (_.findIndex(job.registros.sistema, lista[index]) < 0 &&
-												(lista[index].ID_SISTEMA == sistema || sistema == '*') &&
-												(lista[index].ID_ENTIDAD_CANONICA == entidad || entidad == '*'))
-									arrayData.push(lista[index]);
-							}
+    this.onImportarFunction(this);
 
-							self.table.setArrayData(arrayData);
-							espera.hide();
+  },
 
-					},
+  cargarSistemas : function (e) {
 
-					onclose : function () {
-					}
-			});
-			$('#models').append(espera.el);
-			espera.render();
-			espera.show();
-			
-	},
+    var ambiente = this.$el.find('#ambiente').val();
+    var pais = this.$el.find('#pais').val();
 
-	render : function () {
+    window.generales.cargarComboSistemas(this.$el.find('#id-sistema'), window.job.target, '*', pais);
+    this.cargarTabla();
 
-		// Solo cargo en la tabla los sistemas que NO se encuentren en el Job.
+  },
 
-		this.$el.html(this.template());
+  cargarDatos : function (e) {
 
-		window.generales.cargarComboAmbientes(this.$el.find('#ambiente'));
+    var ambiente = this.$el.find('#ambiente').val();
+    var self = this;
+    var espera = new EnvMan.Views.Espera({
 
-		this.$el.find('#ambiente').val(window.job.target);
+      onshow : function () {
+
+        self.lista = window.generales.datos.valoresSistema(ambiente);
+        espera.hide();
+
+        self.cargarTabla();
+
+      },
+
+      onclose : function () {
+      }
+    });
+    $('#models').append(espera.el);
+    espera.render();
+    espera.show();
+
+  },
+
+  cargarTabla : function (e) {
+
+    var ambiente = this.$el.find('#ambiente').val();
+    var pais = this.$el.find('#pais').val();
+    var sistema = this.$el.find('#id-sistema').val();
+    var entidad = this.$el.find('#id-entidad').val();
+
+    /*var arrayData = [];
+    for (var index in this.lista) {
+      if (_.findIndex(job.registros.sistema, this.lista[index]) < 0 &&
+          (this.lista[index].ID_SISTEMA == sistema || sistema == '*') &&
+          (this.lista[index].ID_ENTIDAD_CANONICA == entidad || entidad == '*'))
+        arrayData.push(this.lista[index]);
+    }*/
+
+    var query = {};
+
+    if (sistema != '*')
+      query.ID_SISTEMA = parseInt(sistema);
+
+    if (entidad != '*')
+      query.ID_ENTIDAD_CANONICA = parseInt(entidad);
+
+    var arrayData = [];
+    if (_.isEmpty(query))
+      arrayData = window.collections.valoresSistema.toJSON();
+    else
+      arrayData = window.collections.valoresSistema.where(query);
+
+    this.table.setArrayData(arrayData);
+
+  },
+
+  render : function () {
+
+    // Solo cargo en la tabla los sistemas que NO se encuentren en el Job.
+
+    this.$el.html(this.template());
+
+    window.generales.cargarComboAmbientes(this.$el.find('#ambiente'));
+
+    this.$el.find('#ambiente').val(window.job.target);
 
     window.generales.cargarComboPaises(this.$el.find('#pais'), window.job.target, '*');
-		window.generales.cargarComboSistemas(this.$el.find('#id-sistema'), window.job.target, '*');
-		window.generales.cargarComboEntidades(this.$el.find('#id-entidad'), window.job.target, '*');
+    window.generales.cargarComboSistemas(this.$el.find('#id-sistema'), window.job.target, '*');
+    window.generales.cargarComboEntidades(this.$el.find('#id-entidad'), window.job.target, '*');
 
-		if (window.job.target != 'DESA')
-				this.$el.find('#ambiente').attr('disabled', 'disabled');
+    if (window.job.target != 'DESA')
+      this.$el.find('#ambiente').attr('disabled', 'disabled');
 
-		this.$el.find('.table-valor-sistema-importar').append(this.table);
+    this.$el.find('.table-valor-sistema-importar').append(this.table);
 
-		this.cargarTabla();
+    this.cargarDatos();
 
-		var self = this;
-		this.$el.on('hidden.bs.modal', function () {
-			self.$el.remove();
-		});
+    var self = this;
+    this.$el.on('hidden.bs.modal', function () {
+      self.$el.remove();
+    });
 
-	}
+  }
 
 });

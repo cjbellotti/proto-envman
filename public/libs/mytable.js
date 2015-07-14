@@ -33,6 +33,11 @@ function MyTable(config) {
 			for (var index in tableData) {
 
 				tableData[index].find('input').prop('checked', value);
+				if (value) {
+					tableData[index].css('background', 'green');
+				} else {
+					tableData[index].css('background', 'white');
+				}
 
 			}
 
@@ -90,17 +95,19 @@ function MyTable(config) {
 					row.css('background', 'white');
 				}
 
-			})
+			});
 			td.addClass('myTable-body-checkbox');
 			td.append(checkbox);
-			td.css('width', '3%')
+			td.css('width', '3%');
 			row.append(td);
 
 		}
 
+                for (var field in headerTemplate)
+                    headerTemplate[field] = null;
 
 		for (var field in data) {
-			if (headerTemplate[field] != undefined)
+			if (headerTemplate[field] == null)
 				headerTemplate[field] = data[field];
 		}
 
@@ -191,12 +198,20 @@ function MyTable(config) {
 
 			var data = {};
 			var item = this.arrayData[index];
+                        if (item.cid)
+                          item = item.toJSON();
 			if (options.fields) {
 
 				for (var field in item) {
 
-					if (_.indexOf(options.fields, field) >= 0)
-						data[field] = item[field];
+                                        var index = _.indexOf(options.fields, field);
+					if (index >= 0) {
+
+                                          if (options.fields[field].alias)
+                                             field = options.fields[field].alias; 
+					  data[field] = item[field];
+
+                                        }
 
 				}
 
