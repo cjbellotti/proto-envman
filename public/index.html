@@ -3,8 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Environment Manager</title>
-	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/normalize.css"></link>
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/mytable.css">
+  <link rel="stylesheet" href="css/landing-page.css">
 
 	<style>
 		.dvm-table {
@@ -116,18 +118,6 @@
 </head>
 <body>
 	<section id="main">
-		<div class="dvm-table">
-			<div class="table-container">
-			</div>
-			<div class="botones" style="height: 250px">
-				<div>
-					<a id="j-dvms-button-agregar" data-toggle="modal" href="#valorSistemaScr" class="btn btn-success glyphicon glyphicon-plus btn-botonera" data-toggle="tooltip" data-placement="right" title="Agregar"></a>
-					<a id="j-dvms-button-modificar" class="btn btn-primary glyphicon glyphicon-pencil btn-botonera" data-toggle="tooltip" data-placement="right" title="Modificar"></a>
-					<button id="j-dvms-button-quitar" class="btn btn-danger glyphicon glyphicon-trash btn-botonera" data-toggle="tooltip" data-placement="right" title="Quitar"></button>
-					<a id="j-dvms-button-importar-dvm" href="#entidadesScr" class="btn btn-primary glyphicon glyphicon-arrow-left btn-botonera" data-toggle="modal" data-toggle="tooltip" data-placement="right" title="Importar DVM existente"></a>
-				</div>
-			</div>
-		<div>
 	</section>
 
 	<section id="modals">
@@ -179,6 +169,7 @@
 	<script src="js/views/tablas-ambiente.js"></script>
 	<script src="js/views/comparar-ambientes.js"></script>
 	<script src="js/views/espera.js"></script>
+	<script src="js/views/landing-page.js"></script>
 
 	<!-- Preparacion -->
 	<script src="js/main.js"></script>
@@ -187,23 +178,13 @@
 
 	<script>
 		$(function() {
-			//var j = new EnvMan.Models.Job( { job : 12353 });
-			//var xhr = j.fetch();
-			//xhr.done (function (data) {
-				//window.job = data;
-				//var view = new EnvMan.Views.Job();
-				var view = new EnvMan.Views.ListaJobs();
+				/*var view = new EnvMan.Views.ListaJobs();
 				$('#main').html(view.el);
-				//view.render(window.job);
-				view.render();
-				//$('#jobScr').modal('show');
-				//view.mostrarTablaSistemas()
-				//collections.sistemas.fetchData();
-				//collections.entidades.fetchData();
-				//collections.valoresCanonicos.fetchData();
-				//collections.valoresSistema.fetchData();
+				view.render();*/
+        var view = new EnvMan.Views.LandingPage();
+        $('#main').html(view.el);
+        view.render();
 
-			//});
 		});
 	</script>
 
@@ -857,6 +838,47 @@
 		</div>
 	</script>
 
+  <script type="text/template" id="landing-page-template">
+    <div class="header">
+      <img src="img/directvla.png">
+      <div>
+        <h1>Administracion</h1>
+      </div>
+    </div>
+    <div>
+      <div class="app">
+        <h3>Aplicaciones</h3>
+        <div class="app-box">
+        </div>
+      </div>
+      <div class="news">
+        <div>
+          <h3>Novedades</h3>
+          <div>
+            <div class="news-box">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="application-template">
+    <div class="application">
+      <img src="img/dtv-logo.png">
+      <div>
+        <h4>{{ nombre }}</h4>
+        <a href="{{ url }}">Iniciar</a>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="news-template">
+    <div class="new-post">
+      <h4>{{ fechayhora }}</h4>
+      <p>{{ texto }}</p>
+    </div>
+  </script>
 
 </body>
 </html>
