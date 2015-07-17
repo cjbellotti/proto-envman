@@ -838,47 +838,57 @@
 		</div>
 	</script>
 
-  <script type="text/template" id="landing-page-template">
-    <div class="header">
-      <img src="img/directvla.png">
-      <div>
-        <h1>Administracion</h1>
-      </div>
-    </div>
-    <div>
-      <div class="app">
-        <h3>Aplicaciones</h3>
-        <div class="app-box">
-        </div>
-      </div>
-      <div class="news">
-        <div>
-          <h3>Novedades</h3>
-          <div>
-            <div class="news-box">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </script>
-
-  <script type="text/template" id="application-template">
-    <div class="application">
-      <img src="img/dtv-logo.png">
-      <div>
-        <h4>{{ nombre }}</h4>
-        <a href="{{ url }}">Iniciar</a>
-      </div>
-    </div>
-  </script>
-
-  <script type="text/template" id="news-template">
-    <div class="new-post">
-      <h4>{{ fechayhora }}</h4>
-      <p>{{ texto }}</p>
-    </div>
-  </script>
-
+	<script type="text/template" id="landing-page-template">
+		  <div class="page-header">
+				<div class="media">
+					<div class="media-left media-middle">
+							<img src="img/dtv-logo.png"></img>
+					</div>
+					<div class="media-body">
+						<h1>Administracion</h1>
+					</div>
+				</div>
+		  </div>
+			<div class="col-md-8">
+						  <h2>Aplicacion</h2>
+			</div>
+			<div class="col-md-4">
+						  <h2>Noticias</h2>
+			</div>
+			<div class="col-md-8">
+				<div class="list-group">
+					{% for aplicacion in aplicaciones %}
+					<div class="list-group-item">
+							<div class="media">
+								<div class="media-left media-middle">
+										<div class="glyphicon {{ aplicacion.icono }}" style="font-size : 6em"></div>
+								</div>
+								<div class="media-body">
+										<h3>{{ aplicacion.nombre }}</h3>
+										<p>{{ aplicacion.descripcion }}</p>
+										<div class="col-xs-12 col-md-8">
+											<a href="{{ aplicacion.ruta_manual }}">Descargar manual</a>
+										</div>
+										<div class="col-xs-6 col-md-4">
+											<button class="btn btn-success" {% if aplicacion.habilitado == false %} disabled="true"> Proximamanete{% else %}>Iniciar{% endif %}</button>
+										</div>
+								</div>
+							</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="col-md-4">
+					<div class="list-group">
+							{% for noticia in noticias %}
+							<div class="list-group-item">
+								<h4>{{ noticia.fecha }}</h4>
+								<p>{{ noticia.texto }}</p>
+							</div>
+							{% endfor %}
+					</div>
+			</div>
+	</script>
+  
 </body>
 </html>
