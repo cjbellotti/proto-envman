@@ -1,0 +1,241 @@
+function MyTable(config) {
+
+	var processCell = config.processCell || function (field, data) { return data; };
+
+	var tableData = [];
+
+	var myTableDiv = $('<div class="dt-table"/>');
+
+	var headerDiv = $('<div class="dt-tab-header"/>');
+	myTableDiv.append(headerDiv);
+  var bodyDiv = $('<div class="dt-tab-body"/>');
+  myTableDiv.append(bodyDiv);
+
+  var rowHeaderDiv = $('<div class="dt-tab-row-header"/>');
+  headerDiv.append(rowHeaderDiv);
+
+  var cellIndex = 0;
+
+	if (config.selectable) {
+
+		var checkbox = $('<input type="checkbox" class="myTable-checkbox"></input>');
+
+		checkbox.on('click', function () {
+
+			var value = checkbox.prop('checked');
+
+			for (var index in tableData) {
+
+				tableData[index].find('input').prop('checked', value);
+				if (value) {
+					tableData[index].css('background', 'green');
+				} else {
+					tableData[index].css('background', 'white');
+				}
+
+			}
+
+		});
+
+    var divCheckbox = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
+    cellIndex++;
+		divCheckbox.append(checkbox);
+
+		rowHeaderDiv.append(divCheckbox);
+
+	}
+
+	var headerTemplate = {};
+
+	for (var header in config.headers) {
+    
+		var divCell = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
+    cellIndex++;
+		divCell.html(config.headers[header]);
+		rowHeaderDiv.append(divCell);
+
+		headerTemplate[config.headers[header]] = "";
+
+	}
+
+	myTableDiv.addRow = function (data) {
+
+		var rowDiv = $('<div class="dt-tab-row"/>');
+  
+    var cellIndex = 0;
+		if (config.processRow)
+			config.processRow(rowDiv, data);
+
+		if (config.selectable) {
+
+			var cellDiv = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
+      cellIndex++;
+			var checkbox = $('<input type="checkbox"></input>');
+			checkbox.on('change', function () {
+
+				var value = checkbox.prop('checked');
+				if (value) {
+					rowDiv.css('background', 'green');
+				} else {
+					rowDiv.css('background', 'white');
+				}
+
+			});
+			cellDiv.append(checkbox);
+			rowDiv.append(cellDiv);
+
+		}
+
+    for (var field in headerTemplate)
+       headerTemplate[field] = null;
+
+		for (var field in data) {
+			if (headerTemplate[field] == null)
+				headerTemplate[field] = data[field];
+		}
+
+		for (var field in headerTemplate) {
+
+			var cellDiv = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
+      cellIndex++;
+			var content = processCell(field, headerTemplate[field], data);
+			cellDiv.html(content);
+			rowDiv.append(td);
+
+		}
+
+		bodyDiv.append(row);
+		tableData.push(row);
+
+	}
+
+	myTableDiv.getRow = function (index) {
+
+		return tableData[index];
+
+	}
+
+	myTableDiv.removeRow = function (index) {
+
+		tableData[index].remove();
+		tableData = _.without(tableData, tableData[index]);
+
+	}
+
+	myTableDiv.removeRows = function (rows) {
+
+		var rowsElements = [];
+
+		for (var index in rows) {
+
+			rowsElements.push(tableData[rows[index]]);
+
+		}
+
+		for (var index in rowsElements) {
+
+			tableData = _.without(tableData, rowsElements[index]);
+			rowsElements[index].remove();
+
+		}
+
+	}
+
+	myTableDiv.removeSelectedRows = function () {
+		var rows = myTableDiv.getSelectedRows();
+		if (rows.length > 0)
+			myTableDiv.removeRows(rows);
+	}
+
+	myTableDiv.getSelectedRows = function () {
+
+		var selecteds = [];
+
+		for (var index in tableData) {
+			if(tableData[index].find('input').prop('checked'))
+				selecteds.push(parseInt(index));
+		}
+
+		return selecteds;
+
+	}
+
+	myTableDiv.setHeight = function (height) {
+		myTableDiv.css('height', height + 'px');
+	}
+
+	myTableDiv.reset = function () {
+		for (var index in tableData) {
+			tableData[index].remove();
+		}
+		tableData = [];
+	}
+
+	myTableDiv.setArrayData = function (array, options) {
+
+		options = options || {};
+
+		this.arrayData = array;
+		myTableDiv.reset();
+		for (var index in this.arrayData) {
+
+			var data = {};
+			var item = this.arrayData[index];
+                        if (item.cid)
+                          item = item.toJSON();
+			if (options.fields) {
+
+				for (var field in item) {
+
+                                        var index = _.indexOf(options.fields, field);
+					if (index >= 0) {
+
+                                          if (options.fields[field].alias)
+                                             field = options.fields[field].alias; 
+					  data[field] = item[field];
+
+                                        }
+
+				}
+
+			} else {
+
+				data = item;
+
+			}
+
+			myTableDiv.addRow(data);
+
+		}
+
+		var self = this;
+		Object.observe(this.arrayData, function (changes) {
+
+			myTableDiv.setArrayData(self.arrayData, options);
+			
+		});
+
+	}
+
+	myTableDiv.reloadArrayData = function() {
+
+
+	}
+
+	myTableDiv.getRowArrayData = function (index) {
+
+		var ret = null;
+		
+		if (this.arrayData) {
+
+			if (index < this.arrayData.length) {
+				ret = this.arrayData[index];
+			}
+
+		}
+
+		return ret;
+	}
+
+	return myTableDiv;
+}

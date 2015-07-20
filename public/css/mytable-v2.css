@@ -1,0 +1,102 @@
+
+          .dt-table {
+
+            width : 100%;
+            height : 100%;
+
+          }
+
+          .dt-tab-body::-webkit-scrollbar {
+                width: 5px;
+                display : inline-block;
+          }
+           
+          .dt-tab-body::-webkit-scrollbar-track {
+                border-radius: 10px;
+                background : #CEDAE7;
+          }
+           
+          .dt-tab-body::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background : #85A3C2;
+          }
+          .dt-tab-header {
+
+            height : 25px;
+
+          }
+
+          .dt-tab-body {
+            width : 100%;
+            height : 400px;
+            overflow-y : scroll;
+          }
+
+          .dt-tab-row {
+            height : 25px;
+          }
+
+          .dt-tab-row:nth-child(even) {
+            background : #D1E0E0;
+          }
+
+          .dt-tab-row:nth-child(odd) {
+            background : white;
+          }
+
+          .dt-tab-row-header {
+            height : 25px;
+            width : 100%;
+            border-bottom : 2px solid #85A3C2;
+          }
+
+          .dt-tab-row-header div {
+            font-weight : bold;
+          }
+
+          .dt-tab-cell {
+
+            display : inline-block;
+            overflow : hidden;
+            margin-right : -5px;
+            padding-left : 5px;
+            padding-right : 5px;
+            height : 25px;
+
+          }
+
+          .dt-tab-cell-0 {
+
+            width : 5%;
+            text-align : center;
+
+          }
+          .dt-tab-cell-1 {
+
+            width : 5%;
+
+          }
+
+          .dt-tab-cell-2 {
+
+            width : 13%;
+
+          }
+
+          .dt-tab-cell-3 {
+
+            width : 27%;
+
+          }
+
+          .dt-tab-cell-4 {
+
+            width : 25%;
+
+          }
+
+          .dt-tab-cell-5 {
+
+            width : 25%;
+
+          }
