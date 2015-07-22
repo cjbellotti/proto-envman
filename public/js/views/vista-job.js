@@ -163,11 +163,36 @@ EnvMan.Views.Job = Backbone.View.extend({
 		this.$el.find('#tabValoresCanonicos').removeClass('active');
 
 		var configTable = {};
-		configTable.headers = [];
-		configTable.headers.push("ID");
-		configTable.headers.push("PAIS");
-		configTable.headers.push("NOMBRE");
-		configTable.headers.push("DESCRIPCION");
+		//configTable.headers = [];
+		//configTable.headers.push("ID");
+		//configTable.headers.push("PAIS");
+		//configTable.headers.push("NOMBRE");
+		//configTable.headers.push("DESCRIPCION");
+                configTable.headers = {};
+                configTable.headers.Id = {
+                  style : {
+                    width : '5%'
+                  },
+                  dataField : 'ID'
+                };
+                configTable.headers.Pais = {
+                  style : {
+                    width : '15%'
+                  },
+                  dataField : 'PAIS'
+                };
+                configTable.headers.Nombre = {
+                  style : {
+                    width : '30%'
+                  },
+                  dataField : 'NOMBRE'
+                };
+                configTable.headers.Descripcion = {
+                  style : {
+                    width : '45%'
+                  },
+                  dataField : 'DESCRIPCION'
+                };
 		configTable.arrayData = job.registros.sistema;
 		configTable.title = "Sistema";
 		configTable.table = "sistema";

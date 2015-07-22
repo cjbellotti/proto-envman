@@ -1,233 +1,259 @@
 EnvMan.Views.ListaJobs = Backbone.View.extend({
 
-	initialize : function () {
+  initialize : function () {
 
-		this.template = swig.compile( $('#lista-job-template').html());
-		this.listenTo(collections.jobs, 'reset', this.render, this);
+    this.template = swig.compile( $('#lista-job-template').html());
+    this.listenTo(collections.jobs, 'reset', this.render, this);
 
-		var config = {};
-		config.headers = [];
-		config.headers.push("Fecha");
-		config.headers.push("Job");
-		config.headers.push("Proyecto");
-		config.headers.push("Descripcion");
-    config.headers.push("Ambiente");
-		this.table = MyTable(config);
-		this.table.setHeight(350);
+    var config = {};
+    //config.headers = [];
+    //config.headers.push("Fecha");
+    //config.headers.push("Job");
+    //config.headers.push("Proyecto");
+    //config.headers.push("Descripcion");
+    //config.headers.push("Ambiente");
+    config.headers = {};
+    config.headers.Fecha = {
+      style : {
+        width : '10%'
+      }
+    };
+    config.headers.Job = {
+      style : {
+        width : '5%'
+      }
+    };
+    config.headers.Proyecto = {
+      style : {
+        width : '20%'
+      }
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '50%'
+      }
+    };
+    config.headers.Ambiente = {
+      style : {
+        width : '10%'
+      }
+    };
+    this.table = MyTable(config);
 
-	},
+  },
 
-	events : {
+  events : {
 
-		"click #agregar" : "agregar",
-		"click #comparar" : "comparar",
-		"click .link-job" : "mostrarJob",
-		"change #ordenar" : "ordenar",
-		"keyup #filtro" : "filtrar",
-		"click #filtrar" : "filtrar"	
+    "click #agregar" : "agregar",
+    "click #comparar" : "comparar",
+    "click .link-job" : "mostrarJob",
+    "change #ordenar" : "ordenar",
+    "keyup #filtro" : "filtrar",
+    "click #filtrar" : "filtrar"	
 
-	},
+  },
 
-	agregar : function (e) {
+  agregar : function (e) {
 
-		generales.crearNuevoJob();
-		var view = new EnvMan.Views.Job();
-		$('#modals').html(view.el);
-		view.render(window.job);
-		view.$el.modal({
-			backdrop : 'static',
-			keyboard : false
-		});
+    generales.crearNuevoJob();
+    var view = new EnvMan.Views.Job();
+    $('#modals').html(view.el);
+    view.render(window.job);
+    view.$el.modal({
+      backdrop : 'static',
+      keyboard : false
+    });
 
-	},
+  },
 
-	comparar : function (e) {
+  comparar : function (e) {
 
-		var view = new EnvMan.Views.CompararAmbientes();
-		$('#modals').html(view.el);
-		view.render();
-		view.$el.modal({
-			backdrop: 'static',
-			keyboard: false
-		});	
+    var view = new EnvMan.Views.CompararAmbientes();
+    $('#modals').html(view.el);
+    view.render();
+    view.$el.modal({
+      backdrop: 'static',
+      keyboard: false
+    });	
 
-	},
+  },
 
-	mostrarJob : function (e) {
+  mostrarJob : function (e) {
 
-		e.preventDefault();
+    e.preventDefault();
 
-		var nroJob = e.target.getAttribute('job');
-		var jobModel = new EnvMan.Models.Job({ job : nroJob });
-		var xhr = jobModel.fetch();
+    var nroJob = e.target.getAttribute('job');
+    var jobModel = new EnvMan.Models.Job({ job : nroJob });
+    var xhr = jobModel.fetch();
 
-		xhr.done(function(data, err) {
+    xhr.done(function(data, err) {
 
-			window.job = data;
-						
-			var view = new EnvMan.Views.Job();
-			$('#modals').html(view.el);
-			view.render(window.job);
-			view.$el.modal({
-				backdrop : 'static',
-				keyboard : false
-			});
+      window.job = data;
 
-		});
+      var view = new EnvMan.Views.Job();
+      $('#modals').html(view.el);
+      view.render(window.job);
+      view.$el.modal({
+        backdrop : 'static',
+        keyboard : false
+      });
 
-	},
+    });
 
-	ordenar : function (e) {
+  },
 
-		var ordenarPor = this.$el.find('#ordenar').val();
-		this.$el.find('#ordenar .ordenar-temporal').remove();
+  ordenar : function (e) {
 
-		switch (ordenarPor)
-		{
-			case 'fecha':
+    var ordenarPor = this.$el.find('#ordenar').val();
+    this.$el.find('#ordenar .ordenar-temporal').remove();
 
-				var tmpJobArray = collections.jobs.toJSON();
-				tmpJobArray = _.sortBy(tmpJobArray, function (o) {
+    switch (ordenarPor)
+    {
+      case 'fecha':
 
-					//return o.fecha || Date.now();
-					return o.fecha;
+        var tmpJobArray = collections.jobs.toJSON();
+        tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
-				});
+          //return o.fecha || Date.now();
+          return o.fecha;
 
-				var arrayData = [];
-				for (var index in tmpJobArray) {
+        });
 
-					arrayData.push(this.cargarJobArray(tmpJobArray[index]));
+        var arrayData = [];
+        for (var index in tmpJobArray) {
 
-				}
+          arrayData.push(this.cargarJobArray(tmpJobArray[index]));
 
-				this.table.setArrayData(arrayData);
+        }
 
-				break;
+        this.table.setArrayData(arrayData);
 
-			case 'proyecto':
+        break;
 
-				var tmpJobArray = collections.jobs.toJSON();
-				tmpJobArray = _.sortBy(tmpJobArray, function (o) {
+      case 'proyecto':
 
-					return o.proyecto;
+        var tmpJobArray = collections.jobs.toJSON();
+        tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
-				});
+          return o.proyecto;
 
-				var arrayData = [];
-				for (var index in tmpJobArray) {
+        });
 
-					arrayData.push(this.cargarJobArray(tmpJobArray[index]));
+        var arrayData = [];
+        for (var index in tmpJobArray) {
 
-				}
+          arrayData.push(this.cargarJobArray(tmpJobArray[index]));
 
-				this.table.setArrayData(arrayData);
+        }
 
-				break;
-		}
+        this.table.setArrayData(arrayData);
 
-	},
+        break;
+    }
 
-	filtrar : function () {
+  },
 
-		var filtro = this.$el.find('#filtro').val();
+  filtrar : function () {
+
+    var filtro = this.$el.find('#filtro').val();
     filtro = filtro.toUpperCase();
 
-		console.log(filtro);
-		var ordenarPor = this.$el.find('#ordenar').val();
-		this.$el.find('#ordenar .ordenar-temporal').remove();
+    console.log(filtro);
+    var ordenarPor = this.$el.find('#ordenar').val();
+    this.$el.find('#ordenar .ordenar-temporal').remove();
 
-		switch (ordenarPor)
-		{
-			case 'fecha':
+    switch (ordenarPor)
+    {
+      case 'fecha':
 
-				var tmpJobArray = collections.jobs.toJSON();
-				tmpJobArray = _.sortBy(tmpJobArray, function (o) {
+        var tmpJobArray = collections.jobs.toJSON();
+        tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
-					return o.fecha;
+          return o.fecha;
 
-				});
+        });
 
-				var arrayData = [];
-				for (var index in tmpJobArray) {
+        var arrayData = [];
+        for (var index in tmpJobArray) {
 
-					var fecha = new Date(tmpJobArray[index].fecha || Date.now()).getYYYYMMDD();
-					if (fecha.indexOf(filtro) >= 0)
-						arrayData.push(this.cargarJobArray(tmpJobArray[index]));
+          var fecha = new Date(tmpJobArray[index].fecha || Date.now()).getYYYYMMDD();
+          if (fecha.indexOf(filtro) >= 0)
+            arrayData.push(this.cargarJobArray(tmpJobArray[index]));
 
-				}
+        }
 
-				this.table.setArrayData(arrayData);
+        this.table.setArrayData(arrayData);
 
-				break;
+        break;
 
-			case 'proyecto':
+      case 'proyecto':
 
-				var tmpJobArray = collections.jobs.toJSON();
-				tmpJobArray = _.sortBy(tmpJobArray, function (o) {
+        var tmpJobArray = collections.jobs.toJSON();
+        tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
-					return o.proyecto;
+          return o.proyecto;
 
-				});
+        });
 
-				var arrayData = [];
-				for (var index in tmpJobArray) {
+        var arrayData = [];
+        for (var index in tmpJobArray) {
 
-					var proyecto = tmpJobArray[index].proyecto;
+          var proyecto = tmpJobArray[index].proyecto;
           proyecto = proyecto.toUpperCase();
-					if (proyecto.indexOf(filtro) >= 0)
-						arrayData.push(this.cargarJobArray(tmpJobArray[index]));
+          if (proyecto.indexOf(filtro) >= 0)
+            arrayData.push(this.cargarJobArray(tmpJobArray[index]));
 
-				}
+        }
 
-				this.table.setArrayData(arrayData);
+        this.table.setArrayData(arrayData);
 
-				break;
-		}
+        break;
+    }
 
-	},
+  },
 
-	cargarJobArray : function (data) {
+  cargarJobArray : function (data) {
 
-		var arrayData = {};
+    var arrayData = {};
 
-		arrayData.Fecha = new Date(data.fecha || Date.now()).getYYYYMMDD();
-		arrayData.Job = '<a href="#" class="link-job" job="'+ data.job +'">' + data.job + '</a>';
-		arrayData.Proyecto = data.proyecto;
-		arrayData.Descripcion = data.descripcion;
+    arrayData.Fecha = new Date(data.fecha || Date.now()).getYYYYMMDD();
+    arrayData.Job = '<a href="#" class="link-job" job="'+ data.job +'">' + data.job + '</a>';
+    arrayData.Proyecto = data.proyecto;
+    arrayData.Descripcion = data.descripcion;
+    arrayData.Ambiente = data.target;
 
-		return arrayData;
+    return arrayData;
 
-	},
+  },
 
-	render : function () {
+  render : function () {
 
-		var self = this;
-		var xhr = collections.jobs.fetch();
-		xhr.done(function () {
+    var self = this;
+    var xhr = collections.jobs.fetch();
+    xhr.done(function () {
 
-			var tmpJobArray = collections.jobs.toJSON();
+      var tmpJobArray = collections.jobs.toJSON();
 
-			var arrayData = [];
+      var arrayData = [];
 
-			for (var index in tmpJobArray) {
+      for (var index in tmpJobArray) {
 
-				var data = {};
-				data.Fecha = new Date(tmpJobArray[index].fecha || Date.now()).getYYYYMMDD();
-				data.Job = '<a href="#" class="link-job" job="'+ tmpJobArray[index].job +'">' + tmpJobArray[index].job + '</a>';
-				data.Proyecto = tmpJobArray[index].proyecto;
-				data.Descripcion = tmpJobArray[index].descripcion;
+        var data = {};
+        data.Fecha = new Date(tmpJobArray[index].fecha || Date.now()).getYYYYMMDD();
+        data.Job = '<a href="#" class="link-job" job="'+ tmpJobArray[index].job +'">' + tmpJobArray[index].job + '</a>';
+        data.Proyecto = tmpJobArray[index].proyecto;
+        data.Descripcion = tmpJobArray[index].descripcion;
         data.Ambiente = tmpJobArray[index].target;
-				arrayData.push(data);
-			}
+        arrayData.push(data);
+      }
 
-			self.table.setArrayData(arrayData);
+      self.table.setArrayData(arrayData);
 
-			self.$el.html(self.template());
-			self.$el.find('.table-container').append(self.table);
+      self.$el.html(self.template());
+      self.$el.find('.table-container').append(self.table);
 
-		});
-		
-	}
+    });
+
+  }
 
 });

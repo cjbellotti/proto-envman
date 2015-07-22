@@ -4,23 +4,57 @@
     <title>Test My Table V2</title>
     <link rel="stylesheet" href="css/normalize.css"></link>
     <link rel="stylesheet" href="css/mytable-v2.css">
-	  <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/underscore/underscore-min.js"></script>
     <script src="libs/mytable-v2.js"></script>
     <script>
+      var tabla = {}
       $(function () {
         var config = {};
         config.selectable = true;
         config.headers = ['ID', 'ID_SISTEMA', 'ID_ENTIDAD_CANONICA', 'ID_VALOR_CANONICO', 'VALOR_SISTEMA'];
-        var t = MyTable(config);
-        $('#main').html(t);
+        config.headers = {};
+        config.headers.Id = {
+          style : {
+            width : '5%'
+          },
+          dataField : 'ID'
+        };
+        config.headers.Sistema = {
+          style : {
+            width : '13%'
+          },
+          dataField : 'ID_SISTEMA'
+        };
+        config.headers['Entidad Canonica'] = {
+          style : {
+            width : '27%'
+          },
+          dataField : 'ID_ENTIDAD_CANONICA'
+        };
+        config.headers['Valor Canonico'] = {
+          style : {
+            width : '25%'
+          },
+          dataField : 'ID_VALOR_CANONICO'
+        };
+        config.headers['Valor Sistema'] = {
+          style : {
+            width : '21%'
+          },
+          dataField : 'VALOR_SISTEMA'
+        };
+
+        tabla = MyTable(config);
+        $('#main').html(tabla);
       });
 
-          $(function() {
-                          $('.dt-tab-header').width($('.dt-tab-body').width());
-                 });
-          $(window).resize(function () {
-                          $('.dt-tab-header').width($('.dt-tab-body').width());
-                                    });
+      $(function() {
+        $('.dt-tab-header').width($('.dt-tab-body').width());
+      });
+      $(window).resize(function () {
+        $('.dt-tab-header').width($('.dt-tab-body').width());
+      });
     </script>
     <style>
       .dt-tab-cell-5 {
@@ -29,7 +63,7 @@
     </style>
   </head>
   <body>
-    <div id="main" style="width : 70%">
+    <div id="main" style="width : 70%; height : 500px; margin : 0 auto">
     </div>
   </body>
 </html>

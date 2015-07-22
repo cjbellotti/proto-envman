@@ -5,7 +5,7 @@
 	<title>Environment Manager</title>
   <link rel="stylesheet" href="css/normalize.css"></link>
   <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/mytable.css">
+	<link rel="stylesheet" href="css/mytable-v2.css">
   <link rel="stylesheet" href="css/landing-page.css">
 
 	<style>
@@ -21,9 +21,17 @@
 		}
 		.table-container {
 			display : inline-block;
-			width : 92%;
-			height : 250px;
-			margin : 0px;
+			width : 99%;
+			height : 63vh;
+			margin : 0 auto;
+			padding : 3px;
+
+		}
+		.table-container-dvm {
+			display : inline-block;
+			width : 91%;
+			height : 63vh;
+			margin : 0 auto;
 			padding : 3px;
 
 		}
@@ -129,7 +137,7 @@
 	<script src="libs/backbone/backbone.js"></script>
 	<script src="libs/swig.js"></script>
 	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="libs/mytable.js"></script>
+	<script src="libs/mytable-v2.js"></script>
 	<script src="libs/expand-import-v2.js"></script>
 
 	<!-- Inicializacion -->
@@ -177,15 +185,15 @@
 	<script src="js/crear-tablas.js"></script>
 
 	<script>
-		$(function() {
-				/*var view = new EnvMan.Views.ListaJobs();
-				$('#main').html(view.el);
-				view.render();*/
-        var view = new EnvMan.Views.LandingPage();
-        $('#main').html(view.el);
-        view.render();
+            $(function() {
+              var view = new EnvMan.Views.ListaJobs();
+              $('#main').html(view.el);
+              view.render();
+              /*var view = new EnvMan.Views.LandingPage();
+              $('#main').html(view.el);
+              view.render();*/
 
-		});
+            });
 	</script>
 
 	<script type="text/template" id="sistema-screen-template">
@@ -457,11 +465,11 @@
 
 	<script type="text/template" id="job-table-template">
 		<div class="dvm-table">
-			<div class="table-container">
+			<div class="table-container-dvm">
 			</div>
 			<div class="botones" style="height: 250px">
 				<div>
-					<a id="btn-agregar" data-toggle="modal" class="btn btn-success glyphicon glyphicon-plus btn-botonera" data-toggle="tooltip" data-placement="right" title="Agregar"></a>
+			        	<a id="btn-agregar" data-toggle="modal" class="btn btn-success glyphicon glyphicon-plus btn-botonera" data-toggle="tooltip" data-placement="right" title="Agregar"></a>
 					<a id="btn-modificar" class="btn btn-primary glyphicon glyphicon-pencil btn-botonera" data-toggle="tooltip" data-placement="right" title="Modificar"></a>
 					<a id="btn-eliminar" class="btn btn-danger glyphicon glyphicon-trash btn-botonera" data-toggle="tooltip" data-placement="right" title="Quitar"></a>
 					<a id="btn-importar" class="btn btn-primary glyphicon glyphicon-arrow-left btn-botonera" data-toggle="modal" data-toggle="tooltip" data-placement="right" title="Importar DVM existente"></a>

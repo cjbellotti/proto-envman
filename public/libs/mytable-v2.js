@@ -1,13 +1,17 @@
 function MyTable(config) {
 
-	var processCell = config.processCell || function (field, data) { return data; };
+  var tableConfig = config;
 
-	var tableData = [];
+  var styles = {};
 
-	var myTableDiv = $('<div class="dt-table"/>');
+  var processCell = config.processCell || function (field, data) { return data; };
 
-	var headerDiv = $('<div class="dt-tab-header"/>');
-	myTableDiv.append(headerDiv);
+  var tableData = [];
+
+  var myTableDiv = $('<div class="dt-table"/>');
+
+  var headerDiv = $('<div class="dt-tab-header"/>');
+  myTableDiv.append(headerDiv);
   var bodyDiv = $('<div class="dt-tab-body"/>');
   myTableDiv.append(bodyDiv);
 
@@ -16,226 +20,232 @@ function MyTable(config) {
 
   var cellIndex = 0;
 
-	if (config.selectable) {
+  if (config.selectable) {
 
-		var checkbox = $('<input type="checkbox" class="myTable-checkbox"></input>');
+    var checkbox = $('<input type="checkbox" class="myTable-checkbox"></input>');
 
-		checkbox.on('click', function () {
+    checkbox.on('click', function () {
 
-			var value = checkbox.prop('checked');
+      var value = checkbox.prop('checked');
 
-			for (var index in tableData) {
+      for (var index in tableData) {
 
-				tableData[index].find('input').prop('checked', value);
-				if (value) {
-					tableData[index].css('background', 'green');
-				} else {
-					tableData[index].css('background', 'white');
-				}
+        tableData[index].find('input').prop('checked', value);
+        if (value) {
+          tableData[index].css('background', 'green');
+        } else {
+          tableData[index].css('background', 'white');
+        }
 
-			}
+      }
 
-		});
+    });
 
     var divCheckbox = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
     cellIndex++;
-		divCheckbox.append(checkbox);
+    divCheckbox.append(checkbox);
 
-		rowHeaderDiv.append(divCheckbox);
+    rowHeaderDiv.append(divCheckbox);
 
-	}
+  }
 
-	var headerTemplate = {};
+  var headerTemplate = {};
 
-	for (var header in config.headers) {
-    
-		var divCell = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
+  for (var header in config.headers) {
+
+    var divCell = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
     cellIndex++;
-		divCell.html(config.headers[header]);
-		rowHeaderDiv.append(divCell);
 
-		headerTemplate[config.headers[header]] = "";
+    if (config.headers[header].style)
+      for (var tag in config.headers[header].style)
+        divCell.css(tag, config.headers[header].style[tag]);
 
-	}
+    divCell.html(config.headers[header].title || header);
+    rowHeaderDiv.append(divCell);
 
-	myTableDiv.addRow = function (data) {
+    headerTemplate[config.headers[header].dataField || header] = "";
+    styles[config.headers[header].dataField || header] = config.headers[header].style;
 
-		var rowDiv = $('<div class="dt-tab-row"/>');
-  
+  }
+
+  myTableDiv.addRow = function (data) {
+
+    var rowDiv = $('<div class="dt-tab-row"/>');
+
     var cellIndex = 0;
-		if (config.processRow)
-			config.processRow(rowDiv, data);
+    if (config.processRow)
+      config.processRow(rowDiv, data);
 
-		if (config.selectable) {
+    if (config.selectable) {
 
-			var cellDiv = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
+      var cellDiv = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
       cellIndex++;
-			var checkbox = $('<input type="checkbox"></input>');
-			checkbox.on('change', function () {
+      var checkbox = $('<input type="checkbox"></input>');
+      checkbox.on('change', function () {
 
-				var value = checkbox.prop('checked');
-				if (value) {
-					rowDiv.css('background', 'green');
-				} else {
-					rowDiv.css('background', 'white');
-				}
+        var value = checkbox.prop('checked');
+        if (value) {
+          rowDiv.css('background', 'green');
+        } else {
+          rowDiv.css('background', 'white');
+        }
 
-			});
-			cellDiv.append(checkbox);
-			rowDiv.append(cellDiv);
+      });
+      cellDiv.append(checkbox);
+      rowDiv.append(cellDiv);
 
-		}
+    }
 
     for (var field in headerTemplate)
-       headerTemplate[field] = null;
+      headerTemplate[field] = null;
 
-		for (var field in data) {
-			if (headerTemplate[field] == null)
-				headerTemplate[field] = data[field];
-		}
+    for (var field in data) {
+      if (headerTemplate[field] == null)
+        headerTemplate[field] = data[field];
+    }
 
-		for (var field in headerTemplate) {
+    for (var field in headerTemplate) {
 
-			var cellDiv = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
+      var cellDiv = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
       cellIndex++;
-			var content = processCell(field, headerTemplate[field], data);
-			cellDiv.html(content);
-			rowDiv.append(td);
+      var content = processCell(field, headerTemplate[field], data);
+      cellDiv.html(content);
 
-		}
+        for (var tag in styles[field])
+          cellDiv.css(tag, styles[field][tag]);
 
-		bodyDiv.append(row);
-		tableData.push(row);
+      rowDiv.append(cellDiv);
 
-	}
+    }
 
-	myTableDiv.getRow = function (index) {
+    bodyDiv.append(rowDiv);
+    tableData.push(rowDiv);
 
-		return tableData[index];
+  }
 
-	}
+  myTableDiv.getRow = function (index) {
 
-	myTableDiv.removeRow = function (index) {
+    return tableData[index];
 
-		tableData[index].remove();
-		tableData = _.without(tableData, tableData[index]);
+  }
 
-	}
+  myTableDiv.removeRow = function (index) {
 
-	myTableDiv.removeRows = function (rows) {
+    tableData[index].remove();
+    tableData = _.without(tableData, tableData[index]);
 
-		var rowsElements = [];
+  }
 
-		for (var index in rows) {
+  myTableDiv.removeRows = function (rows) {
 
-			rowsElements.push(tableData[rows[index]]);
+    var rowsElements = [];
 
-		}
+    for (var index in rows) {
 
-		for (var index in rowsElements) {
+      rowsElements.push(tableData[rows[index]]);
 
-			tableData = _.without(tableData, rowsElements[index]);
-			rowsElements[index].remove();
+    }
 
-		}
+    for (var index in rowsElements) {
 
-	}
+      tableData = _.without(tableData, rowsElements[index]);
+      rowsElements[index].remove();
 
-	myTableDiv.removeSelectedRows = function () {
-		var rows = myTableDiv.getSelectedRows();
-		if (rows.length > 0)
-			myTableDiv.removeRows(rows);
-	}
+    }
 
-	myTableDiv.getSelectedRows = function () {
+  }
 
-		var selecteds = [];
+  myTableDiv.removeSelectedRows = function () {
+    var rows = myTableDiv.getSelectedRows();
+    if (rows.length > 0)
+      myTableDiv.removeRows(rows);
+  }
 
-		for (var index in tableData) {
-			if(tableData[index].find('input').prop('checked'))
-				selecteds.push(parseInt(index));
-		}
+  myTableDiv.getSelectedRows = function () {
 
-		return selecteds;
+    var selecteds = [];
 
-	}
+    for (var index in tableData) {
+      if(tableData[index].find('input').prop('checked'))
+        selecteds.push(parseInt(index));
+    }
 
-	myTableDiv.setHeight = function (height) {
-		myTableDiv.css('height', height + 'px');
-	}
+    return selecteds;
 
-	myTableDiv.reset = function () {
-		for (var index in tableData) {
-			tableData[index].remove();
-		}
-		tableData = [];
-	}
+  }
 
-	myTableDiv.setArrayData = function (array, options) {
+  myTableDiv.reset = function () {
+    for (var index in tableData) {
+      tableData[index].remove();
+    }
+    tableData = [];
+  }
 
-		options = options || {};
+  myTableDiv.setArrayData = function (array, options) {
 
-		this.arrayData = array;
-		myTableDiv.reset();
-		for (var index in this.arrayData) {
+    options = options || {};
 
-			var data = {};
-			var item = this.arrayData[index];
-                        if (item.cid)
-                          item = item.toJSON();
-			if (options.fields) {
+    this.arrayData = array;
+    myTableDiv.reset();
+    for (var index in this.arrayData) {
 
-				for (var field in item) {
+      var data = {};
+      var item = this.arrayData[index];
+      if (item.cid)
+        item = item.toJSON();
+      if (options.fields) {
 
-                                        var index = _.indexOf(options.fields, field);
-					if (index >= 0) {
+        for (var field in item) {
 
-                                          if (options.fields[field].alias)
-                                             field = options.fields[field].alias; 
-					  data[field] = item[field];
+          var index = _.indexOf(options.fields, field);
+          if (index >= 0) {
 
-                                        }
+            if (options.fields[field].alias)
+              field = options.fields[field].alias; 
+            data[field] = item[field];
 
-				}
+          }
 
-			} else {
+        }
 
-				data = item;
+      } else {
 
-			}
+        data = item;
 
-			myTableDiv.addRow(data);
+      }
 
-		}
+      myTableDiv.addRow(data);
 
-		var self = this;
-		Object.observe(this.arrayData, function (changes) {
+    }
 
-			myTableDiv.setArrayData(self.arrayData, options);
-			
-		});
+    var self = this;
+    Object.observe(this.arrayData, function (changes) {
 
-	}
+      myTableDiv.setArrayData(self.arrayData, options);
 
-	myTableDiv.reloadArrayData = function() {
+    });
+
+  }
+
+  myTableDiv.reloadArrayData = function() {
 
 
-	}
+  }
 
-	myTableDiv.getRowArrayData = function (index) {
+  myTableDiv.getRowArrayData = function (index) {
 
-		var ret = null;
-		
-		if (this.arrayData) {
+    var ret = null;
 
-			if (index < this.arrayData.length) {
-				ret = this.arrayData[index];
-			}
+    if (this.arrayData) {
 
-		}
+      if (index < this.arrayData.length) {
+        ret = this.arrayData[index];
+      }
 
-		return ret;
-	}
+    }
 
-	return myTableDiv;
+    return ret;
+  }
+
+  return myTableDiv;
 }

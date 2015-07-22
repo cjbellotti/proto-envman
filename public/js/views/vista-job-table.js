@@ -12,7 +12,7 @@ EnvMan.Views.JobTable = Backbone.View.extend({
 		configTable.processCell = config.processCell;
 		configTable.selectable = true;
 		this.table = MyTable(configTable);
-		this.table.setHeight(150);
+		//this.table.setHeight(150);
 
 		var funcionDefault = function (e) {
 			e.preventDefault();
@@ -76,12 +76,12 @@ EnvMan.Views.JobTable = Backbone.View.extend({
 	render : function () {
 
 		this.$el.html(this.jobTableTemplate());
-		this.$el.find('.table-container').append(this.table);
+		this.$el.find('.table-container-dvm').append(this.table);
 
 		this.table.reset();
 
 		this.table.setArrayData(this.arrayData);
 
-	},
+	}
 
 });
