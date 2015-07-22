@@ -14,11 +14,37 @@ EnvMan.Views.SistemaImportar = Backbone.View.extend({
 		this.env = config.env;
 
 		var config = {}
-		config.headers = [];
-		config.headers.push("ID");
-		config.headers.push("PAIS");
-		config.headers.push("NOMBRE");
-		config.headers.push("DESCRIPCION");
+		//config.headers = [];
+		//config.headers.push("ID");
+		//config.headers.push("PAIS");
+		//config.headers.push("NOMBRE");
+		//config.headers.push("DESCRIPCION");
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers.Pais = {
+      style : {
+        width : '10%'
+      },
+      dataField : 'PAIS'
+    };
+    config.headers.Nombre = {
+      style : {
+        width : '30%'
+      },
+      dataField : 'NOMBRE'
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '51%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+
 		config.selectable = true;
 		this.table = MyTable(config);
 

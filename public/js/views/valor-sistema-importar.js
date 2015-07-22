@@ -14,13 +14,52 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
     this.env = config.env;
 
     var config = {}
-    config.headers = [];
-    config.headers.push("ID");
-    config.headers.push("ID_SISTEMA");
-    config.headers.push("PAIS");
-    config.headers.push("ID_ENTIDAD_CANONICA");
-    config.headers.push("ID_VALOR_CANONICO");
-    config.headers.push("VALOR_SISTEMA")
+    //config.headers = [];
+    //config.headers.push("ID");
+    //config.headers.push("ID_SISTEMA");
+    //config.headers.push("PAIS");
+    //config.headers.push("ID_ENTIDAD_CANONICA");
+    //config.headers.push("ID_VALOR_CANONICO");
+    //config.headers.push("VALOR_SISTEMA")
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers.Sistema = {
+      style : {
+        width : '15%'
+      },
+      dataField : 'ID_SISTEMA'
+    };
+    config.headers.Pais = {
+      style : {
+        width : '10%'
+      },
+      dataField : 'PAIS'
+    };
+    config.headers['Entidad Canonica'] = {
+      style : {
+        width : '30%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    config.headers['Valor Canonico'] = {
+      style : {
+        width : '15%',
+        'margin-left' : '10px'
+      },
+      dataField : 'ID_VALOR_CANONICO'
+    };
+    config.headers['Valor Sistema'] = {
+      style : {
+        width : '15%',
+        'margin-left' : '10px'
+      },
+      dataField : 'VALOR_SISTEMA'
+    };
     config.selectable = true;
     config.processCell = function (field, content, rowData) {
 

@@ -171,13 +171,13 @@ EnvMan.Views.Job = Backbone.View.extend({
                 configTable.headers = {};
                 configTable.headers.Id = {
                   style : {
-                    width : '5%'
+                    width : '6%'
                   },
                   dataField : 'ID'
                 };
                 configTable.headers.Pais = {
                   style : {
-                    width : '15%'
+                    width : '14%'
                   },
                   dataField : 'PAIS'
                 };
@@ -217,10 +217,29 @@ EnvMan.Views.Job = Backbone.View.extend({
 
 		var configTable = {};
 
-		configTable.headers = [];
-		configTable.headers.push("ID");
-		configTable.headers.push("NOMBRE");
-		configTable.headers.push("DESCRIPCION");
+		//configTable.headers = [];
+		//configTable.headers.push("ID");
+		//configTable.headers.push("NOMBRE");
+		//configTable.headers.push("DESCRIPCION");
+    configTable.headers = {};
+    configTable.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID'
+    };
+    configTable.headers.Nombre = {
+        style : {
+          width : '29%'
+        },
+        dataField : 'NOMBRE'
+    };
+    configTable.headers.Descripcion = {
+        style : {
+          width : '61%'
+        },
+        dataField : 'DESCRIPCION'
+    };
 		configTable.arrayData = job.registros.entidadcanonica;
 		configTable.title = "Entidad Canonica";
 		configTable.table = "entidadcanonica";
@@ -245,13 +264,53 @@ EnvMan.Views.Job = Backbone.View.extend({
 
 		var configTable = {};
 
-		configTable.headers = [];
-		configTable.headers.push("ID");
-		configTable.headers.push("ID_SISTEMA");
-		configTable.headers.push("PAIS");
-		configTable.headers.push("ID_VALOR_CANONICO");
-		configTable.headers.push("ID_ENTIDAD_CANONICA");
-		configTable.headers.push("VALOR_SISTEMA");
+		//configTable.headers = [];
+		//configTable.headers.push("ID");
+		//configTable.headers.push("ID_SISTEMA");
+		//configTable.headers.push("PAIS");
+		//configTable.headers.push("ID_VALOR_CANONICO");
+		//configTable.headers.push("ID_ENTIDAD_CANONICA");
+		//configTable.headers.push("VALOR_SISTEMA");
+    configTable.headers = {};
+    configTable.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    configTable.headers.Sistema = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'ID_SISTEMA'
+    };
+    configTable.headers.Pais = {
+      style : {
+        width : '9%'
+      },
+      dataField : 'PAIS'
+    };
+    configTable.headers['Entidad Canonica'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    configTable.headers['Valor Canonico'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'ID_VALOR_CANONICO'
+    };
+    configTable.headers['Valor Sistema'] = {
+      style : {
+        width : '20%',
+        'margin-left' : '5px',
+        'text-align' : 'center'
+
+      },
+      dataField : 'VALOR_SISTEMA'
+    };
 		configTable.arrayData = job.registros.valorsistema;
 		configTable.title = "Valor Sistema";
 		configTable.table = "valorsistema";
@@ -315,11 +374,36 @@ EnvMan.Views.Job = Backbone.View.extend({
 
 		var configTable = {};
 
-		configTable.headers = [];
-		configTable.headers.push("ID");
-		configTable.headers.push("ID_ENTIDAD_CANONICA");
-		configTable.headers.push("DESCRIPCION");
-		configTable.headers.push("VALOR_CANONICO");
+		//configTable.headers = [];
+		//configTable.headers.push("ID");
+		//configTable.headers.push("ID_ENTIDAD_CANONICA");
+		//configTable.headers.push("DESCRIPCION");
+		//configTable.headers.push("VALOR_CANONICO");
+    configTable.headers = {};
+    configTable.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    configTable.headers['Entidad Canonica'] = {
+      style : {
+        width : '29%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    configTable.headers['Descripcion'] = {
+      style : {
+        width : '40%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+    configTable.headers['Valor Canonico'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'VALOR_CANONICO'
+    };
 		configTable.arrayData = job.registros.valorcanonico;
 		configTable.title = "Valor Canonico";
 		configTable.table = "valorcanonico";

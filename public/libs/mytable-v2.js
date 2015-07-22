@@ -85,9 +85,11 @@ function MyTable(config) {
 
         var value = checkbox.prop('checked');
         if (value) {
-          rowDiv.css('background', 'green');
+          //rowDiv.css('background', 'green');
+          rowDiv.find('div').css('font-weight', 'bold');
         } else {
-          rowDiv.css('background', 'white');
+          //rowDiv.css('background', 'white');
+          rowDiv.find('div').css('font-weight', '');
         }
 
       });

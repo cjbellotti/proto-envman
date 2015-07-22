@@ -14,10 +14,29 @@ EnvMan.Views.EntidadImportar = Backbone.View.extend({
 		this.env = config.env;
 
 		var config = {}
-		config.headers = [];
-		config.headers.push("ID");
-		config.headers.push("NOMBRE");
-		config.headers.push("DESCRIPCION");
+		//config.headers = [];
+		//config.headers.push("ID");
+		//config.headers.push("NOMBRE");
+		//config.headers.push("DESCRIPCION");
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers.Nombre = {
+      style : {
+        width : '40%'
+      },
+      dataField  : 'NOMBRE'
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '48%'
+      },
+      dataField : 'DESCRIPCION'
+    };
 		config.selectable = true;
 		this.table = MyTable(config);
 

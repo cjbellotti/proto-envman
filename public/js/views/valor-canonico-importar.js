@@ -14,11 +14,36 @@ EnvMan.Views.ValorCanonicoImportar = Backbone.View.extend({
 		this.env = config.env;
 
 		var config = {}
-		config.headers = [];
-		config.headers.push("ID");
-		config.headers.push("ID_ENTIDAD_CANONICA");
-		config.headers.push("DESCRIPCION");
-		config.headers.push("VALOR_CANONICO");
+		//config.headers = [];
+		//config.headers.push("ID");
+		//config.headers.push("ID_ENTIDAD_CANONICA");
+		//config.headers.push("DESCRIPCION");
+		//config.headers.push("VALOR_CANONICO");
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers['Entidad Canonica'] = {
+      style : {
+        width : '40%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '30%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+    config.headers['Valor Canonico'] = {
+      style : {
+        width : '18%'
+      },
+      dataField : 'VALOR_CANONICO'
+    };
 		config.selectable = true;
 		config.processCell = function (field, content) {
 
