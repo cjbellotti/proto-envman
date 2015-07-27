@@ -15,7 +15,8 @@ EnvMan.Views.LandingPage = Backbone.View.extend({
 					nombre : "Environment Manager",
 					descripcion : "Aplicacion para administrar tablas de configuracion de ambiente",
 					ruta_manual : "manual.docx",
-					habilitado : true
+					habilitado : true,
+          url : '#envman'
 				});
 				data.aplicaciones.push({
 					icono : "glyphicon-sort",

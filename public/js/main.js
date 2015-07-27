@@ -582,4 +582,7 @@ $(function() {
 
 		});
 
+    window.router = new EnvMan.Router();
+    Backbone.history.start();
+
 })

@@ -85,7 +85,15 @@
     		display: block;
 		}
 
+    .volver {
+      width : 5%;
+      display : inline-block;
+    }
+
 		.filtros {
+
+      width : 94%;
+      display : inline-block;
 			text-align: center;
 			padding : 1%;
 		}
@@ -108,24 +116,53 @@
 
 		}
 
-		.logo div {
+		.logo {
 
-			display : inline-block;	
 		}
 
-		.logo div img {
-		
-				margin: 0px 0px 0px 0px;
-				margin-top: -8px;	
-				width : 50px;
+		.logo img {
+
+      width : 50px;
+      display : inline-block;
+			margin: 0px 0px 0px 0px;
+      vertical-align : top;
+
 		}
 
-		.logo div h2 {
+		.logo h2 {
 
-				margin: 0px 0px 0px 0px;
-				font-size : 20px;
+      display : inline-block;
+			margin: 0px 0px 0px 0px;
+      line-height : 1em;
+
 		}
 
+    .contacto {
+
+      position : relative;
+      width : 150px;
+      float : right;
+
+    }
+
+		.contacto div {
+
+      width : 1.1em;
+      display : inline-block;
+			margin: 0px 0px 0px 0px;
+      vertical-align : top;
+      font-size : 1.7em;
+
+		}
+
+		.contacto h3 {
+
+      display : inline-block;
+			margin: 0px 0px 0px 0px;
+      line-height : 1.1em;
+      color : white;
+
+		}
     .table-sistema-importar {
       width : 100%;
       height : 40vh;
@@ -182,6 +219,7 @@
 	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="libs/mytable-v2.js"></script>
 	<script src="libs/expand-import-v2.js"></script>
+  <script src="libs/simple-template-manager.js"></script>
 
 	<!-- Inicializacion -->
 	<script src="js/init.js"></script>
@@ -222,21 +260,24 @@
 	<script src="js/views/espera.js"></script>
 	<script src="js/views/landing-page.js"></script>
 
+  <!-- Router -->
+  <script src="js/router.js"></script>
+
 	<!-- Preparacion -->
 	<script src="js/main.js"></script>
 
 	<script src="js/crear-tablas.js"></script>
 
 	<script>
-            $(function() {
-              /*var view = new EnvMan.Views.ListaJobs();
+          /*  $(function() {
+              var view = new EnvMan.Views.ListaJobs();
               $('#main').html(view.el);
-              view.render();*/
+              view.render();
               var view = new EnvMan.Views.LandingPage();
               $('#main').html(view.el);
               view.render();
 
-            });
+            });*/
 	</script>
 
 	<script type="text/template" id="sistema-screen-template">
@@ -691,11 +732,10 @@
 	<script type="text/template" id="lista-job-template">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<div class="logo">
+				<!--<div class="logo">
 					<div>
 						<img src="/img/dtv-logo.png"></img>
 					</div>
-
 					<div>
 						<h2>Environment Manager</h2>
 					</div>
@@ -703,9 +743,28 @@
             <h4 style="display: inline-block">Contacto</h4>
              <a href="mailto:env-man-support@everis.com" class="btn btn-default glyphicon glyphicon-envelope" data-toggle="tooltip" title="Contacto"></a>
           </div>
-				</div>
+        </div>-->
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="logo">
+                <img src="/img/dtv-logo.png"></img>
+                <h2>Environment Manager</h2>
+            </div>
+          </div>
+          <div class="col-xs-6">
+              <div class="contacto">
+                <div class="glyphicon glyphicon-envelope">
+                </div>
+                <a href="mailto:env-man-support@everis.com"><h3>Contacto</h3></a>
+              </div>
+          </div>
+        </div>
+
 			</div>
 			<div class="panel-body">
+        <div class="volver">
+				  <a href="/" class="btn btn-danger glyphicon glyphicon-arrow-left" data-toggle="tooltip" data-placement="right" title="Volver"></a>
+        </div>
 				<div class="form-inline filtros">
 					<select class="form-control ordenar" id="ordenar">
 						<option value="*" class="ordenar-temporal">Ordenar por...</option>
@@ -721,7 +780,6 @@
 			</div>
 			<div class="panel-footer">
 				<button class="btn btn-success glyphicon glyphicon-plus" id="agregar"></button>
-				<button class="btn btn-primary glyphicon glyphicon-sort" id="comparar"></button>
 			</div>
 		</div>
 	</script>
@@ -963,23 +1021,17 @@
         <div class="col-md-8">
           <div class="list-group landing-list">
             {% for aplicacion in aplicaciones %}
-            <div class="list-group-item">
-                <div class="media">
-                  <div class="media-left media-middle">
-                      <div class="glyphicon {{ aplicacion.icono }}" style="font-size : 6em"></div>
-                  </div>
-                  <div class="media-body">
-                      <h3>{{ aplicacion.nombre }}</h3>
-                      <p>{{ aplicacion.descripcion }}</p>
-                      <div class="col-xs-12 col-md-8">
-                        <a href="{{ aplicacion.ruta_manual }}">Descargar manual</a>
+                <a href="{{ aplicacion.url }}" class="list-group-item">
+                  <div class="media">
+                      <div class="media-left media-middle">
+                          <div class="glyphicon {{ aplicacion.icono }}" style="font-size : 4em"></div>
                       </div>
-                      <div class="col-xs-6 col-md-4">
-                        <button class="btn btn-success" {% if aplicacion.habilitado == false %} disabled="true"> Proximamanete{% else %}>Iniciar{% endif %}</button>
+                      <div class="media-body">
+                          <h3>{{ aplicacion.nombre }}</h3>
+                          <p>{{ aplicacion.descripcion }}</p>
                       </div>
                   </div>
-                </div>
-            </div>
+                </a>
             {% endfor %}
           </div>
         </div>
