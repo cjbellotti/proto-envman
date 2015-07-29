@@ -38,6 +38,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
         width : '10%'
       }
     };
+    config.filterable = true;
     this.table = MyTable(config);
 
   },
