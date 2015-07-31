@@ -22,7 +22,8 @@ function MyTable(config) {
        
         if (match) {
 
-          var upCased = data[field].toUpperCase();
+          var upCased = data[field].toString();
+          upCased = upCased.toUpperCase();
           var filter = inputCell.val().toUpperCase();
 
           match = (upCased.indexOf(filter) >= 0); 

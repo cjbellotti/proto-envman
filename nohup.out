@@ -2058,3 +2058,4 @@ GET - /valor-canonico/DESA
 Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
 GET - /valor-sistema/DESA
 Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+Sending SIGHUP to child...
