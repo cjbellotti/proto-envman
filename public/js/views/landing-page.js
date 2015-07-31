@@ -30,7 +30,8 @@ EnvMan.Views.LandingPage = Backbone.View.extend({
 					nombre : "DB Explorer",
 					descripcion : "Permite explorar las tablas de configuracion de las bases.",
 					ruta_manual : "manual.docx",
-					habilitado : false 
+					habilitado : true,
+                                        url : '#dbexplorer'
 				});
 				data.noticias = [];
 				data.noticias.push({

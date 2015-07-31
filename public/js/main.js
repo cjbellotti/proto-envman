@@ -408,6 +408,19 @@ window.generales.cargarComboAmbientes = function (elemento) {
 	}
 }
 
+window.generales.cargarComboTablas = function (elemento) {
+	elemento.html('');
+
+	for (var tabla in window.defTablas){
+
+			var option = $('<option/>');
+			option.attr('value', tabla);
+			option.html(tabla);
+			elemento.append(option);
+
+	}
+}
+
 window.generales.cargarComboPaises = function (elemento, ambiente, modalidad, callback) {
 
 	elemento.html('');
@@ -577,6 +590,19 @@ $(function() {
 				success : function (data) {
 
 					window.config = data;
+
+				}
+
+		});
+
+		$.ajax({
+
+				url : '/def-tablas',
+				method : 'GET',
+				async : false,
+				success : function (data) {
+
+					window.defTablas = data;
 
 				}
 

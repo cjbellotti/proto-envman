@@ -8,5 +8,6 @@ app.use(require('./get-config'));
 app.use(require('./crud-job'));
 app.use(require('./generar-script'));
 app.use(require('./get-paises'));
+app.use(require('./get-def-tablas'));
 
 module.exports = app;

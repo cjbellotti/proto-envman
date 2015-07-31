@@ -80,7 +80,8 @@ EnvMan.Views.JobTable = Backbone.View.extend({
 
 		this.table.reset();
 
-		this.table.setArrayData(this.arrayData);
+                if (this.arrayData)
+		  this.table.setArrayData(this.arrayData);
 
 	}
 
