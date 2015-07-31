@@ -3,7 +3,8 @@ EnvMan.Router = Backbone.Router.extend({
   routes : {
 
     '' : 'landing',
-    'envman' : 'envman'
+    'envman' : 'envman',
+    'dbexplorer' : 'dbExplorer'
 
   },
 
@@ -18,6 +19,14 @@ EnvMan.Router = Backbone.Router.extend({
   envman : function () {
 
       var view = new EnvMan.Views.ListaJobs();
+      $('#main').html(view.el);
+      view.render();
+
+  },
+
+  dbExplorer : function () {
+
+      var view = new EnvMan.Views.DBExplorer();
       $('#main').html(view.el);
       view.render();
 
