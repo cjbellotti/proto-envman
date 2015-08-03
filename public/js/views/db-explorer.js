@@ -28,7 +28,7 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
                 };
                 config.headers.Descripcion = {
                   style : {
-                    width : '52%'
+                    width : '55%'
                   },
                   dataField : 'DESCRIPCION'
                 };
@@ -51,7 +51,7 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
                 };
                 config.headers.Descripcion = {
                   style : {
-                    width : '56%'
+                    width : '60%'
                   },
                   dataField : 'DESCRIPCION'
                 };
@@ -79,7 +79,7 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
                 };
                 config.headers['Valor Canonico'] = {
                   style : {
-                    width : '18%'
+                    width : '25%'
                   },
                   dataField : 'VALOR_CANONICO'
                 };
@@ -138,7 +138,7 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
                 };
                 config.headers['Valor Sistema'] = {
                   style : {
-                    width : '15%',
+                    width : '24%',
                     'margin-left' : '10px'
                   },
                   dataField : 'VALOR_SISTEMA'
@@ -193,6 +193,9 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
                   } 
 
+                  if (!rowData[field])
+                    rowData[field] = nombre;
+
                   return nombre;
 
                 }
@@ -210,17 +213,23 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 	render : function () {
 
 		this.$el.html(this.template());
-                window.generales.cargarComboTablas(this.$el.find('#tabla'));
-                window.generales.cargarComboAmbientes(this.$el.find('#ambiente'));
-                this.cargarTabla();
+    window.generales.cargarComboTablas(this.$el.find('#tabla'));
+    window.generales.cargarComboAmbientes(this.$el.find('#ambiente'));
+    this.cargarTabla();
 
 	},
 
         cargarTabla : function () {
 
+
             var self = this;
             var ambiente = this.$el.find('#ambiente').val();
             var tabla = this.$el.find('#tabla').val();
+
+            window.job.target = ambiente;
+            window.collections.sistemas.fetchData({ async : false });
+            window.collections.entidades.fetchData({ async : false });
+            window.collections.valoresCanonicos.fetchData({ async : false });
 
             $.get('/' + window.defTablas[tabla].alias + '/' + ambiente, function (data) {
 

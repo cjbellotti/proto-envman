@@ -26,6 +26,12 @@ EnvMan.Router = Backbone.Router.extend({
 
   dbExplorer : function () {
 
+      window.job.target = ambientes[0];
+
+      window.collections.sistemas.fetchData({ async : false });
+      window.collections.entidades.fetchData({ async : false });
+      window.collections.valoresCanonicos.fetchData({ async : false });
+
       var view = new EnvMan.Views.DBExplorer();
       $('#main').html(view.el);
       view.render();

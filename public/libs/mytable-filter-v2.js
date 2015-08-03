@@ -10,32 +10,46 @@ function MyTable(config) {
 
   var myTableDiv = $('<div class="dt-table"/>');
 
-  myTableDiv.filter = config.filter || function (data) {
+  myTableDiv.filter = config.filter || function () {
 
-    var match = true;
+    var rows = myTableDiv.find('.dt-tab-row');
 
-    var fieldIndex = 0;
-    for (var field in headerTemplate) {
+    for (var index = 0; index < rows.length; index++) {
 
-      var inputCell = myTableDiv.find('.dt-tab-input-' + fieldIndex);
-      if (inputCell) {
-       
-        if (match && data[field]) {
+      var row = $(rows[index]);
 
-          var upCased = data[field].toString();
-          upCased = upCased.toUpperCase();
-          var filter = inputCell.val().toUpperCase();
+      var match = true;
 
-          match = (upCased.indexOf(filter) >= 0); 
+      var fieldIndex = 0;
+      for (var field in headerTemplate) {
+
+        var inputCell = myTableDiv.find('.dt-tab-input-' + fieldIndex);
+        if (inputCell) {
+         
+          if (match) {
+
+            var upCased = row.find('.dt-tab-cell-' + fieldIndex).html();
+            if (upCased) {
+              upCased = upCased.toString();
+              upCased = upCased.toUpperCase();
+              var filter = inputCell.val().toUpperCase();
+
+              match = (upCased.indexOf(filter) >= 0); 
+            }
+
+          }
 
         }
+        fieldIndex++;
 
       }
-      fieldIndex++;
+
+      if (match)
+        row.show();
+      else
+        row.hide();
 
     }
-
-    return match;
 
   };
 
@@ -57,7 +71,9 @@ function MyTable(config) {
       input.css('width', '100%');
 
       input.on('keyup', function (e) {
-        myTableDiv.setArrayData(myTableDiv.arrayData);
+        myTableDiv.filter();
+        $('.dt-tab-row:visible:odd').css('background', 'white');
+        $('.dt-tab-row:visible:even').css('background', '#D1E0E0');
       });
 
       divCell.append(input);
@@ -275,8 +291,7 @@ function MyTable(config) {
 
       }
 
-      if (!config.filterable || myTableDiv.filter(data))
-        myTableDiv.addRow(data);
+      myTableDiv.addRow(data);
 
     }
 
