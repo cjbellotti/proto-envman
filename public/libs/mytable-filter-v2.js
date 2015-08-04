@@ -10,9 +10,9 @@ function MyTable(config) {
 
   var myTableDiv = $('<div class="dt-table"/>');
 
-  myTableDiv.filter = config.filter || function () {
+  myTableDiv.filter = config.filter || function (element, headerTemplate, callbackFunction) {
 
-    var rows = myTableDiv.find('.dt-tab-row');
+    var rows = element.find('.dt-tab-row');
 
     for (var index = 0; index < rows.length; index++) {
 
@@ -23,7 +23,7 @@ function MyTable(config) {
       var fieldIndex = 0;
       for (var field in headerTemplate) {
 
-        var inputCell = myTableDiv.find('.dt-tab-input-' + fieldIndex);
+        var inputCell = element.find('.dt-tab-input-' + fieldIndex);
         if (inputCell) {
          
           if (match) {
@@ -51,6 +51,9 @@ function MyTable(config) {
 
     }
 
+    if(callbackFunction)
+      callbackFunction();
+
   };
 
   var headerDiv = $('<div class="dt-tab-header"/>');
@@ -71,9 +74,10 @@ function MyTable(config) {
       input.css('width', '100%');
 
       input.on('keyup', function (e) {
-        myTableDiv.filter();
-        $('.dt-tab-row:visible:odd').css('background', 'white');
-        $('.dt-tab-row:visible:even').css('background', '#D1E0E0');
+        myTableDiv.filter(myTableDiv, headerTemplate, function () {
+          $('.dt-tab-row:visible:odd').css('background', 'white');
+          $('.dt-tab-row:visible:even').css('background', '#D1E0E0');
+        });
       });
 
       divCell.append(input);
@@ -187,6 +191,10 @@ function MyTable(config) {
       cellIndex++;
       var content = processCell(field, headerTemplate[field], data);
       cellDiv.html(content);
+
+      cellDiv.attr('data-toggle', 'tooltip');
+      cellDiv.attr('data-placement', 'bottom');
+      cellDiv.attr('title', content);
 
         for (var tag in styles[field])
           cellDiv.css(tag, styles[field][tag]);

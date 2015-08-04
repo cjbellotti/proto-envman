@@ -2,6 +2,60 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
 	initialize : function () {
 
+          var customFilter = function (element, headerTemplate, callbackFunction) {
+
+            element.find('.dt-tab-body').hide();
+            var rows = element.find('.dt-tab-row');
+
+            async.eachSeries(rows, function (item, callback) {
+              var row = $(item);
+
+              var match = true;
+
+              var fieldIndex = 0;
+              async.eachSeries(_.keys(headerTemplate), function (field, next) {
+
+                var inputCell = element.find('.dt-tab-input-' + fieldIndex);
+                if (inputCell) {
+
+                  if (match) {
+
+                    var upCased = row.find('.dt-tab-cell-' + fieldIndex).html();
+                    if (upCased) {
+                      upCased = upCased.toString();
+                      upCased = upCased.toUpperCase();
+                      var filter = inputCell.val().toUpperCase();
+
+                      match = (upCased.indexOf(filter) >= 0); 
+                    }
+
+                  }
+
+                }
+                fieldIndex++;
+                next();
+
+              }, function () {
+
+                if (match)
+                  row.show();
+                else
+                  row.hide();
+
+              });
+
+
+              callback();
+
+            }, function () {
+
+              element.find('.dt-tab-body').show();
+              if (callbackFunction)
+                callbackFunction();
+            });
+
+          };
+
 		this.template = swig.compile(getTemplate('templates/db-explorer.html'));
 
                 this.tablas = {};
@@ -221,6 +275,9 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
         cargarTabla : function () {
 
+            var espera = new EnvMan.Views.Espera();
+            espera.render();
+            espera.show();
 
             var self = this;
             var ambiente = this.$el.find('#ambiente').val();
@@ -236,6 +293,7 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
               self.$el.find('.table-container').html('');
               self.$el.find('.table-container').append(self.tablas[tabla]);
               self.tablas[tabla].setArrayData(data);
+              espera.hide();
 
             });
         }

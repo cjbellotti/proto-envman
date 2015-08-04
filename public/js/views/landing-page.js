@@ -23,7 +23,8 @@ EnvMan.Views.LandingPage = Backbone.View.extend({
 					nombre : "Comparador de Bases",
 					descripcion : "Herramienta para obtener las diferencias entre bases",
 					ruta_manual : "manual.docx",
-					habilitado : false 
+					habilitado : false,
+                                        url : '#dbcomparer'
 				});
 				data.aplicaciones.push({
 					icono : "glyphicon-eye-open",

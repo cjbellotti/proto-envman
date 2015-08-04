@@ -1,0 +1,21 @@
+{
+  "name": "proto-envman",
+  "main": "public/index.html",
+  "version": "1.0.0",
+  "homepage": "https://github.com/cjbellotti/proto-envman",
+  "authors": [
+    "Carlos Bellotti <cjbellotti@hotmail.com>"
+  ],
+  "description": "Environment Manager",
+  "keywords": [
+    "EnvMan"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
