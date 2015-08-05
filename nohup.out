@@ -2059,3 +2059,5229 @@ Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
 GET - /valor-sistema/DESA
 Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
 Sending SIGHUP to child...
+
+Running node-supervisor with
+  program '--debug index.js'
+  --watch '.'
+  --extensions 'node,js'
+  --exec 'node'
+
+Starting child process with 'node --debug index.js'
+Watching directory '/home/everis/proyectos/proto-envman' for changes.
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Mon, 03 Aug 2015 23:20:27 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /img/dtv-logo.png
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /favicon.ico
+GET - /job
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /job
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/swig.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 15:11:12 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /templates/db-comparer.html
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/async/dist/async.min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/underscore/underscore-min.map
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/landing-page.js
+GET - /js/views/espera.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/main.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /js/main.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/swig.js
+GET - /libs/backbone/backbone.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /templates/db-comparer.html
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/vista-importar.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/vista-job.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/verificar-job.js
+GET - /js/views/vista-importar.js
+GET - /js/views/script.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/entidad.js
+GET - /js/views/sistema.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /js/main.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /templates/db-comparer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+[Error: ORA-24418: Message 24418 not found;  product=RDBMS; facility=ORA
+]
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+/home/everis/proyectos/proto-envman/app/lib/mandb.js:55
+        connection.execute(q, {}, {maxRows: 1000000}, 
+                  ^
+TypeError: Cannot read property 'execute' of undefined
+    at /home/everis/proyectos/proto-envman/app/lib/mandb.js:55:19
+Program node --debug index.js exited with code 1
+
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 17:39:53 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /sistema/DESA
+GET - /entidad-canonica/DESA
+GET - /valor-canonico/DESA
+GET - /sistema/DESA
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/swig.js
+GET - /libs/backbone/backbone.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/verificar-job.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 18:27:37 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/expand-import-v2.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/entidad.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /js/views/valor-canonico.js
+GET - /libs/async/dist/async.min.map
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/main.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /job
+GET - /job/12359
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+POST - /verificar/12359
+Query: select * from DTVLA.DVM_SISTEMA
+Query: select * from DTVLA.DVM_ENTIDAD_CANONICA
+Query: select * from DTVLA.DVM_VALOR_CANONICO
+Query: select * from DTVLA.DVM_VALOR_SISTEMA
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 18:28:23 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /job/12362
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+POST - /verificar/12362
+Query: select * from DTVLA.DVM_ENTIDAD_CANONICA
+Query: select * from DTVLA.DVM_VALOR_SISTEMA
+Query: select * from DTVLA.DVM_VALOR_CANONICO
+GET - /entidad-canonica/DESA
+Query: select * from DTVLA.DVM_SISTEMA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 18:33:48 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/swig.js
+GET - /libs/backbone/backbone.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/db-explorer.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/main.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /job
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /job/12358
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+POST - /verificar/12358
+Query: select * from DTVLA.DVM_SISTEMA
+Query: select * from DTVLA.DVM_ENTIDAD_CANONICA
+Query: select * from DTVLA.DVM_VALOR_CANONICO
+Query: select * from DTVLA.DVM_VALOR_SISTEMA
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /templates/db-comparer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff
+GET - /favicon.ico
+GET - /favicon.ico
+GET - /templates/db-comparer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /libs/underscore/underscore-min.map
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /libs/async/dist/async.js
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/expand-import-v2.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/vista-importar.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /job
+GET - /job/12360
+GET - /sistema/DESA
+POST - /verificar/12360
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+Query: select * from DTVLA.DVM_VALOR_SISTEMA
+Query: select * from DTVLA.DVM_ENTIDAD_CANONICA
+GET - /entidad-canonica/DESA
+Query: select * from DTVLA.DVM_VALOR_CANONICO
+Query: select * from DTVLA.DVM_SISTEMA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /valor-sistema/DESA
+Query: SELECT * FROM DVM_VALOR_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/underscore/underscore-min.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/expand-import-v2.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /favicon.ico
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /def-tablas
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 21:58:56 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:04:40 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:07:08 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:26:56 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:28:46 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:28:59 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:31:06 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+crashing child
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:33:38 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/collections/jobs.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/entidad.js
+GET - /js/views/sistema.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /job
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/swig.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /templates/db-explorer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /templates/db-comparer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/backbone/backbone.js
+GET - /libs/expand-import-v2.js
+GET - /libs/async/dist/async.min.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/verificar-job.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/main.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /templates/db-comparer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/crear-tablas.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/vista-importar.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/dist/swig.js.map
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/async/dist/async.min.map
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+[Error: ORA-24418: Message 24418 not found;  product=RDBMS; facility=ORA
+]
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+/home/everis/proyectos/proto-envman/app/lib/mandb.js:55
+        connection.execute(q, {}, {maxRows: 1000000}, 
+                  ^
+TypeError: Cannot read property 'execute' of undefined
+    at /home/everis/proyectos/proto-envman/app/lib/mandb.js:55:19
+Program node --debug index.js exited with code 1
+
+Starting child process with 'node --debug index.js'
+Debugger listening on port 5858
+Inicializando Pool de conexiones...
+	Creando pool de connexiones para ambiente DESA...
+		Creando pool de conexiones para data center DESA...
+Wed, 05 Aug 2015 22:52:12 GMT body-parser deprecated bodyParser: use individual json/urlencoded middlewares at app/verify.js:11:9
+Publicando servicios de ambiente DESA...
+	Publicando GET /sistema/:ambiente/:id?...
+	Publicando GET /entidad-canonica/:ambiente/:id?...
+	Publicando GET /valor-canonico/:ambiente/:id?...
+	Publicando GET /valor-sistema/:ambiente/:id?...
+Server listening on port 3000
+Templates:
+	 - DVM_ENTIDAD_CANONICA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-insert-script-despliegue.sql
+	 - DVM_SISTEMA-update-script-despliegue.sql
+	 - DVM_VALOR_CANONICO-delete-script-rollback.sql
+	 - DVM_VALOR_CANONICO-insert-script-despliegue.sql
+	 - DVM_VALOR_SISTEMA-insert-script-despliegue.sql
+	 - general-body-script-despliegue.sql
+	 - general-delete-script-despliegue.sql
+	 - general-insert-script-despliegue.sql
+	 - general-script-despliegue.sql
+	 - general-update-script-despliegue.sql
+	 - insert-script-despliegue.sql
+	 - update-script-despliegue.sql
+GET - /valor-canonico/DESA
+GET - /entidad-canonica/DESA
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/backbone/backbone.js
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/expand-import-v2.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/backbone/backbone.js
+GET - /libs/underscore/underscore-min.map
+GET - /ambientes
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /job
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /img/dtv-logo.png
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /templates/db-comparer.html
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /
+GET - /css/normalize.css
+GET - /libs/bootstrap/dist/css/bootstrap.min.css
+GET - /css/mytable-v2.css
+GET - /css/landing-page.css
+GET - /libs/jquery/dist/jquery.min.js
+GET - /libs/underscore/underscore-min.js
+GET - /libs/backbone/backbone.js
+GET - /libs/swig.js
+GET - /libs/bootstrap/dist/js/bootstrap.min.js
+GET - /libs/mytable-filter-v2.js
+GET - /libs/expand-import-v2.js
+GET - /libs/simple-template-manager.js
+GET - /libs/async/dist/async.min.js
+GET - /js/init.js
+GET - /js/models/job.js
+GET - /js/models/sistema.js
+GET - /js/models/entidad.js
+GET - /js/models/valor-canonico.js
+GET - /js/models/valor-sistema.js
+GET - /js/collections/jobs.js
+GET - /js/collections/sistemas.js
+GET - /js/collections/entidades.js
+GET - /js/collections/valores-canonicos.js
+GET - /js/collections/valores-sistema.js
+GET - /js/views/dialog-box.js
+GET - /js/views/sistema.js
+GET - /js/views/entidad.js
+GET - /js/views/valor-canonico.js
+GET - /js/views/valor-sistema.js
+GET - /js/views/vista-job.js
+GET - /js/views/vista-job-table.js
+GET - /js/views/sistema-importar.js
+GET - /js/views/entidad-importar.js
+GET - /js/views/valor-canonico-importar.js
+GET - /js/views/valor-sistema-importar.js
+GET - /js/views/lista-jobs.js
+GET - /js/views/verificar-job.js
+GET - /js/views/ver-script-v2.js
+GET - /js/views/script.js
+GET - /js/views/vista-importar.js
+GET - /js/views/tablas-ambiente.js
+GET - /js/views/comparar-ambientes.js
+GET - /js/views/espera.js
+GET - /js/views/landing-page.js
+GET - /js/views/db-explorer.js
+GET - /js/views/db-comparer.js
+GET - /js/router.js
+GET - /js/main.js
+GET - /js/crear-tablas.js
+GET - /libs/jquery/dist/jquery.min.map
+GET - /libs/underscore/underscore-min.map
+GET - /libs/dist/swig.js.map
+GET - /libs/async/dist/async.min.map
+GET - /ambientes
+GET - /config
+GET - /def-tablas
+GET - /templates/db-comparer.html
+GET - /libs/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /sistema/DESA
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID
+GET - /entidad-canonica/DESA
+Query: SELECT * FROM DVM_ENTIDAD_CANONICA ORDER BY ID
+GET - /valor-canonico/DESA
+Query: SELECT * FROM DVM_VALOR_CANONICO ORDER BY ID
+GET - /sistema/DESA
+GET - /img/dtv-logo.png
+Query: SELECT * FROM DVM_SISTEMA ORDER BY ID

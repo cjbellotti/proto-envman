@@ -111,9 +111,9 @@ function MyTable(config) {
 
         tableData[index].find('input').prop('checked', value);
         if (value) {
-          tableData[index].css('background', 'green');
+          tableData[index].css('font-weight', 'bold');
         } else {
-          tableData[index].css('background', 'white');
+          tableData[index].css('font-weight', 'normal');
         }
 
       }
@@ -164,11 +164,9 @@ function MyTable(config) {
 
         var value = checkbox.prop('checked');
         if (value) {
-          //rowDiv.css('background', 'green');
           rowDiv.find('div').css('font-weight', 'bold');
         } else {
-          //rowDiv.css('background', 'white');
-          rowDiv.find('div').css('font-weight', '');
+          rowDiv.find('div').css('font-weight', 'normal');
         }
 
       });

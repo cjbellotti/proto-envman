@@ -565,6 +565,87 @@ window.v2.procesarCampo = function(registros, campo, valor) {
 
 }
 
+window.compararArrays = function (claves, comparar, datos1, datos2) {
+
+  var faltantes = [];
+
+  for (var index in datos1) {
+
+    for (var field in claves) {
+  
+      claves[field] = datos1[index][field];
+
+    }
+
+    var index2 = _.findIndex(datos2, claves);
+
+    if (index2 >= 0) {
+
+      var igual = true;
+      for (var field in comparar) {
+
+        if (igual) {
+
+          igual = (datos1[index][field] == datos2[index][field]);
+
+        }
+
+      }
+
+      if (!igual) 
+        datos1[index].diff = true;
+
+    } else {
+      
+      faltantes.push(datos1[index]);
+
+    }
+
+  }
+
+  return faltantes;
+
+}
+
+window.compararTablas = function(tabla, datos1, datos2) {
+
+  var claves = {};
+  var comparar = {};
+
+  var faltantes1 = [];
+  var faltantes2 = [];
+
+  for (var field in window.defTablas[tabla].campos) {
+
+    if (window.defTablas[tabla].campos[field].tipo == 'K')
+      claves[field] = "";
+    else
+      comparar[field] = "";
+
+  }
+
+  faltantes2 = window.compararArrays(claves, comparar, datos1, datos2);
+  faltantes1 = window.compararArrays(claves, comparar, datos2, datos1);
+
+  for (var index in faltantes1) {
+
+    var datos = _.clone(faltantes1[index]);
+    datos.new = true;
+
+    datos1.push(datos);
+
+  }
+  
+  for (var index in faltantes2) {
+
+    var datos = _.clone(faltantes2[index]);
+    datos.new = true;
+
+    datos2.push(datos);
+
+  }
+
+}
 
 $(function() {
 		
