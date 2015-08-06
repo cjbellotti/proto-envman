@@ -5,6 +5,11 @@ EnvMan.Collections.Entidades = Backbone.Collection.extend({
 	fetchData : function (objeto) {
 		this.url = "/entidad-canonica/" + window.job.target;
 		this.fetch(objeto);
-	}
+	},
+
+  fetchAmb : function (amb, objeto) {
+		this.url = "/entidad-canonica/" + amb;
+		this.fetch(objeto);
+  }
 
 });

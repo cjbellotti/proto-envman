@@ -1,6 +1,6 @@
 function MyTable(config) {
 
-  var tableConfig = config;
+  var tableConfig = _.clone(config);
 
   var styles = {};
 
@@ -75,8 +75,8 @@ function MyTable(config) {
 
       input.on('keyup', function (e) {
         myTableDiv.filter(myTableDiv, headerTemplate, function () {
-          $('.dt-tab-row:visible:odd').css('background', 'white');
-          $('.dt-tab-row:visible:even').css('background', '#D1E0E0');
+          $('.dt-tab-row:visible:odd').not('.dt-tab-diff').not('.dt-tab-new').css('background', 'white');
+          $('.dt-tab-row:visible:even').not('.dt-tab-diff').not('.dt-tab-new').css('background', '#D1E0E0');
         });
       });
 
@@ -152,8 +152,8 @@ function MyTable(config) {
     var rowDiv = $('<div class="dt-tab-row"/>');
 
     var cellIndex = 0;
-    if (config.processRow)
-      config.processRow(rowDiv, data);
+    if (tableConfig.processRow)
+      tableConfig.processRow(rowDiv, data);
 
     if (config.selectable) {
 
@@ -178,8 +178,7 @@ function MyTable(config) {
     for (var field in headerTemplate)
       headerTemplate[field] = null;
 
-    for (var field in data) {
-      if (headerTemplate[field] == null)
+    for (var field in headerTemplate) {
         headerTemplate[field] = data[field];
     }
 
@@ -187,7 +186,7 @@ function MyTable(config) {
 
       var cellDiv = $('<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"/>');
       cellIndex++;
-      var content = processCell(field, headerTemplate[field], data);
+      var content = processCell(field, headerTemplate[field], data, this);
       cellDiv.html(content);
 
       cellDiv.attr('data-toggle', 'tooltip');

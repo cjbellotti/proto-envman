@@ -6,6 +6,15 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     this.tablas = [{}, {}];
 
+    for (var n = 0; n < 2;n++) {
+
+      this.tablas[n].sistemas = new EnvMan.Collections.Sistemas();
+      this.tablas[n].entidades = new EnvMan.Collections.Entidades();
+      this.tablas[n].valoresCanonicos = new EnvMan.Collections.ValoresCanonicos();
+      this.tablas[n].valoresSistema = new EnvMan.Collections.ValoresSistema();
+
+    }
+
     var config = {};
     config.headers = {};
     config.headers.Id = {
@@ -33,6 +42,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       dataField : 'DESCRIPCION'
     };
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     this.tablas[0].DVM_SISTEMA = MyTable(config);
     this.tablas[1].DVM_SISTEMA = MyTable(config);
 
@@ -57,6 +77,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       dataField : 'DESCRIPCION'
     };
     config.filterable = true;
+
     this.tablas[0].DVM_ENTIDAD_CANONICA = MyTable(config);
     this.tablas[1].DVM_ENTIDAD_CANONICA = MyTable(config);
 
@@ -85,12 +106,12 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       },
       dataField : 'VALOR_CANONICO'
     };
-    config.processCell = function (field, content) {
+    config.processCell = function (field, content, data, scope) {
 
       var nombre = content;
       if (field == "ID_ENTIDAD_CANONICA"){
 
-        var entidad = window.collections.entidades.get(content);
+        var entidad = this.entidades.get(content);
         if (entidad)
           nombre = entidad.get('NOMBRE');
         else
@@ -105,6 +126,8 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     config.filterable = true;
     this.tablas[0].DVM_VALOR_CANONICO = MyTable(config);
     this.tablas[1].DVM_VALOR_CANONICO = MyTable(config);
+    this.tablas[0].DVM_VALOR_CANONICO.entidades = new EnvMan.Collections.Entidades();
+    this.tablas[1].DVM_VALOR_CANONICO.entidades = new EnvMan.Collections.Entidades();
 
     config = {};
     config.headers = {};
@@ -218,10 +241,16 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
   },
 
   cargarAmbiente1 : function () {
+    var tabla = $('#tabla1').val();
+    $('#tabla2').val(tabla);
     this.cargarTabla(1);
+    this.cargarTabla(2);
   },
 
   cargarAmbiente2 : function () {
+    var tabla = $('#tabla2').val();
+    $('#tabla1').val(tabla);
+    this.cargarTabla(1);
     this.cargarTabla(2);
   },
 
@@ -248,19 +277,30 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       var ambiente = this.$el.find('#ambiente' + n).val();
       var tabla = this.$el.find('#tabla' + n).val();
 
-      window.job.target = ambiente;
-      window.collections.sistemas.fetchData({ async : false });
-      window.collections.entidades.fetchData({ async : false });
-      window.collections.valoresCanonicos.fetchData({ async : false });
+      window.collections.sistemas.fetchData(ambiente, { async : false });
+      window.collections.entidades.fetchData(ambiente, { async : false });
+      window.collections.valoresCanonicos.fetchData(ambiente, { async : false });
 
       $.get('/' + window.defTablas[tabla].alias + '/' + ambiente, function (data) {
 
         self.$el.find('.table-container' + n).html('');
         self.$el.find('.table-container' + n).append(self.tablas[n - 1][tabla]);
+        data[5].diff = true;
+        data[10].new = true;
         self.tablas[n - 1][tabla].setArrayData(data);
         espera.hide();
 
       });
+  },
+
+  compararAmbientes : function () {
+
+    var ambiente1 = $('#ambiente1').val();
+    var tabla1 = $('#tabla1').val();
+
+    var ambiente2 = $('#ambiente2').val();
+    var tabla2 = $('#tabla2').val();
+
   }
 
 });

@@ -80,3 +80,11 @@
             text-align : center;
 
           }
+
+          .dt-tab-diff {
+            background : #3385FF;
+          }
+
+          .dt-tab-new {
+            background : #47D147;
+          }
