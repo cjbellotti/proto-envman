@@ -205,6 +205,66 @@ function MyTable(config) {
 
   }
 
+  myTableDiv.addRowV2 = function (data) {
+
+    var content = '<div class="dt-tab-row">';
+
+    var cellIndex = 0;
+    //if (tableConfig.processRow)
+    //  tableConfig.processRow(rowDiv, data);
+
+    /*if (config.selectable) {
+
+      content += '<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '>';
+      cellIndex++;
+      var checkbox = $('<input type="checkbox"></input>');
+      checkbox.on('change', function () {
+
+        var value = checkbox.prop('checked');
+        if (value) {
+          rowDiv.find('div').css('font-weight', 'bold');
+        } else {
+          rowDiv.find('div').css('font-weight', 'normal');
+        }
+
+      });
+      cellDiv.append(checkbox);
+      rowDiv.append(cellDiv);
+
+    }*/
+
+    for (var field in headerTemplate)
+      headerTemplate[field] = null;
+
+    for (var field in headerTemplate) {
+        headerTemplate[field] = data[field];
+    }
+
+    for (var field in headerTemplate) {
+
+      content += '<div class="dt-tab-cell dt-tab-cell-' + cellIndex + '"';
+      cellIndex++;
+      //cellDiv.html(content);
+
+      content += ' data-toggle="tooltip"';
+      content += ' data-placement="bottom"';
+      content += ' title="' + content + '"';
+
+      content += ' style="';
+      for (var tag in styles[field])
+          content += tag  + ' : ' + styles[field][tag] + ';';
+      content += '"';
+
+      content += '>' + processCell(field, headerTemplate[field], data, this) + '</div>';
+
+    }
+    content += '</div>';
+  
+    var rowDiv = $(content);
+    bodyDiv.append(rowDiv);
+    tableData.push(rowDiv);
+
+  }
   myTableDiv.getRow = function (index) {
 
     return tableData[index];
@@ -263,6 +323,53 @@ function MyTable(config) {
     tableData = [];
   }
 
+  myTableDiv.setArrayDataAsync = function (array, options, callback) {
+
+    var self = this;
+
+    options = options || {};
+
+    this.arrayData = array;
+    myTableDiv.reset();
+    async.eachSeries(this.arrayData, function (item, next) {
+
+      var data = {};
+      if (item.cid)
+        item = item.toJSON();
+      if (options.fields) {
+
+        for (var field in options.fields) {
+
+          if (options.fields[field].alias)
+            field = options.fields[field].alias; 
+          data[field] = item[field];
+
+        }
+
+      } else {
+
+        data = item;
+
+      }
+
+      myTableDiv.addRow(data);
+
+      next();
+
+    }, function () {
+
+      Object.observe(self.arrayData, function (changes) {
+
+        myTableDiv.setArrayData(self.arrayData, options);
+
+      });
+
+      callback();
+
+    });
+
+  }
+
   myTableDiv.setArrayData = function (array, options) {
 
     options = options || {};
@@ -306,6 +413,12 @@ function MyTable(config) {
       myTableDiv.setArrayData(self.arrayData, options);
 
     });
+
+  }
+
+  myTableDiv.getArrayData = function() {
+
+    return this.arrayData;
 
   }
 
