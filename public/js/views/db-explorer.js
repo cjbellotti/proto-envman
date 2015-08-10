@@ -292,8 +292,9 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
               self.$el.find('.table-container').html('');
               self.$el.find('.table-container').append(self.tablas[tabla]);
-              self.tablas[tabla].setArrayData(data);
-              espera.hide();
+              self.tablas[tabla].setArrayDataAsync(data, {}, function () {
+                espera.hide();
+              });
 
             });
         }

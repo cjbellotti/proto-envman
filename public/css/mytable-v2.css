@@ -20,6 +20,12 @@
                 border-radius: 10px;
                 background : #85A3C2;
           }
+
+          .dt-tab-body-container {
+            margin : 0 0 0 0;
+            padding : 0 0 0 0;
+          }
+
           .dt-tab-header {
 
             min-height : 25px;
