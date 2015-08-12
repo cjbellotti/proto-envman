@@ -305,7 +305,9 @@ function MyTable(config) {
 
     Object.observe(self.arrayData, function (changes) {
 
-      myTableDiv.loadTable();
+        myTableDiv.filter(myTableDiv, headerTemplate, function () {
+          myTableDiv.loadTable();
+        });
 
     });
 

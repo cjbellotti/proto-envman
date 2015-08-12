@@ -28,14 +28,14 @@
 
           .dt-tab-header {
 
-            min-height : 25px;
+            min-height : 12%;
 
           }
 
           .dt-tab-body {
             margin-top : 2px;
             width : 100%;
-            height : 100%;
+            height : 87%;
             overflow-y : scroll;
             overflow-x : hidden;
           }
