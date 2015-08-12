@@ -8,246 +8,118 @@
 	<script src="libs/backbone/backbone.js"></script>
 	<script src="libs/swig.js"></script>
 	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="libs/simple-template-manager.js"></script>
 
 	<style>
 
-		.table {
-			width: 100%;
-			border : 1px solid gray;
-			border-radius: 3px;
-		}
+    .verif-table {
+      margin : 0;
+      padding : 0;
+      width : 100%;
+      height : 100%;
+    }
 
-		.table-header {
-			width : 100%;
-		}
+    .vt-column {
 
-		.table-header table {
-			width : 97.5%;
-			border-collapse: collapse;
-		}
+      display : inline-block;
+      text-align : center;
+      border : 1px solid gray;
 
-		.table-body {
-			width: 100%;
-			overflow-y : scroll;
-			height : 200px;
-		}
+    }
 
-		.table-body table {
-			width : 100%;
-			border-collapse: collapse;
-			position: relative;
-		}
+    .vt-column-h {
 
-		.cell-header {
-			width : 24%;
-			border : 1px solid gray;
-			padding : 0px;
-			margin : 0px;
-		}
-		.cell-body {
-			width : 24%;
-			border : 1px solid gray;
-			padding : 0px;
-			margin : 0px;
-		}
+      font-weight : bold;
+      font-family : 'Arial';
+
+    }
+
+    .vt-body {
+
+      width : 100%;
+      height : 100%;
+      margin : 0;
+      padding : 0;
+      border : 1px solid gray;
+      overflow : hidden;
+      overflow-y : scroll;
+
+    }
+
+    .vt-body::-webkit-scrollbar {
+
+      width : 5px;
+      background : #E6E6E9;
+
+    }
+
+    .vt-body::-webkit-scrollbar-thumb {
+      background : #737374;
+    }
+
+    .vt-body-container {
+
+      width : 100%;
+      height : 100%;
+      background : #D8D8DC;
+
+    }
+
+
+    #main {
+
+      width : 60%;
+      height : 60vh;
+      margin : 0 auto;
+      padding : 0 0 0 0;
+
+    }
+
 	</style>
 </head>
 <body>
-	<div style="margin: 0 auto; text-align: center; width : 50%">
-		<div class="table">
-			<div class="table-header">
-				<table>
-					<thead>
-						<tr>					
-							<th class="cell-header">SISTEMA</th>
-							<th class="cell-header">ENTIDAD</th>
-							<th class="cell-header">VALOR CANONICO</th>
-							<th class="cell-header">VALOR SISTEMA</th>
-						</tr>
-					</thead>
-				</table>
-			</div>
-			<div class="table-body">
-				<table>
-					<tbody>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-						<tr>
-							<td class="cell-body">MR32</td>
-							<td class="cell-body">E1</td>
-							<td class="cell-body">AA</td>
-							<td class="cell-body">XX</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+  <section id="main">
+
+  </section>
+  
+  <script src="libs/verif-table.js"></script>
+  <script>
+
+    $(function () {
+
+        var config = {};
+        config.columns = {
+          Id : {
+
+            styles : {
+
+              width : '10%'
+
+            }
+
+          },
+          Nombre : {
+
+            styles : {
+
+              width : '40%'
+
+            }
+
+          },
+          Descripcion : {
+
+            styles : {
+
+              width : '49%'
+
+            }
+
+          }
+        };
+        $('#main').html(VerifTable(config));
+    });
+
+  </script>
 </body>
 </html>
