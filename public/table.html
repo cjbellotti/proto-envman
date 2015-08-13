@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>TestTable</title>
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
 	<script src="libs/jquery/dist/jquery.min.js"></script>
 	<script src="libs/underscore/underscore-min.js"></script>
 	<script src="libs/backbone/backbone.js"></script>
@@ -19,11 +20,19 @@
       height : 100%;
     }
 
+    .vt-header {
+      width : 100%;
+      min-height : 20px;
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+    }
+
     .vt-column {
 
       display : inline-block;
       text-align : center;
       border : 1px solid gray;
+      min-height : 20px;
 
     }
 
@@ -65,20 +74,228 @@
 
     }
 
+    .vt-row {
+      vertical-align : top;
+      min-height : 20px;
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+    }
+
 
     #main {
 
-      width : 60%;
+      width : 70%;
       height : 60vh;
       margin : 0 auto;
       padding : 0 0 0 0;
 
     }
 
+    .verification-box {
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+      width : 100%;
+      height : 100%;
+      min-width : 437px;
+    }
+
+    .vb-container {
+
+      width : 100%;
+      height : 40vh;
+      border-radius : 2px;
+      border : 1px solid gray;
+      overflow : hidden;
+      overflow-y : scroll;
+
+    }
+
+    .vb-container::-webkit-scrollbar {
+          width: 5px;
+          display : inline-block;
+    }
+     
+    .vb-container::-webkit-scrollbar-track {
+          border-radius: 10px;
+          background : #CEDAE7;
+    }
+     
+    .vb-container::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background : #85A3C2;
+    }
+
+    .vb-container-content {
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+    }
+
+    .vb-dc {
+
+      width : 20%;
+      display : inline-block;
+      vertical-align : top;
+      min-width : 83px;
+
+    }
+
+    .vb-data {
+      width : 79%;
+      display : inline-block;
+      min-width : 328px;
+
+    }
+
+    .verification-box .table {
+
+      width : 100%;
+
+    }
+
+
 	</style>
 </head>
 <body>
   <section id="main">
+    <div class="modal-dialog" style="width : 100%">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Verificacion</h3>
+        </div>
+        <div class="modal-body" style="height: 50vh;">
+          <div class="verification-box">
+            <div class="vb-dc">
+              <div class="list-group">
+                <a href="#" class="list-group-item disabled">Data Center</a>
+                <a href="#" class="list-group-item">DC_AR</a>
+                <a href="#" class="list-group-item">DC_CO</a>
+                <a href="#" class="list-group-item">DC_VE</a>
+              </div>
+            </div>
+            <div class="vb-data">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#">Insert <span class="badge">12</span></a></li>
+                <li><a href="#">Update <span class="badge">5</span></a></li>
+              </ul>
+              <div class="vb-container">
+                <div class="vb-container-content">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      DVM_VALOR_SISTEMA
+                    </div>
+                    <div class="panel-body">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>ID_SISTEMA</th>
+                            <th>ID_ENTIDAD_CANONICA</th>
+                            <th>ID_VALOR_CANONICO</th>
+                            <th>VALOR_SISTEMA</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>SIEBEL</td>
+                            <td>METHOD_OF_PAYMENTS</td>
+                            <td>XX</td>
+                            <td>XXSYS</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>SIEBEL</td>
+                            <td>METHOD_OF_PAYMENTS</td>
+                            <td>XX</td>
+                            <td>XXSYS</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>SIEBEL</td>
+                            <td>METHOD_OF_PAYMENTS</td>
+                            <td>XX</td>
+                            <td>XXSYS</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>SIEBEL</td>
+                            <td>METHOD_OF_PAYMENTS</td>
+                            <td>XX</td>
+                            <td>XXSYS</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>SIEBEL</td>
+                            <td>METHOD_OF_PAYMENTS</td>
+                            <td>XX</td>
+                            <td>XXSYS</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>SIEBEL</td>
+                            <td>METHOD_OF_PAYMENTS</td>
+                            <td>XX</td>
+                            <td>XXSYS</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>SIEBEL</td>
+                            <td>METHOD_OF_PAYMENTS</td>
+                            <td>XX</td>
+                            <td>XXSYS</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      DVM_SISTEMA
+                    </div>
+                    <div class="panel-body">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>DESCRIPCION</th>
+                            <th>PAIS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>IBS</td>
+                            <td>IBS AR</td>
+                            <td>AR</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>IBS</td>
+                            <td>IBS AR</td>
+                            <td>AR</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>IBS</td>
+                            <td>IBS AR</td>
+                            <td>AR</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary">Aceptar</button>
+          <button class="btn btn-danger">Cancelar</button>
+        </div>
+      </div>
+    </div>
 
   </section>
   
@@ -89,22 +306,24 @@
 
         var config = {};
         config.columns = {
-          Id : {
+          DC : {
 
             styles : {
 
               width : '10%'
 
-            }
+            },
+            dataField : 'dc'
 
           },
-          Nombre : {
+          Tabla : {
 
             styles : {
 
-              width : '40%'
+              width : '25%'
 
-            }
+            },
+            datField : 'tabla'
 
           },
           Descripcion : {
@@ -113,11 +332,41 @@
 
               width : '49%'
 
-            }
+            },
+            datField : 'descripcion'
+
+          },
+          Accion : {
+
+            styles : {
+
+              width : '14%'
+
+            },
+            dataField : 'accion'
 
           }
         };
-        $('#main').html(VerifTable(config));
+
+        var tabla = VerifTable(config);
+
+        //$('#main').html(tabla);
+
+        for (var i = 0; i < 200; i++) {
+          console.log('i');
+          tabla.add({
+
+              dc : 'AR',
+              tabla : 'DVM_VALOR_SISTEMA',
+              descripcion : 'ID : 1, ID_SISTEMA : 12, ID_ENTIDAD_CANONICA : 14, ID_VALOR_CANONICO : 22, VALOR_SISTEMA : XX',
+              accion : 'insertar'
+
+          });
+        }
+
+        // Ajustes Verification Box
+        //$('.vb-container').height($('.verification-box').height() - $('.verification-box .nav').height());
+
     });
 
   </script>
