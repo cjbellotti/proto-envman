@@ -1,0 +1,30 @@
+
+      <div class="vb-container-content">
+        {% for tabla in tablas %}
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            {{ loop.key }} 
+          </div>
+          <div class="panel-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  {% for dummy in primerRegistro(tabla) %}
+                  <th>{{ loop.key }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for registro in tabla %}
+                <tr>
+                  {% for valor in registro %}
+                  <td>{{ valor }}</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endfor %}
+      </div>

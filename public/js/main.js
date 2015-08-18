@@ -304,7 +304,9 @@ window.generales.limpiarRegistros = function (registros) {
 
 		for (var index in registros[tabla]) {
 
-			for (var field in registros[tabla][index]) {
+                  window.generales.limpiarRegistro(registros[tabla][index]);
+
+		/*	for (var field in registros[tabla][index]) {
 
 				if (field == 'IDN' || field == 'MOD' || field == 'origenReg') {
 
@@ -312,12 +314,24 @@ window.generales.limpiarRegistros = function (registros) {
 
 				}
 
-			}
+			}*/
 
 		}
 
 	}
 
+}
+
+window.generales.limpiarRegistro = function (registro) {
+
+  if (!_.isUndefined(registro.IDN))
+    delete registro.IDN;
+
+  if (!_.isUndefined(registro.MOD))
+    delete registro.MOD;
+
+  if (!_.isUndefined(registro.origenReg))
+    delete registro.origenReg;
 }
 
 window.generales.normalizarNombreTabla = function (nombreTabla) {

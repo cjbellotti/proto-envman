@@ -2,46 +2,11 @@
   <div class="vb-dc">
     <div class="list-group">
       <a href="#" class="list-group-item disabled">Data Center</a>
-      {% for dc in datacenters %}
-      <a href="#" class="list-group-item">{{dc.nombre}}</a>
+      {% for dc in datos %}
+      <a href="#" class="list-group-item">{{ loop.key }}</a>
       {% endfor %}
     </div>
   </div>
   <div class="vb-data">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Insert <span class="badge">12</span></a></li>
-      <li><a href="#">Update <span class="badge">5</span></a></li>
-    </ul>
-    <div class="vb-container">
-      <div class="vb-container-content">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            DVM_VALOR_SISTEMA
-          </div>
-          {% for tabla in tablas %}
-          <div class="panel-body">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  {% for columna in tabla.columnas %}
-                  <th>{{columna.nombre}}</th>
-                  {% endfor %}
-                </tr>
-              </thead>
-              <tbody>
-                {% for registro in tabla.registros %}
-                <tr>
-                  {% for columna in tabla.columnas %}
-                  <td>registro.xID</td>
-                  {% endfor %}
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
   </div>
 </div>

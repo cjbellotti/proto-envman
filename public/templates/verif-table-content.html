@@ -1,0 +1,13 @@
+    <ul class="nav nav-tabs">
+      {% for accion in datos %}
+        {% if loop.first %}
+        <li class="active">
+        {% else %}
+        <li>
+        {% endif %}
+        <a href="#">{{ loop.key }}<span class="badge">{{accion.length}}</span></a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="vb-container">
+    </div>
