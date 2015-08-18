@@ -1,0 +1,12 @@
+<div class="verification-box">
+  <div class="vb-dc">
+    <div class="list-group">
+      <a href="#" class="list-group-item disabled">Data Center</a>
+      {% for dc in datos %}
+      <a href="#" class="list-group-item">{{ loop.key }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="vb-data">
+  </div>
+</div>

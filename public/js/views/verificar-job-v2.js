@@ -10,8 +10,6 @@ EnvMan.Views.VerificarJob = Backbone.View.extend({
 
     this.template = swig.compile( getTemplate('templates/verificar.html'));
     this.tableTemplate = swig.compile ( getTemplate('templates/verif-table.html') );
-    this.contentTemplate = swig.compile ( getTemplate('templates/verif-table-content.html') );
-    this.dataTemplate = swig.compile ( getTemplate('templates/verif-table-data.html') );
 
   },
 
