@@ -23,26 +23,40 @@ EnvMan.Views.VerificarJob = Backbone.View.extend({
 
     e.preventDefault();
     $.ajax({
-      url : '/generar-script',
       method : 'POST',
+      url : '/verificar', 
       contentType : 'application/json',
-      data : JSON.stringify({
-        target : window.job.target,
-        registros : this.datos
-      }),
-      success : function (data) {
-        console.log(data);
+      data : JSON.stringify(window.job),
+      success: function (data) {
 
-        var view = new EnvMan.Views.VerScript(data);
-        $('#modals').append(view.el);
-        view.render();
-        view.$el.modal({
-          backdrop : 'static',
-          keyboard : false
+        $.ajax({
+          url : '/generar-script',
+          method : 'POST',
+          contentType : 'application/json',
+          data : JSON.stringify({
+            target : window.job.target,
+            registros : data 
+          }),
+          success : function (data) {
+
+            console.log(data);
+
+            var view = new EnvMan.Views.VerScript(data);
+            $('#modals').append(view.el);
+            view.render();
+            view.$el.modal({
+              backdrop : 'static',
+              keyboard : false
+            });
+
+          }
+
         });
+
       }
 
     });
+
 
   },
 
@@ -57,9 +71,7 @@ EnvMan.Views.VerificarJob = Backbone.View.extend({
       onclose : function () {
 
         self.$el.html(self.template());
-        self.$el.find('.table-content').append(self.tableTemplate(self.datos));
-        self.$el.find('.vb-container').html( self.contentTemplate(self.datos));
-                
+        self.$el.find('.modal-body').append(self.tableTemplate(self.datos));
 
         self.$el.on('hidden.bs.modal', function () {
           self.$el.remove();
@@ -81,9 +93,26 @@ EnvMan.Views.VerificarJob = Backbone.View.extend({
       success: function (data) {
 
         self.datos = {};
-        self.datos.datos = self.formatearDatos(data);
+        self.datos.dcs = self.formatearDatos(data);
 
-        //$('.vb-data').html(self.contentTemplate(self.datos));
+        self.datos.getFirst = function (array) {
+          return array[0];
+        }
+
+        self.datos.countRegisters = function (object) {
+
+          var count = 0;
+
+          for (var field in object) {
+            console.log(field);
+            count += object[field].length;
+          }
+
+          return count;
+
+        }
+
+        console.log(JSON.stringify(self.datos));
 
         espera.hide();
 
@@ -111,16 +140,22 @@ EnvMan.Views.VerificarJob = Backbone.View.extend({
           if(registro.MOD){
 
             if (!datos[dc].update)
-              datos[dc].update = [];
+              datos[dc].update = {};
+            if (!datos[dc].update[tabla])
+              datos[dc].update[tabla] = [];
+
             window.generales.limpiarRegistro(registro);
-            datos[dc].update.push(registro);
+            datos[dc].update[tabla].push(registro);
             
           } else {
 
             if (!datos[dc].insert)
-              datos[dc].insert = [];
+              datos[dc].insert = {};
+            if (!datos[dc].insert[tabla])
+              datos[dc].insert[tabla] = [];
+
             window.generales.limpiarRegistro(registro);
-            datos[dc].insert.push(registro);
+            datos[dc].insert[tabla].push(registro);
 
           }
 
@@ -129,6 +164,7 @@ EnvMan.Views.VerificarJob = Backbone.View.extend({
       }
 
     }
+
 
     return datos;
 

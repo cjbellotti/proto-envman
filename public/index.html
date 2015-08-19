@@ -47,7 +47,7 @@
 
 		.tab-content {
 			width : 100%;
-                        height : 200px;
+      height : 100%;
 		}
 
 		.seccion-left {
@@ -108,7 +108,7 @@
 		.tab-script-content {
 
 			width : 100%;
-			height : 250px;
+			height : 100%;
 
 		}
 
@@ -246,6 +246,136 @@
       height : 60vh;
 
     }
+
+    .verif-table {
+      margin : 0;
+      padding : 0;
+      width : 100%;
+      height : 100%;
+    }
+
+    .vt-header {
+      width : 100%;
+      min-height : 20px;
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+    }
+
+    .vt-column {
+
+      display : inline-block;
+      text-align : center;
+      border : 1px solid gray;
+      min-height : 20px;
+
+    }
+
+    .vt-column-h {
+
+      font-weight : bold;
+      font-family : 'Arial';
+
+    }
+
+    .vt-body {
+
+      width : 100%;
+      height : 100%;
+      margin : 0;
+      padding : 0;
+      border : 1px solid gray;
+      overflow : hidden;
+      overflow-y : scroll;
+
+    }
+
+    .vt-body::-webkit-scrollbar {
+
+      width : 5px;
+      background : #E6E6E9;
+
+    }
+
+    .vt-body::-webkit-scrollbar-thumb {
+      background : #737374;
+    }
+
+    .vt-body-container {
+
+      width : 100%;
+      height : 100%;
+      background : #D8D8DC;
+
+    }
+
+    .vt-row {
+      vertical-align : top;
+      min-height : 20px;
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+    }
+
+    .verification-box {
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+      width : 100%;
+      height : 100%;
+      min-width : 437px;
+    }
+
+    .vb-container {
+
+      width : 100%;
+      height : 40vh;
+      border-radius : 2px;
+      border : 1px solid gray;
+      overflow : hidden;
+      overflow-y : scroll;
+
+    }
+
+    .vb-container::-webkit-scrollbar {
+          width: 5px;
+          display : inline-block;
+    }
+     
+    .vb-container::-webkit-scrollbar-track {
+          border-radius: 10px;
+          background : #CEDAE7;
+    }
+     
+    .vb-container::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background : #85A3C2;
+    }
+
+    .vb-container-content {
+      margin : 0 0 0 0;
+      padding : 0 0 0 0;
+    }
+
+    .vb-dc {
+
+      width : 20%;
+      display : inline-block;
+      vertical-align : top;
+      min-width : 83px;
+
+    }
+
+    .vb-data {
+      width : 79%;
+      display : inline-block;
+      min-width : 328px;
+
+    }
+
+    .verification-box .table {
+
+      width : 100%;
+
+    }
+
 
  	</style>
 	
@@ -577,7 +707,7 @@
 								  <li id="tabValoresCanonicos" ><a>Valores Canonicos</a></li>
 								  <li id="tabValoresSistema" ><a>Valores Sistema</a></li>
 								</ul>
-								<div class="tab-content">
+								<div class="tab-content" style="height: 87%">
 								</div>
 							</div>
 						</div>
@@ -857,7 +987,7 @@
 				<div class="modal-header">
 					<h3>Script</h3>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body" style="height: 20vh">
 					<div class="from-group">
 						<label for="despliegue">Despliegue</label>
 						<textarea id="despliegue" name="despliegue" class="form-control" style="width: 100%; height : 200px">
@@ -882,7 +1012,7 @@
 				<div class="modal-header">
 					<h3>Script</h3>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body" style="height: 56vh">
 					<div>
 						<ul class="nav nav-tabs">
 						  <li id="deploy"><a>Deploy</a></li>
