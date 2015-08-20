@@ -1,0 +1,13 @@
+<div id="tabla-dvms" style="height: 230px">
+  <ul class="nav nav-tabs">
+    {% for table in tables %}
+    <li {% if loop.first %} class="active" {% endif %}><a href="#{{ loop.key }}" data-toggle="tab">{{ loop.key }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="tab-content" style="height: 87%">
+    {% for table in tables %}
+    <div id="{{ loop.key }}" clas="tab-pane fade {% if loop.first %} in active {% endif %}">
+    </div>
+    {% endfor %}
+  </div>
+</div>
