@@ -17,7 +17,7 @@ var nombresTablas = {
 };
 
 
-function verificar(tabla, registro) {
+function verificar(tabla, registro, all) {
 
     var reg = null;
     var query = {};
@@ -57,14 +57,18 @@ function verificar(tabla, registro) {
 
     }
 
-    if (registro.IDN || registro.MOD)
+    if (all || (registro.IDN || registro.MOD)) {
+
+      registro.impacto = (!_.isUndefined(registro.IDN) || registro.MOD);
       reg = registro;
+
+    }
 
     return reg;
 
 }
 
-module.exports = function (manDB, ambiente, dc, tablas, callback){
+module.exports = function (manDB, ambiente, dc, tablas, callback, all){
 
   var result = {};
   var listaTablas = _.keys(defTablas);
@@ -92,7 +96,7 @@ module.exports = function (manDB, ambiente, dc, tablas, callback){
 
           var nombreTabla = nombresTablas[tabla];
 
-          var reg = verificar(nombreTabla, registro);
+          var reg = verificar(nombreTabla, registro, all);
           if (reg) {
 
             if (!result[tabla])

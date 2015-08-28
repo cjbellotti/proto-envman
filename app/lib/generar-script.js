@@ -173,8 +173,10 @@ function generarRollback(tabla, registro) {
 		registro.ID = registro.IDN;
 	} else if (registro.MOD) {
 		accion = "update";
-	} 
+	}
 
+  if (registro.impacto)
+    accion = "select";
 
 	DATOS.TABLA = tabla;
 	DATOS.VALORES = limpiarRegistro(registro.origenReg || registro), 

@@ -29,7 +29,7 @@ function verificar(job, callback) {
             callback();
           });
 
-      });
+      }, true);
     }, function (err) {
 
       callback(err, response);
@@ -62,29 +62,6 @@ app.post('/verificar/:id?', function (req, res) {
       });
 
     }
-    /*var response = {};
-    var job = req.body;
-    async.each(config.ambientes[job.target], function (dc, callback) {
-
-      verif(manDB, job.target, dc.name, job.registros, function (err, result) {
-
-          if (err) {
-            response.err = err;
-          } else {
-            response[dc.name] = result;
-          }
-
-          integridad(response[dc.name], function() {
-            callback();
-          });
-
-      });
-    }, function (err) {
-
-      res.json(response)
-        .end();
-
-    });*/
 
 });
 
