@@ -175,7 +175,7 @@ function generarRollback(tabla, registro) {
 		accion = "update";
 	}
 
-  if (registro.impacto)
+  if (!registro.impacto)
     accion = "select";
 
 	DATOS.TABLA = tabla;
