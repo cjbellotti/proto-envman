@@ -9,6 +9,7 @@ for (var ambiente in config.ambientes) {
   pool[ambiente] = {};
   for (var dc_index in config.ambientes[ambiente]){
 
+    var env = ambiente;
     var dc = config.ambientes[ambiente][dc_index].name;
     console.log('\t\tCreando pool de conexiones para data center %s...', dc);
     var username = config.ambientes[ambiente][dc_index].username;
@@ -26,10 +27,12 @@ for (var ambiente in config.ambientes) {
       },
       function (err, p) {
 
-        if (err)
+        console.log ('Ambiente: %s', env);
+        if (err) {
+          console.log('Error al inicializar el pool %s', env);
           console.log(err);
-        else
-          pool[ambiente][dc] = p;
+        } else
+          pool[env][dc] = p;
 
     });
   

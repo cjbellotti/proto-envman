@@ -8,6 +8,16 @@ module.exports.ambientes = {
         port : 1521,
         db_name : 'dbdesa'
       }
+    ],
+  UAT : [
+      {
+        name : "UAT",
+        username : 'DTVLA_READONLY',
+        password : 'dtvro100',
+        host : '172.22.126.50/esbdb',
+        port : 1550,
+        db_name : 'esbdb'
+      }
     ]
     /*,
   IST : [
