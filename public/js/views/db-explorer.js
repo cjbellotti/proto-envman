@@ -275,28 +275,36 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
         cargarTabla : function () {
 
-            var espera = new EnvMan.Views.Espera();
+            var self = this;
+            var espera = new EnvMan.Views.Espera({
+
+              onshow : function () {
+
+                var ambiente = self.$el.find('#ambiente').val();
+                var tabla = self.$el.find('#tabla').val();
+
+                window.job.target = ambiente;
+                window.collections.sistemas.fetchData({ async : false });
+                window.collections.entidades.fetchData({ async : false });
+                window.collections.valoresCanonicos.fetchData({ async : false });
+
+                $.get('/' + window.defTablas[tabla].alias + '/' + ambiente, function (data) {
+
+                  self.$el.find('.table-container').html('');
+                  self.$el.find('.table-container').append(self.tablas[tabla]);
+                  self.tablas[tabla].setArrayDataAsync(data, {}, function () {
+                    espera.hide();
+                  });
+
+                });
+
+              }
+
+            });
+
             espera.render();
             espera.show();
 
-            var self = this;
-            var ambiente = this.$el.find('#ambiente').val();
-            var tabla = this.$el.find('#tabla').val();
-
-            window.job.target = ambiente;
-            window.collections.sistemas.fetchData({ async : false });
-            window.collections.entidades.fetchData({ async : false });
-            window.collections.valoresCanonicos.fetchData({ async : false });
-
-            $.get('/' + window.defTablas[tabla].alias + '/' + ambiente, function (data) {
-
-              self.$el.find('.table-container').html('');
-              self.$el.find('.table-container').append(self.tablas[tabla]);
-              self.tablas[tabla].setArrayDataAsync(data, {}, function () {
-                espera.hide();
-              });
-
-            });
         }
 
 });

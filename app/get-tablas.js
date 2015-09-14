@@ -12,7 +12,8 @@ for (var ambiente in config.ambientes) {
   for (var tabla in defTablas) {
 
     // Se guarda el datasource con el alias de la tabla
-    dc[defTablas[tabla].alias] = {};
+    if (!dc[defTablas[tabla].alias])
+      dc[defTablas[tabla].alias] = {};
     dc[defTablas[tabla].alias][ambiente] = config.ambientes[ambiente][0].name;
 
     tablas[defTablas[tabla].alias] = tabla;
@@ -22,7 +23,7 @@ for (var ambiente in config.ambientes) {
     app.get(url, function (req, res) {
       
       var nombreTabla = req.url.substring(1, req.url.substring(1).indexOf('/') + 1);
-      var query = 'SELECT * FROM ' + tablas[nombreTabla] + ' ORDER BY ID';
+      var query = 'SELECT * FROM DTVLA.' + tablas[nombreTabla] + ' ORDER BY ID';
 
       mandb(req.params.ambiente, dc[nombreTabla][req.params.ambiente], query, function (err, response) {
 

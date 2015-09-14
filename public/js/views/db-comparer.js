@@ -256,25 +256,58 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
   events : {
 
-    "change #ambiente1" : "cargarAmbiente1",
-    "change #tabla1" : "cargarAmbiente1",
-    "change #ambiente2" : "cargarAmbiente2",
-    "change #tabla2" : "cargarAmbiente2"
+    "change #ambiente1" : "cargarAmbiente",
+    "change #tabla1" : "cargarTabla1",
+    "change #ambiente2" : "cargarAmbiente",
+    "change #tabla2" : "cargarTabla2"
 
   },
 
-  cargarAmbiente1 : function () {
+  cargarAmbiente : function () {
+
+    var self = this;
+    var espera = new EnvMan.Views.Espera({
+
+      onshow : function () { 
+
+        self.cargarDatos(1, function () {
+          self.cargarDatos(2, function () {
+
+            self.compararAmbientes(function () {
+
+              self.cargarTabla(1);
+              self.cargarTabla(2);
+              espera.hide();
+
+            });
+
+          });
+
+        });
+
+      }
+
+    });
+    espera.render();
+    espera.show();
+
+  },
+
+  cargarTabla1 : function () {
     var tabla = $('#tabla1').val();
     $('#tabla2').val(tabla);
     this.cargarTabla(1);
     this.cargarTabla(2);
   },
 
-  cargarAmbiente2 : function () {
+  cargarTabla2 : function () {
     var tabla = $('#tabla2').val();
     $('#tabla1').val(tabla);
     this.cargarTabla(1);
     this.cargarTabla(2);
+  },
+
+  cargarAmbiente2 : function () { 
   },
 
   render : function () {

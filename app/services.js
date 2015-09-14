@@ -9,5 +9,6 @@ app.use(require('./crud-job'));
 app.use(require('./generar-script'));
 app.use(require('./get-paises'));
 app.use(require('./get-def-tablas'));
+app.use(require('./comparar'));
 
 module.exports = app;

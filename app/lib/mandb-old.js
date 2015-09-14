@@ -1,22 +1,20 @@
 var oracledb = require('oracledb');
 var config = require('../config');
-var async = require('async');
-var _ = require('underscore');
 
 var pool = {};
 console.log('Inicializando Pool de conexiones...');
-async.eachSeries(_.keys(config.ambientes), function (ambiente, next) {
+for (var ambiente in config.ambientes) {
 
   console.log('\tCreando pool de connexiones para ambiente %s...', ambiente); 
   pool[ambiente] = {};
-  async.eachSeries(config.ambientes[ambiente], function (dataCenter, nextDC) {
+  for (var dc_index in config.ambientes[ambiente]){
 
     var env = ambiente;
-    var dc = dataCenter.name;
+    var dc = config.ambientes[ambiente][dc_index].name;
     console.log('\t\tCreando pool de conexiones para data center %s...', dc);
-    var username = dataCenter.username;
-    var password = dataCenter.password;
-    var connectString = dataCenter.host; 
+    var username = config.ambientes[ambiente][dc_index].username;
+    var password = config.ambientes[ambiente][dc_index].password;
+    var connectString = config.ambientes[ambiente][dc_index].host; 
     oracledb.createPool( 
       {
         user : username,
@@ -29,24 +27,17 @@ async.eachSeries(_.keys(config.ambientes), function (ambiente, next) {
       },
       function (err, p) {
 
-        console.log ('Ambiente: %s', ambiente);
+        console.log ('Ambiente: %s', env);
         if (err) {
-          console.log('Error al inicializar el pool %s', ambiente);
+          console.log('Error al inicializar el pool %s', env);
           console.log(err);
         } else
-          pool[ambiente][dc] = p;
-
-        nextDC();
+          pool[env][dc] = p;
 
     });
-
-  }, function () {
-
-    next();
-
-  });
-
-});
+  
+  }
+}
 
 module.exports = function (ambiente, dc, query, callback){
 

@@ -600,7 +600,12 @@ window.compararArrays = function (claves, comparar, datos1, datos2) {
 
         if (igual) {
 
-          igual = (datos1[index][field] == datos2[index][field]);
+          if (!datos1[index][field])
+            console.log (datos1[index]);
+          else if (!datos2[index])
+            console.log(datos2[index]);
+          else
+            igual = (datos1[index][field] == datos2[index][field]);
 
         }
 
