@@ -47,16 +47,24 @@ function compararArrays (claves, comparar, datos1, datos2, callback) {
   var retDatos1 = [];
   var retDatos2 = [];
 
+  var iterator = 0;
   async.eachSeries(datos1, function (item, datos1Next) {
 
-    async.eachSeries(_.keys(claves), function (field, fieldNext) {
+    console.log('--------- Iterator : %d -----------', iterator);
+    console.log (item);
 
-      claves[field] = item[field];
+    var keyFields = _.clone(claves);
+    async.eachSeries(_.keys(keyFields), function (field, fieldNext) {
+    
+      keyFields[field] = item[field];
+      console.log ('claves : %s - item : %s', keyFields[field], item[field]);
       fieldNext();
 
     }, function () {
 
-      var index2 = _.findIndex(datos2, claves);
+      console.log('Claves:');
+      console.log(keyFields);
+      var index2 = _.findIndex(datos2, keyFields);
 
       if (index2 >= 0) {
 
@@ -87,6 +95,7 @@ function compararArrays (claves, comparar, datos1, datos2, callback) {
 
     }); 
    
+    iterator++;
     datos1Next();
 
   }, function () {
