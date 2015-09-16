@@ -2,7 +2,7 @@ var defTablas = require('./tables');
 var config = require('./config');
 var mandb = require('./lib/mandb');
 var async = require('async');
-var underscore = require('underscore'):
+var _ = require('underscore');
 var app = require('express')();
 
 var dc = {};
@@ -81,7 +81,7 @@ function compararArrays (claves, comparar, datos1, datos2, callback) {
 
       } else {
         
-        faltantes.push(datos1[index]);
+        faltantes.push(item);
 
       }
 
@@ -106,7 +106,7 @@ function compararTablas(tabla, datos1, datos2, callback) {
   var faltantes1 = [];
   var faltantes2 = [];
 
-  async.eachSeries(_.keys(defTablas[tabla].campos, function (field, fieldNext) { 
+  async.eachSeries(_.keys(defTablas[tabla].campos), function (field, fieldNext) { 
 
     if (defTablas[tabla].campos[field].tipo == 'K')
       claves[field] = "";
@@ -184,21 +184,21 @@ app.get('/comparar/:tabla/:ambiente1/:ambiente2', function (req, res) {
 
     var query = 'SELECT * FROM DTVLA.' + tablas[req.params.tabla] + ' ORDER BY ID';
 
-    mandb(req.params.ambiente, dc[req.params.tabla][req.params.ambiente], query, function (err, data) {
+    mandb(req.params.ambiente1, dc[req.params.tabla][req.params.ambiente1], query, function (err, data) {
 
       if (err)
         response.err = err;
       else {
 
         var ambiente1 = data;
-        mandb(req.params.ambiente, dc[req.params.tabla][req.params.ambiente], query, function (err, data) {
+        mandb(req.params.ambiente2, dc[req.params.tabla][req.params.ambiente2], query, function (err, data) {
       
           if (err)
             response.err = err;
           else {
 
             var ambiente2 = data;
-            compararTablas(req.params.tabla, ambiente1, ambiente2, function (datos1, datos2) {
+            compararTablas(tablas[req.params.tabla], ambiente1, ambiente2, function (datos1, datos2) {
 
               response.ambiente1 = datos1;
               response.ambiente2 = datos2;
