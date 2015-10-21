@@ -5,7 +5,8 @@ EnvMan.Router = Backbone.Router.extend({
     '' : 'landing',
     'envman' : 'envman',
     'dbexplorer' : 'dbExplorer',
-    'dbcomparer' : 'dbComparer'
+    'dbcomparer' : 'dbComparer',
+    'envcomparer' : 'envComparer'
 
   },
 
@@ -45,7 +46,14 @@ EnvMan.Router = Backbone.Router.extend({
       $('#main').html(view.el);
       view.render();
 
-  }
+  },
 
+  envComparer : function () {
+
+      var view = new EnvMan.Views.EnvComparer();
+      $('#main').html(view.el);
+      view.render();
+
+  }
 });
 
