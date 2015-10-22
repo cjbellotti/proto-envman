@@ -34,6 +34,14 @@ EnvMan.Views.LandingPage = Backbone.View.extend({
 					habilitado : true,
                                         url : '#dbexplorer'
 				});
+				data.aplicaciones.push({
+					icono : "glyphicon-random",
+					nombre : "Environment Explorer",
+					descripcion : "Genera un reporte con las diferencias y faltantes de componentes entre ambientes.",
+					ruta_manual : "manual.docx",
+					habilitado : true,
+                                        url : '#envcomparer'
+				});
 				data.noticias = [];
 				data.noticias.push({
 						fecha : "16/07/2015 14:00",
