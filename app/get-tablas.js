@@ -5,6 +5,8 @@ var app = require('express')();
 
 var dc = {};
 var tablas = {};
+var esquemas = {};
+var orderBy = {};
 
 for (var ambiente in config.ambientes) {
 
@@ -18,12 +20,16 @@ for (var ambiente in config.ambientes) {
 
     tablas[defTablas[tabla].alias] = tabla;
 
+    esquemas[defTablas[tabla].alias] =  defTablas[tabla].esquema;
+    orderBy[defTablas[tabla].alias] = defTablas[tabla].orderBy;
     var url = '/' + defTablas[tabla].alias + '/:ambiente/:id?';
     console.log('\tPublicando GET %s...', url);
     app.get(url, function (req, res) {
       
       var nombreTabla = req.url.substring(1, req.url.substring(1).indexOf('/') + 1);
-      var query = 'SELECT * FROM DTVLA.' + tablas[nombreTabla] + ' ORDER BY ID';
+      // var query = 'SELECT * FROM DTVLA.' + tablas[nombreTabla] + ' ORDER BY ID';
+      var query = 'SELECT * FROM ' + esquemas[nombreTabla] + 
+                    '.' + tablas[nombreTabla] + ' ORDER BY ' + orderBy[nombreTabla];
 
       mandb(req.params.ambiente, dc[nombreTabla][req.params.ambiente], query, function (err, response) {
 

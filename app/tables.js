@@ -4,7 +4,8 @@ module.exports = {
 
   DVM_SISTEMA : {
 
-    alias : "sistema", 
+    alias : "sistema",
+    esquema : 'DTVLA',
     campos : {
       NOMBRE : {
         tipo : Tipos.Clave 
@@ -16,13 +17,15 @@ module.exports = {
         tipo : Tipos.Clave
       }
 
-    }
+    },
+    orderBy : 'ID'
 
   },
 
   DVM_ENTIDAD_CANONICA : {
 
     alias : "entidad-canonica", 
+    esquema : 'DTVLA',
     campos : {
       NOMBRE : {
         tipo : Tipos.Clave
@@ -30,13 +33,15 @@ module.exports = {
       DESCRIPCION : {
         tipo : Tipos.Normal
       }
-    }
+    },
+    orderBy : 'ID'
 
   },
 
   DVM_VALOR_CANONICO : {
   
     alias : "valor-canonico",
+    esquema : 'DTVLA',
     campos : {
       ID_ENTIDAD_CANONICA : {
         tipo : Tipos.Clave,
@@ -48,13 +53,15 @@ module.exports = {
       DESCRIPCION : {
         tipo : Tipos.Normal
       }
-    }
+    },
+    orderBy : 'ID'
 
   },
 
   DVM_VALOR_SISTEMA : {
 
     alias : "valor-sistema",
+    esquema : 'DTVLA',
     campos : {
       ID_SISTEMA : {
         tipo : Tipos.Clave,
@@ -71,7 +78,60 @@ module.exports = {
       VALOR_SISTEMA : {
         tipo : Tipos.Normal
       }
-    }
+    },
+    orderBy : 'ID'
+
+  },
+
+  TBL_HOMOLOGATIONCATEGORIES : {
+
+    alias : 'TBL_HOMOLOGATIONCATEGORIES',
+    esquema : 'DTVLA',
+    campos : {
+
+      CATEGORYID : {
+        tipo : Tipos.Clave
+      },
+      CATEGORYNAME : {
+        tipo : Tipos.Normal
+      },
+      CANONICALCATEGORYCODE : {
+        tipo : Tipos.Normal
+      }
+
+    },
+    orderBy : 'CATEGORYID'
+
+  },
+
+  TBL_HOMOLOGATIONDATA : {
+
+    alias : 'TBL_HOMOLOGATIONDATA',
+    esquema : 'DTVLA',
+    campos : {
+
+      COUNTRYID : {
+        tipo : Tipos.Clave
+      },
+      CANONICALCODE : {
+        tipo : Tipos.Clave
+      },
+      HOMOLOGATEDCONCEPT : {
+        tipo : Tipos.Normal
+      },
+      TARGETSYSTEMCODE : {
+        tipo : Tipos.Normal
+      },
+      CATEGORYID : {
+        tipo : Tipos.Normal,
+        ref : "TBL_HOMOLOGATIONCATEGORIES"
+      },
+      HOMOLOGATEDCODE : {
+        tipo : Tipos.Normal
+      }
+
+    },
+    orderBy : 'COUNTRYID, CANONICALCODE'
 
   }
 
