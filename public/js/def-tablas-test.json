@@ -1,0 +1,112 @@
+{
+  "DVM_SISTEMA": {
+    "alias": "sistema",
+    "esquema": "DTVLA",
+    "campos": {
+      "NOMBRE": {
+        "tipo": "K"
+      },
+      "DESCRIPCION": {
+        "tipo": "N"
+      },
+      "PAIS": {
+        "tipo": "K"
+      }
+    },
+    "orderBy": "ID"
+  },
+  "DVM_ENTIDAD_CANONICA": {
+    "alias": "entidad-canonica",
+    "esquema": "DTVLA",
+    "campos": {
+      "NOMBRE": {
+        "tipo": "K"
+      },
+      "DESCRIPCION": {
+        "tipo": "N"
+      }
+    },
+    "orderBy": "ID"
+  },
+  "DVM_VALOR_CANONICO": {
+    "alias": "valor-canonico",
+    "esquema": "DTVLA",
+    "campos": {
+      "ID_ENTIDAD_CANONICA": {
+        "tipo": "K",
+        "ref": "DVM_ENTIDAD_CANONICA"
+      },
+      "VALOR_CANONICO": {
+        "tipo": "K"
+      },
+      "DESCRIPCION": {
+        "tipo": "N"
+      }
+    },
+    "orderBy": "ID"
+  },
+  "DVM_VALOR_SISTEMA": {
+    "alias": "valor-sistema",
+    "esquema": "DTVLA",
+    "campos": {
+      "ID_SISTEMA": {
+        "tipo": "K",
+        "ref": "DVM_SISTEMA"
+      },
+      "ID_ENTIDAD_CANONICA": {
+        "tipo": "K",
+        "ref": "DVM_ENTIDAD_CANONICA"
+      },
+      "ID_VALOR_CANONICO": {
+        "tipo": "K",
+        "ref": "DVM_VALOR_CANONICO"
+      },
+      "VALOR_SISTEMA": {
+        "tipo": "N"
+      }
+    },
+    "orderBy": "ID"
+  },
+  "TBL_HOMOLOGATIONCATEGORIES": {
+    "alias": "TBL_HOMOLOGATIONCATEGORIES",
+    "esquema": "DTVLA",
+    "campos": {
+      "CATEGORYID": {
+        "tipo": "K"
+      },
+      "CATEGORYNAME": {
+        "tipo": "N"
+      },
+      "CANONICALCATEGORYCODE": {
+        "tipo": "N"
+      }
+    },
+    "orderBy": "CATEGORYID"
+  },
+  "TBL_HOMOLOGATIONDATA": {
+    "alias": "TBL_HOMOLOGATIONDATA",
+    "esquema": "DTVLA",
+    "campos": {
+      "COUNTRYID": {
+        "tipo": "K"
+      },
+      "CANONICALCODE": {
+        "tipo": "K"
+      },
+      "HOMOLOGATEDCONCEPT": {
+        "tipo": "N"
+      },
+      "TARGETSYSTEMCODE": {
+        "tipo": "N"
+      },
+      "CATEGORYID": {
+        "tipo": "N",
+        "ref": "TBL_HOMOLOGATIONCATEGORIES"
+      },
+      "HOMOLOGATEDCODE": {
+        "tipo": "N"
+      }
+    },
+    "orderBy": "COUNTRYID, CANONICALCODE"
+  }
+}

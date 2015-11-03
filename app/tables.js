@@ -18,7 +18,10 @@ module.exports = {
       }
 
     },
-    orderBy : 'ID'
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    }     
 
   },
 
@@ -34,7 +37,10 @@ module.exports = {
         tipo : Tipos.Normal
       }
     },
-    orderBy : 'ID'
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    }     
 
   },
 
@@ -54,7 +60,10 @@ module.exports = {
         tipo : Tipos.Normal
       }
     },
-    orderBy : 'ID'
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    }     
 
   },
 
@@ -79,7 +88,10 @@ module.exports = {
         tipo : Tipos.Normal
       }
     },
-    orderBy : 'ID'
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    } 
 
   },
 
@@ -100,7 +112,10 @@ module.exports = {
       }
 
     },
-    orderBy : 'CATEGORYID'
+    orderBy : 'CATEGORYID',
+    claves : { 
+      "CATEGORYID" : Tipos.Numerico
+    } 
 
   },
 
@@ -131,7 +146,11 @@ module.exports = {
       }
 
     },
-    orderBy : 'COUNTRYID, CANONICALCODE'
+    orderBy : 'COUNTRYID, CANONICALCODE',
+    claves : { 
+      "COUNTRYID" : Tipos.Cadena,
+      "CANONICALCODE" : Tipos.Cadena
+    } 
 
   }
 
