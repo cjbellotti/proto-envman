@@ -17,9 +17,7 @@ EnvMan.Views.Espera = Backbone.View.extend({
 				this.onshow = config.onshow;
 
 		}
-
-		this.template = swig.compile( $('#espera-template').html());
-
+		this.template = swig.compile(getTemplate('templates/espera.html'))
 	},
 
 

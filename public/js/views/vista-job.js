@@ -8,8 +8,7 @@ EnvMan.Views.Job = Backbone.View.extend({
 
 	initialize : function () {
 	
-		this.template = swig.compile( $('#job-screen-template').html() );
-
+		this.template = swig.compile(getTemplate('templates/job-screen.html'));
 		window.collections.sistemas.reset();
 		window.collections.entidades.reset();
 		window.collections.valoresCanonicos.reset();

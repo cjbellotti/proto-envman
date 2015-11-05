@@ -8,8 +8,7 @@ EnvMan.Views.SistemaImportar = Backbone.View.extend({
 
 	initialize : function (config) {
 
-		this.template = swig.compile( $('#sistema-importar-template').html() );
-
+		this.template = swig.compile(getTemplate('templates/sistema-importar.html'))
 		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
 		this.env = config.env;
 

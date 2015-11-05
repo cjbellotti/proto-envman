@@ -7,8 +7,6 @@ EnvMan.Views.Sistema = Backbone.View.extend({
 	},
 
 	initialize : function () {
-
-		//this.template = swig.compile( $('#sistema-screen-template').html());
 		this.template = swig.compile( getTemplate('templates/sistema.html'));
 
 	},

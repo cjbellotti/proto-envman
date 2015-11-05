@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<div class="media">
+					<div class="media-left media-middle">
+							<img src="img/dtv-logo.png"></img>
+					</div>
+					<div class="media-body">
+						<h1>Administracion</h1>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+		<div class="col-md-8">
+				<h2>Aplicacion</h2>
+		</div>
+		<div class="col-md-4">
+				<h2>Noticias</h2>
+		</div>
+		<div class="col-md-8">
+		  <div class="list-group landing-list">
+			{% for aplicacion in aplicaciones %}
+				<a href="{{ aplicacion.url }}" class="list-group-item">
+				  <div class="media">
+					  <div class="media-left media-middle">
+						  <div class="glyphicon {{ aplicacion.icono }}" style="font-size : 4em"></div>
+					  </div>
+					  <div class="media-body">
+						  <h3>{{ aplicacion.nombre }}</h3>
+						  <p>{{ aplicacion.descripcion }}</p>
+					  </div>
+				  </div>
+				</a>
+			{% endfor %}
+		  </div>
+		</div>
+		<div class="col-md-4">
+			<div class="list-group landing-list">
+				{% for noticia in noticias %}
+				<div class="list-group-item">
+				  <h4>{{ noticia.fecha }}</h4>
+				  <p>{{ noticia.texto }}</p>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+			</div>
+			<div class="panel-footer" style="height : 7vh">
+		<div class="download-manual">
+		  <a href="#">
+			<div class="glyphicon glyphicon-download-alt"></div>
+			<h3>Descargar Manual</h3>
+		  </a>
+		</div>
+			</div>
+		</div>
+	</body>
+</html>

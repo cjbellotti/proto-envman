@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1>Valor Sistema</h1>		
+					</div>
+					<div class="modal-body">
+						<div action="" class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="pais-sel" class="col-lg-2 control-label">Pais</label>
+								<div class="col-lg-10">
+									<select id="pais-sel" name="pais-sel" class="form-control">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="sistema" class="col-lg-2 control-label">Sistema</label>
+								<div class="col-lg-10">
+									<select id="sistema" name="sistema" class="form-control">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="entidad" class="col-lg-2 control-label">Entidad</label>
+								<div class="col-lg-10">
+									<select id="entidad" name="entidad" class="form-control">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="valor-canonico" class="col-lg-2 control-label">Valor Canonico</label>
+								<div class="col-lg-10">
+									<select id="valor-canonico" name="valor-canonico" class="form-control">
+										<option>Seleccione una Entidad</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="valor-sistema" class="col-lg-2 control-label">Valor Sistema</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="valor-sistema" name="valor-sistema" maxlength="100" value="{{ VALOR_SISTEMA }}"></input>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="aceptar" class="btn btn-primary">Aceptar</button>
+						<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

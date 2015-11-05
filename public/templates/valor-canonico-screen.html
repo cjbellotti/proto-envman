@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>Valor Canonico</h1>		
+				</div>
+				<div class="modal-body">
+					<div action="" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="entidad" class="col-lg-2 control-label">Entidad</label>
+							<div class="col-lg-10">
+								<select id="entidad" name="entidad" class="form-control">
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="valor-canonico" class="col-lg-2 control-label">Valor Canonico</label>
+							<div class="col-lg-10"><input type="text" class="form-control" id="valor-canonico" name="valor-canonico" maxlength="100" value="{{ VALOR_CANONICO }}"></div>
+						</div>
+						<div class="form-group">
+							<label for="descripcion" class="col-lg-2 control-label">Descripcion</label>
+							<div class="col-lg-10">
+								<textarea class="form-control" id="descripcion" name="descripcion" maxlength="100">{{ DESCRIPCION }}</textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="aceptar" class="btn btn-primary">Aceptar</button>
+					<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+

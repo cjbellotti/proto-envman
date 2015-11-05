@@ -2,7 +2,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 
   initialize : function () {
 
-    this.template = swig.compile( $('#lista-job-template').html());
+    this.template = swig.compile(getTemplate('templates/lista-job.html'));
     this.listenTo(collections.jobs, 'reset', this.render, this);
 
     var config = {};

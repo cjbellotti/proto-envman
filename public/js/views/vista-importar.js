@@ -7,7 +7,7 @@ EnvMan.Views.ImportarArchivo = Backbone.View.extend({
 	},
 
 	initialize : function () {
-		this.template = swig.compile( $('#importar-window-template').html());
+		this.template = swig.compile(getTemplate('templates/importar-window.html'));
 	},
 	
 	events : {

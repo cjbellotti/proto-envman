@@ -3,8 +3,7 @@ EnvMan.Views.Script = Backbone.View.extend({
 		initialize : function (data) {
 
 				this.data = data;
-				this.template = swig.compile($('#script-template').html());
-
+				this.template = swig.compile(getTemplate('templates/script.html'));
 		},
 
 		events : {

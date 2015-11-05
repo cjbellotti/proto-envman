@@ -7,9 +7,8 @@ EnvMan.Views.ValorCanonicoImportar = Backbone.View.extend({
 	},
 
 	initialize : function (config) {
-
-		this.template = swig.compile( $('#valor-canonico-importar-template').html() );
-
+		
+		this.template = swig.compile(getTemplate('templates/valor-canonico-importar.html'));
 		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
 		this.env = config.env;
 

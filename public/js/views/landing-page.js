@@ -1,9 +1,7 @@
 EnvMan.Views.LandingPage = Backbone.View.extend({
 
 		initialize : function () {
-	
-			this.template = swig.compile( $('#landing-page-template').html() );
-
+			this.template = swig.compile(getTemplate('templates/landing-page.html'))
 		},
 
 		render : function () {
