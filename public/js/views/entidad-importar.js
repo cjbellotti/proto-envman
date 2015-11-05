@@ -7,9 +7,7 @@ EnvMan.Views.EntidadImportar = Backbone.View.extend({
 	},
 
 	initialize : function (config) {
-
-		this.template = swig.compile( $('#entidad-importar-template').html() );
-
+		this.template = swig.compile(getTemplate('templates/entidad-importar.html'));
 		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
 		this.env = config.env;
 

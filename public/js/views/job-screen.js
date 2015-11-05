@@ -17,11 +17,15 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		"click .siguiente-fase" : "siguienteFase",
 		"click #aceptar" : "guardar",
 		"click #verificar" : "verificar",
-		"click #importar" : "importar"
+		"click #importar" : "importar",
+		"click #dvmSistema" : "mostrarTablaSistemas",
+		"click #dvmEntidadCanonica" : "mostrarTablaEntidades",
+		"click #dvmValorCanonico" : "mostrarTablaValorCanonico",
+		"click #dvmValorSistema" : "mostrarTablaValorSistema",
+		"click #tblResponseMCatalog" :"mostrarTablaTblResponse"
 	},
 
 	faseAnterior : function (e) {
-
 		e.preventDefault();
 		var index = window.Fases.indexOf(window.job.target);
 		if (index >= 0) {
@@ -305,6 +309,10 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		this.$el.find('.tab-content').html('');
 		this.$el.find('.tab-content').append(valorCanonicoTable.el);
 
+	},
+
+	mostrarTablaTblResponse:function(e){
+		
 	},
 
 	guardar : function (e) {

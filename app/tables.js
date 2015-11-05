@@ -4,7 +4,7 @@ module.exports = {
 
   DVM_SISTEMA : {
 
-    alias : "sistema",
+    alias : "DVM_SISTEMA",
     esquema : 'DTVLA',
     campos : {
       NOMBRE : {
@@ -27,7 +27,7 @@ module.exports = {
 
   DVM_ENTIDAD_CANONICA : {
 
-    alias : "entidad-canonica", 
+    alias : "DVM_ENTIDAD_CANONICA", 
     esquema : 'DTVLA',
     campos : {
       NOMBRE : {
@@ -46,7 +46,7 @@ module.exports = {
 
   DVM_VALOR_CANONICO : {
   
-    alias : "valor-canonico",
+    alias : "DVM_VALOR_CANONICO",
     esquema : 'DTVLA',
     campos : {
       ID_ENTIDAD_CANONICA : {
@@ -72,7 +72,7 @@ module.exports = {
 
   DVM_VALOR_SISTEMA : {
 
-    alias : "valor-sistema",
+    alias : "DVM_VALOR_SISTEMA",
     esquema : 'DTVLA',
     campos : {
       ID_SISTEMA : {
