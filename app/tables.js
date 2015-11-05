@@ -51,7 +51,10 @@ module.exports = {
     campos : {
       ID_ENTIDAD_CANONICA : {
         tipo : Tipos.Clave,
-        ref : "DVM_ENTIDAD_CANONICA"
+        ref : "DVM_ENTIDAD_CANONICA",
+        camposRef : [ 
+          "ID"
+        ] 
       },
       VALOR_CANONICO : {
         tipo : Tipos.Clave
@@ -74,15 +77,24 @@ module.exports = {
     campos : {
       ID_SISTEMA : {
         tipo : Tipos.Clave,
-        ref : "DVM_SISTEMA"
+        ref : "DVM_SISTEMA",
+        camposRef : [
+          "ID"    
+        ]
       },
       ID_ENTIDAD_CANONICA : {
         tipo : Tipos.Clave,
-        ref : "DVM_ENTIDAD_CANONICA"
+        ref : "DVM_ENTIDAD_CANONICA",
+        camposRef : [
+          "ID"
+        ]
       },
       ID_VALOR_CANONICO : {
         tipo : Tipos.Clave,
-        ref : "DVM_VALOR_CANONICO"
+        ref : "DVM_VALOR_CANONICO",
+        camposRef : [
+          "ID"
+        ]
       },
       VALOR_SISTEMA : {
         tipo : Tipos.Normal
@@ -139,7 +151,10 @@ module.exports = {
       },
       CATEGORYID : {
         tipo : Tipos.Normal,
-        ref : "TBL_HOMOLOGATIONCATEGORIES"
+        ref : "TBL_HOMOLOGATIONCATEGORIES",
+        camposRef : [
+          "CATEGORYID"
+        ]
       },
       HOMOLOGATEDCODE : {
         tipo : Tipos.Normal
