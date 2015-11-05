@@ -3,7 +3,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
   initialize : function () {
 
     this.template = swig.compile(getTemplate('templates/lista-job.html'));
-    this.listenTo(collections.jobs, 'reset', this.render, this);
+    this.listenTo(window.jobs, 'reset', this.render, this);
 
     var config = {};
     //config.headers = [];
@@ -113,7 +113,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
     {
       case 'fecha':
 
-        var tmpJobArray = collections.jobs.toJSON();
+        var tmpJobArray = window.jobs.toJSON();
         tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
           //return o.fecha || Date.now();
@@ -134,7 +134,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 
       case 'proyecto':
 
-        var tmpJobArray = collections.jobs.toJSON();
+        var tmpJobArray = window.jobs.toJSON();
         tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
           return o.proyecto;
@@ -168,7 +168,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
     {
       case 'fecha':
 
-        var tmpJobArray = collections.jobs.toJSON();
+        var tmpJobArray = window.jobs.toJSON();
         tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
           return o.fecha;
@@ -190,7 +190,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
 
       case 'proyecto':
 
-        var tmpJobArray = collections.jobs.toJSON();
+        var tmpJobArray = window.jobs.toJSON();
         tmpJobArray = _.sortBy(tmpJobArray, function (o) {
 
           return o.proyecto;
@@ -231,10 +231,10 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
   render : function () {
 
     var self = this;
-    var xhr = collections.jobs.fetch();
+    var xhr = window.jobs.fetch();
     xhr.done(function () {
 
-      var tmpJobArray = collections.jobs.toJSON();
+      var tmpJobArray = window.jobs.toJSON();
 
       var arrayData = [];
 

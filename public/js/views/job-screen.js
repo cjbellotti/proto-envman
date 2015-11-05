@@ -201,7 +201,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 			var nombre = content;
 			if (field == "ID_ENTIDAD_CANONICA"){
 
-				var entidad = window.collections.entidades.get(content);
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA',{ ID : content});
 				if (!entidad)
 					nombre = "Entidad " + content + " inexistente.";
 				else
@@ -209,7 +209,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 			} else if (field == "ID_SISTEMA") {
 
-				var sistema = window.collections.sistemas.get(content);
+				var sistema = window.manageData.get('DVM_SISTEMA', { ID : content });
 				if (!sistema)
 					nombre = "Sistema " + content + " inexistente.";
 				else
@@ -217,7 +217,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 			} else if (field == "ID_VALOR_CANONICO") {
 
-				var valorCanonico = window.collections.valoresCanonicos.get(content);
+				var valorCanonico = window.manageData.get('DVM_VALOR_CANONICO', { ID : content });
 				if (!valorCanonico)
 					nombre = "Valor Canonico " + content + " inexistente.";
 				else
@@ -225,7 +225,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 			} else if (field == 'PAIS') {
 
-				var sistema = window.collections.sistemas.get(rowData.ID_SISTEMA);
+				var sistema = window.manageData.get('DVM_SISTEMA', { ID : rowData.ID_SISTEMA });
 				if (!sistema)
 					nombre = "Sin Pais";
 				else
@@ -289,7 +289,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 			var nombre = content;
 			if (field == "ID_ENTIDAD_CANONICA"){
 
-				var entidad = window.collections.entidades.get(content);
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA', { ID : content });
 
 				if (!entidad)
 					nombre = "Entidad " + content + " inexistente.";

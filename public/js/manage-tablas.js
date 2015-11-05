@@ -31,6 +31,29 @@ function CrearManageTablas(definiciones) {
 
   }
 
+  // Ejecuta el metodo fetch de todas las colecciones pasando el parametro objeto como parametro
+  // al metodo fetch de cada coleccion.
+  manager.fetch = function (object) {
+
+    for (var coleccion in manager.colecciones) {
+
+      manager.colecciones[coleccion].fetch(object);
+
+    }
+
+  }
+
+  manager.get = function (tabla, claves) {
+
+    var registro = null;
+    var res = manager.colecciones[tabla].where(claves);
+    if (res.length > 0)
+      registro = res[0];
+
+    return registro;
+
+  }
+
   // A partir de la tabla y datos para la clave obtiene todos los registros vinculados
   manager.resolverDependencias = function (tabla, clave) {
 
