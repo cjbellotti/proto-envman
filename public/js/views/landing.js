@@ -1,8 +1,8 @@
-App.Views.Landing = Backbone.View.extend({
+EnvMan.Views.Landing = Backbone.View.extend({
 	
 		initialize: function (data){
 										
-			this.template= swig.compile(getTemplate('templates/landing-page.html');
+			this.template= swig.compile(getTemplate('templates/landing-page.html'));
 			this.data= data;
 			
 		},

@@ -1,0 +1,33 @@
+{ 
+	"grupo1" : [ 
+	{ 
+			icon : "ok",
+			titulo : "Aplicacion 1",
+			url : "/aplicacion1"
+	},
+	{ 
+		icon : "asterisk",
+       		titulo : "Aplicacion 2",
+      		url : "/aplicacion2"
+	}
+	],
+	grupo2 : [ 
+	{ 
+		icon : "remove",
+       		titulo : "Aplicacion 1",
+       		url : "/aplicacion1"
+	},
+	{ 
+		icon : "off",
+      		 titulo : "Aplicacion 2",
+      		 url : "/aplicacion2"
+	}
+	],
+	grupo3 : [ 
+	{ 
+		icon : "refresh",
+      		 titulo : "Aplicacion 3",
+       		url : "/aplicacion1"
+	}
+	]
+}

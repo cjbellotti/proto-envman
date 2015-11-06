@@ -10,5 +10,6 @@ app.use(require('./generar-script'));
 app.use(require('./get-paises'));
 app.use(require('./get-def-tablas'));
 app.use(require('./comparar'));
+app.use(require('./get-aplicaciones'));
 
 module.exports = app;
