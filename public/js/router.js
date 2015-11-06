@@ -12,7 +12,7 @@ EnvMan.Router = Backbone.Router.extend({
 
   landing : function () {
 
-      var view = new EnvMan.Views.LandingPage();
+      var view = new EnvMan.Views.Landing();
       $('#main').html(view.el);
       view.render();
 
