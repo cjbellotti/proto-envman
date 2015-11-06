@@ -4,12 +4,12 @@ var async = require('async');
 var _ = require('underscore');
 
 /* Momentaneo por diferencias entre los nombres de las tablas utilizados en el frontend*/
-var nombresTablas = {
+/*var nombresTablas = {
   sistema : "DVM_SISTEMA",
   entidadcanonica : "DVM_ENTIDAD_CANONICA",
   valorcanonico : "DVM_VALOR_CANONICO",
   valorsistema : "DVM_VALOR_SISTEMA"
-};
+};*/
 
 function actualizarIntegridad (registros, ref, id, idn, callback) {
 
@@ -17,12 +17,12 @@ function actualizarIntegridad (registros, ref, id, idn, callback) {
 
       async.each(registros[tabla], function (registro, callbackNext) {
 
-          var nombreTabla = nombresTablas[tabla];
+          //var nombreTabla = nombresTablas[tabla];
 
-          for (var field in defTablas[nombreTabla].campos) {
+          for (var field in defTablas[tabla].campos) {
 
-            if (defTablas[nombreTabla].campos[field].ref)
-              if (defTablas[nombreTabla].campos[field].ref == ref &&
+            if (defTablas[tabla].campos[field].ref)
+              if (defTablas[tabla].campos[field].ref == ref &&
                   registro[field] == id)
                 registro[field] = idn;
             

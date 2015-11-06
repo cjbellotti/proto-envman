@@ -228,7 +228,7 @@ window.generales.crearNuevoJob = function () {
 
 }
 
-window.generales.cargarColecciones = function () {
+/*window.generales.cargarColecciones = function () {
 
 	for (var tabla in window.job.registros) {
 
@@ -295,7 +295,39 @@ window.generales.cargarColecciones = function () {
 
 	}
 
+}*/
+
+window.generales.cargarColeccionesV2 = function () {
+
+  for ( var tabla in window.job.registros) {
+
+    for ( var index in window.job.registros[tabla] ) {
+
+      var registro = window.job.registros[tabla][index];
+      var query = {};
+			for (var field in registro) {
+
+				if (field != 'ID' && field != 'DESCRIPCION')
+					query[field] = registro[field];
+
+			}
+
+      var model = window.manageData.colecciones[tabla].where(query);
+      //var model = window.collections.valoresSistema.where(query);
+      if (model != null && model.length > 0) {
+        window.manageData.colecciones[tabla].set(new window.manageData.colecciones[tabla].model(registro), { remove : false });
+        //window.collections.valoresSistema.set(new EnvMan.Models.ValorCanonico(registro), { remove : false});
+      } else {
+        window.manageData.colecciones[tabla].add(new window.manageData.colecciones[tabla].model(registro));
+        //window.collections.valoresSistema.add(new EnvMan.Models.ValorCanonico(registro));
+      }
+
+    }
+
+  }
+
 }
+
 
 window.generales.limpiarRegistros = function (registros) {
 

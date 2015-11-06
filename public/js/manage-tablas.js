@@ -11,7 +11,7 @@ function CrearManageTablas(definiciones) {
     var model = Backbone.Model.extend({
 
       baseURL : url,
-      table : tabla,
+      tabla : tabla,
       url : function () {
 
         var url = this.baseURL + '/' + window.job.target;
@@ -51,6 +51,13 @@ function CrearManageTablas(definiciones) {
       registro = res[0];
 
     return registro;
+
+  }
+
+  manager.reset = function () {
+
+    for  ( var tabla in manager.colecciones )
+      manager.colecciones[tabla].reset();
 
   }
 

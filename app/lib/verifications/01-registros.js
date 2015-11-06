@@ -79,11 +79,23 @@ module.exports = function (manDB, ambiente, dc, tablas, callback, all){
 
   async.each(listaTablas, function (tabla, callback) {
 
-     var query = 'select * from DTVLA.' + tabla;
+     var query = 'select * from ' + defTablas[tabla].esquema + '.' + tabla;
      manDB(ambiente, dc, query, function (err, result) {
+        console.log('>> Carga dbData >> %s', tabla);
        dbData[tabla] = result;
        dbData[tabla].sort(function (a, b) {
-          return (a.ID - b.ID);
+
+          var resultado = 0;
+          var dato1 = "";
+          var dato2 = "";
+          for (var field in defTablas[tabla].claves) {
+
+              dato1 += a[field].toString();
+              dato2 += b[field].toString();
+
+          }
+          return (dato1 < dato2)? 1 : (dato1 == dato2)? 0 : -1;
+
        });
        callback(err);
      });
@@ -94,9 +106,10 @@ module.exports = function (manDB, ambiente, dc, tablas, callback, all){
 
         async.each(tablas[tabla], function (registro, callback) {
 
-          var nombreTabla = nombresTablas[tabla];
+          //var nombreTabla = nombresTablas[tabla];
 
-          var reg = verificar(nombreTabla, registro, all);
+          //var reg = verificar(nombreTabla, registro, all);
+          var reg = verificar(tabla, registro, all);
           if (reg) {
 
             if (!result[tabla])
