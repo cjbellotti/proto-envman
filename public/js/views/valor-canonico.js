@@ -7,8 +7,8 @@ EnvMan.Views.ValorCanonico = Backbone.View.extend({
 	},
 
 	initialize : function () {
-
-		this.template = swig.compile( $('#valor-canonico-screen-template').html());
+		
+		this.template = swig.compile(getTemplate('templates/valor-canonico-screen.html'));
 		this.listenTo(window.collections.entidades, 'add', this.renderItemComboEntidad);
 
 	},

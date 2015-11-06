@@ -2,7 +2,7 @@ EnvMan.Views.TablasAmbiente = Backbone.View.extend({
 
 	initialize : function (tablasAmbiente) {
 
-		this.template = swig.compile( $('#tablas-ambiente-template').html() );
+		this.template = swig.compile(getTemplate('templates/tablas-ambiente.html'));
 		this.tablasAmbiente = tablasAmbiente;
 
 	},

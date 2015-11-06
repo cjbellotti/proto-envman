@@ -5,8 +5,7 @@ EnvMan.Views.JobTable = Backbone.View.extend({
 
 	initialize : function (config) {
 
-		this.jobTableTemplate = swig.compile( $('#jobs-table-template').html() );
-
+		this.jobTableTemplate =swig.compile(getTemplate('templates/job-table.html')); 
 		var configTable = {};
 		configTable.headers = config.headers;
 

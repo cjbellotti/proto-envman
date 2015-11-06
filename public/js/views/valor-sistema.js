@@ -8,7 +8,7 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
 	initialize : function () {
 
-		this.template = swig.compile( $('#valor-sistema-screen-template').html());
+		this.template = swig.compile(getTemplate('templates/valor-sistema-screen.html'));
 		this.listenTo(window.collections.sistemas, 'add', this.renderItemComboSistema);
 		this.listenTo(window.collections.entidades, 'add', this.renderItemComboEntidad);
 		this.listenTo(window.collections.valoresCanonicos, 'add', this.renderItemComboValorCanonico);

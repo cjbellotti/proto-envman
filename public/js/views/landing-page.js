@@ -1,9 +1,7 @@
 EnvMan.Views.LandingPage = Backbone.View.extend({
 
 		initialize : function () {
-	
-			this.template = swig.compile( $('#landing-page-template').html() );
-
+			this.template = swig.compile(getTemplate('templates/landing-page.html'))
 		},
 
 		render : function () {
@@ -33,6 +31,14 @@ EnvMan.Views.LandingPage = Backbone.View.extend({
 					ruta_manual : "manual.docx",
 					habilitado : true,
                                         url : '#dbexplorer'
+				});
+				data.aplicaciones.push({
+					icono : "glyphicon-random",
+					nombre : "Environment Explorer",
+					descripcion : "Genera un reporte con las diferencias y faltantes de componentes entre ambientes.",
+					ruta_manual : "manual.docx",
+					habilitado : true,
+                                        url : '#envcomparer'
 				});
 				data.noticias = [];
 				data.noticias.push({

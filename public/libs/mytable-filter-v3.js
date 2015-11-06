@@ -321,7 +321,7 @@ function MyTable(config) {
     var data = {};
     var limite = loadFrom + loadLimit;
 
-    for (;loadFrom < self.arrayDataView.length && loadFrom < limite; loadFrom++) {
+    for (;(loadFrom < self.arrayDataView.length) && (loadFrom < limite); loadFrom++) {
 
       if (loadFrom < self.arrayDataView.length) {
         data = self.arrayDataView[loadFrom];

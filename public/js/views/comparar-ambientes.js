@@ -10,7 +10,7 @@ EnvMan.Views.CompararAmbientes = Backbone.View.extend({
 
 		window.generales.crearTablas(this.ambiente1);
 		window.generales.crearTablas(this.ambiente2);
-		this.template = swig.compile ( $('#comparacion-ambientes-template').html() );
+		this.template = swig.compile(getTemplate('templates/comparacion-ambientes.html'))
 		this.ambiente1View = new EnvMan.Views.TablasAmbiente(this.ambiente1); 
 		this.ambiente2View = new EnvMan.Views.TablasAmbiente(this.ambiente2); 
 

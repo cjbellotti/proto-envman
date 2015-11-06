@@ -257,6 +257,81 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
                 config.filterable = true;
 		this.tablas.DVM_VALOR_SISTEMA = MyTable(config);
 
+                config.headers = {};
+                config.headers['Category Id'] = {
+                  style : {
+                    width : '6%'
+                  },
+                  dataField : 'CATEGORYID'
+                };
+                config.headers['Category Name'] = {
+                  style : {
+                    width : '40%'
+                  },
+                  dataField : 'CATEGORYNAME'
+                };
+                config.headers['Canonical Category Code'] = {
+                  style : {
+                    width : '30%'
+                  },
+                  dataField : 'CANONICALCATEGORYCODE'
+                };
+                config.processCell = function (field, content) {
+
+                  var nombre = content;
+                  return nombre;
+
+                };
+
+                config.filterable = true;
+		this.tablas.TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
+
+                config.headers = {};
+                config.headers['Country Id'] = {
+                  style : {
+                    width : '6%' 
+                  },
+                  dataField : 'COUNTRYID'
+                };
+                config.headers['Canonical Code'] = {
+                  style : {
+                    width : '24%'
+                  },
+                  dataField : 'CANONICALCODE'
+                };
+                config.headers['Homologated Concept'] = {
+                  style : {
+                    width : '20%'
+                  },
+                  dataField : 'HOMOLOGATEDCONCEPT'
+                };
+                config.headers['Target System Code'] = {
+                  style : {
+                    width : '10%'
+                  },
+                  dataField : 'TARGETSYSTEMCODE'
+                };
+                config.headers['Category Id'] = {
+                  style : {
+                    width : '20%'
+                  },
+                  dataField : 'CATEGORYID'
+                };
+                config.headers['Homologated Code'] = {
+                  style : {
+                    width : '19%'
+                  },
+                  dataField : 'HOMOLOGATEDCODE'
+                };
+                config.processCell = function (field, content) {
+
+                  var nombre = content;
+                  return nombre;
+
+                };
+
+                config.filterable = true;
+		this.tablas.TBL_HOMOLOGATIONDATA = MyTable(config);
 	},
 
         events : {

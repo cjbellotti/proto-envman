@@ -9,8 +9,7 @@ EnvMan.Views.VerScript = Backbone.View.extend({
 	initialize : function (data) {
 
 		this.data = data;
-		this.template = swig.compile( $('#ver-script-v2-template').html() );
-
+		this.template = swig.compile(getTemplate('templates/ver-script-v2.html'));
 	},
 
 	events : {

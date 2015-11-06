@@ -12,6 +12,8 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       this.tablas[n].entidades = new EnvMan.Collections.Entidades();
       this.tablas[n].valoresCanonicos = new EnvMan.Collections.ValoresCanonicos();
       this.tablas[n].valoresSistema = new EnvMan.Collections.ValoresSistema();
+      this.tablas[n].tblHomologationCategories = new EnvMan.Collections.TblHomologationCategories();
+      this.tablas[n].tblHomologationData = new EnvMan.Collections.TblHomologationData();
 
     }
 
@@ -58,7 +60,6 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     this.tablas[0].DVM_SISTEMA.coleccion = this.tablas[0].sistemas;
     this.tablas[1].DVM_SISTEMA.coleccion = this.tablas[1].sistemas;
-
 
     config = {};
     config.headers = {};
@@ -252,6 +253,90 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     this.tablas[0].DVM_VALOR_SISTEMA.coleccion = this.tablas[0].valoresSistema;
     this.tablas[1].DVM_VALOR_SISTEMA.coleccion = this.tablas[1].valoresSistema;
 
+    var config = {};
+    config.headers = {};
+    config.headers['Category Id'] = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'CATEGORYID'
+    };
+    config.headers['Category Name'] = {
+      style : {
+        width : '40%'
+      },
+      dataField : 'CATEGORYNAME'
+    };
+    config.headers['Canonical Category Code'] = {
+      style : {
+        width : '30%'
+      },
+      dataField : 'CANONICALCATEGORYCODE'
+    };
+    config.processCell = function (field, content) {
+
+      var nombre = content;
+      return nombre;
+
+    };
+
+    config.filterable = true;
+    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
+    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
+
+    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[0].tblHomologationCategories;
+    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[1].tblHomologationCategories;
+
+    config.headers = {};
+    config.headers['Country Id'] = {
+      style : {
+        width : '6%' 
+      },
+      dataField : 'COUNTRYID'
+    };
+    config.headers['Canonical Code'] = {
+      style : {
+        width : '24%'
+      },
+      dataField : 'CANONICALCODE'
+    };
+    config.headers['Homologated Concept'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'HOMOLOGATEDCONCEPT'
+    };
+    config.headers['Target System Code'] = {
+      style : {
+        width : '10%'
+      },
+      dataField : 'TARGETSYSTEMCODE'
+    };
+    config.headers['Category Id'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'CATEGORYID'
+    };
+    config.headers['Homologated Code'] = {
+      style : {
+        width : '19%'
+      },
+      dataField : 'HOMOLOGATEDCODE'
+    };
+    config.processCell = function (field, content) {
+
+      var nombre = content;
+      return nombre;
+
+    };
+
+    config.filterable = true;
+    this.tablas[0].TBL_HOMOLOGATIONDATA = MyTable(config);
+    this.tablas[1].TBL_HOMOLOGATIONDATA = MyTable(config);
+
+    this.tablas[0].TBL_HOMOLOGATIONDATA.coleccion = this.tablas[0].tblHomologationData;
+    this.tablas[1].TBL_HOMOLOGATIONDATA.coleccion = this.tablas[1].tblHomologationData;
   },
 
   events : {
