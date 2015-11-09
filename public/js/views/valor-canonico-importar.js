@@ -13,11 +13,7 @@ EnvMan.Views.ValorCanonicoImportar = Backbone.View.extend({
 		this.env = config.env;
 
 		var config = {}
-		//config.headers = [];
-		//config.headers.push("ID");
-		//config.headers.push("ID_ENTIDAD_CANONICA");
-		//config.headers.push("DESCRIPCION");
-		//config.headers.push("VALOR_CANONICO");
+    config.tableName = "DVM_VALOR_CANONICO";
     config.headers = {};
     config.headers.Id = {
       style : {
@@ -49,7 +45,7 @@ EnvMan.Views.ValorCanonicoImportar = Backbone.View.extend({
 			var nombre = content;
 			if (field == "ID_ENTIDAD_CANONICA"){
 
-				var entidad = window.collections.entidades.get(content);
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA',{ ID : content});
 				if (entidad)
 					nombre = entidad.get('NOMBRE');
 				else
@@ -85,29 +81,24 @@ EnvMan.Views.ValorCanonicoImportar = Backbone.View.extend({
 			var ambiente = this.$el.find('#ambiente').val();
 			var entidad = this.$el.find('#id-entidad').val();
 
-			var self = this;
-			var espera = new EnvMan.Views.Espera({
-
-					onshow : function () {
-							lista = window.generales.datos.valoresCanonicos(ambiente);
-							var arrayData = [];
-							for (var index in lista) {
-								if ((_.findIndex(job.registros.sistema, lista[index]) < 0 &&
-												lista[index].ID_ENTIDAD_CANONICA == entidad) || entidad == '*')
-									arrayData.push(lista[index]);
-							}
-
-							self.table.setArrayData(arrayData);
-							espera.hide();
-
-					},
-
-					onclose : function () {
-					}
-			});
-			$('#models').append(espera.el);
+			var espera = new EnvMan.Views.Espera();
+			$('#modals').append(espera.el);
 			espera.render();
 			espera.show();
+      var self = this;
+      window.generales.datosTabla('DVM_VALOR_CANONICO', ambiente, function (lista) {
+
+          var arrayData = [];
+          for (var index in lista) {
+            if ((_.findIndex(job.registros.sistema, lista[index]) < 0 &&
+                    lista[index].ID_ENTIDAD_CANONICA == entidad) || entidad == '*')
+              arrayData.push(lista[index]);
+          }
+
+          self.table.setArrayData(arrayData);
+          espera.hide();
+
+      });
 			
 	},
 

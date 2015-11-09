@@ -403,6 +403,25 @@ window.generales.obtenerDatos = function (Coleccion, url) {
 
 }
 
+window.generales.datosTabla = function (tabla, ambiente, callback) {
+
+  var url = '/' + tabla + '/' + ambiente;
+	var coleccion = window.manageData.colecciones[tabla].clone();
+  coleccion.reset();
+  coleccion.url = url;
+
+	coleccion.fetch({ 
+
+    success : function () {
+
+      callback(coleccion.toJSON());
+
+    }
+
+  });
+	
+}
+
 window.generales.datos = {};
 
 window.generales.datos.sistemas = function (ambiente) {
@@ -509,15 +528,18 @@ window.generales.cargarComboEntidades = function (elemento, ambiente, modalidad)
 	if (modalidad == '*')
 		elemento.append('<option value="*">Todas</option>');
 
-	var entidades = window.generales.datos.entidades(ambiente);
-	for (var index in entidades){
+	window.generales.datosTabla('DVM_ENTIDAD_CANONICA', ambiente, function (entidades) {
 
-			var option = $('<option/>');
-			option.attr('value', entidades[index].ID);
-			option.html(entidades[index].NOMBRE);
-			elemento.append(option);
+    for (var index in entidades){
 
-	}
+        var option = $('<option/>');
+        option.attr('value', entidades[index].ID);
+        option.html(entidades[index].NOMBRE);
+        elemento.append(option);
+
+    }
+
+  });
 
 }
 
