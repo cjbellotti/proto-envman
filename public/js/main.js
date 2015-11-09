@@ -129,7 +129,7 @@ window.generales.normalizar = function (tabla, clave) {
 
   if (registro == null) {
 
-    var modelo = window.manageData.colecciones[tabla].get(clave);
+    var modelo = window.manageData.get(tabla, clave);
     if (modelo) {
 
       var data = modelo.toJSON();
@@ -507,17 +507,18 @@ window.generales.cargarComboSistemas = function (elemento, ambiente, modalidad, 
 	if (modalidad == '*')
 		elemento.append('<option value="*">Todas</option>');
 
-	var sistemas = window.generales.datos.sistemas(ambiente);
-	for (var index in sistemas){
+	window.generales.datosTabla('DVM_SISTEMA', ambiente, function (sistemas) {
+    for (var index in sistemas){
 
-      if (!pais || pais == '*' || sistemas[index].PAIS == pais) {
-        var option = $('<option/>');
-        option.attr('value', sistemas[index].ID);
-        option.html(sistemas[index].NOMBRE + ' - ' + sistemas[index].PAIS);
-        elemento.append(option);
-      }
+        if (!pais || pais == '*' || sistemas[index].PAIS == pais) {
+          var option = $('<option/>');
+          option.attr('value', sistemas[index].ID);
+          option.html(sistemas[index].NOMBRE + ' - ' + sistemas[index].PAIS);
+          elemento.append(option);
+        }
 
-	}
+    }
+  });
 
 }
 

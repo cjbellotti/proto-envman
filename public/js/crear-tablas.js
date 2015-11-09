@@ -4,7 +4,7 @@ function crearTabla(config) {
 
 	var configTable = {};
 
-  configTable.tableName = config.tableName;
+  configTable.tableName = config.table;
 	configTable.processCell = config.processCell;
 	configTable.headers = config.headers;
 	configTable.arrayData = config.arrayData;
@@ -117,15 +117,17 @@ function crearTabla(config) {
 			var selecteds = env.table.getSelectedRows();
 			for (var index in selecteds) {
 
-        var clave = window.generales.obtenerClave(configTabla.tableName, selecteds[index]);
-        var registros = window.mangeData.resolverDependencia(configTable.tableName, clave);
+        var registro = env.table.getRowArrayData(selecteds[index]);
+        var clave = window.generales.obtenerClave(configTable.tableName, registro);
+        var registros = window.manageData.resolverDependencias(configTable.tableName, clave);
 
         for (var tabla in registros) {
 
           for (var iTabla in registros[tabla]) {
 
             var data = registros[tabla][iTabla];
-            window.generales.normalizar(tabla, data);
+            var clave = window.generales.obtenerClave(configTable.tableName, data);
+            window.generales.normalizar(tabla, clave);
 
           }
 
