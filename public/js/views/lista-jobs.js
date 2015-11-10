@@ -57,7 +57,7 @@ EnvMan.Views.ListaJobs = Backbone.View.extend({
   agregar : function (e) {
 
     generales.crearNuevoJob();
-    var view = new EnvMan.Views.Job();
+    var view = new EnvMan.Views.JobV2();
     $('#modals').html(view.el);
     view.render(window.job);
     view.$el.modal({

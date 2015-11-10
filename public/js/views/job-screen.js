@@ -344,6 +344,56 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	guardar : function (e) {
 
+	  if (window.job.job == '')
+				delete window.job.job;
+
+		window.job.fecha = window.job.fecha || new Date();
+		window.job.proyecto = this.$el.find('#proyecto').val();
+		window.job.descripcion = this.$el.find('#descripcion').val();
+    if (window.job.proyecto.length > 0) {
+
+      if (window.jobs.where({proyecto : window.job.proyecto }).length > 0 && !window.job.job) {
+
+        var dialog = new EnvMan.Views.DialogBox({
+          titulo : "Error",
+          texto : 'Proyecto "' + window.job.proyecto + '" existente.'
+        });
+
+        $('#modals').append(dialog.el);
+        dialog.render();
+        dialog.$el.modal({
+            backdrop : 'static',
+            keyboard : false
+        });
+
+      } else {
+
+        window.generales.limpiarRegistros(window.job.registros);
+        var jobModel = new EnvMan.Models.Job(window.job);
+        jobModel.save();
+        window.job = jobModel.toJSON();
+        window.jobs.reset();
+        window.jobs.fetch();
+        this.$el.modal('hide');
+
+      }
+
+    } else {
+
+      var dialog = new EnvMan.Views.DialogBox({
+        titulo : "Error",
+        texto : 'Campo "Proyecto" obligatorio'
+      });
+
+      $('#modals').append(dialog.el);
+      dialog.render();
+      dialog.$el.modal({
+          backdrop : 'static',
+          keyboard : false
+      });
+
+    }
+
 	},
 
 	verificar : function (e) {
