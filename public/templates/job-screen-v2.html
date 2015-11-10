@@ -89,11 +89,15 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="#" class="list-group-item tabla">DVM_SISTEMA</a>
-              <a href="#" class="list-group-item tabla">DVM_ENTIDAD_CANONICA</a>
-              <a href="#" class="list-group-item tabla">DVM_VALOR_CANONICO</a>
-              <a href="#" class="list-group-item tabla">DVM_VALOR_SISTEMA</a>
-              <a href="#" class="list-group-item tabla">TBL_RESPONSE_MESSAGES_CATALOG</a>
+              {% for tabla in tablas %}
+              <!--fixme , al ser siempre el mismo valor, repite 5 veces el mismo alias hasta q pasa al sgte--> 
+              <!--corregir..-->
+              <a href="#" class="list-group-item tabla">{{ loop.key }}</a>
+              <a href="#" class="list-group-item tabla">{{ loop.key }}</a>
+              <a href="#" class="list-group-item tabla">{{ loop.key }}</a>
+              <a href="#" class="list-group-item tabla">{{ loop.key }}</a>
+              <a href="#" class="list-group-item tabla">{{ loop.key }}</a>
+              {% endfor %}
             </div>
           </div>
           <div class="col-md-9">

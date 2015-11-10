@@ -53,15 +53,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	mostrarTablaDVM_SISTEMA : function (e) {
 
-		// se usa???
-		
-		/*
-		this.$el.find('#tabSistemas').addClass('active');
-		this.$el.find('#tabEntidades').removeClass('active');
-		this.$el.find('#tabValoresSistema').removeClass('active');
-		this.$el.find('#tabValoresCanonicos').removeClass('active');
-		*/
-		
 		var configTable = {};
                 configTable.headers = {};
                 configTable.headers.Id = {
@@ -90,7 +81,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
                 };
 		configTable.arrayData = job.registros.sistema;
 		configTable.title = "Sistema";
-		configTable.table = "DVM_SISTEMA";//"sistema";
+		configTable.table = "sistema";
 		configTable.model = EnvMan.Models.Sistema;
 		configTable.view = EnvMan.Views.Sistema;
 		configTable.viewImport = EnvMan.Views.SistemaImportar;
@@ -105,13 +96,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	mostrarTablaDVM_ENTIDAD_CANONICA : function (e) {
 	
-		/*
-		this.$el.find('#tabSistemas').removeClass('active');
-		this.$el.find('#tabEntidades').addClass('active');
-		this.$el.find('#tabValoresSistema').removeClass('active');
-		this.$el.find('#tabValoresCanonicos').removeClass('active');
-		*/
-		
 		var configTable = {};
 
 		configTable.headers = {};
@@ -135,7 +119,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		};
 		configTable.arrayData = job.registros.entidadcanonica;
 		configTable.title = "Entidad Canonica";
-		configTable.table = "DVM_ENTIDAD_CANONICA";//"entidadcanonica";
+		configTable.table = "entidadcanonica";
 		configTable.model = EnvMan.Models.Entidad;
 		configTable.view = EnvMan.Views.Entidad;
 		configTable.viewImport = EnvMan.Views.EntidadImportar;
@@ -149,12 +133,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	mostrarTablaDVM_VALOR_SISTEMA : function (e) {
-		/*
-		this.$el.find('#tabSistemas').removeClass('active');
-		this.$el.find('#tabEntidades').removeClass('active');
-		this.$el.find('#tabValoresSistema').addClass('active');
-		this.$el.find('#tabValoresCanonicos').removeClass('active');
-		*/
+	
 		var configTable = {};
 
     configTable.headers = {};
@@ -199,7 +178,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
     };
 		configTable.arrayData = job.registros.valorsistema;
 		configTable.title = "Valor Sistema";
-		configTable.table = "DVM_VALOR_SISTEMA";//"valorsistema";
+		configTable.table = "valorsistema";
 		configTable.model = EnvMan.Models.ValorSistema;
 		configTable.view = EnvMan.Views.ValorSistema;
 		configTable.viewImport = EnvMan.Views.ValorSistemaImportar;
@@ -252,12 +231,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	mostrarTablaDVM_VALOR_CANONICO : function (e) {
-		/*
-		this.$el.find('#tabSistemas').removeClass('active');
-		this.$el.find('#tabEntidades').removeClass('active');
-		this.$el.find('#tabValoresSistema').removeClass('active');
-		this.$el.find('#tabValoresCanonicos').addClass('active');
-		*/
+
 		var configTable = {};
 
     configTable.headers = {};
@@ -287,7 +261,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
     };
 		configTable.arrayData = job.registros.valorcanonico;
 		configTable.title = "Valor Canonico";
-		configTable.table = "DVM_VALOR_CANONICO";//"valorcanonico";
+		configTable.table = "valorcanonico";
 		configTable.model = EnvMan.Models.ValorCanonico;
 		configTable.view = EnvMan.Views.ValorCanonico;
 		configTable.viewImport = EnvMan.Views.ValorCanonicoImportar;
@@ -331,22 +305,28 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	importar : function (e) {
-
+		var view = new EnvMan.Views.ImportarArchivo ();
+		$('#modals').append(view.el);
+		view.render();
+		view.$el.modal({
+			backdrop : 'static',
+			keyboard : false
+		});
 	},
 
 	render : function (job) {
-		var dataTablas ; // guarda el objeto del response
+		var dataTablas = {} ; 
 		$.ajax({
 			url : '/def-tablas',
 			method : 'GET',
 			async : false,
 			contentType : 'application/json',
 			success : function (data) {
-				console.log(data); //JSON.stringify(data) --> ver en forma de string json
-				dataTablas = data; 
+				console.log(data); 
+				dataTablas.tablas = data; 
 			}
 		});
-		this.$el.html(this.template(dataTablas)); // modifique el job, ahora recibe dataTablas
+		this.$el.html(this.template(dataTablas)); 
 		this.$el.find('#' + job.target + ' button').removeClass('disabled');
 		this.mostrarTablaDVM_SISTEMA();
 		if (window.job.job != ''){
