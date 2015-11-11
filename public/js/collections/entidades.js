@@ -3,12 +3,12 @@ EnvMan.Collections.Entidades = Backbone.Collection.extend({
 	model : EnvMan.Models.Entidad,
 
 	fetchData : function (objeto) {
-		this.url = "/entidad-canonica/" + window.job.target;
+		this.url = "/DVM_ENTIDAD_CANONICA/" + window.job.target;
 		this.fetch(objeto);
 	},
 
   fetchAmb : function (amb, objeto) {
-		this.url = "/entidad-canonica/" + amb;
+		this.url = "/DVM_ENTIDAD_CANONICA/" + amb;
 		this.fetch(objeto);
   }
 

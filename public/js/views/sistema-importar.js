@@ -8,17 +8,11 @@ EnvMan.Views.SistemaImportar = Backbone.View.extend({
 
 	initialize : function (config) {
 
-		this.template = swig.compile( $('#sistema-importar-template').html() );
-
+		this.template = swig.compile(getTemplate('templates/sistema-importar.html'))
 		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
 		this.env = config.env;
 
 		var config = {}
-		//config.headers = [];
-		//config.headers.push("ID");
-		//config.headers.push("PAIS");
-		//config.headers.push("NOMBRE");
-		//config.headers.push("DESCRIPCION");
     config.headers = {};
     config.headers.Id = {
       style : {
@@ -71,16 +65,20 @@ EnvMan.Views.SistemaImportar = Backbone.View.extend({
 			$('#modals').append(espera.el);
 			espera.render();
 			espera.show();
-			var lista = window.generales.datos.sistemas(ambiente);
-			espera.hide();
+      var self = this;
+      window.generales.datosTabla('DVM_SISTEMA', ambiente, function (lista) {
 
-			var arrayData = [];
-			for (var index in lista) {
-				if (_.findIndex(job.registros.sistema, lista[index]) < 0)
-					arrayData.push(lista[index]);
-			}
+        espera.hide();
 
-			this.table.setArrayData(arrayData);
+        var arrayData = [];
+        for (var index in lista) {
+          if (_.findIndex(job.registros['DVM_SISTEMA'], lista[index]) < 0)
+            arrayData.push(lista[index]);
+        }
+
+        self.table.setArrayData(arrayData);
+
+      });
 			
 	},
 

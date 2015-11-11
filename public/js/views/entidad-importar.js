@@ -7,17 +7,11 @@ EnvMan.Views.EntidadImportar = Backbone.View.extend({
 	},
 
 	initialize : function (config) {
-
-		this.template = swig.compile( $('#entidad-importar-template').html() );
-
+		this.template = swig.compile(getTemplate('templates/entidad-importar.html'));
 		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
 		this.env = config.env;
 
 		var config = {}
-		//config.headers = [];
-		//config.headers.push("ID");
-		//config.headers.push("NOMBRE");
-		//config.headers.push("DESCRIPCION");
     config.headers = {};
     config.headers.Id = {
       style : {
@@ -63,16 +57,20 @@ EnvMan.Views.EntidadImportar = Backbone.View.extend({
 			$('#modals').append(espera.el);
 			espera.render();
 			espera.show();
-			var lista = window.generales.datos.entidades(ambiente);
-			espera.hide();
+      var self = this;
+      window.generales.datosTabla('DVM_ENTIDAD_CANONICA', ambiente, function (lista) {
 
-			var arrayData = [];
-			for (var index in lista) {
-				if (_.findIndex(job.registros.sistema, lista[index]) < 0)
-					arrayData.push(lista[index]);
-			}
+        espera.hide();
 
-			this.table.setArrayData(arrayData);
+        var arrayData = [];
+        for (var index in lista) {
+          if (_.findIndex(job.registros['DVM_ENTIDAD_CANONICA'], lista[index]) < 0)
+            arrayData.push(lista[index]);
+        }
+
+        self.table.setArrayData(arrayData);
+
+      });
 			
 	},
 

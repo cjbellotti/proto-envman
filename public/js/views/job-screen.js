@@ -9,6 +9,53 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	initialize : function () {
 	
 		this.template = swig.compile( getTemplate('templates/job-screen-v2.html') );
+    window.manageData.reset();
+    window.manageData.fetch({
+        success : function () {
+
+          window.generales.cargarColeccionesV2();
+          var self = this;
+          $.post('/verificar/' + window.job.job, function (data) {
+
+              var dc;
+              for (dc in data);
+              
+              for (var tabla in data[0]) {
+
+                for (var index in data[tabla]) {
+
+                  var modelData = {};
+                  for (var field in data[tabla][index]) {
+
+                    if (field != 'IDN' && field != 'origen') {
+
+                      modelData[field] = data[tabla][index][field];
+
+                    }
+
+                  }
+
+                  var model = new window.manageData.colecciones[tabla].model(modelData);
+
+                  if (data[tabla][index].IDN) {
+
+                    window.manageData.colecciones[tabla].add(model);
+
+                  } else if (data[tabla][index].MOD) {
+
+                    window.manageData.colecciones[tabla].set(model, { remove : false });
+                    
+                  }
+
+                }
+
+              }
+
+          });
+
+        }
+
+    });
 
 	},
 
@@ -17,11 +64,15 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		"click .siguiente-fase" : "siguienteFase",
 		"click #aceptar" : "guardar",
 		"click #verificar" : "verificar",
-		"click #importar" : "importar"
+		"click #importar" : "importar",
+		"click #dvmSistema" : "mostrarTablaSistemas",
+		"click #dvmEntidadCanonica" : "mostrarTablaEntidades",
+		"click #dvmValorCanonico" : "mostrarTablaValorCanonico",
+		"click #dvmValorSistema" : "mostrarTablaValorSistema",
+		"click #tblResponseMCatalog" :"mostrarTablaTblResponse"
 	},
 
 	faseAnterior : function (e) {
-
 		e.preventDefault();
 		var index = window.Fases.indexOf(window.job.target);
 		if (index >= 0) {
@@ -47,11 +98,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	mostrarTablaSistemas : function (e) {
-
-		this.$el.find('#tabSistemas').addClass('active');
-		this.$el.find('#tabEntidades').removeClass('active');
-		this.$el.find('#tabValoresSistema').removeClass('active');
-		this.$el.find('#tabValoresCanonicos').removeClass('active');
 
 		var configTable = {};
                 configTable.headers = {};
@@ -79,10 +125,10 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
                   },
                   dataField : 'DESCRIPCION'
                 };
-		configTable.arrayData = job.registros.sistema;
+		configTable.arrayData = job.registros.DVM_SISTEMA;
 		configTable.title = "Sistema";
-		configTable.table = "sistema";
-		configTable.model = EnvMan.Models.Sistema;
+		configTable.table = "DVM_SISTEMA";
+		configTable.model = manageData.colecciones.DVM_SISTEMA.model;
 		configTable.view = EnvMan.Views.Sistema;
 		configTable.viewImport = EnvMan.Views.SistemaImportar;
 
@@ -95,11 +141,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	mostrarTablaEntidades : function (e) {
-
-		this.$el.find('#tabSistemas').removeClass('active');
-		this.$el.find('#tabEntidades').addClass('active');
-		this.$el.find('#tabValoresSistema').removeClass('active');
-		this.$el.find('#tabValoresCanonicos').removeClass('active');
 
 		var configTable = {};
 
@@ -122,10 +163,10 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
         },
         dataField : 'DESCRIPCION'
     };
-		configTable.arrayData = job.registros.entidadcanonica;
+		configTable.arrayData = job.registros.DVM_ENTIDAD_CANONICA;
 		configTable.title = "Entidad Canonica";
-		configTable.table = "entidadcanonica";
-		configTable.model = EnvMan.Models.Entidad;
+		configTable.table = "DVM_ENTIDAD_CANONICA";
+		configTable.model = manageData.colecciones.DVM_ENTIDAD_CANONICA.model; 
 		configTable.view = EnvMan.Views.Entidad;
 		configTable.viewImport = EnvMan.Views.EntidadImportar;
 
@@ -138,11 +179,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	mostrarTablaValorSistema : function (e) {
-
-		this.$el.find('#tabSistemas').removeClass('active');
-		this.$el.find('#tabEntidades').removeClass('active');
-		this.$el.find('#tabValoresSistema').addClass('active');
-		this.$el.find('#tabValoresCanonicos').removeClass('active');
 
 		var configTable = {};
 
@@ -186,10 +222,10 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
       },
       dataField : 'VALOR_SISTEMA'
     };
-		configTable.arrayData = job.registros.valorsistema;
+		configTable.arrayData = job.registros.DVM_VALOR_SISTEMA;
 		configTable.title = "Valor Sistema";
-		configTable.table = "valorsistema";
-		configTable.model = EnvMan.Models.ValorSistema;
+		configTable.table = "DVM_VALOR_SISTEMA";
+		configTable.model = manageData.colecciones.DVM_VALOR_SISTEMA.model;
 		configTable.view = EnvMan.Views.ValorSistema;
 		configTable.viewImport = EnvMan.Views.ValorSistemaImportar;
 		configTable.processCell = function (field, content, rowData) {
@@ -197,7 +233,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 			var nombre = content;
 			if (field == "ID_ENTIDAD_CANONICA"){
 
-				var entidad = window.collections.entidades.get(content);
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA',{ ID : content});
 				if (!entidad)
 					nombre = "Entidad " + content + " inexistente.";
 				else
@@ -205,7 +241,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 			} else if (field == "ID_SISTEMA") {
 
-				var sistema = window.collections.sistemas.get(content);
+				var sistema = window.manageData.get('DVM_SISTEMA', { ID : content });
 				if (!sistema)
 					nombre = "Sistema " + content + " inexistente.";
 				else
@@ -213,7 +249,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 			} else if (field == "ID_VALOR_CANONICO") {
 
-				var valorCanonico = window.collections.valoresCanonicos.get(content);
+				var valorCanonico = window.manageData.get('DVM_VALOR_CANONICO', { ID : content });
 				if (!valorCanonico)
 					nombre = "Valor Canonico " + content + " inexistente.";
 				else
@@ -221,7 +257,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 			} else if (field == 'PAIS') {
 
-				var sistema = window.collections.sistemas.get(rowData.ID_SISTEMA);
+				var sistema = window.manageData.get('DVM_SISTEMA', { ID : rowData.ID_SISTEMA });
 				if (!sistema)
 					nombre = "Sin Pais";
 				else
@@ -241,11 +277,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	mostrarTablaValorCanonico : function (e) {
-
-		this.$el.find('#tabSistemas').removeClass('active');
-		this.$el.find('#tabEntidades').removeClass('active');
-		this.$el.find('#tabValoresSistema').removeClass('active');
-		this.$el.find('#tabValoresCanonicos').addClass('active');
 
 		var configTable = {};
 
@@ -274,10 +305,10 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
       },
       dataField : 'VALOR_CANONICO'
     };
-		configTable.arrayData = job.registros.valorcanonico;
+		configTable.arrayData = job.registros.DVM_VALOR_CANONICO;
 		configTable.title = "Valor Canonico";
-		configTable.table = "valorcanonico";
-		configTable.model = EnvMan.Models.ValorCanonico;
+		configTable.table = "DVM_VALOR_CANONICO";
+		configTable.model = manageData.colecciones.DVM_VALOR_CANONICO.model;
 		configTable.view = EnvMan.Views.ValorCanonico;
 		configTable.viewImport = EnvMan.Views.ValorCanonicoImportar;
 		configTable.processCell = function (field, content) {
@@ -285,7 +316,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 			var nombre = content;
 			if (field == "ID_ENTIDAD_CANONICA"){
 
-				var entidad = window.collections.entidades.get(content);
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA', { ID : content });
 
 				if (!entidad)
 					nombre = "Entidad " + content + " inexistente.";
@@ -307,7 +338,61 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
+	mostrarTablaTblResponse:function(e){
+		
+	},
+
 	guardar : function (e) {
+
+	  if (window.job.job == '')
+				delete window.job.job;
+
+		window.job.fecha = window.job.fecha || new Date();
+		window.job.proyecto = this.$el.find('#proyecto').val();
+		window.job.descripcion = this.$el.find('#descripcion').val();
+    if (window.job.proyecto.length > 0) {
+
+      if (window.jobs.where({proyecto : window.job.proyecto }).length > 0 && !window.job.job) {
+
+        var dialog = new EnvMan.Views.DialogBox({
+          titulo : "Error",
+          texto : 'Proyecto "' + window.job.proyecto + '" existente.'
+        });
+
+        $('#modals').append(dialog.el);
+        dialog.render();
+        dialog.$el.modal({
+            backdrop : 'static',
+            keyboard : false
+        });
+
+      } else {
+
+        window.generales.limpiarRegistros(window.job.registros);
+        var jobModel = new EnvMan.Models.Job(window.job);
+        jobModel.save();
+        window.job = jobModel.toJSON();
+        window.jobs.reset();
+        window.jobs.fetch();
+        this.$el.modal('hide');
+
+      }
+
+    } else {
+
+      var dialog = new EnvMan.Views.DialogBox({
+        titulo : "Error",
+        texto : 'Campo "Proyecto" obligatorio'
+      });
+
+      $('#modals').append(dialog.el);
+      dialog.render();
+      dialog.$el.modal({
+          backdrop : 'static',
+          keyboard : false
+      });
+
+    }
 
 	},
 

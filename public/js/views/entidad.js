@@ -8,8 +8,7 @@ EnvMan.Views.Entidad = Backbone.View.extend({
 
 	initialize : function () {
 
-		this.template = swig.compile( $('#entidad-screen-template').html());
-
+		this.template = swig.compile(getTemplate('templates/entidad-screen.html'));
 	},
 
 	events : {

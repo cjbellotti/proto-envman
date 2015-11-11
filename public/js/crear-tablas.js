@@ -4,6 +4,7 @@ function crearTabla(config) {
 
 	var configTable = {};
 
+  configTable.tableName = config.table;
 	configTable.processCell = config.processCell;
 	configTable.headers = config.headers;
 	configTable.arrayData = config.arrayData;
@@ -116,7 +117,22 @@ function crearTabla(config) {
 			var selecteds = env.table.getSelectedRows();
 			for (var index in selecteds) {
 
-				var data = env.table.getRowArrayData(selecteds[index]);
+        var registro = env.table.getRowArrayData(selecteds[index]);
+        var clave = window.generales.obtenerClave(configTable.tableName, registro);
+        var registros = window.manageData.resolverDependencias(configTable.tableName, clave);
+
+        for (var tabla in registros) {
+
+          for (var iTabla in registros[tabla]) {
+
+            var data = registros[tabla][iTabla];
+            var clave = window.generales.obtenerClave(configTable.tableName, data);
+            window.generales.normalizar(tabla, clave);
+
+          }
+
+        }
+				/*var data= env.table.getRowArrayData(selecteds[index]);
 				generales.agregarRegistroAlJob(config.table, data);
 
 				if (data.ID_SISTEMA)
@@ -126,7 +142,7 @@ function crearTabla(config) {
 					window.generales.normalizarEntidadCanonica(data.ID_ENTIDAD_CANONICA);
 
 				if (data.ID_VALOR_CANONICO)
-					window.generales.normalizarValorCanonico(data.ID_VALOR_CANONICO);
+					window.generales.normalizarValorCanonico(data.ID_VALOR_CANONICO);*/
 
 			}
 

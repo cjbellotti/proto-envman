@@ -8,19 +8,12 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
   initialize : function (config) {
 
-    this.template = swig.compile( $('#valor-sistema-importar-template').html() );
-
+    this.template = swig.compile(getTemplate('templates/valor-sistema-importar.html'));
     this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
     this.env = config.env;
 
-    var config = {}
-    //config.headers = [];
-    //config.headers.push("ID");
-    //config.headers.push("ID_SISTEMA");
-    //config.headers.push("PAIS");
-    //config.headers.push("ID_ENTIDAD_CANONICA");
-    //config.headers.push("ID_VALOR_CANONICO");
-    //config.headers.push("VALOR_SISTEMA")
+    var config = {};
+    config.tableName = "DVM_VALOR_SISTEMA";
     config.headers = {};
     config.headers.Id = {
       style : {
@@ -68,7 +61,7 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
         if (parseInt(content)) {
 
-          var entidad = window.collections.entidades.get(content);
+          var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA', { ID : content });
           if (entidad)
             nombre = entidad.get('NOMBRE');
           else
@@ -81,7 +74,7 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
         if (parseInt(content)) {
 
-          var valorCanonico = window.collections.sistemas.get(content);
+          var valorCanonico = window.manageData.get('DVM_SISTEMA', { ID : content });
           if (valorCanonico)
             nombre = valorCanonico.get('NOMBRE');
           else
@@ -91,7 +84,7 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
       } else if (field == "PAIS") {
 
-        var sistema = window.collections.sistemas.get(rowData.ID_SISTEMA);
+        var sistema = window.manageData.get('DVM_SISTEMA', { ID : rowData.ID_SISTEMA });
         if (!sistema)
           nombre = "Sin Pais";
         else
@@ -101,7 +94,7 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
 
         if (parseInt(content)) {	
 
-          var valorCanonico = window.collections.valoresCanonicos.get(content);
+          var valorCanonico = window.manageData.get('DVM_VALOR_CANONICO', { ID : rowData.ID_VALOR_CANONICO });
           if (valorCanonico)
             nombre = valorCanonico.get('VALOR_CANONICO');
           else
@@ -175,30 +168,27 @@ EnvMan.Views.ValorSistemaImportar = Backbone.View.extend({
     var pais = this.$el.find('#pais').val();
     var sistema = this.$el.find('#id-sistema').val();
     var entidad = this.$el.find('#id-entidad').val();
+    var self = this;
 
-    /*var arrayData = [];
-    for (var index in this.lista) {
-      if (_.findIndex(job.registros.sistema, this.lista[index]) < 0 &&
-          (this.lista[index].ID_SISTEMA == sistema || sistema == '*') &&
-          (this.lista[index].ID_ENTIDAD_CANONICA == entidad || entidad == '*'))
-        arrayData.push(this.lista[index]);
-    }*/
+    var espera = new EnvMan.Views.Espera();
+    $('#modals').append(espera.el);
+    espera.render();
+    espera.show();
+    window.generales.datosTabla('DVM_VALOR_SISTEMA', ambiente, function (lista) {
 
-    var query = {};
+      var arrayData = [];
+      for (var index in lista) {
 
-    if (sistema != '*')
-      query.ID_SISTEMA = parseInt(sistema);
+        if (_.findIndex(job.registros['DVM_VALOR_SISTEMA'], lista[index]) < 0 &&
+              (lista[index].ID_SISTEMA == sistema || sistema == '*') &&
+              (lista[index].ID_ENTIDAD_CANONICA == entidad || entidad == '*'))
+          arrayData.push(lista[index]);
+      }
 
-    if (entidad != '*')
-      query.ID_ENTIDAD_CANONICA = parseInt(entidad);
+      self.table.setArrayData(arrayData);
+      espera.hide();
 
-    var arrayData = [];
-    if (_.isEmpty(query))
-      arrayData = window.collections.valoresSistema.toJSON();
-    else
-      arrayData = window.collections.valoresSistema.where(query);
-
-    this.table.setArrayData(arrayData);
+    });
 
   },
 

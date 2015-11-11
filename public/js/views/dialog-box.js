@@ -9,8 +9,7 @@ EnvMan.Views.DialogBox = Backbone.View.extend({
 
 	initialize : function (config) {
 
-		this.templateOkCancel = swig.compile( $('#dialog-ok-cancel-template').html() );
-
+		this.templateOkCancel = swig.compile(getTemplate('templates/dialog-ok-cancel.html'));
 		this.onAceptarFunction = config.onAceptar || function (e) { console.log("No implementado"); };
 
 		this.data = {};
