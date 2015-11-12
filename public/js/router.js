@@ -12,9 +12,11 @@ EnvMan.Router = Backbone.Router.extend({
 
   landing : function () {
 
-      var view = new EnvMan.Views.Landing();
-      $('#main').html(view.el);
-      view.render();
+      $.get('/get-aplicaciones', function (data) {
+	      var view = new EnvMan.Views.Landing({ grupos : data});
+	      $('#main').html(view.el);
+	      view.render();
+      });
 
   },
 
