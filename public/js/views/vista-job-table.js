@@ -72,16 +72,16 @@ EnvMan.Views.JobTable = Backbone.View.extend({
 
 	},
 
-	render : function () {
+  render : function () {
 
-		this.$el.html(this.jobTableTemplate());
-		this.$el.find('.table-container-dvm').append(this.table);
+    this.$el.html(this.jobTableTemplate());
+    this.$el.find('.table-container-dvm').append(this.table);
 
-		this.table.reset();
+    this.table.reset();
 
-                if (this.arrayData)
-		  this.table.setArrayData(this.arrayData);
+    if (this.arrayData)
+      this.table.setArrayDataAsync(this.arrayData);
 
-	}
+  }
 
 });

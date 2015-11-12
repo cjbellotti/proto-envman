@@ -56,42 +56,44 @@ module.exports = function (ambiente, dc, query, callback){
 
       pool[ambiente][dc].getConnection(function(err, connection) {
 
-        if (err)
+        if (err){
           console.log(err);
-        var where = query || "";
-        if (where.length > 0)
-          where = 'where ' + where;
-        //var q = "select * from " + table + " " + where + " ORDER BY ID";
-        var q = query;
-        console.log('Query: %s', q);
-        connection.execute(q, {}, {maxRows: 1000000}, 
-            function (err, result) {
-              if(err) {
+        } else {        
+          var where = query || "";
+          if (where.length > 0)
+            where = 'where ' + where;
+          var q = query;
+          console.log('Query: %s', q);
+          connection.execute(q, {}, {maxRows: 1000000}, 
+              function (err, result) {
+                if(err) {
 
-                callback (err.toString());
+                  callback (err.toString());
 
-              } else {
+                } else {
 
-                var formatResult = [];
+                  var formatResult = [];
 
-                for (var index in result.rows) {
+                  for (var index in result.rows) {
 
-                  var row = {};
+                    var row = {};
 
-                  for (var fieldIndex in result.rows[index]) {
+                    for (var fieldIndex in result.rows[index]) {
 
-                    row[result.metaData[fieldIndex].name] = result.rows[index][fieldIndex];
+                      row[result.metaData[fieldIndex].name] = result.rows[index][fieldIndex];
+
+                    }
+
+                    formatResult.push(row);
 
                   }
-
-                  formatResult.push(row);
+                  callback (null, formatResult);
 
                 }
-                callback (null, formatResult);
 
-              }
+              });
 
-            });
+        }
 
       });
 

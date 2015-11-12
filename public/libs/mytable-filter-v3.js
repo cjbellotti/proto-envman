@@ -311,7 +311,8 @@ function MyTable(config) {
 
     });
 
-    callback();
+    if (callback)
+      callback();
 
   }
 

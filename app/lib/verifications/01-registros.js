@@ -81,7 +81,6 @@ module.exports = function (manDB, ambiente, dc, tablas, callback, all){
 
      var query = 'select * from ' + defTablas[tabla].esquema + '.' + tabla;
      manDB(ambiente, dc, query, function (err, result) {
-        console.log('>> Carga dbData >> %s', tabla);
        dbData[tabla] = result;
        dbData[tabla].sort(function (a, b) {
 

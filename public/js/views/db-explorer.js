@@ -142,7 +142,8 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
                   var nombre = content;
                   if (field == "ID_ENTIDAD_CANONICA"){
 
-                    var entidad = window.collections.entidades.get(content);
+                    //var entidad = window.collections.entidades.get(content);
+                    var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA', { ID : content });
                     if (entidad)
                       nombre = entidad.get('NOMBRE');
                     else
@@ -204,7 +205,8 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
                     if (parseInt(content)) {
 
-                      var entidad = window.collections.entidades.get(content);
+                      //var entidad = window.collections.entidades.get(content);
+                      var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA', { ID : content });
                       if (entidad)
                         nombre = entidad.get('NOMBRE');
                       else
@@ -217,7 +219,8 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
                     if (parseInt(content)) {
 
-                      var valorCanonico = window.collections.sistemas.get(content);
+                      //var valorCanonico = window.collections.sistemas.get(content);
+                      var valorCanonico = window.manageData.get('DVM_SISTEMA', { ID : content});
                       if (valorCanonico)
                         nombre = valorCanonico.get('NOMBRE');
                       else
@@ -227,7 +230,8 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
                   } else if (field == "PAIS") {
 
-                    var sistema = window.collections.sistemas.get(rowData.ID_SISTEMA);
+                    //var sistema = window.collections.sistemas.get(rowData.ID_SISTEMA);
+                    var sistema = window.manageData.get('DVM_SISTEMA', { ID : rowData.ID_SISTEMA });
                     if (!sistema)
                       nombre = "Sin Pais";
                     else
@@ -237,7 +241,8 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
                     if (parseInt(content)) {	
 
-                      var valorCanonico = window.collections.valoresCanonicos.get(content);
+                      //var valorCanonico = window.collections.valoresCanonicos.get(content);
+                      var valorCanonica = window.manageData.get('DVM_VALOR_CANONICO', { ID : content });
                       if (valorCanonico)
                         nombre = valorCanonico.get('VALOR_CANONICO');
                       else
@@ -359,19 +364,34 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
                 var tabla = self.$el.find('#tabla').val();
 
                 window.job.target = ambiente;
-                window.collections.sistemas.fetchData({ async : false });
-                window.collections.entidades.fetchData({ async : false });
-                window.collections.valoresCanonicos.fetchData({ async : false });
+                //window.collections.sistemas.fetchData({ async : false });
+                //window.collections.entidades.fetchData({ async : false });
+                //window.collections.valoresCanonicos.fetchData({ async : false });
 
-                $.get('/' + window.defTablas[tabla].alias + '/' + ambiente, function (data) {
+                window.manageData.fetch({
 
-                  self.$el.find('.table-container').html('');
-                  self.$el.find('.table-container').append(self.tablas[tabla]);
-                  self.tablas[tabla].setArrayDataAsync(data, {}, function () {
-                    espera.hide();
-                  });
+                  success : function () {
+
+                    self.$el.find('.table-container').html('');
+                    self.$el.find('.table-container').append(self.tablas[tabla]);
+                    var data = window.manageData.colecciones[tabla].toJSON();
+                    self.tablas[tabla].setArrayDataAsync(data, {}, function () {
+                      espera.hide();
+                    });
+
+                  }
 
                 });
+
+                //$.get('/' + window.defTablas[tabla].alias + '/' + ambiente, function (data) {
+
+                //  self.$el.find('.table-container').html('');
+                //  self.$el.find('.table-container').append(self.tablas[tabla]);
+                //  self.tablas[tabla].setArrayDataAsync(data, {}, function () {
+                //    espera.hide();
+                //  });
+
+                // });
 
               }
 

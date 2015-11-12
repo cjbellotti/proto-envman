@@ -35,11 +35,16 @@ function CrearManageTablas(definiciones) {
   // al metodo fetch de cada coleccion.
   manager.fetch = function (object) {
 
+    var options = _.clone(object);
+    delete options['success'];
     for (var coleccion in manager.colecciones) {
 
-      manager.colecciones[coleccion].fetch(object);
+      manager.colecciones[coleccion].fetch(options);
 
     }
+
+    if (object.success)
+      object.success();
 
   }
 
