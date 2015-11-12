@@ -1,0 +1,62 @@
+<div class="panel panel-primary">
+<div class="panel-heading">
+<div class="media">
+<div class="media-body">
+<h1>Administracion</h1>
+</div>
+</div>
+</div>
+<div class="panel-body">
+<div class="col-md-7">
+<h2>Aplicaciones</h2>
+</div>
+<div class="col-md-5">
+<h2>Noticias</h2>
+</div>
+<div class="col-md-7 landing-list">
+{% for grupo in grupos %}
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{loop.index}}" style="text-decoration: none"> {{ loop.key }}</a>
+</h4>
+</div>
+<div id="collapse{{ loop.index }}" class="panel-collapse collapse">
+<div class="list-group">
+{% for aplicacion in grupo.aplicaciones %}
+<div class="list-group-item">
+<div class="media">
+<div class="media-left media-middle">
+<div class="glyphicon glyphicon-{{aplicacion.icon}}" style="font-size : 4em">
+</div>
+</div>
+<div class="media-body">
+<a href="{{ aplicacion.url }}" class="list-group-item">
+<h5>{{ aplicacion.titulo }} </h5>
+</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>		
+<div class="col-md-5">
+<div class="list-group landing-list">
+{% for novedad in novedades %}
+<div class="list-group-item">
+<div class="row">
+<h4>{{ novedad.fecha }}</h4>
+<p>{{ novedad.texto }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+</div>

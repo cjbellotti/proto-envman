@@ -1,0 +1,33 @@
+{
+  "Bases de Datos": {
+    "icon": "book",
+    "aplicaciones": [
+      {
+        "icon": "cog",
+        "titulo": "Environment Manager",
+        "url": "#envman"
+      },
+      {
+        "icon": "sort",
+        "titulo": "Comparador de Bases",
+        "url": "#dbcomparer"
+      },
+      {
+        "icon": "eye-open",
+        "titulo": "DB Explorer",
+        "url": "#dbexplorer"
+      }
+    ]
+  },
+  "SOA": {
+    "icon": "list-alt",
+    "aplicaciones": [
+      {
+        "icon": "tasks",
+        "titulo": "Environment Explorer",
+        "url": "/aplicacion1"
+      }
+      
+    ]
+  }
+}
