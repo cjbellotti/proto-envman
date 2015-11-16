@@ -1,13 +1,11 @@
-{
 [
 	{ 
-			fecha : "dd/mm/yyyy hh:mm",
-                        texto : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in nulla consectetur, pellentesque justo quis, luctus massa. Cras tempor, dui nec porttitor interdum, erat "
-         },
+			"fecha" : "dd/mm/yyyy hh:mm",
+      "texto" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in nulla consectetur, pellentesque justo quis, luctus massa. Cras tempor, dui nec porttitor interdum, erat "
+  },
 	{ 
-			fecha : "dd/mm/yyyy hh:mm",
-                        texto : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in nulla consectetur, pellentesque justo quis, luctus massa. Cras tempor, dui nec porttitor interdum, erat "
-        }
+			"fecha" : "dd/mm/yyyy hh:mm",
+      "texto" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in nulla consectetur, pellentesque justo quis, luctus massa. Cras tempor, dui nec porttitor interdum, erat "
+  }
 ]
 
-}

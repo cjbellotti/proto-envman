@@ -11,5 +11,6 @@ app.use(require('./get-paises'));
 app.use(require('./get-def-tablas'));
 app.use(require('./comparar'));
 app.use(require('./get-aplicaciones'));
+app.use(require('./get-novedades'));
 
 module.exports = app;

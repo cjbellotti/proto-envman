@@ -13,9 +13,19 @@ EnvMan.Router = Backbone.Router.extend({
   landing : function () {
 
       $.get('/get-aplicaciones', function (data) {
-	      var view = new EnvMan.Views.Landing({ grupos : data});
-	      $('#main').html(view.el);
-	      view.render();
+
+        var datos = {};
+        datos.grupos = data;
+
+        $.get('/get-novedades', function (data) {
+
+          datos.novedades = data;
+          var view = new EnvMan.Views.Landing(datos);
+          $('#main').html(view.el);
+          view.render();
+
+        });
+
       });
 
   },
@@ -31,10 +41,6 @@ EnvMan.Router = Backbone.Router.extend({
   dbExplorer : function () {
 
       window.job.target = ambientes[0];
-
-      //window.collections.sistemas.fetchData({ async : false });
-      //window.collections.entidades.fetchData({ async : false });
-      //window.collections.valoresCanonicos.fetchData({ async : false });
 
       window.manageData.fetch({
 
