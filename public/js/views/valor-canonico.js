@@ -9,7 +9,8 @@ EnvMan.Views.ValorCanonico = Backbone.View.extend({
 	initialize : function () {
 		
 		this.template = swig.compile(getTemplate('templates/valor-canonico-screen.html'));
-		this.listenTo(window.collections.entidades, 'add', this.renderItemComboEntidad);
+		//this.listenTo(window.collections.entidades, 'add', this.renderItemComboEntidad);
+		this.listenTo(window.manageData.colecciones['DVM_ENTIDAD_CANONICA'], 'add', this.renderItemComboEntidad);
 
 	},
 
@@ -27,7 +28,8 @@ EnvMan.Views.ValorCanonico = Backbone.View.extend({
 		if (!id) {
 
 			var id = 1;
-			var ultima = window.collections.valoresCanonicos.last();
+			//var ultima = window.collections.valoresCanonicos.last();
+			var ultima = window.manageData.colecciones['DVM_VALOR_CANONICO'].last();
 			if (ultima) {
 				id = ultima.get("ID") + 1;
 			}
@@ -63,20 +65,25 @@ EnvMan.Views.ValorCanonico = Backbone.View.extend({
 
       if (nuevo) {
 
-        var index = _.findIndex(window.job.registros.valorcanonico, { ID_ENTIDAD_CANONICA : id_entidad_canonica,
+        var index = _.findIndex(window.job.registros['DVM_VALOR_CANONICO'], { ID_ENTIDAD_CANONICA : id_entidad_canonica,
                                         VALOR_CANONICO : valor_canonico});
 
         if (index < 0) {
 
-            window.collections.valoresCanonicos.add(this.model);
-            generales.agregarValorCanonicoAJob(this.model.toJSON());
+            //window.collections.valoresCanonicos.add(this.model);
+            window.manageData.colecciones['DVM_VALOR_CANONICO'].add(this.model);
+            //generales.agregarValorCanonicoAJob(this.model.toJSON());
+            generales.agregarRegistroAlJob('DVM_VALOR_CANONICO',this.model.toJSON());
 
         }
 
       } else {
 
-        window.collections.valoresCanonicos.set(this.model, { remove : false});
-        generales.modificarValorCanonicoEnJob(this.model.toJSON());
+        //window.collections.valoresCanonicos.set(this.model, { remove : false});
+        window.manageData.colecciones['DVM_VALOR_CANONICO'].set(this.model, { remove : false});
+        //generales.modificarValorCanonicoEnJob(this.model.toJSON());
+        generales.modificarRegistroEnJob('DVM_VALOR_CANONICO', this.model.toJSON());
+
       }
 
       this.$el.modal('hide');
@@ -102,7 +109,8 @@ EnvMan.Views.ValorCanonico = Backbone.View.extend({
 		this.$el.html(this.template(data));
 
 		var self = this;
-		window.collections.entidades.each(function (entidad) {
+		//window.collections.entidades.each(function (entidad) {
+                window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].each(function (entidad) {
 
 			self.renderItemComboEntidad(entidad);
 

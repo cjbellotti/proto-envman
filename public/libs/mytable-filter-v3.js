@@ -28,8 +28,12 @@ function MyTable(config) {
       var fieldIndex = 0;
       for (var field in headerTemplate) {
 
-        var inputCell = element.find('.dt-tab-input-' + fieldIndex);
-        if (inputCell) {
+        var inputCell = "";
+        var inputCellElement = element.find('.dt-tab-input-' + fieldIndex);
+        if (inputCellElement.length > 0)
+            inputCell = inputCellElement.val();
+
+//        if (inputCell) {
          
           if (match) {
 
@@ -37,14 +41,15 @@ function MyTable(config) {
             if (upCased) {
               upCased = upCased.toString();
               upCased = upCased.toUpperCase();
-              var filter = inputCell.val().toUpperCase();
+              //var filter = inputCell.val().toUpperCase();
+              var filter = inputCell.toUpperCase();
 
               match = (upCased.indexOf(filter) >= 0); 
             }
 
           }
 
-        }
+//        }
         fieldIndex++;
 
       }

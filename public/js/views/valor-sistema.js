@@ -9,9 +9,9 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 	initialize : function () {
 
 		this.template = swig.compile(getTemplate('templates/valor-sistema-screen.html'));
-		this.listenTo(window.collections.sistemas, 'add', this.renderItemComboSistema);
-		this.listenTo(window.collections.entidades, 'add', this.renderItemComboEntidad);
-		this.listenTo(window.collections.valoresCanonicos, 'add', this.renderItemComboValorCanonico);
+		this.listenTo(window.manageData.colecciones['DVM_SISTEMA'], 'add', this.renderItemComboSistema);
+		this.listenTo(window.manageData.colecciones['DVM_ENTIDAD_CANONICA'], 'add', this.renderItemComboEntidad);
+		this.listenTo(window.manageData.colecciones['DVM_VALOR_CANONICO'], 'add', this.renderItemComboValorCanonico);
 
 	},
 
@@ -31,7 +31,8 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 		if (!id) {
 
 			var id = 1;
-			var ultima = window.collections.valoresSistema.last();
+			//var ultima = window.collections.valoresSistema.last();
+			var ultima = window.manageData.colecciones['DVM_VALOR_SISTEMA'].last();
 			if (ultima) {
 				id = ultima.get("ID") + 1;
 			}
@@ -70,20 +71,24 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
       if (nuevo) {
 
-        var index = _.findIndex(window.job.registros.valorsistema, { ID_SISTEMA : id_sistema,
+        var index = _.findIndex(window.job.registros['DVM_VALOR_SISTEMA'], { ID_SISTEMA : id_sistema,
                                         ID_ENTIDAD_CANONICA : id_entidad_canonica,
                                         ID_VALOR_CANONICO : id_valor_canonico });
 
         if (index < 0) {
 
-            window.collections.valoresSistema.add(this.model);
-            generales.agregarValorSistemaAJob(this.model.toJSON());
+            //window.collections.valoresSistema.add(this.model);
+            window.manageData.colecciones['DVM_VALOR_SISTEMA'].add(this.model);
+            //generales.agregarValorSistemaAJob(this.model.toJSON());
+            window.generales.agregarRegistroAlJob('DVM_VALOR_SISTEMA', this.model.toJSON());
 
         }
 
       } else {
-        window.collections.valoresSistema.set(this.model, {remove : false});
-        generales.modificarValorSistemaEnJob(this.model.toJSON());
+        //window.collections.valoresSistema.set(this.model, {remove : false});
+        window.manageData.colecciones['DVM_VALOR_SISTEMA'].set(this.model, {remove : false});
+        //generales.modificarValorSistemaEnJob(this.model.toJSON());
+        generales.modificarRegistroEnJob('DVM_VALOR_SISTEMA', this.model.toJSON());
       }
 
       this.$el.modal('hide');
@@ -103,7 +108,8 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
     var pais = this.$el.find('#pais-sel').val();
 
     var self = this;
-		window.collections.sistemas.each(function (sistema) {
+		//window.collections.sistemas.each(function (sistema) {
+		window.manageData.colecciones['DVM_SISTEMA'].each(function (sistema) {
    
       if (sistema.get('PAIS') == pais)
 			  self.renderItemComboSistema(sistema);
@@ -128,7 +134,8 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
       if (data['ID_SISTEMA']) {
 
-        var sistema = window.collections.sistemas.get(data['ID_SISTEMA']);
+        //var sistema = window.collections.sistemas.get(data['ID_SISTEMA']);
+        var sistema = window.manageData.colecciones['DVM_SISTEMA'].get(data['ID_SISTEMA']);
         self.$el.find('#pais-sel').val(sistema.get('PAIS'));
         self.cargarComboSistema();
         self.$el.find('#sistema').val(data['ID_SISTEMA']);
@@ -139,7 +146,8 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
     });
 
-		window.collections.entidades.each(function (entidad) {
+		//window.collections.entidades.each(function (entidad) {
+		window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].each(function (entidad) {
 
 			self.renderItemComboEntidad(entidad);
 
@@ -181,7 +189,8 @@ EnvMan.Views.ValorSistema = Backbone.View.extend({
 
 		var idEntidad = parseInt(this.$el.find('#entidad').val());
 
-		var valores = window.collections.valoresCanonicos.where({
+		//var valores = window.collections.valoresCanonicos.where({
+		var valores = window.manageData.colecciones['DVM_VALOR_CANONICO'].where({
 
 			"ID_ENTIDAD_CANONICA" : idEntidad
 

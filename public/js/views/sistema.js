@@ -24,7 +24,8 @@ EnvMan.Views.Sistema = Backbone.View.extend({
 		if (!id) {
 
 			var id = 1;
-			var ultima = window.collections.sistemas.last();
+                        var ultima = window.manageData.colecciones['DVM_SISTEMA'].last();
+			//var ultima = window.collections.sistemas.last();
 			if (ultima) {
 				id = ultima.get("ID") + 1;
 			}
@@ -65,15 +66,17 @@ EnvMan.Views.Sistema = Backbone.View.extend({
 
         if (index < 0) {
 
-            window.collections.sistemas.add(this.model);
-            generales.agregarRegistroAlJob("sistema", this.model.toJSON());
+            window.manageData.colecciones['DVM_SISTEMA'].add(this.model);
+            //window.collections.sistemas.add(this.model);
+            generales.agregarRegistroAlJob('DVM_SISTEMA', this.model.toJSON());
 
         }
 
       } else {
 
-        window.collections.sistemas.set(this.model, {remove : false});
-        generales.modificarRegistroEnJob("sistema", this.model.toJSON());
+        window.manageData.colecciones['DVM_SISTEMA'].set(this.model, { remove : false });
+        //window.collections.sistemas.set(this.model, {remove : false});
+        generales.modificarRegistroEnJob('DVM_SISTEMA', this.model.toJSON());
 
       }
 

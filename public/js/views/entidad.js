@@ -24,7 +24,8 @@ EnvMan.Views.Entidad = Backbone.View.extend({
 		if (!id) {
 
 			var id = 1;
-			var ultima = window.collections.entidades.last();
+			//var ultima = window.collections.entidades.last();
+			var ultima = window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].last();
 			if (ultima) {
 				id = ultima.get("ID") + 1;
 			}
@@ -55,19 +56,23 @@ EnvMan.Views.Entidad = Backbone.View.extend({
       this.model.set('NOMBRE', nombre);
       this.model.set('DESCRIPCION', descripcion);
 
-      window.collections.entidades.add(this.model);
+      //window.collections.entidades.add(this.model);
+      window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].add(this.model);
 
       if (nuevo) {
 
-        var index = _.findIndex(window.job.registros.entidadcanonica, { NOMBRE : nombre });
+        //var index = _.findIndex(window.job.registros.entidadcanonica, { NOMBRE : nombre });
+        var index = _.findIndex(window.job.registros['DVM_ENTIDAD_CANONICA'], { NOMBRE : nombre });
         if (index < 0) {	
-            window.collections.entidades.add(this.model);
-            generales.agregarRegistroAlJob("entidadcanonica", this.model.toJSON());
+            //window.collections.entidades.add(this.model);
+            window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].add(this.model);
+            generales.agregarRegistroAlJob('DVM_ENTIDAD_CANONICA', this.model.toJSON());
         }
 
       } else {
-        window.collections.entidades.set(this.model, { remove : false });
-        generales.modificarRegistroEnJob("entidadcanonica", this.model.toJSON());
+        //window.collections.entidades.set(this.model, { remove : false });
+        window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].set(this.model, { remove : false });
+        generales.modificarRegistroEnJob('DVM_ENTIDAD_CANONICA', this.model.toJSON());
       }
 
       this.$el.modal('hide');
