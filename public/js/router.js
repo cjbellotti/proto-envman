@@ -6,7 +6,8 @@ EnvMan.Router = Backbone.Router.extend({
     'envman' : 'envman',
     'dbexplorer' : 'dbExplorer',
     'dbcomparer' : 'dbComparer',
-    'envcomparer' : 'envComparer'
+    'envcomparer' : 'envComparer',
+	'soacomparer' : 'soaComparer'
 
   },
 
@@ -68,6 +69,14 @@ EnvMan.Router = Backbone.Router.extend({
       $('#main').html(view.el);
       view.render();
 
+  },
+  
+  soaComparer : function() {
+
+      var view = new EnvMan.Views.SOAComparer();
+      $('#main').html(view.el);
+      view.render();
+      
   }
 });
 

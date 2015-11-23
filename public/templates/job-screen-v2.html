@@ -79,11 +79,9 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="#" id ="dvmSistema" class="list-group-item">DVM_SISTEMA</a>
-              <a href="#" id ="dvmEntidadCanonica" class="list-group-item">DVM_ENTIDAD_CANONICA</a>
-              <a href="#" id ="dvmValorCanonico" class="list-group-item">DVM_VALOR_CANONICO</a>
-              <a href="#" id ="dvmValorSistema" class="list-group-item">DVM_VALOR_SISTEMA</a>
-              <a href="#" id ="tblResponseMCatalog" class="list-group-item">TBL_RESPONSE_MESSAGES_CATALOG</a>
+              {% for tabla in tablas %}
+              <a href="#" class="list-group-item tabla">{{ loop.key }}</a>
+              {% endfor %}
             </div>
           </div>
           <div class="col-md-9">

@@ -12,5 +12,5 @@ app.use(require('./get-def-tablas'));
 app.use(require('./comparar'));
 app.use(require('./get-aplicaciones'));
 app.use(require('./get-novedades'));
-
+app.use(require('./get-soa')); 
 module.exports = app;

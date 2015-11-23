@@ -65,11 +65,12 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		"click #aceptar" : "guardar",
 		"click #verificar" : "verificar",
 		"click #importar" : "importar",
-		"click #dvmSistema" : "mostrarTablaSistemas",
-		"click #dvmEntidadCanonica" : "mostrarTablaEntidades",
-		"click #dvmValorCanonico" : "mostrarTablaValorCanonico",
-		"click #dvmValorSistema" : "mostrarTablaValorSistema",
-		"click #tblResponseMCatalog" :"mostrarTablaTblResponse"
+		"click .tabla" : "mostrarTabla"
+	},
+	
+	mostrarTabla: function(e){
+		var ejecutarFunc = "mostrarTabla" + $(e.currentTarget).html();
+		this[ejecutarFunc]();
 	},
 
 	faseAnterior : function (e) {
@@ -97,7 +98,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
-	mostrarTablaSistemas : function (e) {
+	mostrarTablaDVM_SISTEMA : function (e) {
 
 		var configTable = {};
                 configTable.headers = {};
@@ -140,7 +141,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
-	mostrarTablaEntidades : function (e) {
+	mostrarTablaDVM_ENTIDAD_CANONICA : function (e) {
 
 		var configTable = {};
 
@@ -178,7 +179,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
-	mostrarTablaValorSistema : function (e) {
+	mostrarTablaDVM_VALOR_SISTEMA : function (e) {
 
 		var configTable = {};
 
@@ -276,7 +277,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
-	mostrarTablaValorCanonico : function (e) {
+	mostrarTablaDVM_VALOR_CANONICO : function (e) {
 
 		var configTable = {};
 
@@ -338,8 +339,108 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
-	mostrarTablaTblResponse:function(e){
-		
+	mostrarTablaTBL_HOMOLOGATIONCATEGORIES:function(e){
+
+		var configTable = {};
+	    configTable.headers = {};
+	    configTable.headers.Id = {
+	      style : {
+	        width : '6%'
+	      },
+	      dataField : 'ID'
+	    };
+	    configTable.headers['Categoria Canonica'] = {
+	      style : {
+	        width : '29%'
+	      },
+	      dataField : 'CANONICALCATEGORYCODE'
+	    };
+	    configTable.headers['Nombre'] = {
+	      style : {
+	        width : '40%'
+	      },
+	      dataField : 'CATEGORYNAME'
+	    };
+	    configTable.headers['Id Categoria'] = {
+	      style : {
+	        width : '20%'
+	      },
+	      dataField : 'CATEGORYID'
+	    };
+
+		configTable.arrayData = job.registros.TBL_HOMOLOGATIONCATEGORIES;
+
+		configTable.title = "TBL Homologacion Categorias";
+		configTable.table = "TBL_HOMOLOGATIONCATEGORIES";
+
+		//TODO ARREGLAR.... falta definir las vistas
+			configTable.model = manageData.colecciones.TBL_HOMOLOGATIONCATEGORIES.model; 
+			configTable.view = EnvMan.Views.HomologacionCategorias;
+			configTable.viewImport = EnvMan.Views.SistemaImportar;
+		//TODO ARREGLAR....
+
+		var homologacionCategoriasTabla = crearTabla(configTable);
+		homologacionCategoriasTabla.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(homologacionCategoriasTabla.$el);
+	},
+
+	mostrarTablaTBL_HOMOLOGATIONDATA : function(e){
+	
+		var configTable = {};
+	    configTable.headers = {};
+	    configTable.headers.Id = {
+	      style : {
+	        width : '6%'
+	      },
+	      dataField : 'ID'
+	    };
+	    configTable.headers['Country'] = {
+	      style : {
+	        width : '20%'
+	      },
+	      dataField : 'COUNTRYID'
+	    };
+	    configTable.headers['Canonical'] = {
+	      style : {
+	        width : '15%'
+	      },
+	      dataField : 'CANONICALCODE'
+	    };
+	    configTable.headers['Concept'] = {
+	      style : {
+	        width : '15%'
+	      },
+	      dataField : 'HOMOLOGATEDCONCEPT'
+	    };
+	     configTable.headers['Target System'] = {
+	      style : {
+	        width : '15%'
+	      },
+	      dataField : 'TARGETSYSTEMCODE'
+	    };
+	     configTable.headers['Homologated Code'] = {
+	      style : {
+	        width : '15%'
+	      },
+	      dataField : 'HOMOLOGATEDCODE'
+	    };
+
+	    configTable.arrayData = job.registros.TBL_HOMOLOGATIONDATA;
+
+		configTable.title = "TBL Homologacion Data";
+		configTable.table = "TBL_HOMOLOGATIONDATA";
+
+		//TODO ARREGLAR.... falta definir las vistas
+			configTable.model = manageData.colecciones.TBL_HOMOLOGATIONCATEGORIES.model; 
+			configTable.view = EnvMan.Views.Sistema; 
+			configTable.viewImport = EnvMan.Views.SistemaImportar;
+		//TODO ARREGLAR....
+
+		var homologacionDataTabla = crearTabla(configTable);
+		homologacionDataTabla.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(homologacionDataTabla.$el);
 	},
 
 	guardar : function (e) {
@@ -405,13 +506,22 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	render : function (job) {
-
-		this.$el.html(this.template(job));
-		this.$el.find('#' + job.target + ' button').removeClass('disabled');
-		this.mostrarTablaSistemas();
-
-		if (window.job.job != '')
-				this.$el.find('#importar').attr('disabled', 'disabled');
+		var dataTablas = {} ; 
+			$.ajax({
+				url : '/def-tablas',
+				method : 'GET',
+				async : false,
+				contentType : 'application/json',
+				success : function (data) { 
+					dataTablas.tablas = data; 			
+				}
+			});
+			this.$el.html(this.template(dataTablas)); 
+			this.$el.find('#' + job.target + ' button').removeClass('disabled');
+			this.mostrarTablaDVM_SISTEMA();
+			if (window.job.job != ''){
+					this.$el.find('#importar').attr('disabled', 'disabled');
+			}
 	}
 
 });

@@ -1,0 +1,31 @@
+.table-soa{
+	width: 100%;
+	margin: auto;
+}
+.table-soa, th, td {
+	border: 1px solid #C0C0C0;
+	text-align: center;
+}
+td{
+	vertical-align: bottom;
+	text-align: center;
+}
+.table-container{
+	height: 80%;
+	overflow-y :scroll;
+	overflow-x :scroll;
+	margin-top: 10px;
+}
+.panel-footer{
+	width: 100%;
+	text-align: right;
+	padding-right: 50px;
+	background: #fff;
+	border-color: #fff;
+}
+.artefacto:empty{
+	background-color: #d9534f;
+}
+.fila-soa{
+	background-color: rgba(209, 224, 224, 1);
+}
