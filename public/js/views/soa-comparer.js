@@ -5,7 +5,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 	},
 	
 	render:function(){
-		//var dataSoa = {} ;
+		var dataSoa = {} ;
 		$.ajax({
 			url : '/soa-comparer',
 			method : 'GET',
@@ -13,8 +13,8 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 			contentType : 'application/json',
 			success : function (data) { 
 				console.log('consulta exitosa servicio -> /soa-comparer');
-				//dataSoa.registros = data; 
-				var artefactos = [];
+				dataSoa.registros = data; 
+				/*var artefactos = [];
 				var valores = [];
 				var object = 
 				for(var index in objeto){
@@ -23,10 +23,10 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 					data.version = objeto[index].version;
 					data.fecha = objeto[index].fechaDespliegue;
 					valores.push(data);
-				}	
+				}	**/
 			}
 		});
-		this.$el.html(this.template(/*dataSoa*/));
+		this.$el.html(this.template(dataSoa));
 	},
 
 	events : {

@@ -7,7 +7,7 @@ EnvMan.Router = Backbone.Router.extend({
     'dbexplorer' : 'dbExplorer',
     'dbcomparer' : 'dbComparer',
     'envcomparer' : 'envComparer',
-	'soacomparer' : 'soaComparer'
+	  'soacomparer' : 'soaComparer'
 
   },
 
