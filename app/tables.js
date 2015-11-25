@@ -167,6 +167,25 @@ module.exports = {
       "CANONICALCODE" : Tipos.Cadena
     } 
 
+  },
+
+  TBL_RESPONSE_MESSAGES_CATALOG : {
+
+    alias : "TBL_RESPONSE_MESSAGES_CATALOG", 
+    esquema : 'SMSCHANNEL',
+    campos : {
+      TEXT_MESSAGE : {
+        tipo : Tipos.Clave
+      },
+      ISO2CODE : {
+        tipo : Tipos.Clave
+      }
+    },
+    orderBy : 'ID_MESSAGE',
+    claves : { 
+      "ID_MESSAGE" : Tipos.Numerico
+    }     
+
   }
 
 }

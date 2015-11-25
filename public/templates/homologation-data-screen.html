@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>HomologationData</h1>		
+				</div>
+				<div class="modal-body">
+					<div action="" class="form-horizontal" role="form">
+						<div class="form-group">
+                                                    <label for="country-id" class="col-lg-2 control-label">Country ID</label>
+                                                    <div class="col-lg-10">
+                                                      <input type="text" class="form-control" id="country-id" name="country-id" maxlength="100" value="{{ COUNTRYID }}">
+                                                    </div>
+						</div>
+						<div class="form-group">
+                                                    <label for="canonical-code" class="col-lg-2 control-label">Canonical Code</label>
+                                                    <div class="col-lg-10">
+                                                      <input type="text" class="form-control" id="canonical-code" name="canonical-code" maxlength="100" value="{{ CANONICALCODE }}">
+                                                    </div>
+						</div>
+						<div class="form-group">
+                                                    <label for="homologated-concept" class="col-lg-2 control-label">Homologated Concept</label>
+                                                    <div class="col-lg-10">
+                                                      <input type="text" class="form-control" id="homologated-concept" name="homologated-concept" maxlength="100" value="{{ HOMOLOGATEDCONCEPT }}">
+                                                    </div>
+						</div>
+						<div class="form-group">
+                                                    <label for="target-system-code" class="col-lg-2 control-label">Target System Code</label>
+                                                    <div class="col-lg-10">
+                                                      <input type="text" class="form-control" id="target-system-code" name="target-system-code" maxlength="100" value="{{ TARGETSYSTEMCODE }}">
+                                                    </div>
+						</div>
+						<div class="form-group">
+							<label for="category-id" class="col-lg-2 control-label">Category ID</label>
+							<div class="col-lg-10">
+								<select id="category-id" name="category-id" class="form-control">
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="homologated-code" class="col-lg-2 control-label">Homologated Code</label>
+							<div class="col-lg-10"><input type="text" class="form-control" id="homologated-code" name="homologated-code" maxlength="100" value="{{ HOMOLOGATEDCODE }}"></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="aceptar" class="btn btn-primary">Aceptar</button>
+					<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+

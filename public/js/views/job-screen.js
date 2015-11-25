@@ -343,11 +343,11 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 		var configTable = {};
 	    configTable.headers = {};
-	    configTable.headers.Id = {
+	    configTable.headers['Id'] = {
 	      style : {
-	        width : '6%'
+	        width : '29%'
 	      },
-	      dataField : 'ID'
+	      dataField : 'CATEGORYID'
 	    };
 	    configTable.headers['Categoria Canonica'] = {
 	      style : {
@@ -357,25 +357,19 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	    };
 	    configTable.headers['Nombre'] = {
 	      style : {
-	        width : '40%'
+	        width : '38%'
 	      },
 	      dataField : 'CATEGORYNAME'
-	    };
-	    configTable.headers['Id Categoria'] = {
-	      style : {
-	        width : '20%'
-	      },
-	      dataField : 'CATEGORYID'
 	    };
 
 		configTable.arrayData = job.registros.TBL_HOMOLOGATIONCATEGORIES;
 
-		configTable.title = "TBL Homologacion Categorias";
+		configTable.title = "Homologacion Categorias";
 		configTable.table = "TBL_HOMOLOGATIONCATEGORIES";
 
 		//TODO ARREGLAR.... falta definir las vistas
 			configTable.model = manageData.colecciones.TBL_HOMOLOGATIONCATEGORIES.model; 
-			configTable.view = EnvMan.Views.HomologacionCategorias;
+			configTable.view = EnvMan.Views.HomologationCategories;
 			configTable.viewImport = EnvMan.Views.SistemaImportar;
 		//TODO ARREGLAR....
 
@@ -389,19 +383,13 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	
 		var configTable = {};
 	    configTable.headers = {};
-	    configTable.headers.Id = {
+	    configTable.headers['Country ID'] = {
 	      style : {
-	        width : '6%'
-	      },
-	      dataField : 'ID'
-	    };
-	    configTable.headers['Country'] = {
-	      style : {
-	        width : '20%'
+	        width : '10%'
 	      },
 	      dataField : 'COUNTRYID'
 	    };
-	    configTable.headers['Canonical'] = {
+	    configTable.headers['Canonical Code'] = {
 	      style : {
 	        width : '15%'
 	      },
@@ -425,15 +413,21 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	      },
 	      dataField : 'HOMOLOGATEDCODE'
 	    };
+	     configTable.headers['Categoria'] = {
+	      style : {
+	        width : '25%'
+	      },
+	      dataField : 'CATEGORYID'
+	    };
 
 	    configTable.arrayData = job.registros.TBL_HOMOLOGATIONDATA;
 
-		configTable.title = "TBL Homologacion Data";
+		configTable.title = "Homologacion Data";
 		configTable.table = "TBL_HOMOLOGATIONDATA";
 
 		//TODO ARREGLAR.... falta definir las vistas
 			configTable.model = manageData.colecciones.TBL_HOMOLOGATIONCATEGORIES.model; 
-			configTable.view = EnvMan.Views.Sistema; 
+			configTable.view = EnvMan.Views.HomologationData; 
 			configTable.viewImport = EnvMan.Views.SistemaImportar;
 		//TODO ARREGLAR....
 
@@ -441,6 +435,43 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		homologacionDataTabla.render();
 		this.$el.find('.tab-content').html('');
 		this.$el.find('.tab-content').append(homologacionDataTabla.$el);
+	},
+	mostrarTablaTBL_RESPONSE_MESSAGES_CATALOG : function (e) {
+
+		var configTable = {};
+
+    configTable.headers = {};
+    configTable.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID_MESSAGE'
+    };
+    configTable.headers.Texto = {
+        style : {
+          width : '29%'
+        },
+        dataField : 'TEXT_MESSAGE'
+    };
+    configTable.headers.ISO2CODE = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'ISO2CODE'
+    };
+		configTable.arrayData = job.registros.TBL_RESPONSE_MESSAGES_CATALOG;
+		configTable.title = "Response Messages Catalog";
+		configTable.table = "TBL_RESPONSE_MESSAGES_CATALOG";
+		configTable.model = manageData.colecciones.TBL_RESPONSE_MESSAGES_CATALOG.model; 
+		configTable.view = EnvMan.Views.ResponseMessagesCatalog;
+		configTable.viewImport = EnvMan.Views.EntidadImportar;
+
+		var entidadesTable = crearTabla(configTable);
+
+		entidadesTable.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(entidadesTable.$el);
+
 	},
 
 	guardar : function (e) {
@@ -502,6 +533,18 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	importar : function (e) {
+
+		e.preventDefault();
+		
+		var view = new EnvMan.Views.ImportarArchivo ();
+		$('#modals').append(view.el);
+		view.render();
+		view.$el.modal({
+
+			backdrop : 'static',
+			keyboard : false
+
+		});
 
 	},
 

@@ -12,7 +12,7 @@ function cargarExistentes(tablas, input) {
 
 		if (index < 0 ) {
 
-			var registro = window.collections.entidades.findWhere({
+			var registro = window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].findWhere({
 
 				NOMBRE : data.nombreEntidad
 
@@ -53,7 +53,7 @@ function cargarExistentes(tablas, input) {
 
 			if (index < 0) {
 			
-				var registro = window.collections.sistemas.findWhere({
+				var registro = window.manageData.colecciones['DVM_SISTEMA'].findWhere({
 
 					NOMBRE : data.nombreSistema,
 					PAIS : pais 
@@ -87,7 +87,7 @@ function cargarExistentes(tablas, input) {
 
 			if (index < 0) {
 
-				var registro = window.collections.valoresCanonicos.findWhere({
+				var registro = window.manageData.colecciones['DVM_VALOR_CANONICO'].findWhere({
 
 					ID_ENTIDAD_CANONICA : idEntidad,
 					VALOR_CANONICO : data.valorCanonico 
@@ -123,7 +123,7 @@ function cargarExistentes(tablas, input) {
 
 			if (index < 0) {
 
-				registro = window.collections.valoresSistema.findWhere({
+				registro = window.manageData.colecciones['DVM_VALOR_SISTEMA'].findWhere({
 
 					ID_ENTIDAD_CANONICA : idEntidad,
 					ID_VALOR_CANONICO : idValorCanonico,

@@ -31,12 +31,13 @@ EnvMan.Views.ImportarArchivo = Backbone.View.extend({
 			{NOMBRE : parseString},
 			{DESCRIPCION : parseString}
 		];
-		sistema.nombre = "sistema";
-		sistema.model = EnvMan.Models.Sistema;
-		sistema.collection = window.collections.sistemas;
+		sistema.nombre = "DVM_SISTEMA";
+		sistema.model = window.manageData.colecciones['DVM_SISTEMA'].model;
+		//sistema.collection = window.collections.sistemas;
+		sistema.collection = window.manageData.colecciones['DVM_SISTEMA'];
 		sistema.agregar = function (registro) {
 
-			window.generales.agregarRegistroAlJob('sistema', registro);
+			window.generales.agregarRegistroAlJob('DVM_SISTEMA', registro);
 
 		};
 
@@ -50,12 +51,13 @@ EnvMan.Views.ImportarArchivo = Backbone.View.extend({
 			{DESCRIPCION : parseString}
 
 		];
-		entidadcanonica.nombre = "entidadcanonica";
-		entidadcanonica.model = EnvMan.Models.Entidad;
-		entidadcanonica.collection = window.collections.entidades;
+		entidadcanonica.nombre = "DVM_ENTIDAD_CANONICA";
+		entidadcanonica.model = window.manageData.colecciones['DVM_ENTIDAD_CANONICA'].model; 
+		//entidadcanonica.collection = window.collections.entidades;
+		entidadcanonica.collection = window.manageData.colecciones['DVM_ENTIDAD_CANONICA'];
 		entidadcanonica.agregar = function (registro) {
 
-			window.generales.agregarRegistroAlJob('entidadcanonica', registro);
+			window.generales.agregarRegistroAlJob('DVM_ENTIDAD_CANONICA', registro);
 			
 		};
 
@@ -70,10 +72,16 @@ EnvMan.Views.ImportarArchivo = Backbone.View.extend({
 			{VALOR_CANONICO : parseString}
 
 		];
-		valorcanonico.nombre = "valorcanonico";
-		valorcanonico.model = EnvMan.Models.ValorCanonico;
-		valorcanonico.collection = window.collections.valoresCanonicos;
-		valorcanonico.agregar = window.generales.agregarValorCanonicoAJob;
+		valorcanonico.nombre = "DVM_VALOR_CANONICO";
+		valorcanonico.model = window.manageData.colecciones['DVM_VALOR_CANONICO'].model;
+		//valorcanonico.collection = window.collections.valoresCanonicos;
+		valorcanonico.collection = window.manageData.colecciones['DVM_VALOR_CANONICO'];
+		valorcanonico.agregar = function (registro) {
+
+			window.generales.agregarRegistroAlJob('DVM_VALOR_CANONICO', registro);
+                        window.generales.normalizar('DVM_ENTIDAD_CANONICA', registro.ID_ENTIDAD_CANONICA);
+
+                };
 
 		tablas['DVM_VALOR_CANONICO'] = valorcanonico;
 
@@ -87,10 +95,18 @@ EnvMan.Views.ImportarArchivo = Backbone.View.extend({
 			{VALOR_SISTEMA : parseString}
 
 		];
-		valorsistema.nombre = "valorsistema";
-		valorsistema.model = EnvMan.Models.ValorSistema;
-		valorsistema.collection = window.collections.valoresSistema;
-		valorsistema.agregar = window.generales.agregarValorSistemaAJob;
+		valorsistema.nombre = "DVM_VALOR_SISTEMA";
+		valorsistema.model = window.manageData.colecciones['DVM_VALOR_SISTEMA'].model;
+		//valorsistema.collection = window.collections.valoresSistema;
+		valorsistema.collection = window.manageData.colecciones['DVM_VALOR_SISTEMA'];
+		valorsistema.agregar = function (registro) {
+
+			window.generales.agregarRegistroAlJob('DVM_VALOR_SISTEMA', registro);
+                        window.generales.normalizar('DVM_SISTEMA', registro.ID_SISTEMA);
+                        window.generales.normalizar('DVM_ENTIDAD_CANONICA', registro.ID_ENTIDAD_CANONICA);
+                        window.generales.normalizar('DVM_VALOR_CANONICO', registro.ID_VALOR_CANONICO);
+
+                };
 
 		tablas['DVM_VALOR_SISTEMA'] = valorsistema;
 
