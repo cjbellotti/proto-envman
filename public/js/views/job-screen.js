@@ -473,6 +473,135 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		this.$el.find('.tab-content').append(entidadesTable.$el);
 
 	},
+	mostrarTablaCACHE_CONFIGURATION : function (e) {
+
+		var configTable = {};
+
+    configTable.headers = {};
+    configTable.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID'
+    };
+    configTable.headers.Country = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'COUNTRY'
+    };
+    configTable.headers.Instance = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'INSTANCE'
+    };
+    configTable.headers.Service = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'SERVICE'
+    };
+    configTable.headers.Operation = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'OPERATION'
+    };
+    configTable.headers.TTL = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'TTL'
+    };
+		configTable.arrayData = job.registros.CACHE_CONFIGURATION;
+		configTable.title = "Cache Configuration";
+		configTable.table = "CACHE_CONFIGURATION";
+		configTable.model = manageData.colecciones.CACHE_CONFIGURATION.model; 
+		configTable.view = EnvMan.Views.CacheConfiguration;
+		configTable.viewImport = EnvMan.Views.CacheConfigurationImportar;
+
+		var entidadesTable = crearTabla(configTable);
+
+		entidadesTable.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(entidadesTable.$el);
+
+	},
+
+	mostrarTablaTBL_CONNECTIONS : function (e) {
+
+		var configTable = {};
+
+    configTable.headers = {};
+    configTable.headers['Country ID'] = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'COUNTRY_ID'
+    };
+    configTable.headers['System ID'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'ID_SYSTEM'
+    };
+    configTable.headers['System URL'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'URL_SYSTEM'
+    };
+    configTable.headers['User ID'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'USER_ID'
+    };
+    configTable.headers['User Proof'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'USER_PROFF'
+    };
+    configTable.headers['System DSN'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'DSN_SYSTEM'
+    };
+    configTable.headers['ISO2CODE'] = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'ISO2CODE'
+    };
+    configTable.headers['ISO3CODE'] = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'ISO3CODE'
+    };
+    configTable.headers['System Version'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'SYSTEM_VERSION'
+    };
+		configTable.arrayData = job.registros.TBL_CONNECTIONS;
+		configTable.title = "Connections";
+		configTable.table = "TBL_CONNECTIONS";
+		configTable.model = manageData.colecciones.TBL_CONNECTIONS.model; 
+		configTable.view = EnvMan.Views.Connections;
+		configTable.viewImport = EnvMan.Views.ConnectionsImportar;
+
+		var entidadesTable = crearTabla(configTable);
+
+		entidadesTable.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(entidadesTable.$el);
+
+	},
 
 	guardar : function (e) {
 

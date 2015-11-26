@@ -578,3 +578,12 @@ width : 100%;
 font-size : 10px;
 }
 
+.tablas-job > .col-md-3 {
+  height : 30vh;
+  overflow : hidden;
+  overflow-y : scroll;
+}
+
+.tablas-job > .col-md-9 {
+  height : 30vh;
+}

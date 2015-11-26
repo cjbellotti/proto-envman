@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="modal-dialog" style="width : 60%">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1>Cache Configuration</h1>		
+					</div>
+					<div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div action="" class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label for="country-id" class="col-lg-2 control-label">Country ID</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="country-id" name="country-id" maxlength="1" value="{{ COUNTRY_ID }}"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="id-system" class="col-lg-2 control-label">System ID</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="id-system" name="id-system" maxlength="20" value="{{ ID_SYSTEM }}"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="url-system" class="col-lg-2 control-label">System URL</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="url-system" name="url-system" maxlength="500" value="{{ URL_SYSTEM }}"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-id" class="col-lg-2 control-label">User ID</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="user-id" name="user-id" maxlength="100" value="{{ USER_ID }}"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-proof" class="col-lg-2 control-label">User Proof</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="user-proof" name="user-proof" maxlength="100" value="{{ USER_PROOF }}"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <label for="dsn-system" class="col-lg-2 control-label">System DSN</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="dsn-system" name="dsn-system" maxlength="100" value="{{ DSN_SYSTEM }}"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="iso2code" class="col-lg-2 control-label">ISO2CODE</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="iso2code" name="iso2code" maxlength="2" value="{{ ISO2CODE }}"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="iso3code" class="col-lg-2 control-label">ISO3CODE</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="iso3code" name="iso3code" maxlength="3" value="{{ ISO3CODE }}"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="system-version" class="col-lg-2 control-label">System Version</label>
+                    <div class="col-lg-10"><input type="text" class="form-control" id="system-version" name="system-version" maxlength="10" value="{{ SYSTEM_VERSION }}"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+					</div>
+					<div class="modal-footer">
+						<button id="aceptar" class="btn btn-primary">Aceptar</button>
+						<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					</div>
+				</div>
+		</div>
+	</body>
+</html>
+
+
+	

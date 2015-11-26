@@ -186,6 +186,74 @@ module.exports = {
       "ID_MESSAGE" : Tipos.Numerico
     }     
 
+  },
+
+  CACHE_CONFIGURATION : {
+
+    alias : "CACHE_CONFIGURATION", 
+    esquema : 'DTVLA',
+    campos : {
+      COUNTRY : {
+        tipo : Tipos.Clave
+      },
+      INSTANCE : {
+        tipo : Tipos.Clave
+      },
+      SERVICE : {
+        tipo : Tipos.Clave
+      },
+      OPERATION : {
+        tipo : Tipos.Clave
+      },
+      TTL : {
+        tipo : Tipos.Clave
+      }
+    },
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    }     
+
+  },
+
+  TBL_CONNECTIONS : {
+
+    alias : "TBL_CONNECTIONS", 
+    esquema : 'DTVLA',
+    campos : {
+      COUNTRY_ID : {
+        tipo : Tipos.Clave
+      },
+      ID_SYSTEM : {
+        tipo : Tipos.Clave
+      },
+      URL_SYSTEM : {
+        tipo : Tipos.Clave
+      },
+      USER_ID : {
+        tipo : Tipos.Clave
+      },
+      USER_PROOF : {
+        tipo : Tipos.Clave
+      },
+      DSN_SYSTEM : {
+        tipo : Tipos.Clave
+      },
+      ISO2CODE : {
+        tipo : Tipos.Clave
+      },
+      ISO3CODE : {
+        tipo : Tipos.Clave
+      },
+      SYSTEM_VERSION : {
+        tipo : Tipos.Clave
+      }
+    },
+    orderBy : 'COUNTRY_ID',
+    claves : { 
+      "COUNTRY_ID" : Tipos.Cadena
+    }     
+
   }
 
 }

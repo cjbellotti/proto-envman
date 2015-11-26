@@ -4,25 +4,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     this.template = swig.compile(getTemplate('templates/db-comparer.html'));
 
-    this.tablas = [{}, {}];
-
-    for (var n = 0; n < 2;n++) {
-
-      /*this.tablas[n].sistemas = new EnvMan.Collections.Sistemas();
-      this.tablas[n].entidades = new EnvMan.Collections.Entidades();
-      this.tablas[n].valoresCanonicos = new EnvMan.Collections.ValoresCanonicos();
-      this.tablas[n].valoresSistema = new EnvMan.Collections.ValoresSistema();
-      this.tablas[n].tblHomologationCategories = new EnvMan.Collections.TblHomologationCategories();
-      this.tablas[n].tblHomologationData = new EnvMan.Collections.TblHomologationData();*/
-
-	for (var tabla in window.manageData.coleccion) {
-
-		var url = window.manageData.colecciones[tabla].baseURL;
-		var model = window.manageData.colecciones[tabla].model;
-		this.tablas[n][tabla] = new EnvMan.Collections.GenericCollection(url, model);
-	}
-
-    }
+    var configuraciones = {};
 
     var config = {};
     config.headers = {};
@@ -62,11 +44,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       }
 
     };
-    this.tablas[0].DVM_SISTEMA = MyTable(config);
-    this.tablas[1].DVM_SISTEMA = MyTable(config);
-
-    this.tablas[0].DVM_SISTEMA.coleccion = this.tablas[0].sistemas;
-    this.tablas[1].DVM_SISTEMA.coleccion = this.tablas[1].sistemas;
+    configuraciones.DVM_SISTEMA = config;
 
     config = {};
     config.headers = {};
@@ -89,12 +67,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       dataField : 'DESCRIPCION'
     };
     config.filterable = true;
-
-    this.tablas[0].DVM_ENTIDAD_CANONICA = MyTable(config);
-    this.tablas[1].DVM_ENTIDAD_CANONICA = MyTable(config);
-
-    this.tablas[0].DVM_ENTIDAD_CANONICA.coleccion = this.tablas[0].entidades;
-    this.tablas[1].DVM_ENTIDAD_CANONICA.coleccion = this.tablas[1].entidades;
+    configuraciones.DVM_ENTIDAD_CANONICA = config;
 
     config.headers = {};
     config.headers.Id = {
@@ -126,7 +99,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       var nombre = content;
       if (field == "ID_ENTIDAD_CANONICA"){
 
-        var entidad = scope.entidades.get(content);
+        var entidad = scope.colecciones.DVM_ENTIDAD_CANONICA.get(content);
         if (entidad)
           nombre = entidad.get('NOMBRE');
         else
@@ -139,14 +112,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     };
 
     config.filterable = true;
-    this.tablas[0].DVM_VALOR_CANONICO = MyTable(config);
-    this.tablas[1].DVM_VALOR_CANONICO = MyTable(config);
-
-    this.tablas[0].DVM_VALOR_CANONICO.entidades = this.tablas[0].entidades;
-    this.tablas[1].DVM_VALOR_CANONICO.entidades = this.tablas[1].entidades;
-
-    this.tablas[0].DVM_VALOR_CANONICO.coleccion = this.tablas[0].valoresCanonicos;
-    this.tablas[1].DVM_VALOR_CANONICO.coleccion = this.tablas[0].valoresCanonicos;
+    configuraciones.DVM_VALOR_CANONICO = config;
 
     config = {};
     config.headers = {};
@@ -195,7 +161,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
         if (parseInt(content)) {
 
-          var entidad = scope.entidades.get(content);
+          var entidad = scope.colecciones.DVM_ENTIDAD_CANONICA.get(content);
           if (entidad)
             nombre = entidad.get('NOMBRE');
           else
@@ -208,9 +174,9 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
         if (parseInt(content)) {
 
-          var valorCanonico = scope.sistemas.get(content);
-          if (valorCanonico)
-            nombre = valorCanonico.get('NOMBRE');
+          var sistema = scope.colecciones.DVM_SISTEMA.get(content);
+          if (sistema)
+            nombre = sistema.get('NOMBRE');
           else
             nombre = content;
 
@@ -218,7 +184,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
       } else if (field == "PAIS") {
 
-        var sistema = scope.sistemas.get(rowData.ID_SISTEMA);
+        var sistema = scope.colecciones.DVM_SISTEMA.get(rowData.ID_SISTEMA);
         if (!sistema)
           nombre = "Sin Pais";
         else
@@ -228,7 +194,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
         if (parseInt(content)) {	
 
-          var valorCanonico = scope.valoresCanonicos.get(content);
+          var valorCanonico = scope.colecciones.DVM_VALOR_CANONICO.get(content);
           if (valorCanonico)
             nombre = valorCanonico.get('VALOR_CANONICO');
           else
@@ -246,21 +212,9 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     }
 
     config.filterable = true;
-    this.tablas[0].DVM_VALOR_SISTEMA = MyTable(config);
-    this.tablas[1].DVM_VALOR_SISTEMA = MyTable(config);
+    configuraciones.DVM_VALOR_SISTEMA = config;
 
-    this.tablas[0].DVM_VALOR_SISTEMA.sistemas = this.tablas[0].sistemas;
-    this.tablas[0].DVM_VALOR_SISTEMA.entidades = this.tablas[0].entidades;
-    this.tablas[0].DVM_VALOR_SISTEMA.valoresCanonicos = this.tablas[0].valoresCanonicos;
-
-    this.tablas[1].DVM_VALOR_SISTEMA.sistemas = this.tablas[1].sistemas;
-    this.tablas[1].DVM_VALOR_SISTEMA.entidades = this.tablas[1].entidades;
-    this.tablas[1].DVM_VALOR_SISTEMA.valoresCanonicos = this.tablas[1].valoresCanonicos;
-
-    this.tablas[0].DVM_VALOR_SISTEMA.coleccion = this.tablas[0].valoresSistema;
-    this.tablas[1].DVM_VALOR_SISTEMA.coleccion = this.tablas[1].valoresSistema;
-
-    var config = {};
+    config = {};
     config.headers = {};
     config.headers['Category Id'] = {
       style : {
@@ -288,11 +242,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     };
 
     config.filterable = true;
-    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
-    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
-
-    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[0].tblHomologationCategories;
-    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[1].tblHomologationCategories;
+    configuraciones.TBL_HOMOLOGATIONCATEGORIES = config;
 
     config.headers = {};
     config.headers['Country Id'] = {
@@ -339,11 +289,202 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     };
 
     config.filterable = true;
+    configuraciones.TBL_HOMOLOGATIONDATA = config;
+
+    config = {};
+    config.headers = {};
+    config.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID_MESSAGE'
+    };
+    config.headers.Texto = {
+        style : {
+          width : '29%'
+        },
+        dataField : 'TEXT_MESSAGE'
+    };
+    config.headers.ISO2CODE = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'ISO2CODE'
+    };
+    config.filterable = true;
+    configuraciones.TBL_RESPONSE_MESSAGES_CATALOG = config;
+
+    config = {};
+    config.headers = {};
+    config.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID'
+    };
+    config.headers.Country = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'COUNTRY'
+    };
+    config.headers.Instance = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'INSTANCE'
+    };
+    config.headers.Service = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'SERVICE'
+    };
+    config.headers.Operation = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'OPERATION'
+    };
+    config.headers.TTL = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'TTL'
+    };
+    config.filterable = true;
+    configuraciones.CACHE_CONFIGURATION = config;
+
+    config = {};
+    config.headers = {};
+    config.headers['Country ID'] = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'COUNTRY_ID'
+    };
+    config.headers['System ID'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'ID_SYSTEM'
+    };
+    config.headers['System URL'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'URL_SYSTEM'
+    };
+    config.headers['User ID'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'USER_ID'
+    };
+    config.headers['User Proof'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'USER_PROFF'
+    };
+    config.headers['System DSN'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'DSN_SYSTEM'
+    };
+    config.headers['ISO2CODE'] = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'ISO2CODE'
+    };
+    config.headers['ISO3CODE'] = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'ISO3CODE'
+    };
+    config.headers['System Version'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'SYSTEM_VERSION'
+    };
+    config.filterable = true;
+    configuraciones.TBL_CONNECTIONS = config;
+
+    this.tablas = [{ colecciones : {} }, { colecciones : {} }];
+
+    for (var n = 0; n < 2;n++) {
+
+      /*this.tablas[n].sistemas = new EnvMan.Collections.Sistemas();
+      this.tablas[n].entidades = new EnvMan.Collections.Entidades();
+      this.tablas[n].valoresCanonicos = new EnvMan.Collections.ValoresCanonicos();
+      this.tablas[n].valoresSistema = new EnvMan.Collections.ValoresSistema();
+      this.tablas[n].tblHomologationCategories = new EnvMan.Collections.TblHomologationCategories();
+      this.tablas[n].tblHomologationData = new EnvMan.Collections.TblHomologationData();*/
+
+      for (var tabla in window.manageData.colecciones) {
+
+        var url = window.manageData.colecciones[tabla].baseURL;
+        var model = window.manageData.colecciones[tabla].model;
+
+        this.tablas[n][tabla] = MyTable(configuraciones[tabla]);
+        this.tablas[n][tabla].colecciones = this.tablas[n].colecciones;
+        this.tablas[n].colecciones[tabla] = new EnvMan.Collections.GenericCollection(url, model);
+
+      }
+
+    }
+
+    /*this.tablas[0].DVM_SISTEMA = MyTable(config);
+    this.tablas[1].DVM_SISTEMA = MyTable(config);
+
+    this.tablas[0].DVM_SISTEMA.coleccion = this.tablas[0].sistemas;
+    this.tablas[1].DVM_SISTEMA.coleccion = this.tablas[1].sistemas;
+
+
+    this.tablas[0].DVM_ENTIDAD_CANONICA = MyTable(config);
+    this.tablas[1].DVM_ENTIDAD_CANONICA = MyTable(config);
+
+    this.tablas[0].DVM_ENTIDAD_CANONICA.coleccion = this.tablas[0].entidades;
+    this.tablas[1].DVM_ENTIDAD_CANONICA.coleccion = this.tablas[1].entidades;
+
+    this.tablas[0].DVM_VALOR_CANONICO = MyTable(config);
+    this.tablas[1].DVM_VALOR_CANONICO = MyTable(config);
+
+    this.tablas[0].DVM_VALOR_CANONICO.entidades = this.tablas[0].entidades;
+    this.tablas[1].DVM_VALOR_CANONICO.entidades = this.tablas[1].entidades;
+
+    this.tablas[0].DVM_VALOR_CANONICO.coleccion = this.tablas[0].valoresCanonicos;
+    this.tablas[1].DVM_VALOR_CANONICO.coleccion = this.tablas[0].valoresCanonicos;
+
+    this.tablas[0].DVM_VALOR_SISTEMA = MyTable(config);
+    this.tablas[1].DVM_VALOR_SISTEMA = MyTable(config);
+
+    this.tablas[0].DVM_VALOR_SISTEMA.sistemas = this.tablas[0].sistemas;
+    this.tablas[0].DVM_VALOR_SISTEMA.entidades = this.tablas[0].entidades;
+    this.tablas[0].DVM_VALOR_SISTEMA.valoresCanonicos = this.tablas[0].valoresCanonicos;
+
+    this.tablas[1].DVM_VALOR_SISTEMA.sistemas = this.tablas[1].sistemas;
+    this.tablas[1].DVM_VALOR_SISTEMA.entidades = this.tablas[1].entidades;
+    this.tablas[1].DVM_VALOR_SISTEMA.valoresCanonicos = this.tablas[1].valoresCanonicos;
+
+    this.tablas[0].DVM_VALOR_SISTEMA.coleccion = this.tablas[0].valoresSistema;
+    this.tablas[1].DVM_VALOR_SISTEMA.coleccion = this.tablas[1].valoresSistema;
+
+    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
+    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
+
+    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[0].tblHomologationCategories;
+    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[1].tblHomologationCategories;
+
     this.tablas[0].TBL_HOMOLOGATIONDATA = MyTable(config);
     this.tablas[1].TBL_HOMOLOGATIONDATA = MyTable(config);
 
     this.tablas[0].TBL_HOMOLOGATIONDATA.coleccion = this.tablas[0].tblHomologationData;
-    this.tablas[1].TBL_HOMOLOGATIONDATA.coleccion = this.tablas[1].tblHomologationData;
+    this.tablas[1].TBL_HOMOLOGATIONDATA.coleccion = this.tablas[1].tblHomologationData; */
   },
 
   events : {
@@ -448,10 +589,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     var ambiente = this.$el.find('#ambiente' + n).val();
     var tabla = this.$el.find('#tabla' + n).val();
 
-    this.tablas[n - 1].sistemas.fetchAmb(ambiente, { async : false });
+    /*this.tablas[n - 1].sistemas.fetchAmb(ambiente, { async : false });
     this.tablas[n - 1].entidades.fetchAmb(ambiente, { async : false });
     this.tablas[n - 1].valoresCanonicos.fetchAmb(ambiente, { async : false });
-    this.tablas[n - 1].valoresSistema.fetchAmb(ambiente, { async : false });
+    this.tablas[n - 1].valoresSistema.fetchAmb(ambiente, { async : false });*/
+
+    for (var tabla in this.tablas[n - 1].colecciones) {
+
+      window.job.target = ambiente;
+      this.tablas[n - 1].colecciones[tabla].fetch({ async : false });
+
+    }
 
     callback();
 
@@ -462,8 +610,8 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     var self = this;
     async.eachSeries(_.keys(window.defTablas), function (tabla, next) {
 
-      var datos1 = self.tablas[0][tabla].coleccion.toJSON();
-      var datos2 = self.tablas[1][tabla].coleccion.toJSON();
+      var datos1 = self.tablas[0].colecciones[tabla].toJSON();
+      var datos2 = self.tablas[1].colecciones[tabla].toJSON();
 
       window.compararTablas(tabla, datos1, datos2);
 

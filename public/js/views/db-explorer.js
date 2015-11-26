@@ -366,6 +366,118 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
                 config.filterable = true;
 		this.tablas.TBL_RESPONSE_MESSAGES_CATALOG = MyTable(config);
+
+    config.headers = {};
+    config.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID'
+    };
+    config.headers.Country = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'COUNTRY'
+    };
+    config.headers.Instance = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'INSTANCE'
+    };
+    config.headers.Service = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'SERVICE'
+    };
+    config.headers.Operation = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'OPERATION'
+    };
+    config.headers.TTL = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'TTL'
+    };
+    config.processCell = function (field, content) {
+
+      var nombre = content;
+      return nombre;
+
+    };
+
+    config.filterable = true;
+		this.tablas.CACHE_CONFIGURATION = MyTable(config);
+
+    config.headers = {};
+    config.headers['Country ID'] = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'COUNTRY_ID'
+    };
+    config.headers['System ID'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'ID_SYSTEM'
+    };
+    config.headers['System URL'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'URL_SYSTEM'
+    };
+    config.headers['User ID'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'USER_ID'
+    };
+    config.headers['User Proof'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'USER_PROFF'
+    };
+    config.headers['System DSN'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'DSN_SYSTEM'
+    };
+    config.headers['ISO2CODE'] = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'ISO2CODE'
+    };
+    config.headers['ISO3CODE'] = {
+        style : {
+          width : '5%'
+        },
+        dataField : 'ISO3CODE'
+    };
+    config.headers['System Version'] = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'SYSTEM_VERSION'
+    };
+    config.processCell = function (field, content) {
+
+      var nombre = content;
+      return nombre;
+
+    };
+
+    config.filterable = true;
+		this.tablas.TBL_CONNECTIONS = MyTable(config);
 	},
 
         events : {

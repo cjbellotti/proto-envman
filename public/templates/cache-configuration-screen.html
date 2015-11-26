@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1>Cache Configuration</h1>		
+					</div>
+					<div class="modal-body">
+						<div action="" class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="country" class="col-lg-2 control-label">Country</label>
+								<div class="col-lg-10"><input type="text" class="form-control" id="country" name="country" maxlength="50" value="{{ COUNTRY }}"></div>
+							</div>
+							<div class="form-group">
+								<label for="instance" class="col-lg-2 control-label">Instance</label>
+								<div class="col-lg-10"><input type="text" class="form-control" id="instance" name="instance" maxlength="50" value="{{ INSTANCE }}"></div>
+							</div>
+							<div class="form-group">
+								<label for="service" class="col-lg-2 control-label">Service</label>
+								<div class="col-lg-10"><input type="text" class="form-control" id="service" name="service" maxlength="50" value="{{ SERVICE }}"></div>
+							</div>
+							<div class="form-group">
+								<label for="operation" class="col-lg-2 control-label">Operation</label>
+								<div class="col-lg-10"><input type="text" class="form-control" id="operation" name="operation" maxlength="50" value="{{ OPERATION }}"></div>
+							</div>
+							<div class="form-group">
+								<label for="ttl" class="col-lg-2 control-label">TTL</label>
+								<div class="col-lg-10"><input type="text" class="form-control" id="ttl" name="ttl" maxlength="50" value="{{ TTL }}"></div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="aceptar" class="btn btn-primary">Aceptar</button>
+						<button id="cancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					</div>
+				</div>
+		</div>
+	</body>
+</html>
+
+
+	
