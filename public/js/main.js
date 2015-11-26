@@ -544,6 +544,28 @@ window.generales.cargarComboEntidades = function (elemento, ambiente, modalidad)
 
 }
 
+window.generales.cargarComboHomologationCategories = function (elemento, ambiente, modalidad) {
+
+	elemento.html('');
+
+	if (modalidad == '*')
+		elemento.append('<option value="*">Todas</option>');
+
+	window.generales.datosTabla('TBL_HOMOLOGATIONCATEGORIES', ambiente, function (categorias) {
+
+    for (var index in categorias){
+
+        var option = $('<option/>');
+        option.attr('value', categorias[index].CATEGORYID);
+        option.html(categorias[index].CATEGORYNAME);
+        elemento.append(option);
+
+    }
+
+  });
+
+}
+
 window.compararArrays = function (claves, comparar, datos1, datos2) {
 
   var faltantes = [];

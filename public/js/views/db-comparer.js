@@ -8,12 +8,19 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     for (var n = 0; n < 2;n++) {
 
-      this.tablas[n].sistemas = new EnvMan.Collections.Sistemas();
+      /*this.tablas[n].sistemas = new EnvMan.Collections.Sistemas();
       this.tablas[n].entidades = new EnvMan.Collections.Entidades();
       this.tablas[n].valoresCanonicos = new EnvMan.Collections.ValoresCanonicos();
       this.tablas[n].valoresSistema = new EnvMan.Collections.ValoresSistema();
       this.tablas[n].tblHomologationCategories = new EnvMan.Collections.TblHomologationCategories();
-      this.tablas[n].tblHomologationData = new EnvMan.Collections.TblHomologationData();
+      this.tablas[n].tblHomologationData = new EnvMan.Collections.TblHomologationData();*/
+
+	for (var tabla in window.manageData.coleccion) {
+
+		var url = window.manageData.colecciones[tabla].baseURL;
+		var model = window.manageData.colecciones[tabla].model;
+		this.tablas[n][tabla] = new EnvMan.Collections.GenericCollection(url, model);
+	}
 
     }
 

@@ -370,7 +370,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		//TODO ARREGLAR.... falta definir las vistas
 			configTable.model = manageData.colecciones.TBL_HOMOLOGATIONCATEGORIES.model; 
 			configTable.view = EnvMan.Views.HomologationCategories;
-			configTable.viewImport = EnvMan.Views.SistemaImportar;
+			configTable.viewImport = EnvMan.Views.HomologationCategoriesImportar;
 		//TODO ARREGLAR....
 
 		var homologacionCategoriasTabla = crearTabla(configTable);
@@ -428,7 +428,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		//TODO ARREGLAR.... falta definir las vistas
 			configTable.model = manageData.colecciones.TBL_HOMOLOGATIONCATEGORIES.model; 
 			configTable.view = EnvMan.Views.HomologationData; 
-			configTable.viewImport = EnvMan.Views.SistemaImportar;
+			configTable.viewImport = EnvMan.Views.HomologationDataImportar;
 		//TODO ARREGLAR....
 
 		var homologacionDataTabla = crearTabla(configTable);
@@ -464,7 +464,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		configTable.table = "TBL_RESPONSE_MESSAGES_CATALOG";
 		configTable.model = manageData.colecciones.TBL_RESPONSE_MESSAGES_CATALOG.model; 
 		configTable.view = EnvMan.Views.ResponseMessagesCatalog;
-		configTable.viewImport = EnvMan.Views.EntidadImportar;
+		configTable.viewImport = EnvMan.Views.ResponseMessagesCatalogImportar;
 
 		var entidadesTable = crearTabla(configTable);
 

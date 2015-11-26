@@ -3,10 +3,9 @@ module.exports.ambientes = {
       {
         name : "DESA",
         username : 'DTVLA',
-        password : '12345678',
-        host : 'localhost/XE',
-        port : 1521,
-        db_name : 'dbdesa'
+        password : 'DTVLA',
+        host : '172.22.164.158:1521/esbsrv1',
+        db_name : 'esbdb'
       }
     ],
   UAT : [
@@ -27,7 +26,7 @@ module.exports.ambientes = {
         db_name : 'esbdb02'
       }
     ]
-    /*,
+  /*  ,
   IST : [
       {
         name : "IST",

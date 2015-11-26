@@ -126,7 +126,8 @@ function crearTabla(config) {
           for (var iTabla in registros[tabla]) {
 
             var data = registros[tabla][iTabla];
-            var clave = window.generales.obtenerClave(configTable.tableName, data);
+            //var clave = window.generales.obtenerClave(configTable.tableName, data);
+            var clave = window.generales.obtenerClave(tabla, data);
             window.generales.normalizar(tabla, clave);
 
           }

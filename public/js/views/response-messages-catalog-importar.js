@@ -1,4 +1,4 @@
-EnvMan.Views.HomologationCategoriesImportar = Backbone.View.extend({
+EnvMan.Views.ResponseMessagesCatalogImportar = Backbone.View.extend({
 
 	className : "modal fade",
 	attributes : {
@@ -7,30 +7,30 @@ EnvMan.Views.HomologationCategoriesImportar = Backbone.View.extend({
 	},
 
 	initialize : function (config) {
-		this.template = swig.compile(getTemplate('templates/homologation-categories-importar.html'));
+		this.template = swig.compile(getTemplate('templates/response-messages-catalog-importar.html'));
 		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
 		this.env = config.env;
 
 		var config = {}
     config.headers = {};
-	    config.headers['Id'] = {
-	      style : {
-	        width : '29%'
-	      },
-	      dataField : 'CATEGORYID'
-	    };
-	    config.headers['Categoria Canonica'] = {
-	      style : {
-	        width : '29%'
-	      },
-	      dataField : 'CANONICALCATEGORYCODE'
-	    };
-	    config.headers['Nombre'] = {
-	      style : {
-	        width : '38%'
-	      },
-	      dataField : 'CATEGORYNAME'
-	    };
+    config.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID_MESSAGE'
+    };
+    config.headers.Texto = {
+        style : {
+          width : '29%'
+        },
+        dataField : 'TEXT_MESSAGE'
+    };
+    config.headers.ISO2CODE = {
+        style : {
+          width : '10%'
+        },
+        dataField : 'ISO2CODE'
+    };
 		config.selectable = true;
 		this.table = MyTable(config);
 
@@ -58,13 +58,13 @@ EnvMan.Views.HomologationCategoriesImportar = Backbone.View.extend({
 			espera.render();
 			espera.show();
       var self = this;
-      window.generales.datosTabla('TBL_HOMOLOGATIONCATEGORIES', ambiente, function (lista) {
+      window.generales.datosTabla('TBL_RESPONSE_MESSAGES_CATALOG', ambiente, function (lista) {
 
         espera.hide();
 
         var arrayData = [];
         for (var index in lista) {
-          if (_.findIndex(job.registros['TBL_HOMOLOGATIONCATEGORIES'], lista[index]) < 0)
+          if (_.findIndex(job.registros['TBL_RESPONSE_MESSAGES_CATALOG'], lista[index]) < 0)
             arrayData.push(lista[index]);
         }
 

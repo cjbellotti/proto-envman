@@ -337,6 +337,35 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
 
                 config.filterable = true;
 		this.tablas.TBL_HOMOLOGATIONDATA = MyTable(config);
+
+                config.headers = {};
+		    config.headers.Id = {
+			style : {
+			  width : '6%'
+			},
+			dataField : 'ID_MESSAGE'
+		    };
+		    config.headers.Texto = {
+			style : {
+			  width : '29%'
+			},
+			dataField : 'TEXT_MESSAGE'
+		    };
+		    config.headers.ISO2CODE = {
+			style : {
+			  width : '10%'
+			},
+			dataField : 'ISO2CODE'
+		    };
+                config.processCell = function (field, content) {
+
+                  var nombre = content;
+                  return nombre;
+
+                };
+
+                config.filterable = true;
+		this.tablas.TBL_RESPONSE_MESSAGES_CATALOG = MyTable(config);
 	},
 
         events : {
