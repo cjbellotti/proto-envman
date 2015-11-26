@@ -1,7 +1,7 @@
 <div class="modal-dialog" style="width: 98%">
   <div class="modal-content">
     <div class="modal-header">
-      <h3>{{job}}</h3>		
+      <h3>{{ job.job }}</h3>		
     </div>
     <div class="modal-body">
       <div class="form-horizontal" role="form">
@@ -73,9 +73,9 @@
         </div>
 
         <label for="proyecto">Proyecto</label>
-        <input class="form-control" type="text" id="proyecto" name="proyecto" value="{{ proyecto }}" minlength="10" required="required"></input>
+        <input class="form-control" type="text" id="proyecto" name="proyecto" value="{{ job.proyecto }}" minlength="10" required="required"></input>
         <label for="descripcion">Descripcion</label>
-        <textarea name="descripcion" id="descripcion" class="form-control" style="margin-bottom: 1em">{{ descripcion }}</textarea>
+        <textarea name="descripcion" id="descripcion" class="form-control" style="margin-bottom: 1em">{{ job.descripcion }}</textarea>
         <div class="row tablas-job">
           <div class="col-md-3">
             <div class="list-group">

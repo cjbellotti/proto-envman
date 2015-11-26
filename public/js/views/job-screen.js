@@ -659,6 +659,17 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	verificar : function (e) {
 
+		e.preventDefault();
+		var view = new EnvMan.Views.VerificarJob();
+		$('#modals').append(view.el);
+		view.render();
+		view.$el.modal({
+
+			backdrop : 'static',
+			keyboard : false
+
+		});
+
 	},
 
 	importar : function (e) {
@@ -678,8 +689,8 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	render : function (job) {
-		var dataTablas = {} ; 
-			$.ajax({
+		  var data = {} ; 
+			/*$.ajax({
 				url : '/def-tablas',
 				method : 'GET',
 				async : false,
@@ -687,8 +698,10 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 				success : function (data) { 
 					dataTablas.tablas = data; 			
 				}
-			});
-			this.$el.html(this.template(dataTablas)); 
+			});*/
+      data.tablas = window.defTablas;
+      data.job = window.job;
+			this.$el.html(this.template(data)); 
 			this.$el.find('#' + job.target + ' button').removeClass('disabled');
 			this.mostrarTablaDVM_SISTEMA();
 			if (window.job.job != ''){
