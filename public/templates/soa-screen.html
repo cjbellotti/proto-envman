@@ -30,17 +30,20 @@
 						<tr>
 							<th>Artefacto</th>
 							<th>Particion</th>
-							{%for registro in registros %}	
-								<th>{{loop.key}}</th>
-							{% endfor %}
-							{%for registro in registros %}	
-							<tr>
-								<td class="artefacto">{{registro.artefacto}}</td>
-								<td>{{registro.particion}}</td>
-								<td>{{registro.version}}</td>
-							</tr>
+							{% set ambientes = window.ambientes %} <!--creo una variable con el array de ambientes -->
+							{% for ambiente in ambientes %}
+								<th> {{ambiente}}</th> <!--muestro todos los ambientes-->
 							{% endfor %}
 						</tr>
+						{% for artefacto in artefactos %}
+						<tr>
+							<td>{{loop.key}}</td>
+							<td>{{artefacto.particion}}</td>
+							{% for ambiente in artefacto.ambientes %}
+								<td>{{ambiente.version}}</td> <!-- por css, se agrega la casilla roja td:empty-->
+							{% endfor %}
+						</tr>
+						{% endfor %}
 					</table>
 				</div>
 				<div class="panel-footer">

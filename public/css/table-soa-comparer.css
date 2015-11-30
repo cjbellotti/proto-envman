@@ -23,7 +23,7 @@ td{
 	background: #fff;
 	border-color: #fff;
 }
-.artefacto:empty{
+td:empty{
 	background-color: #d9534f;
 }
 .fila-soa{

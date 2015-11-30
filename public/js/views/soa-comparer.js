@@ -5,7 +5,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 	},
 	
 	render:function(){
-		var dataSoa = {} ;
+		var artefactos = {};
 		$.ajax({
 			url : '/soa-comparer',
 			method : 'GET',
@@ -13,20 +13,29 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 			contentType : 'application/json',
 			success : function (data) { 
 				console.log('consulta exitosa servicio -> /soa-comparer');
-				dataSoa.registros = data; 
-				/*var artefactos = [];
-				var valores = [];
-				var object = 
-				for(var index in objeto){
-					artefactos.push(objeto[index].artefacto);
-					var data = {};
-					data.version = objeto[index].version;
-					data.fecha = objeto[index].fechaDespliegue;
-					valores.push(data);
-				}	**/
+				for(var ambiente in data){
+					for(var index in data[ambiente]){
+						var artefacto = data[ambiente][index].artefacto ;
+						if(!artefactos[artefacto]){
+							artefactos[artefacto] = {};
+							artefactos[artefacto].particion = data[ambiente][index].particion;
+							artefactos[artefacto].ambientes = {} ;
+							for(var index in window.ambientes){
+								artefactos[artefacto].ambientes[window.ambientes[index]] = {};
+							}
+						}
+						artefactos[artefacto].ambientes[ambiente] = {
+							version : data[ambiente][index].version,
+							fecha: data[ambiente][index].fechaDespliegue
+						};
+					}
+				}
+				console.log(JSON.stringify(artefactos));
 			}
 		});
-		this.$el.html(this.template(dataSoa));
+		this.$el.html(this.template({
+			artefactos : artefactos
+		}));
 	},
 
 	events : {

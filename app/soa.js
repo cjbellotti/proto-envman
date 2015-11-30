@@ -1,5 +1,5 @@
 module.exports = {
-	"Ambiente 1" : [
+	"DESA" : [
         {
             "artefacto" : "Actefacto 1",
             "particion" : "Particion Prueba1",
@@ -26,7 +26,7 @@ module.exports = {
 		{
             "artefacto" : "Actefacto 1",
             "particion" : "Particion Prueba6",
-            "version" : "0.x.x",
+            "version" : "1.x.x",
             "default" : true,
             "fechaDespliegue" : '15/11/15'
         },
