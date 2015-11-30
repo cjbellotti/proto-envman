@@ -20,13 +20,29 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 							artefactos[artefacto] = {};
 							artefactos[artefacto].particion = data[ambiente][index].particion;
 							artefactos[artefacto].ambientes = {} ;
-							for(var index in window.ambientes){
-								artefactos[artefacto].ambientes[window.ambientes[index]] = {};
+							for(var index2 in window.ambientes){
+								artefactos[artefacto].ambientes[window.ambientes[index2]] = {};
 							}
 						}
+						//testing max
+						var flag = false;
+						/*
+						for(var x in artefactos){
+							for(var index in artefactos[x]){
+								var versionMax = artefactos[x][index].version;
+								console.log('version .. ' + artefactos[x][index].version) ;
+								for(var index2 in artefactos[x]){
+									if(artefactos[x][index2].version >= versionMax ){
+										versionMax = artefactos[x][index2].version;
+									}
+								}
+							}
+						}*/
+						//testing max
 						artefactos[artefacto].ambientes[ambiente] = {
 							version : data[ambiente][index].version,
-							fecha: data[ambiente][index].fechaDespliegue
+							fecha: data[ambiente][index].fechaDespliegue,
+							diff: flag
 						};
 					}
 				}

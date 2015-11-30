@@ -10,13 +10,13 @@ td{
 	vertical-align: bottom;
 	text-align: center;
 }
-.table-container{
+.soa-conteiner{
 	height: 80%;
 	overflow-y :scroll;
-	overflow-x :scroll;
 	margin-top: 10px;
+	margin-bottom: 20px;
 }
-.panel-footer{
+.panel-footer-soa{
 	width: 100%;
 	text-align: right;
 	padding-right: 50px;
@@ -28,4 +28,18 @@ td:empty{
 }
 .fila-soa{
 	background-color: rgba(209, 224, 224, 1);
+}
+
+/** css para el scroll Y **/
+.soa-conteiner::-webkit-scrollbar {
+width: 5px;
+display : inline-block;
+}
+.soa-conteiner::-webkit-scrollbar-track {
+border-radius: 10px;
+background : #CEDAE7;
+}
+.soa-conteiner::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background : #85A3C2;
 }

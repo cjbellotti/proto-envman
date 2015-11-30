@@ -25,28 +25,32 @@
 				  <div class="volver">
 				  	<a href="/" class="btn btn-danger glyphicon glyphicon-arrow-left" data-toggle="tooltip" data-placement="right" title="Volver"></a>
 		          </div>
-				<div class="table-container">
+				<div class="soa-conteiner">
 					<table class="table-soa">
+						<thead>
 						<tr>
 							<th>Artefacto</th>
 							<th>Particion</th>
-							{% set ambientes = window.ambientes %} <!--creo una variable con el array de ambientes -->
-							{% for ambiente in ambientes %}
+							{% set totalAmbientes = window.ambientes %} <!--creo una variable con el array de ambientes -->
+							{% for ambiente in totalAmbientes %}
 								<th> {{ambiente}}</th> <!--muestro todos los ambientes-->
 							{% endfor %}
 						</tr>
-						{% for artefacto in artefactos %}
-						<tr>
-							<td>{{loop.key}}</td>
-							<td>{{artefacto.particion}}</td>
-							{% for ambiente in artefacto.ambientes %}
-								<td>{{ambiente.version}}</td> <!-- por css, se agrega la casilla roja td:empty-->
+						</thead>
+						<tbody>
+							{% for artefacto in artefactos %}
+							<tr>
+								<td>{{loop.key}}</td>
+								<td>{{artefacto.particion}}</td>
+								{% for ambiente in artefacto.ambientes %}
+									<td>{{ambiente.version}}</td> <!-- por css, se agrega la casilla roja td:empty-->
+								{% endfor %}
+							</tr>
 							{% endfor %}
-						</tr>
-						{% endfor %}
+						</tbody>
 					</table>
 				</div>
-				<div class="panel-footer">
+				<div class="panel-footer-soa">
 					 <button id="aceptar" class="btn btn-success">Aceptar</button>
 				     <button id="cancelar" class="btn btn-danger">Cancelar</button>
 				</div>
