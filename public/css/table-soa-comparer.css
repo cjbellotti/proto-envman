@@ -12,9 +12,11 @@ td{
 }
 .soa-conteiner{
 	height: 80%;
+  overflow : hidden;
 	overflow-y :scroll;
 	margin-top: 10px;
 	margin-bottom: 20px;
+  height : 80vh;
 }
 .panel-footer-soa{
 	width: 100%;
@@ -42,4 +44,13 @@ background : #CEDAE7;
 .soa-conteiner::-webkit-scrollbar-thumb {
 border-radius: 10px;
 background : #85A3C2;
+}
+.table-soa-sortable {
+  cursor : pointer;
+}
+.table-soa-sortable:hover {
+  color : #3385ff;
+}
+.diff {
+  background : #66b2ff;
 }
