@@ -1,0 +1,10 @@
+	{{ ADD('homologationcategories' + VALORES.CATEGORYID + ' DTVLA.TBL_HOMOLOGATIONCATEGORIES.CATEGORYID%type;', 'DECLARACIONES') }}
+  BEGIN
+
+    select CATEGORYID into homologationcategories{{ VALORES.CATEGORYID }} where CATEGORYNAME = {{ VALORES.CATEGORYNAME }};
+
+    EXCEPTION NO_DATA_FOUND THEN
+
+      homologationcategories{{ VALORES.CATEGORYID }} := {{ VALORES.CATEGORYID }};
+
+  END;

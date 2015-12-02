@@ -426,25 +426,25 @@ window.generales.datos = {};
 
 window.generales.datos.sistemas = function (ambiente) {
 
-		return window.generales.obtenerDatos(EnvMan.Collections.Sistemas, '/sistema/' + ambiente);
+		return window.generales.obtenerDatos(EnvMan.Collections.Sistemas, '/DVM_SISTEMA/' + ambiente);
 
 }
 
 window.generales.datos.entidades = function (ambiente) {
 
-		return window.generales.obtenerDatos(EnvMan.Collections.Entidades, '/entidad-canonica/' + ambiente);
+		return window.generales.obtenerDatos(EnvMan.Collections.Entidades, '/DVM_ENTIDAD_CANONICA/' + ambiente);
 
 }
 
 window.generales.datos.valoresCanonicos = function (ambiente) {
 
-		return window.generales.obtenerDatos(EnvMan.Collections.ValoresCanonicos, '/valor-canonico/' + ambiente);
+		return window.generales.obtenerDatos(EnvMan.Collections.ValoresCanonicos, '/DVM_VALOR_CANONICO/' + ambiente);
 
 }
 
 window.generales.datos.valoresSistema = function (ambiente) {
 
-		return window.generales.obtenerDatos(EnvMan.Collections.ValoresSistema, '/valor-sistema/' + ambiente);
+		return window.generales.obtenerDatos(EnvMan.Collections.ValoresSistema, '/DVM_VALOR_SISTEMA/' + ambiente);
 
 }
 

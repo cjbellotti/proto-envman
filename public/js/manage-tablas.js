@@ -10,6 +10,7 @@ function CrearManageTablas(definiciones) {
     var url = '/' + def.alias;
     var model = Backbone.Model.extend({
 
+      idAttribute : (_.keys(window.defTablas[tabla].claves).length > 1) ? 'id' : _.keys(window.defTablas[tabla].claves)[0] ,
       baseURL : url,
       tabla : tabla,
       url : function () {
