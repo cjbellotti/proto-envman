@@ -50,16 +50,28 @@ function integridad (registros, callback) {
   async.each(Object.keys(registros), function (tabla, next) {
 
     response[tabla] = [];
+    var index = 0;
     async.each(registros[tabla], function (registro, callbackNext) {
 
       if (registro.IDN){
 
-        actualizarIntegridad(registros, tabla, registro.ID, registro.IDN, function () {
+        var claveField = _.keys(defTablas[tabla].claves)[0];
+
+        if (defTablas[tabla].claves[claveField] == '9')
+          actualizarIntegridad(registros, tabla, registro[claveField], registro.IDN, function () {
+            registros[tabla][index][claveField] = registro.IDN;
+            index++;
+            callbackNext();
+          });
+        else {
+          index++;
           callbackNext();
-        });
+        }
         
-      } else
+      } else {
+        index++;
         callbackNext();
+      }
 
     }, function (err) {
       next();

@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var config = require('./config');
 
 //var verif = require('./lib/verifications/01-registros');
-//var integridad = require('./lib/verifications/02-integridad');
+var integridad = require('./lib/verifications/02-integridad');
 var verif = require('./lib/verifications/10-registros');
 
 app.use(bodyParser({ extended : false}));
@@ -26,9 +26,9 @@ function verificar(job, callback) {
             response[dc.name] = result;
           }
 
-          //integridad(response[dc.name], function() {
+          integridad(response[dc.name], function() {
             callback();
-          //});
+          });
 
       }, true);
     }, function (err) {

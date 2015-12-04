@@ -443,7 +443,7 @@ EnvMan.Views.DBExplorer = Backbone.View.extend({
         style : {
           width : '10%'
         },
-        dataField : 'USER_PROFF'
+        dataField : 'USER_PROOF'
     };
     config.headers['System DSN'] = {
         style : {

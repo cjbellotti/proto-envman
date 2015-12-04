@@ -174,8 +174,11 @@ module.exports = {
     alias : "TBL_RESPONSE_MESSAGES_CATALOG", 
     esquema : 'SMSCHANNEL',
     campos : {
-      TEXT_MESSAGE : {
+      ID_MESSAGE : {
         tipo : Tipos.Clave
+      },
+      TEXT_MESSAGE : {
+        tipo : Tipos.Normal
       },
       ISO2CODE : {
         tipo : Tipos.Clave
@@ -228,16 +231,16 @@ module.exports = {
         tipo : Tipos.Clave
       },
       URL_SYSTEM : {
-        tipo : Tipos.Clave
+        tipo : Tipos.Normal
       },
       USER_ID : {
-        tipo : Tipos.Clave
+        tipo : Tipos.Normal
       },
       USER_PROOF : {
-        tipo : Tipos.Clave
+        tipo : Tipos.Normal
       },
       DSN_SYSTEM : {
-        tipo : Tipos.Clave
+        tipo : Tipos.Normal
       },
       ISO2CODE : {
         tipo : Tipos.Clave
@@ -246,12 +249,15 @@ module.exports = {
         tipo : Tipos.Clave
       },
       SYSTEM_VERSION : {
-        tipo : Tipos.Clave
+        tipo : Tipos.Normal
       }
     },
     orderBy : 'COUNTRY_ID',
     claves : { 
-      "COUNTRY_ID" : Tipos.Cadena
+      "COUNTRY_ID" : Tipos.Cadena,
+      "ID_SYSTEM" : Tipos.Cadena,
+      "ISO2CODE" : Tipos.Cadena,
+      "ISO3CODE" : Tipos.Cadena
     }     
 
   }

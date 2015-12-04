@@ -143,7 +143,8 @@ function generarComando(comando, tabla, registro) {
 	DATOS.ORIGEN = limpiarRegistro (registro.origenReg || {});
 	DATOS.CAMPOS = [];
 	for (var field in DATOS.VALORES) {
-		DATOS.CAMPOS.push(field);
+    if (field != 'impacto')
+		  DATOS.CAMPOS.push(field);
 	}
 	DATOS.CLAVES = [];
 	for (var field in claves[tabla]) {
@@ -183,7 +184,8 @@ function generarRollback(tabla, registro) {
 	DATOS.ORIGEN = limpiarRegistro(registro)
 	DATOS.CAMPOS = [];
 	for (var field in DATOS.VALORES) {
-		DATOS.CAMPOS.push(field);
+    if (field != 'impacto')
+		  DATOS.CAMPOS.push(field);
 	}
 	DATOS.CLAVES = [];
 	for (var field in claves[tabla]) {

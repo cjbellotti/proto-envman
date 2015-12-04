@@ -68,6 +68,10 @@ module.exports = function (ambiente, dc, query, callback){
               function (err, result) {
                 if(err) {
 
+                  connection.release(function (err) {
+                    if (err)
+                      console.log(err);
+                  });
                   callback (err.toString());
 
                 } else {
@@ -87,6 +91,10 @@ module.exports = function (ambiente, dc, query, callback){
                     formatResult.push(row);
 
                   }
+                  connection.release(function (err) {
+                    if (err)
+                      console.log(err);
+                  });
                   callback (null, formatResult);
 
                 }

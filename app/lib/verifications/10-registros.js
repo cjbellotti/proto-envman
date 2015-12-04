@@ -7,13 +7,18 @@ module.exports = function (manDB, ambiente, dc, tablas, callback, all) {
 
   var result = {};
   var dbData = {};
+  var indices = {};
   
   async.each(_.keys(defTablas), function (tabla, callback) {
 
-    var query = 'select * from ' + defTablas[tabla].esquema + '.' + tabla;
+    var query = 'select * from ' + defTablas[tabla].esquema + '.' + tabla + ' order by ' + _.keys(defTablas[tabla].claves).join(', ');
     manDB(ambiente, dc, query, function (err, result) {
 
       dbData[tabla] = result;
+      var claveFields = _.keys(defTablas[tabla].claves);
+      if (claveFields.length == 1 && defTablas[tabla].claves[claveFields[0]] == '9')
+          indices[tabla] = dbData[tabla][dbData[tabla].length - 1][claveFields[0]];
+
       callback();
 
     });
@@ -42,7 +47,10 @@ module.exports = function (manDB, ambiente, dc, tablas, callback, all) {
 
           } else {
 
-            registro.IDN = 1
+            if (indices[tabla])
+              registro.IDN = ++indices[tabla];
+            else
+              registro.IDN = 1
 
           }
 

@@ -14,22 +14,21 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
         success : function () {
 
           window.generales.cargarColeccionesV2();
-          var self = this;
+          /*var self = this;
           $.post('/verificar/' + window.job.job, function (data) {
 
-              var dc;
-              for (dc in data);
+              var dc = _.keys(data)[0];
               
-              for (var tabla in data[0]) {
+              for (var tabla in data[dc]) {
 
-                for (var index in data[tabla]) {
+                for (var index in data[dc][tabla]) {
 
                   var modelData = {};
-                  for (var field in data[tabla][index]) {
+                  for (var field in data[dc][tabla][index]) {
 
                     if (field != 'IDN' && field != 'origen') {
 
-                      modelData[field] = data[tabla][index][field];
+                      modelData[field] = data[dc][tabla][index][field];
 
                     }
 
@@ -37,11 +36,11 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
                   var model = new window.manageData.colecciones[tabla].model(modelData);
 
-                  if (data[tabla][index].IDN) {
+                  if (data[dc][tabla][index].IDN) {
 
                     window.manageData.colecciones[tabla].add(model);
 
-                  } else if (data[tabla][index].MOD) {
+                  } else if (data[dc][tabla][index].MOD) {
 
                     window.manageData.colecciones[tabla].set(model, { remove : false });
                     
@@ -51,7 +50,9 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
               }
 
-          });
+              window.job.registros = data[dc];
+
+          });*/
 
         }
 
@@ -69,8 +70,11 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 	
 	mostrarTabla: function(e){
+
+    e.preventDefault();
 		var ejecutarFunc = "mostrarTabla" + $(e.currentTarget).html();
 		this[ejecutarFunc]();
+
 	},
 
 	faseAnterior : function (e) {
@@ -689,7 +693,7 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	},
 
 	render : function (job) {
-		  var data = {} ; 
+		  var dataTemplate = {} ; 
 			/*$.ajax({
 				url : '/def-tablas',
 				method : 'GET',
@@ -699,14 +703,54 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 					dataTablas.tablas = data; 			
 				}
 			});*/
-      data.tablas = window.defTablas;
-      data.job = window.job;
-			this.$el.html(this.template(data)); 
-			this.$el.find('#' + job.target + ' button').removeClass('disabled');
-			this.mostrarTablaDVM_SISTEMA();
-			if (window.job.job != ''){
-					this.$el.find('#importar').attr('disabled', 'disabled');
-			}
+      dataTemplate.tablas = window.defTablas;
+      dataTemplate.job = window.job;
+
+      var self = this;
+      $.post('/verificar/' + window.job.job, function (data) {
+
+          var dc = _.keys(data)[0];
+          
+          for (var tabla in data[dc]) {
+
+            for (var index in data[dc][tabla]) {
+
+              var modelData = {};
+              for (var field in data[dc][tabla][index]) {
+
+                if (field != 'IDN' && field != 'origen') {
+
+                  modelData[field] = data[dc][tabla][index][field];
+
+                }
+
+              }
+
+              var model = new window.manageData.colecciones[tabla].model(modelData);
+
+              if (data[dc][tabla][index].IDN) {
+
+                window.manageData.colecciones[tabla].add(model);
+
+              } else if (data[dc][tabla][index].MOD) {
+
+                window.manageData.colecciones[tabla].set(model, { remove : false });
+                
+              }
+
+            }
+
+          }
+
+          window.job.registros = data[dc];
+          self.$el.html(self.template(dataTemplate)); 
+          self.$el.find('#' + job.target + ' button').removeClass('disabled');
+          self.mostrarTablaDVM_SISTEMA();
+          if (window.job.job != ''){
+              self.$el.find('#importar').attr('disabled', 'disabled');
+          }
+
+      });
 	}
 
 });

@@ -32,6 +32,16 @@ window.generales.obtenerClave = function (tabla, registro) {
 
 }
 
+// Devuelve un objetos con los datos de comprobacion para el registros
+window.generales.obtenerCamposQuery = function (tabla, registro) {
+
+  var query = {};
+  for (var field in window.defTablas[tabla].campos)
+    if (window.defTablas[tabla].campos[field].tipo == 'K')
+      query[field] = registro[field];
+
+}
+
 // Agrega un registro al job activo
 window.generales.agregarRegistroAlJob = function(tabla, registro) {
 
@@ -160,6 +170,35 @@ window.generales.importarRegistroAJob = function (tabla, claves) {
 
 }
 
+// Carga los registros del Job en las colecciones para mantener la coherencia entre los datos
+window.generales.cargarRegistrosJobEnColeccciones = function (job) {
+
+  for (var tabla in job.registros) {
+
+    for (var index in job.registros[tabla]) {
+
+      var registro = job.registros[tabla][index];
+      var model = window.manageData.get(tabla, window.generales.obtenerCamposQuery(tabla, registro)); 
+      if (model) {
+        
+        if (_.keys(window.defTablas[tabla].claves).length == 1) {
+
+          var field = _.keys( window.defTablas[tabla].claves)[0];
+
+          if (registro[field] != model.get(field))
+            window.generales.normalizarReferencia(tabla, registro[field]);
+
+        }
+
+      } 
+
+    }
+  }
+
+}
+
+window.generales.normalizarReferencia = function (tabla, clave) {
+}
 /*window.generales.agregarValorCanonicoAJob = function(registro) {
 
 	window.generales.agregarRegistroAlJob("valorcanonico", registro);
