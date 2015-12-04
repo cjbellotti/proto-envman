@@ -1,7 +1,7 @@
 EnvMan.Views.SOAComparer = Backbone.View.extend({
 	
 	initialize : function(){
-		this.template = swig.compile(getTemplate('templates/soa-screen-v2.html'));
+	this.template = swig.compile(getTemplate('templates/soa-screen-v2.html'));
     this.artefactos = {};
     this.arrayArtefactos = [];
     var self = this;
@@ -12,6 +12,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 			contentType : 'application/json',
 			success : function (data) { 
 				console.log('consulta exitosa servicio -> /soa-comparer');
+				data = JSON.parse(data); //convierto la data a un objeto js
 				for(var ambiente in data){
 					for(var index in data[ambiente]){
 						var artefacto = data[ambiente][index].artefacto ;
@@ -30,9 +31,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 						};
 					}
 				}
-
-        self.ordenarArtefactos('artefacto');
-
+       		self.ordenarArtefactos('artefacto');
 			}
 		});
 	},
@@ -40,7 +39,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 	events : {
 		"click #aceptar" : "save",
 		"click #cancelar" : "cancel",
-    "click .table-soa-sortable" : "ordenar"
+   		"click .table-soa-sortable" : "ordenar"
 	},
 
   ordenar : function (e) {
