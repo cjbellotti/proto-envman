@@ -613,19 +613,21 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       var datos1 = self.tablas[0].colecciones[tabla].toJSON();
       var datos2 = self.tablas[1].colecciones[tabla].toJSON();
 
-      window.compararTablas(tabla, datos1, datos2);
+      //window.compararTablas(tabla, datos1, datos2);
+      window.compararTablasAsync(tabla, datos1, datos2, function (datos1, dato2) {
+        console.log('Inicio cargar de tabla %s : %s', tabla, Date());
+        self.tablas[0][tabla].setArrayDataAsync(datos1, {}, function () {
 
-      console.log('Inicio cargar de tabla %s : %s', tabla, Date());
-      self.tablas[0][tabla].setArrayDataAsync(datos1, {}, function () {
+          self.tablas[1][tabla].setArrayDataAsync(datos2, {}, function () {
 
-        self.tablas[1][tabla].setArrayDataAsync(datos2, {}, function () {
+            console.log('Fin cargar de tabla %s : %s', tabla, Date());
+            next();
 
-          console.log('Fin cargar de tabla %s : %s', tabla, Date());
-          next();
+          });
 
         });
-
       });
+
 
     }, callback);
 

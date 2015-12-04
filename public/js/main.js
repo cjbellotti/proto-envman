@@ -652,6 +652,60 @@ window.compararArrays = function (claves, comparar, datos1, datos2) {
 
 }
 
+window.compararArraysAsync = function (claves, comparar, datos1, datos2, callback) {
+
+  var faltantes = [];
+
+  var index = 0;
+  async.eachSeries(datos1, function (registro, next) {
+
+    for (var field in claves) {
+  
+      claves[field] = registro[field];
+
+    }
+
+    var index2 = _.findIndex(datos2, claves);
+
+    if (index2 >= 0) {
+
+      var igual = true;
+      for (var field in comparar) {
+
+        if (igual) {
+
+          if (!registro[field])
+            console.log (registro);
+          else if (!datos2[index2])
+            console.log(datos2[index2]);
+          else
+            igual = (registro[field] == datos2[index2][field]);
+
+        }
+
+      }
+
+      if (!igual){ 
+        datos1[index].diff = true;
+      }
+
+    } else {
+      
+      faltantes.push(datos1[index]);
+
+    }
+
+    index++;
+    next();
+
+  }, function (err) {
+
+    callback (faltantes);
+
+  });
+
+}
+
 window.compararTablas = function(tabla, datos1, datos2) {
 
   var claves = {};
@@ -689,6 +743,53 @@ window.compararTablas = function(tabla, datos1, datos2) {
     datos2.push(datos);
 
   }
+
+}
+
+window.compararTablasAsync = function(tabla, datos1, datos2, callback) {
+
+  var claves = {};
+  var comparar = {};
+
+  var faltantes1 = [];
+  var faltantes2 = [];
+
+  for (var field in window.defTablas[tabla].campos) {
+
+    if (window.defTablas[tabla].campos[field].tipo == 'K')
+      claves[field] = "";
+    else
+      comparar[field] = "";
+
+  }
+
+  window.compararArraysAsync(claves, comparar, datos1, datos2, function (faltantes1) {
+
+    window.compararArraysAsync(claves, comparar, datos1, datos2, function (faltantes2) {
+
+      async.eachSeries(faltantes1, function (registro, next) {
+
+        registro.new = true;
+        datos1.push(registro);
+        
+      }, function () {
+
+        async.eachSeries(faltantes2, function (registro, next) {
+
+          registro.new = true;
+          datos2.push(registro);
+
+        }, function () {
+
+          callback(datos1, datos2);
+
+        });
+
+      });
+
+    });
+
+  });
 
 }
 
