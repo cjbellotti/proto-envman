@@ -12,7 +12,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 			contentType : 'application/json',
 			success : function (data) { 
 				console.log('consulta exitosa servicio -> /soa-comparer');
-				data = JSON.parse(data); //convierto la data a un objeto js
+				console.log(data);
 				for(var ambiente in data){
 					for(var index in data[ambiente]){
 						var artefacto = data[ambiente][index].artefacto ;
@@ -89,11 +89,11 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 			artefactos : this.arrayArtefactos 
 		}));
 	},
-
 	
 	save: function(e){
 		console.log('evento guardar...');
 	},
+
 	cancel:function(e){
 		console.log('evento cancelar...');
 	}
