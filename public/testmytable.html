@@ -8,62 +8,75 @@
     <script src="libs/underscore/underscore-min.js"></script>
     <script src="libs/mytable-v2.js"></script>
     <script>
-      var tabla = {}
-      $(function () {
-        var config = {};
-        config.selectable = true;
-        config.headers = ['ID', 'ID_SISTEMA', 'ID_ENTIDAD_CANONICA', 'ID_VALOR_CANONICO', 'VALOR_SISTEMA'];
-        config.headers = {};
-        config.headers.Id = {
-          style : {
-            width : '5%'
-          },
-          dataField : 'ID'
-        };
-        config.headers.Sistema = {
-          style : {
-            width : '13%'
-          },
-          dataField : 'ID_SISTEMA'
-        };
-        config.headers['Entidad Canonica'] = {
-          style : {
-            width : '27%'
-          },
-          dataField : 'ID_ENTIDAD_CANONICA'
-        };
-        config.headers['Valor Canonico'] = {
-          style : {
-            width : '25%'
-          },
-          dataField : 'ID_VALOR_CANONICO'
-        };
-        config.headers['Valor Sistema'] = {
-          style : {
-            width : '21%'
-          },
-          dataField : 'VALOR_SISTEMA'
-        };
 
-        tabla = MyTable(config);
-        $('#main').html(tabla);
-      });
+        $(function () {
 
-      $(function() {
-        $('.dt-tab-header').width($('.dt-tab-body').width());
-      });
-      $(window).resize(function () {
-        $('.dt-tab-header').width($('.dt-tab-body').width());
-      });
+            $('.control > div').on('click', function (e) {
+   
+              $(e.target).css('display', 'none');
+              $(e.target.parentElement).find('label').css('display', 'none');
+              $(e.target.parentElement).find('span').css('display', 'block');
+              $(e.target.parentElement).find('span').find('input:nth-child(1)').focus();
+
+            });
+
+            $('.control > span > button').on('click', function (e) {
+                
+              $(e.target.parentElement.parentElement).find('div').css('display', 'block');
+              $(e.target.parentElement.parentElement).find('label').css('display', 'block');
+              $(e.target.parentElement.parentElement).find('span').css('display', 'none');
+
+            });
+
+        });
     </script>
     <style>
-      .dt-tab-cell-5 {
-        width : 21%;
+
+      .control {
+
+        border : 1px solid gray;
+        border-radius : 2px;
+        width : 250px;
+        height : 25px;
+
       }
+
+
+      .control > label { 
+
+        font-family : "Arial";
+
+      }
+
+      .control > span {
+
+        display : none;
+
+      }
+
+      .control > span > input {
+
+        width : 90px;
+        display : inline-block;
+      }
+
+      .control > div {
+
+        position : absolute;
+        top : 0;
+        left : 0;
+        height : 25px;
+        width : 250px;
+
+      }
+
     </style>
   </head>
   <body>
-    <div id="main" style="width : 70%; height : 500px; margin : 0 auto">
+    <div class="control">
+      <div></div>
+      <span><input type="text"><input type="text"><button>Ok</button></span>
+      <label>Texto</label>
     </div>
   </body>
 </html>
