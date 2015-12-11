@@ -695,13 +695,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 	render : function (job) {
 		  var dataTemplate = {} ; 
 
-      // Agrega a job.registros los arrays para las tablas faltantes (Por retrocompatibilidad)
-      for (var tabla in window.defTablas) {
-
-        if (!job.registros[tabla])
-          job.registros[tabla] = [];
-
-      }
 
       dataTemplate.tablas = window.defTablas;
       dataTemplate.job = window.job;
@@ -744,6 +737,15 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
             }
 
             window.job.registros = data[dc];
+
+            // Completo los arrar faltantes en job.registros
+            for (var tabla in window.defTablas) {
+
+              if (!job.registros[tabla])
+                job.registros[tabla] = [];
+
+            }
+
             self.$el.html(self.template(dataTemplate)); 
             self.$el.find('#' + job.target + ' button').removeClass('disabled');
             self.mostrarTablaDVM_SISTEMA();
