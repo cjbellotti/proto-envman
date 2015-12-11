@@ -694,63 +694,75 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	render : function (job) {
 		  var dataTemplate = {} ; 
-			/*$.ajax({
-				url : '/def-tablas',
-				method : 'GET',
-				async : false,
-				contentType : 'application/json',
-				success : function (data) { 
-					dataTablas.tablas = data; 			
-				}
-			});*/
+
+      // Agrega a job.registros los arrays para las tablas faltantes (Por retrocompatibilidad)
+      for (var tabla in window.defTablas) {
+
+        if (!job.registros[tabla])
+          job.registros[tabla] = [];
+
+      }
+
       dataTemplate.tablas = window.defTablas;
       dataTemplate.job = window.job;
 
-      var self = this;
-      $.post('/verificar/' + window.job.job, function (data) {
+      if (job.job > '') {
+        var self = this;
+        $.post('/verificar/' + window.job.job, function (data) {
 
-          var dc = _.keys(data)[0];
-          
-          for (var tabla in data[dc]) {
+            var dc = _.keys(data)[0];
+            
+            for (var tabla in data[dc]) {
 
-            for (var index in data[dc][tabla]) {
+              for (var index in data[dc][tabla]) {
 
-              var modelData = {};
-              for (var field in data[dc][tabla][index]) {
+                var modelData = {};
+                for (var field in data[dc][tabla][index]) {
 
-                if (field != 'IDN' && field != 'origen') {
+                  if (field != 'IDN' && field != 'origen') {
 
-                  modelData[field] = data[dc][tabla][index][field];
+                    modelData[field] = data[dc][tabla][index][field];
 
+                  }
+
+                }
+
+                var model = new window.manageData.colecciones[tabla].model(modelData);
+
+                if (data[dc][tabla][index].IDN) {
+
+                  window.manageData.colecciones[tabla].add(model);
+
+                } else if (data[dc][tabla][index].MOD) {
+
+                  window.manageData.colecciones[tabla].set(model, { remove : false });
+                  
                 }
 
               }
 
-              var model = new window.manageData.colecciones[tabla].model(modelData);
-
-              if (data[dc][tabla][index].IDN) {
-
-                window.manageData.colecciones[tabla].add(model);
-
-              } else if (data[dc][tabla][index].MOD) {
-
-                window.manageData.colecciones[tabla].set(model, { remove : false });
-                
-              }
-
             }
 
-          }
+            window.job.registros = data[dc];
+            self.$el.html(self.template(dataTemplate)); 
+            self.$el.find('#' + job.target + ' button').removeClass('disabled');
+            self.mostrarTablaDVM_SISTEMA();
+            if (window.job.job != ''){
+                self.$el.find('#importar').attr('disabled', 'disabled');
+            }
 
-          window.job.registros = data[dc];
-          self.$el.html(self.template(dataTemplate)); 
-          self.$el.find('#' + job.target + ' button').removeClass('disabled');
-          self.mostrarTablaDVM_SISTEMA();
+        });
+
+      } else {
+
+          this.$el.html(this.template(dataTemplate)); 
+          this.$el.find('#' + job.target + ' button').removeClass('disabled');
+          this.mostrarTablaDVM_SISTEMA();
           if (window.job.job != ''){
-              self.$el.find('#importar').attr('disabled', 'disabled');
+              this.$el.find('#importar').attr('disabled', 'disabled');
           }
 
-      });
+      }
 	}
 
 });

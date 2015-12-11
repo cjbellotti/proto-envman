@@ -1,11 +1,11 @@
 var app = require('express')();
 var child_process = require('child_process');
-var soa = '';
+var soa = require('./soa.js');
 var method_override = require('method-override');
 
 app.use(method_override());
 app.get('/soa-comparer/:ambiente?', function (req, res) {
-	ejecutarComando('IST'); // el archivo txt, tiene el nombre del ambiente, esto no va, sacar despues....
+	//ejecutarComando('IST'); // el archivo txt, tiene el nombre del ambiente, esto no va, sacar despues....
   	res.json(soa).end();	
 });
 

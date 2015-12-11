@@ -9,609 +9,490 @@
 	<script src="libs/backbone/backbone.js"></script>
 	<script src="libs/swig.js"></script>
 	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="libs/simple-template-manager.js"></script>
 
 	<style>
 
-    .verif-table {
-      margin : 0;
-      padding : 0;
-      width : 100%;
-      height : 100%;
+    .main {
+
+      height : 80vh;
     }
 
-    .vt-header {
-      width : 100%;
-      min-height : 20px;
-      margin : 0 0 0 0;
-      padding : 0 0 0 0;
-    }
+    .ambientes-bar {
 
-    .vt-column {
-
-      display : inline-block;
-      text-align : center;
-      border : 1px solid gray;
-      min-height : 20px;
 
     }
 
-    .vt-column-h {
+    .lista-ambientes {
 
-      font-weight : bold;
-      font-family : 'Arial';
-
-    }
-
-    .vt-body {
-
-      width : 100%;
-      height : 100%;
-      margin : 0;
-      padding : 0;
-      border : 1px solid gray;
       overflow : hidden;
-      overflow-y : scroll;
+      overflow-x : scroll;
+    
 
     }
 
-    .vt-body::-webkit-scrollbar {
-
-      width : 5px;
-      background : #E6E6E9;
-
-    }
-
-    .vt-body::-webkit-scrollbar-thumb {
-      background : #737374;
-    }
-
-    .vt-body-container {
-
-      width : 100%;
-      height : 100%;
-      background : #D8D8DC;
-
-    }
-
-    .vt-row {
-      vertical-align : top;
-      min-height : 20px;
-      margin : 0 0 0 0;
-      padding : 0 0 0 0;
-    }
-
-
-    #main {
-
-      width : 70%;
-      height : 60vh;
-      margin : 0 auto;
-      padding : 0 0 0 0;
-
-    }
-
-    .verification-box {
-      margin : 0 0 0 0;
-      padding : 0 0 0 0;
-      width : 100%;
-      height : 100%;
-      min-width : 437px;
-    }
-
-    .vb-container {
-
-      width : 100%;
-      height : 40vh;
+    .lista-ambientes::-webkit-scrollbar {
+      height : 5px;
+      background : gray;
       border-radius : 2px;
+    }
+
+    .lista-ambientes::-webkit-scrollbar-thumb {
+
+      background : black;
+      border-radius : 2px;
+    }
+
+    .ambiente {
+
+      display : inline-block;
+
+    }
+
+    .contenedor > table {
+      width : 100%;
       border : 1px solid gray;
+    }
+
+    .contenedor > table > thead > tr > th {
+      border : 1px solid gray;
+      text-align : center;
+    }
+    .contenedor > table > tbody > tr > td {
+      border : 1px solid gray;
+      text-align : center;
+    }
+
+    .contenedor {
+
+      height : 70vh;
       overflow : hidden;
       overflow-y : scroll;
 
     }
-
-    .vb-container::-webkit-scrollbar {
-          width: 5px;
-          display : inline-block;
-    }
-     
-    .vb-container::-webkit-scrollbar-track {
-          border-radius: 10px;
-          background : #CEDAE7;
-    }
-     
-    .vb-container::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-          background : #85A3C2;
-    }
-
-    .vb-container-content {
-      margin : 0 0 0 0;
-      padding : 0 0 0 0;
-    }
-
-    .vb-dc {
-
-      width : 20%;
-      display : inline-block;
-      vertical-align : top;
-      min-width : 83px;
-
-    }
-
-    .vb-data {
-      width : 79%;
-      display : inline-block;
-      min-width : 328px;
-
-    }
-
-    .verification-box .table {
-
-      width : 100%;
-
-    }
-
 
 	</style>
 </head>
 <body>
   <section id="main">
-    <div class="modal-dialog" style="width : 100%">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Verificacion</h3>
-        </div>
-        <div class="modal-body" style="height: 50vh;">
-          <!-- <div class="verification-box">
-            <div class="vb-dc">
-              <div class="list-group">
-                <a href="" class="list-group-item disabled">Data Center</a>
-                <a href="#DC_AR" class="list-group-item" data-toggle="tab">DC_AR</a>
-                <a href="#DC_CO" class="list-group-item" data-toggle="tab">DC_CO</a>
-                <a href="#DC_VE" class="list-group-item" data-toggle="tab">DC_VE</a>
-              </div>
-            </div>
-            <div class="vb-data">
-              <div class="tab-content">
-              <div id="DC_AR" class="tab-pane fade in active">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#DC_AR_INSERT">Insert <span class="badge">12</span></a></li>
-                  <li><a href="#DC_AR_UPDATE">Update <span class="badge">5</span></a></li>
-                </ul>
-                <div class="vb-container">
-                  <div class="vb-container-content">
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        DVM_VALOR_SISTEMA
-                      </div>
-                      <div class="panel-body">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>ID_SISTEMA</th>
-                              <th>ID_ENTIDAD_CANONICA</th>
-                              <th>ID_VALOR_CANONICO</th>
-                              <th>VALOR_SISTEMA</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        DVM_SISTEMA
-                      </div>
-                      <div class="panel-body">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>NOMBRE</th>
-                              <th>DESCRIPCION</th>
-                              <th>PAIS</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>IBS</td>
-                              <td>IBS AR</td>
-                              <td>AR</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>IBS</td>
-                              <td>IBS AR</td>
-                              <td>AR</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>IBS</td>
-                              <td>IBS AR</td>
-                              <td>AR</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="DC_CO" class="tab-pane fade">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#">Insert <span class="badge">12</span></a></li>
-                  <li><a href="#">Update <span class="badge">5</span></a></li>
-                </ul>
-                <div class="vb-container">
-                  <div class="vb-container-content">
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        DVM_VALOR_SISTEMA
-                      </div>
-                      <div class="panel-body">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>ID_SISTEMA</th>
-                              <th>ID_ENTIDAD_CANONICA</th>
-                              <th>ID_VALOR_CANONICO</th>
-                              <th>VALOR_SISTEMA</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>SIEBEL</td>
-                              <td>METHOD_OF_PAYMENTS</td>
-                              <td>XX</td>
-                              <td>XXSYS</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        DVM_SISTEMA
-                      </div>
-                      <div class="panel-body">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>NOMBRE</th>
-                              <th>DESCRIPCION</th>
-                              <th>PAIS</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>IBS</td>
-                              <td>IBS AR</td>
-                              <td>AR</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>IBS</td>
-                              <td>IBS AR</td>
-                              <td>AR</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="DC_VE" class="tab-pane fade">
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#DC_VE_INSERT" data-toggle="tab">Insert <span class="badge">12</span></a></li>
-                  <li><a href="#DC_VE_UPDATE" data-toggle="tab">Update <span class="badge">5</span></a></li>
-                </ul>
-                <div class="vb-container">
-                  <div class="vb-container-content">
-                    <div class="tab-content">
-                      <div id="DC_VE_INSERT" class="tab-pane fade in active">
-                        <div class="panel panel-primary">
-                          <div class="panel-heading">
-                            DVM_VALOR_SISTEMA
-                          </div>
-                          <div class="panel-body">
-                            <table class="table table-hover">
-                              <thead>
-                                <tr>
-                                  <th>ID</th>
-                                  <th>ID_SISTEMA</th>
-                                  <th>ID_ENTIDAD_CANONICA</th>
-                                  <th>ID_VALOR_CANONICO</th>
-                                  <th>VALOR_SISTEMA</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>SIEBEL</td>
-                                  <td>METHOD_OF_PAYMENTS</td>
-                                  <td>XX</td>
-                                  <td>XXSYS</td>
-                                </tr>
-                                <tr>
-                                  <td>1</td>
-                                  <td>SIEBEL</td>
-                                  <td>METHOD_OF_PAYMENTS</td>
-                                  <td>XX</td>
-                                  <td>XXSYS</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        <div class="panel panel-primary">
-                          <div class="panel-heading">
-                            DVM_SISTEMA
-                          </div>
-                          <div class="panel-body">
-                            <table class="table table-hover">
-                              <thead>
-                                <tr>
-                                  <th>ID</th>
-                                  <th>NOMBRE</th>
-                                  <th>DESCRIPCION</th>
-                                  <th>PAIS</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>IBS</td>
-                                  <td>IBS AR</td>
-                                  <td>AR</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="DC_VE_UPDATE" class="tab-pane fade">
-                        <div class="panel panel-primary">
-                          <div class="panel-heading">
-                            DVM_VALOR_SISTEMA
-                          </div>
-                          <div class="panel-body">
-                            <table class="table table-hover">
-                              <thead>
-                                <tr>
-                                  <th>ID</th>
-                                  <th>ID_SISTEMA</th>
-                                  <th>ID_ENTIDAD_CANONICA</th>
-                                  <th>ID_VALOR_CANONICO</th>
-                                  <th>VALOR_SISTEMA</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>SIEBEL</td>
-                                  <td>METHOD_OF_PAYMENTS</td>
-                                  <td>XX</td>
-                                  <td>XXSYS</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        <div class="panel panel-primary">
-                          <div class="panel-heading">
-                            DVM_SISTEMA
-                          </div>
-                          <div class="panel-body">
-                            <table class="table table-hover">
-                              <thead>
-                                <tr>
-                                  <th>ID</th>
-                                  <th>NOMBRE</th>
-                                  <th>DESCRIPCION</th>
-                                  <th>PAIS</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>IBS</td>
-                                  <td>IBS AR</td>
-                                  <td>AR</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>-->
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary">Aceptar</button>
-          <button class="btn btn-danger">Cancelar</button>
-        </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3>Prueba</h3>
       </div>
+      <div class="panel-body main">
+          <div class="ambientes-bar row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <div class="lista-ambientes">
+                <div class="grupo-ambientes">
+                  <div class="ambiente checkbox"><label for=""><input type="checkbox">Ambiente</label></div>
+                  <div class="ambiente checkbox"><label for=""><input type="checkbox">Ambiente</label></div>
+                  <div class="ambiente checkbox"><label for=""><input type="checkbox">Ambiente</label></div>
+                  <div class="ambiente checkbox"><label for=""><input type="checkbox">Ambiente</label></div>
+                  <div class="ambiente checkbox"><label for=""><input type="checkbox">Ambiente</label></div>
+                  <div class="ambiente checkbox"><label for=""><input type="checkbox">Ambiente</label></div>
+                  <div class="ambiente checkbox"><label for=""><input type="checkbox">Ambiente</label></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+          <div class="contenedor">
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Artefacto</th>
+                      <th>Ambiente</th>
+                      <th>Default</th>
+                      <th>Fecha Despliegue</th>
+                      <th>Particion</th>
+                      <th>Manejado</th>
+                      <th>Version</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                    <tr>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                      <td>XXXXXX</td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+      </div>
+      <div class="panel-footer"></div>
     </div>
-
   </section>
-  
-  <script src="libs/verif-table.js"></script>
-  <script>
-
-    $(function () {
-
-      var template = swig.compile(getTemplate('templates/verif-table.html'));
-      var data = {};
-      data.dcs = {
-        DC_AR : {
-          Insert : {},
-          Update : {}
-        },
-        DC_CO : {
-          Insert : {},
-          Update : {}
-        }
-      };
-
-      data.dcs.DC_AR.Insert.DVM_SISTEMA = [];
-      data.dcs.DC_AR.Insert.DVM_SISTEMA.push({
-        ID : 11,
-        NOMBRE : 'SISTEMA_11',
-        DESCRIPCION : 'Descripcion de SISTEMA_11',
-        PAIS : 'AR'
-      });
-      data.dcs.DC_AR.Insert.DVM_SISTEMA.push({
-        ID : 22,
-        NOMBRE : 'SISTEMA_22',
-        DESCRIPCION : 'Descripcion de SISTEMA_22',
-        PAIS : 'AR'
-      });
-
-      data.dcs.DC_AR.Insert.DVM_ENTIDAD_CANONICA = [];
-      data.dcs.DC_AR.Insert.DVM_ENTIDAD_CANONICA.push({
-          ID : 111,
-          NOMBRE : 'ENTIDAD_CANONICA_111',
-          DESCRIPCION : 'Descripcion de ENTIDAD_CANONICA_111'
-      });
-      data.dcs.DC_AR.Insert.DVM_ENTIDAD_CANONICA.push({
-          ID : 222,
-          NOMBRE : 'ENTIDAD_CANONICA_222',
-          DESCRIPCION : 'Descripcion de ENTIDAD_CANONICA_222'
-      });
-      data.dcs.DC_AR.Insert.DVM_ENTIDAD_CANONICA.push({
-          ID : 333,
-          NOMBRE : 'ENTIDAD_CANONICA_333',
-          DESCRIPCION : 'Descripcion de ENTIDAD_CANONICA_333'
-      });
-
-      data.dcs.DC_AR.Update.DVM_VALOR_CANONICO = [];
-      data.dcs.DC_AR.Update.DVM_VALOR_CANONICO.push({
-          ID : 12,
-          ID_ENTIDAD_CANONICA : 111,
-          DESCRIPCION : 'Valor Canonico 12',
-          VALOR_CANONICO : 'AA'
-      });
-      data.dcs.DC_AR.Update.DVM_VALOR_CANONICO.push({
-          ID : 13,
-          ID_ENTIDAD_CANONICA : 222,
-          DESCRIPCION : 'Valor Canonico 13',
-          VALOR_CANONICO : 'BB'
-      });
-
-      data.dcs.DC_AR.Update.DVM_VALOR_SISTEMA = [];
-      data.dcs.DC_AR.Update.DVM_VALOR_SISTEMA.push({
-          ID : 22,
-          ID_SITEMA : 11,
-          ID_ENTIDAD_CANONICA : 111,
-          ID_VALOR_CANONICO : 12,
-          VALOR_SISTEMA : 'XX'
-      });
-      data.dcs.DC_AR.Update.DVM_VALOR_SISTEMA.push({
-          ID : 23,
-          ID_SITEMA : 11,
-          ID_ENTIDAD_CANONICA : 222,
-          ID_VALOR_CANONICO : 13,
-          VALOR_SISTEMA : 'ZZ'
-      });
-      data.getFirst = function (array) {
-        return array[0];
-      }
-
-      data.countRegisters = function (object) {
-
-        var count = 0;
-
-        for (var field in object) {
-          console.log(field);
-          count += object[field].length;
-        }
-
-        return count;
-
-      }
-
-      $('.modal-body').html(template(data));
-      console.log(JSON.stringify(data));
-    });
-
-
-  </script>
 </body>
 </html>
