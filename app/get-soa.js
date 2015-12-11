@@ -2,39 +2,47 @@ var app = require('express')();
 var child_process = require('child_process');
 var soa = require('./soa.js');
 var method_override = require('method-override');
+var config = require('./config'); // se agrega el archivo config.js , para obtener los ambientes
+
+this.artefactos = ''; 
 
 app.use(method_override());
-app.get('/soa-comparer/:ambiente?', function (req, res) {
-	//ejecutarComando('IST'); // el archivo txt, tiene el nombre del ambiente, esto no va, sacar despues....
+
+// si la url se le agrega un parametro , ejecuta el comando para ese ambiente , ejemplo -> /soa-comparer?ambiente=DESA
+// si la url viene sin parametro, ejecuta el comando para todos los ambientes
+app.get('/soa-comparer', function (req, res) { 
+  // Comentado para que funcione la pantalla
+/*	var ambiente = req.query.ambiente;
+	console.log('ambiente : ' + ambiente);
+	if(ambiente){
+		crearObjectSoa(ambiente);
+	}else{
+		var ambientes = Object.keys(config.ambientes);
+		for(var index in ambientes){	
+			crearObjectSoa(ambientes[index]);
+		}
+	}*/
   	res.json(soa).end();	
 });
 
-function ejecutarComando(ambiente){ // el comando tiene q recibir el ambiente...
+function crearObjectSoa(ambiente){
+	var data = [];
+	soa[ambiente] = [];
+	soa[ambiente] = ejecutarComando(ambiente);
+}
+
+function ejecutarComando(ambiente){ 
+	var self = this;
+	// cuando este la app de python , agregar en el exec el param ambiente recibido...
 	child_process.exec('cd /home/mtorres/proto-envman/appTest/ && node app.js',{maxBuffer: 1024*1024},function(error, stdout, stderr){
-		var ouput = stdout.toString();
-		soa = ouput.substring('[INICIO]'.length,ouput.lastIndexOf('[FIN]'));
+		var stdoutString = stdout.toString();
+		self.artefactos  = stdoutString.substring('[INICIO]'.length,stdoutString.lastIndexOf('[FIN]'));
+		self.artefactos  = JSON.parse(self.artefactos);
 		if(error){
 			console.log('error al ejecutar el comando ' + error);
 		}
 	});
+	return self.artefactos;
 }
-
-// todavia no se testio, si recibe por parametro el ambiente, ejecuta el script con ese ambiente, si viene null, ejecuta un script por ambiente...
-
-/*
-var tabla = {};
-app.use(method_override());
-app.get('/soa-comparer/:ambiente?', function (req, res) {
-	if(req.params.ambiente){
-		var artefactos = ejecutarComando(req.params.ambiente);
-	}else{
-		for(var index in window.ambientes){	//FIXME--> verificar si se puede obtener la variable de este lado...
-			var artefactos = this.ejecutarComando(window.ambientes[index]);
-		}
-	}
-	res.json(tabla).end();
-});*/
-
-
 
 module.exports = app;
