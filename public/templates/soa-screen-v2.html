@@ -43,7 +43,8 @@
 								<td>{{ artefacto.artefacto }}</td>
 								<td>{{ artefacto.particion }}</td>
 								{% for ambiente in artefacto.ambientes %}
-                <td {% if ambiente.diff %} class="diff" {% endif %}>{{ambiente.version}}</td> <!-- por css, se agrega la casilla roja td:empty-->
+                <td class="ambiente" {% if ambiente.diff %} class="diff" {% endif %}>{{ambiente.version}}</td> 
+                <!-- por css, se agrega la casilla roja td:empty-->
 								{% endfor %}
 							</tr>
 							{% endfor %}

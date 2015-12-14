@@ -25,7 +25,7 @@ td{
 	background: #fff;
 	border-color: #fff;
 }
-td:empty{
+.ambiente:empty{
 	background-color: #d9534f;
 }
 .fila-soa{

@@ -4,13 +4,6 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 		this.template = swig.compile(getTemplate('templates/soa-screen-v2.html'));
 	    this.artefactos = {};
 	    this.arrayArtefactos = [];
-		this.ajaxGetSoa(); 
-
-		//ejemplo por POST
-		
-		/*var obj = {};
-		obj.ambientes = ['UAT','IST'];
-		this.ajaxPostSoa(obj);*/
 	},
 
 	events : {
@@ -28,13 +21,10 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
   ordenarArtefactos : function (campo) {
     this.arrayArtefactos = [];
     for (var artefacto in this.artefactos) {
-      
       var item = {};
       item.artefacto = artefacto;
       item.particion = this.artefactos[artefacto].particion;
-      
       item.ambientes = this.artefactos[artefacto].ambientes;
-
       var diff = false;
       var version = "";
       for (var ambiente in item.ambientes) {
@@ -44,22 +34,17 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
           if (version != item.ambientes[ambiente].version)
             diff = true;
       }
-
       for (var ambiente in item.ambientes) {
         item.ambientes[ambiente].diff = diff;
       }
-
       this.arrayArtefactos.push(item);
-
     }
     this.arrayArtefactos.sort(function (a, b) {
-
       return (a[campo] < b[campo]) ? -1 : (a[campo] > b[campo]) ? 1 : 0;
-
     });
   },
 
-  ajaxGetSoa:function(){
+  ajaxGetSoa:function(callback){
   	var self = this;
 	$.ajax({
 		url : '/soa-comparer',
@@ -67,12 +52,14 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 		async : false,
 		contentType : 'application/json',
 		success : function (data) { 
-       		self.formatearData(data);
+       		self.artefactos = data;
+       		self.ordenarArtefactos('artefacto');
+       		callback();
 		}
 	});
   },
 
-  ajaxPostSoa: function(ambientes){
+  ajaxPostSoa: function(ambientes,callback){
   	var self = this;
   	$.ajax({
 		url : '/soa-comparer', 
@@ -80,37 +67,31 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 	    contentType : 'application/json',
 	    data : JSON.stringify(ambientes),
 	    success: function (data) {
-	     	self.formatearData(data);
+	     	self.artefactos = data;
+	     	self.ordenarArtefactos('artefacto');
+	     	callback();
 		}
 	});
   },
 
-  formatearData:function(data){
-  	for(var ambiente in data){
-		for(var index in data[ambiente]){
-			var artefacto = data[ambiente][index].artefacto ;
-			if(!this.artefactos[artefacto]){
-				this.artefactos[artefacto] = {};
-				this.artefactos[artefacto].particion = data[ambiente][index].particion;
-				this.artefactos[artefacto].ambientes = {} ;
-				for(var index2 in window.ambientes){
-					this.artefactos[artefacto].ambientes[window.ambientes[index2]] = {};
-				}
-			}
-			this.artefactos[artefacto].ambientes[ambiente] = {
-				version : data[ambiente][index].version,
-				fecha: data[ambiente][index].fechaDespliegue,
-				diff: data[ambiente][index].diff 
-			};
-		}
-	}
-    this.ordenarArtefactos('artefacto');
-  },
-
   render:function(){
-	this.$el.html(this.template({
-		artefactos : this.arrayArtefactos 
-	}));
+  	var self = this;
+
+	//var obj = {};
+	//obj.ambientes = ['DESA','IST'];
+
+	/*this.ajaxPostSoa(obj,function(){
+  		self.$el.html(self.template({
+			artefactos : self.arrayArtefactos 
+		}));
+  	});*/
+
+  	this.ajaxGetSoa(function(){
+  		self.$el.html(self.template({
+			artefactos : self.arrayArtefactos 
+		}));
+  	});
+
   },
 
   save: function(e){
