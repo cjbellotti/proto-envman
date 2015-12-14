@@ -25,9 +25,6 @@ td{
 	background: #fff;
 	border-color: #fff;
 }
-td:empty{
-	background-color: #d9534f;
-}
 .fila-soa{
 	background-color: rgba(209, 224, 224, 1);
 }
@@ -53,4 +50,32 @@ background : #85A3C2;
 }
 .diff {
   background : #66b2ff;
+}
+
+.table-soa tr:nth-child(odd) td.table-soa-artefacto
+{
+  background-color: #d1d1e1;
+}
+
+.soa-comparer-td-separador {
+
+  border-bottom : 2px solid black;
+}
+
+.table-soa-diff {
+
+  background : #ffff66;
+
+}
+
+.table-soa-faltante {
+
+  background : #ff4d4d; 
+
+}
+
+.table-soa-ok {
+
+  background : #b3ff99;
+
 }

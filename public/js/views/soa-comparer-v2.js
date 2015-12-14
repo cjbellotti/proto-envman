@@ -1,7 +1,7 @@
 EnvMan.Views.SOAComparer = Backbone.View.extend({
 	
 	initialize : function(){
-	this.template = swig.compile(getTemplate('templates/soa-screen-v2.html'));
+	this.template = swig.compile(getTemplate('templates/soa-screen-v3.html'));
     this.artefactos = {};
     this.arrayArtefactos = [];
     var self = this;

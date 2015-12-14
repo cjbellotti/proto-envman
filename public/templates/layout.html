@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="logo">
+          <img src="/img/dtv-logo.png"></img>
+          <h2>Soa Comparer</h2>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="contacto">
+          <div class="glyphicon glyphicon-envelope"></div>
+          <a href="mailto:env-man-support@everis.com"><h3>Contacto</h3></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="volver">
+      <a href="/" class="btn btn-danger glyphicon glyphicon-arrow-left" data-toggle="tooltip" data-placement="right" title="Volver"></a>
+    </div>
+    <div class="soa-conteiner">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+  <div class="panel-footer-soa">
+    <button id="aceptar" class="btn btn-success">Aceptar</button>
+    <button id="cancelar" class="btn btn-danger">Cancelar</button>
+  </div>
+</div>

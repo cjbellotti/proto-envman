@@ -9,6 +9,7 @@ class Artefacto:
 		self.fechaDespliegue = fechaDespliegue
 		self.default = default
 		self.referencia = referencia
+    self.wsdl = wsdl
 		
 def arrayToJSON(array):
 	content = '[\n'

@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/table-soa-comparer.css">
+	</head>
+	<body>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<div class="row">
+					  <div class="col-xs-6">
+						  <div class="logo">
+							<img src="/img/dtv-logo.png"></img>
+						    <h2>Soa Comparer</h2>
+						  </div>
+					  </div>
+					  <div class="col-xs-6">
+						  <div class="contacto">
+							<div class="glyphicon glyphicon-envelope"></div>
+							<a href="mailto:env-man-support@everis.com"><h3>Contacto</h3></a>
+						  </div>
+					  </div>
+				</div>
+		   </div>
+			<div class="panel-body">
+				  <div class="volver">
+				  	<a href="/" class="btn btn-danger glyphicon glyphicon-arrow-left" data-toggle="tooltip" data-placement="right" title="Volver"></a>
+		          </div>
+				<div class="soa-conteiner">
+					<table class="table-soa">
+						<thead>
+						<tr>
+              <th>Artefacto</th>
+              <th>Ambiente</th>
+              <th>Default</th>
+              <th>Fecha Despliegue</th>
+              <th>Particion</th>
+              <th>Manejado</th>
+              <th>Version</th>
+						</tr>
+						</thead>
+						<tbody>
+							{% set totalAmbientes = window.ambientes.length %} <!--creo una variable con el array de ambientes -->
+							{% for artefacto in artefactos %}
+								{% for ambiente in artefacto.ambientes %}
+                  <tr>
+                    {% if loop.first %}
+                    <td rowspan="{{ totalAmbientes }}" class="soa-comparer-td-separador table-soa-artefacto">{{ artefacto.artefacto }}</td>
+                    {% endif %}
+                    <td {% if loop.last %} class="soa-comparer-td-separador" {% endif %}>{{ loop.key }}</td>
+                    <td {% if loop.last %} class="soa-comparer-td-separador" {% endif %}>{% if ambiente.default %} Si {% else %} No {% endif %}</td>
+                    <td {% if loop.last %} class="soa-comparer-td-separador" {% endif %}>{% if ambiente.fecha %} <strong>{{ ambiente.fecha | date('d-m-Y') }}</strong> {{ ambiente.fecha | date('h:m') }}{% endif %}</td>
+                    <td {% if loop.last %} class="soa-comparer-td-separador" {% endif %}>{{ artefacto.particion }}</td>
+                    <td {% if loop.last %} class="soa-comparer-td-separador" {% endif %}></td>
+                    <td class="
+                      {% if loop.last %} 
+                          soa-comparer-td-separador 
+                      {% endif %} 
+                      {% if not ambiente.version %} 
+                        table-soa-faltante 
+                      {% else %}
+                        {% if ambiente.diff %} 
+                          table-soa-diff 
+                        {% else %}
+                          table-soa-ok 
+                        {% endif %}
+                      {% endif %}">{{ambiente.version}}</td>
+                  </tr>
+								{% endfor %}
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer-soa">
+					 <button id="aceptar" class="btn btn-success">Aceptar</button>
+				     <button id="cancelar" class="btn btn-danger">Cancelar</button>
+				</div>
+		    </div>
+		</div>
+	</body>
+</html>
+
