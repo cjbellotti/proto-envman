@@ -31,9 +31,9 @@
 						<tr>
 							<th class="table-soa-sortable" sort-field="artefacto" width="40%">Artefacto</th>
 							<th class="table-soa-sortable" sort-field="particion" width="30%">Particion</th>
-							{% set totalAmbientes = window.ambientes %} <!--creo una variable con el array de ambientes -->
+							{% set totalAmbientes = window.ambientes %} 
 							{% for ambiente in totalAmbientes %}
-								<th> {{ambiente}}</th> <!--muestro todos los ambientes-->
+								<th> {{ambiente}}</th> 
 							{% endfor %}
 						</tr>
 						</thead>
@@ -43,8 +43,7 @@
 								<td>{{ artefacto.artefacto }}</td>
 								<td>{{ artefacto.particion }}</td>
 								{% for ambiente in artefacto.ambientes %}
-                <td class="ambiente" {% if ambiente.diff %} class="diff" {% endif %}>{{ambiente.version}}</td> 
-                <!-- por css, se agrega la casilla roja td:empty-->
+                					<td {% if ambiente.diff  %} class="diff ambiente" {% endif %}>{{ambiente.version}}</td> 
 								{% endfor %}
 							</tr>
 							{% endfor %}

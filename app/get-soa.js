@@ -1,72 +1,96 @@
 var app = require('express')();
 var child_process = require('child_process');
-var config = require('./config'); // se agrega el archivo config.js , para obtener los ambientes
+var config = require('./config'); 
 var bodyParser = require('body-parser');
-var data = {};
-var soa = {};
-this.artefactos = ''; 
+var async = require('async');
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-// GET --> muestra todos los ambientes
 app.get('/soa-comparer', function (req, res) { 
-	var ambientes = Object.keys(config.ambientes);
-	for(var index in ambientes){	
-		crearObjectSoa(ambientes[index]);
-	}
-  	formatearData();
-  	res.json(soa).end();
+	generarData(Object.keys(config.ambientes),function(data){res.json(data).end();});	
 });
 
-// POST --> muestra los ambientes que recibe en el vector pasado por parametro (ambientes)
 app.post('/soa-comparer', function (req, res) {
-	for(var index in req.body.ambientes){	
-		crearObjectSoa(req.body.ambientes[index]);
-	}
-	formatearData();
-	res.json(soa).end();
+	generarData(req.body.ambientes,function(data){res.json(data).end();});
 });
 
-function crearObjectSoa(ambiente){
-	data[ambiente] = [];
-	data[ambiente] = ejecutarComando(ambiente);
+function generarData(ambientes,callback){
+	var data = {};
+	async.each(ambientes,function(ambiente,next){
+		crearObjectSoa(ambiente,function(artefactos){
+			data[ambiente] = artefactos;
+			next();
+		});
+		},function(){
+			callback(data);
+		}
+	);
 }
 
-function ejecutarComando(ambiente){ 
-	var self = this;
-	// cuando este la app de python , agregar en el exec el param ambiente recibido...
+/*function generarData(ambientes,callback){
+	var data = {};
+	async.each(ambientes,function(ambiente,next){
+		crearObjectSoa(ambiente,function(artefactos){
+			data[ambiente] = artefactos;
+			next();
+		});
+		},function(){
+			controlarVersionesDistintas(data,function(res){
+				callback(res);
+			});
+		});
+}*/
+
+function crearObjectSoa(ambiente,callback){
+	var response = {};
+	ejecutarComando(ambiente,function(err,artefactos){
+		if(!err){
+			response = artefactos;
+		}else{
+			response = err;
+		}
+		callback(response);
+	});
+}
+
+function ejecutarComando(ambiente,callback){ 
+	var artefactos = {};
 	child_process.exec('cd appTest && node app.js ' + ambiente,{maxBuffer: 1024*1024},function(error, stdout, stderr){
-		var stdoutString = stdout.toString();
-		self.artefactos  = stdoutString.substring('[INICIO]'.length,stdoutString.lastIndexOf('[FIN]'));
-		self.artefactos  = JSON.parse(self.artefactos);
 		if(error){
-			console.log('error al ejecutar el comando ' + error);
+			callback(error);
+		}else{
+			var stdoutString = stdout.toString();
+			artefactos  = JSON.parse(stdoutString.substring('[INICIO]'.length,stdoutString.lastIndexOf('[FIN]')));
+			callback(null,artefactos);
 		}
 	});
-	return self.artefactos;
 }
 
-function formatearData(){
-  	for(var ambiente in data){
-		for(var index in data[ambiente]){
-			var artefacto = data[ambiente][index].artefacto ;
-			if(!soa[artefacto]){
-				soa[artefacto] = {};
-				soa[artefacto].particion = data[ambiente][index].particion;
-				soa[artefacto].ambientes = {} ;
-				var allAmbientes = Object.keys(config.ambientes);
-				for(var index2 in allAmbientes){
-					soa[artefacto].ambientes[allAmbientes[index2]] = {};
+//hacerlo con async
+function controlarVersionesDistintas(data,callback){
+	for(var ambiente in data){
+		var version = "";
+		for(var item in data[ambiente]){
+			if(version == ""){
+				version = data[ambiente][item].version;
+			}else{
+				for(var ambiente2 in data){
+					for(var item2 in data[ambiente2]){
+						if(item2!=item && ambiente!=ambiente2){
+							if(data[ambiente][item].artefacto == data[ambiente2][item2].artefacto){
+								if(version!= data[ambiente2][item2].version){
+									data[ambiente2][item2].diff = true;
+									data[ambiente][item].diff = true;
+								}
+							}
+						}
+					}
 				}
 			}
-			soa[artefacto].ambientes[ambiente] = {
-				version : data[ambiente][index].version,
-				fecha: data[ambiente][index].fechaDespliegue,
-				diff: data[ambiente][index].diff 
-			};
 		}
 	}
+	callback(data);
 }
 
 module.exports = app;

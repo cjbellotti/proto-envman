@@ -3,7 +3,7 @@ module.exports.ambientes = {
       {
         name : "DESA",
         username : 'DTVLA',
-        password : '12345678',
+        password : '87654321',
         host : 'localhost/XE',
         db_name : 'esbdb'
       }
