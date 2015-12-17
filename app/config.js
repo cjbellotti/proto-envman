@@ -3,17 +3,26 @@ module.exports.ambientes = {
       {
         name : "DESA",
         username : 'DTVLA',
-        password : '12345678',
+        password : '87654321',
         host : 'localhost/XE',
         db_name : 'esbdb'
       }
     ],
-     UAT : [
+  /*UAT : [
       {
         name : "UAT",
         username : 'DTVLA',
-        password : '12345678',
+        password : '87654321',
         host : 'localhost/XE',
+        db_name : 'esbdb'
+      }
+    ],*/
+     UAT : [
+      {
+        name : "UAT",
+        username : 'DTVLA_READONLY',
+        password : 'dtvro100',
+        host : '172.22.126.50:1550/esbds',
         db_name : 'esbdb'
       }
     ],
@@ -21,7 +30,7 @@ module.exports.ambientes = {
       {
         name : "IST",
         username : 'DTVLA',
-        password : '12345678',
+        password : '87654321',
         host : 'localhost/XE',
         db_name : 'esbdb'
       }
