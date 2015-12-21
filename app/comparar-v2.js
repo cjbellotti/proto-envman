@@ -16,7 +16,6 @@ function obtenerDatos (ambiente, tabla, callback) {
 
   var esquema = defTablas[tabla].esquema;
   var query = 'SELECT * FROM ' + esquema + '.' + tabla + ' ORDER BY ' + _.keys(defTablas[tabla].claves).join(',');
-  console.log('>>>>> AMBIENTE >>>>>> %s', ambiente);
   mandb(ambiente, config.ambientes[ambiente][0].name, query, function (err, response) {
 
     callback(err, response);
@@ -139,15 +138,17 @@ app.get('/comparar/:ambiente1/:ambiente2', function (req, res) {
 
     async.each(_.keys(defTablas), function (tabla, next) {
 
-      db.all(generarQuery(tabla, req.params.ambiente2, req.params.ambiente1), function (err, rows) {
-        
-        response[req.params.ambiente1][tabla] = {};
-        response[req.params.ambiente1][tabla].faltantes = rows;
+      db.all(generarQuery.generarQueryFaltantes(tabla, req.params.ambiente2, req.params.ambiente1, 'OUTER'), function (err, rows) {
+       
+        if (!response[req.params.ambiente1][tabla])
+          response[req.params.ambiente1][tabla] = {};
+        response[req.params.ambiente1][tabla].faltantes = err || rows;
 
-        db.all(generarQuery(tabla, req.params.ambiente1, req.params.ambiente2), function (err, rows) {
-          
-          response[req.params.ambiente2][tabla] = {};
-          response[req.params.ambiente2][tabla].faltantes = rows;
+        db.all(generarQuery.generarQueryFaltantes(tabla, req.params.ambiente1, req.params.ambiente2, 'OUTER'), function (err, rows) {
+        
+          if (!response[req.params.ambiente2][tabla])
+            response[req.params.ambiente2][tabla] = {};
+          response[req.params.ambiente2][tabla].faltantes = err || rows;
 
           next();
 
@@ -157,9 +158,33 @@ app.get('/comparar/:ambiente1/:ambiente2', function (req, res) {
 
     }, function () {
 
-      db.close();
-      res.json(response)
-        .end();
+      async.each(_.keys(defTablas), function (tabla, next) {
+
+        db.all(generarQuery.generarQueryDiferentes(tabla, req.params.ambiente2, req.params.ambiente1, 'OUTER'), function (err, rows) {
+         
+          if (!response[req.params.ambiente1][tabla])
+            response[req.params.ambiente1][tabla] = {};
+          response[req.params.ambiente1][tabla].diferentes = err || rows;
+
+          db.all(generarQuery.generarQueryDiferentes(tabla, req.params.ambiente1, req.params.ambiente2, 'OUTER'), function (err, rows) {
+           
+            if (!response[req.params.ambiente2][tabla])
+              response[req.params.ambiente2][tabla] = {};
+            response[req.params.ambiente2][tabla].diferentes = err || rows;
+
+            next();
+
+          });
+
+        });
+
+      }, function () {
+
+        db.close();
+        res.json(response)
+          .end();
+
+      });
 
     });
 

@@ -8,7 +8,7 @@ module.exports.ambientes = {
         db_name : 'esbdb'
       }
     ],
-  /*UAT : [
+    UAT : [
       {
         name : "UAT",
         username : 'DTVLA',
@@ -16,8 +16,8 @@ module.exports.ambientes = {
         host : 'localhost/XE',
         db_name : 'esbdb'
       }
-    ],*/
-     UAT : [
+    ],
+    /* UAT : [
       {
         name : "UAT",
         username : 'DTVLA_READONLY',

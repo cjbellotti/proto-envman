@@ -10,7 +10,8 @@ module.exports = {
     campos : {
       ID : {
         tipo : Tipos.Numerico,
-        comprobar : false
+        comprobar : false,
+        saltear : true
       },
       NOMBRE : {
         tipo : Tipos.Cadena,
@@ -39,7 +40,8 @@ module.exports = {
 
       ID : {
         tipo : Tipos.Numerico,
-        comprobar : false
+        comprobar : false,
+        saltear : true
       },
       NOMBRE : {
         tipo : Tipos.Cadena,
@@ -65,7 +67,7 @@ module.exports = {
       ID : {
         tipo : Tipos.Numerico,
         comprobar : false,
-        clave : true
+        saltear : true
       },
       ID_ENTIDAD_CANONICA : {
         tipo : Tipos.Numerico,
@@ -98,7 +100,7 @@ module.exports = {
       ID : {
         tipo : Tipos.Numerico,
         comprobar : false,
-        clave : true
+        saltear : true
       },
       ID_SISTEMA : {
         tipo : Tipos.Numerico,
@@ -132,6 +134,185 @@ module.exports = {
     claves : {
       'ID' : {}
     }
-  }
+  },
 
+  TBL_HOMOLOGATIONCATEGORIES : {
+
+    alias : 'TBL_HOMOLOGATIONCATEGORIES',
+    esquema : 'DTVLA',
+    campoInfo : 'CATEGORYNAME',
+    campos : {
+
+      CATEGORYID : {
+        tipo : Tipos.Numerico,
+        comprobar : true
+      },
+      CATEGORYNAME : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      CANONICALCATEGORYCODE : {
+        tipo : Tipos.Cadena,
+        comprobar : false 
+      }
+    },
+    claves : {
+      CATEGORYID : {}
+    }
+  },
+
+  TBL_HOMOLOGATIONDATA : {
+
+    alias : 'TBL_HOMOLOGATIONDATA',
+    esquema : 'DTVLA',
+    campoInfo : 'HOMOLOGATEDCONCEPT',
+    campos : {
+
+      COUNTRYID : {
+        tipo : Tipos.Candea,
+        comprobar : true
+      },
+      CANONICALCODE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      HOMOLOGATEDCONCEPT : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      TARGETSYSTEMCODE : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      CATEGORYID : {
+        tipo : Tipos.Numerico,
+        comprobar : false,
+        ref : 'TBL_HOMOLOGATIONCATEGORIES',
+        camposRef : [ 
+          'CATEGORYID'
+        ] 
+      },
+      HOMOLOGATEDCODE : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      }
+    },
+    claves : {
+      COUNTRYID : {},
+      CANONICALCODE : {}
+    }
+  },
+
+  TBL_RESPONSE_MESSAGES_CATALOG : {
+
+    alias : 'TBL_RESPONSE_MESSAGES_CATALOG',
+    esquema : 'SMSCHANNEL',
+    campoInfo : 'TEXT_MESSAGE',
+    campos : {
+
+      ID_MESSAGE : {
+        tipo : Tipos.Numerico,
+        comprobar : true
+      },
+      TEXT_MESSAGE : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      ISO2CODE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      }
+    },
+    claves : {
+      ID_MESSAGE : {}
+    }
+  },
+
+  CACHE_CONFIGURATION : {
+
+    alias : 'CACHE_CONFIGURATION',
+    esquema : 'DTVLA',
+    campos : {
+
+      ID : {
+        tipo : Tipos.Numerico,
+        comprobar : false,
+        saltear : true
+      },
+      COUNTRY : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      INSTANCE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      SERVICE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      OPERATION : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      TTL : {
+        tipo : Tipos.Numerico,
+        comprobar : false 
+      }
+    },
+    claves : {
+      ID : {}
+    }
+  },
+
+  TBL_CONNECTIONS : {
+
+    alias : 'TBL_CONNECTIONS',
+    esquema : 'DTVLA',
+    campos : {
+
+      COUNTRY_ID : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      ID_SYSTEM : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      URL_SYSTEM : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      USER_ID : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      USER_PROOF : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      DSN_SYSTEM : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      ISO2CODE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      ISO3CODE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      SYSTEM_VERSION : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      }
+    },
+    claves : {
+      COUNTRY_ID : {},
+      ID_SYSTEM : {},
+      ISO2CODE : {},
+      ISO3CODE : {}
+    }
+  }
 };

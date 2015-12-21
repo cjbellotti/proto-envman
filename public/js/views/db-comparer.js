@@ -67,6 +67,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
       dataField : 'DESCRIPCION'
     };
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.DVM_ENTIDAD_CANONICA = config;
 
     config.headers = {};
@@ -112,6 +123,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     };
 
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.DVM_VALOR_CANONICO = config;
 
     config = {};
@@ -212,6 +234,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     }
 
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.DVM_VALOR_SISTEMA = config;
 
     config = {};
@@ -242,6 +275,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     };
 
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.TBL_HOMOLOGATIONCATEGORIES = config;
 
     config.headers = {};
@@ -289,6 +333,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     };
 
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.TBL_HOMOLOGATIONDATA = config;
 
     config = {};
@@ -312,6 +367,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
         dataField : 'ISO2CODE'
     };
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.TBL_RESPONSE_MESSAGES_CATALOG = config;
 
     config = {};
@@ -353,6 +419,17 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
         dataField : 'TTL'
     };
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.CACHE_CONFIGURATION = config;
 
     config = {};
@@ -412,18 +489,22 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
         dataField : 'SYSTEM_VERSION'
     };
     config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
     configuraciones.TBL_CONNECTIONS = config;
 
     this.tablas = [{ colecciones : {} }, { colecciones : {} }];
 
     for (var n = 0; n < 2;n++) {
-
-      /*this.tablas[n].sistemas = new EnvMan.Collections.Sistemas();
-      this.tablas[n].entidades = new EnvMan.Collections.Entidades();
-      this.tablas[n].valoresCanonicos = new EnvMan.Collections.ValoresCanonicos();
-      this.tablas[n].valoresSistema = new EnvMan.Collections.ValoresSistema();
-      this.tablas[n].tblHomologationCategories = new EnvMan.Collections.TblHomologationCategories();
-      this.tablas[n].tblHomologationData = new EnvMan.Collections.TblHomologationData();*/
 
       for (var tabla in window.manageData.colecciones) {
 
@@ -438,53 +519,6 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     }
 
-    /*this.tablas[0].DVM_SISTEMA = MyTable(config);
-    this.tablas[1].DVM_SISTEMA = MyTable(config);
-
-    this.tablas[0].DVM_SISTEMA.coleccion = this.tablas[0].sistemas;
-    this.tablas[1].DVM_SISTEMA.coleccion = this.tablas[1].sistemas;
-
-
-    this.tablas[0].DVM_ENTIDAD_CANONICA = MyTable(config);
-    this.tablas[1].DVM_ENTIDAD_CANONICA = MyTable(config);
-
-    this.tablas[0].DVM_ENTIDAD_CANONICA.coleccion = this.tablas[0].entidades;
-    this.tablas[1].DVM_ENTIDAD_CANONICA.coleccion = this.tablas[1].entidades;
-
-    this.tablas[0].DVM_VALOR_CANONICO = MyTable(config);
-    this.tablas[1].DVM_VALOR_CANONICO = MyTable(config);
-
-    this.tablas[0].DVM_VALOR_CANONICO.entidades = this.tablas[0].entidades;
-    this.tablas[1].DVM_VALOR_CANONICO.entidades = this.tablas[1].entidades;
-
-    this.tablas[0].DVM_VALOR_CANONICO.coleccion = this.tablas[0].valoresCanonicos;
-    this.tablas[1].DVM_VALOR_CANONICO.coleccion = this.tablas[0].valoresCanonicos;
-
-    this.tablas[0].DVM_VALOR_SISTEMA = MyTable(config);
-    this.tablas[1].DVM_VALOR_SISTEMA = MyTable(config);
-
-    this.tablas[0].DVM_VALOR_SISTEMA.sistemas = this.tablas[0].sistemas;
-    this.tablas[0].DVM_VALOR_SISTEMA.entidades = this.tablas[0].entidades;
-    this.tablas[0].DVM_VALOR_SISTEMA.valoresCanonicos = this.tablas[0].valoresCanonicos;
-
-    this.tablas[1].DVM_VALOR_SISTEMA.sistemas = this.tablas[1].sistemas;
-    this.tablas[1].DVM_VALOR_SISTEMA.entidades = this.tablas[1].entidades;
-    this.tablas[1].DVM_VALOR_SISTEMA.valoresCanonicos = this.tablas[1].valoresCanonicos;
-
-    this.tablas[0].DVM_VALOR_SISTEMA.coleccion = this.tablas[0].valoresSistema;
-    this.tablas[1].DVM_VALOR_SISTEMA.coleccion = this.tablas[1].valoresSistema;
-
-    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
-    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES = MyTable(config);
-
-    this.tablas[0].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[0].tblHomologationCategories;
-    this.tablas[1].TBL_HOMOLOGATIONCATEGORIES.coleccion = this.tablas[1].tblHomologationCategories;
-
-    this.tablas[0].TBL_HOMOLOGATIONDATA = MyTable(config);
-    this.tablas[1].TBL_HOMOLOGATIONDATA = MyTable(config);
-
-    this.tablas[0].TBL_HOMOLOGATIONDATA.coleccion = this.tablas[0].tblHomologationData;
-    this.tablas[1].TBL_HOMOLOGATIONDATA.coleccion = this.tablas[1].tblHomologationData; */
   },
 
   events : {
@@ -589,11 +623,6 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     var ambiente = this.$el.find('#ambiente' + n).val();
     var tabla = this.$el.find('#tabla' + n).val();
 
-    /*this.tablas[n - 1].sistemas.fetchAmb(ambiente, { async : false });
-    this.tablas[n - 1].entidades.fetchAmb(ambiente, { async : false });
-    this.tablas[n - 1].valoresCanonicos.fetchAmb(ambiente, { async : false });
-    this.tablas[n - 1].valoresSistema.fetchAmb(ambiente, { async : false });*/
-
     for (var tabla in this.tablas[n - 1].colecciones) {
 
       window.job.target = ambiente;
@@ -606,30 +635,51 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
   },
 
   compararAmbientes : function (callback) {
-
+    
     var self = this;
-    async.eachSeries(_.keys(window.defTablas), function (tabla, next) {
+    var ambientes = [];
+    var indexAmbiente = 0;
+    ambientes.push(this.$el.find('#ambiente1').val());
+    ambientes.push(this.$el.find('#ambiente2').val());
+    $.get('/comparar/' + ambientes[0] + '/' + ambientes[1], function (data) {
+      async.each(ambientes, function (ambiente, nextAmbiente) {
 
-      var datos1 = self.tablas[0].colecciones[tabla].toJSON();
-      var datos2 = self.tablas[1].colecciones[tabla].toJSON();
+        async.each(_.keys(data[ambiente]), function (tabla, nextTabla) {
 
-      //window.compararTablas(tabla, datos1, datos2);
-      window.compararTablasAsync(tabla, datos1, datos2, function (datos1, dato2) {
-        console.log('Inicio cargar de tabla %s : %s', tabla, Date());
-        self.tablas[0][tabla].setArrayDataAsync(datos1, {}, function () {
+          var array = self.tablas[indexAmbiente].colecciones[tabla].toJSON();
+          async.each(data[ambiente][tabla].faltantes, function (registro, nextRegistro) {
 
-          self.tablas[1][tabla].setArrayDataAsync(datos2, {}, function () {
+            registro.new = true;
+            array.push(registro);
+            nextRegistro();
 
-            console.log('Fin cargar de tabla %s : %s', tabla, Date());
-            next();
+          }, function () {
+
+            async.each(data[ambiente][tabla].diferentes, function (registro, nextRegistro) {
+
+              registro.diff = true;
+              array.push(registro);
+              nextRegistro();
+
+            }, function () {
+
+              self.tablas[indexAmbiente][tabla].setArrayDataAsync(array, {}, function () {
+                nextTabla();
+              });
+
+            });
 
           });
+        }, function () {
+
+          indexAmbiente++;
+          nextAmbiente();
 
         });
-      });
 
+      }, callback);
 
-    }, callback);
+    });
 
   }
 
