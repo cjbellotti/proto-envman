@@ -25,7 +25,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
       item.artefacto = artefacto;
       item.particion = this.artefactos[artefacto].particion;
       item.ambientes = this.artefactos[artefacto].ambientes;
-      // esta parte se hace en el servicio
+      // (INICIO) La verificacion de las versiones, tendria que ir en el servicio,--> a mejorar
       var diff = false;
       var version = "";
       for (var ambiente in item.ambientes) {
@@ -38,7 +38,7 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
       for (var ambiente in item.ambientes) {
         item.ambientes[ambiente].diff = diff;
       }
-      // esta parte se hace en el servicio
+      // (FIN)
       this.arrayArtefactos.push(item);
     }
     this.arrayArtefactos.sort(function (a, b) {
@@ -99,8 +99,8 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
   render:function(){
   	var self = this;
 
-    // EJEMPLO PARA CONSUMIR POR POST
-    
+    // Ejemplo para consumir por POST
+
   	/*var obj = {};
   	obj.ambientes = ['DESA','IST'];
 

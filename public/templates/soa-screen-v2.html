@@ -43,7 +43,8 @@
 								<td>{{ artefacto.artefacto }}</td>
 								<td>{{ artefacto.particion }}</td>
 								{% for ambiente in artefacto.ambientes %}
-                					<td {% if ambiente.diff  %} class="diff ambiente" {% endif %}>{{ambiente.version}}</td> 
+                					<td {% if ambiente.diff  %} class="diff ambiente" {% else %} class ="ambiente" {% endif %}>{{ambiente.version}}</td>
+                					 <!--agrego el else para setear la clase ambiente, que pinta la celda de rojo si no existe el artefacto-->
 								{% endfor %}
 							</tr>
 							{% endfor %}

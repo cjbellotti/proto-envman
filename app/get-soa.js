@@ -3,12 +3,13 @@ var child_process = require('child_process');
 var config = require('./config'); 
 var bodyParser = require('body-parser');
 var async = require('async');
+var _ = require('underscore');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.get('/soa-comparer', function (req, res) { 
-	generarData(Object.keys(config.ambientes),function(data){res.json(data).end();});	
+	generarData(_.keys(config.ambientes),function(data){res.json(data).end();});	
 });
 
 app.post('/soa-comparer', function (req, res) {
@@ -24,23 +25,8 @@ function generarData(ambientes,callback){
 		});
 		},function(){
 			callback(data);
-		}
-	);
+		});
 }
-
-/*function generarData(ambientes,callback){
-	var data = {};
-	async.each(ambientes,function(ambiente,next){
-		crearObjectSoa(ambiente,function(artefactos){
-			data[ambiente] = artefactos;
-			next();
-		});
-		},function(){
-			controlarVersionesDistintas(data,function(res){
-				callback(res);
-			});
-		});
-}*/
 
 function crearObjectSoa(ambiente,callback){
 	var response = {};
@@ -65,32 +51,6 @@ function ejecutarComando(ambiente,callback){
 			callback(null,artefactos);
 		}
 	});
-}
-
-//hacerlo con async
-function controlarVersionesDistintas(data,callback){
-	for(var ambiente in data){
-		var version = "";
-		for(var item in data[ambiente]){
-			if(version == ""){
-				version = data[ambiente][item].version;
-			}else{
-				for(var ambiente2 in data){
-					for(var item2 in data[ambiente2]){
-						if(item2!=item && ambiente!=ambiente2){
-							if(data[ambiente][item].artefacto == data[ambiente2][item2].artefacto){
-								if(version!= data[ambiente2][item2].version){
-									data[ambiente2][item2].diff = true;
-									data[ambiente][item].diff = true;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	callback(data);
 }
 
 module.exports = app;
