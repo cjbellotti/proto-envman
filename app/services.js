@@ -13,4 +13,5 @@ app.use(require('./comparar'));
 app.use(require('./get-aplicaciones'));
 app.use(require('./get-novedades'));
 app.use(require('./get-soa')); 
+app.use(require('./get-soa-v2')); 
 module.exports = app;

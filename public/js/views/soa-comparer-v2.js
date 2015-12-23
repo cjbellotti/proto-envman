@@ -25,20 +25,6 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
       item.artefacto = artefacto;
       item.particion = this.artefactos[artefacto].particion;
       item.ambientes = this.artefactos[artefacto].ambientes;
-      // (INICIO) La verificacion de las versiones, tendria que ir en el servicio,--> a mejorar
-      var diff = false;
-      var version = "";
-      for (var ambiente in item.ambientes) {
-        if (version == "")
-          version = item.ambientes[ambiente].version;
-        else
-          if (version != item.ambientes[ambiente].version)
-            diff = true;
-      }
-      for (var ambiente in item.ambientes) {
-        item.ambientes[ambiente].diff = diff;
-      }
-      // (FIN)
       this.arrayArtefactos.push(item);
     }
     this.arrayArtefactos.sort(function (a, b) {
@@ -49,12 +35,13 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
   ajaxGetSoa:function(callback){
   	var self = this;
   	$.ajax({
-  		url : '/soa-comparer',
+  		url : '/soa-comparer-artefactos',
   		method : 'GET',
   		async : false,
   		contentType : 'application/json',
   		success : function (data) { 
-        self.formatearData(data);
+        self.artefactos = data;
+        self.ordenarArtefactos('artefacto'); 
         callback();
   		}
   	});
@@ -63,37 +50,16 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
   ajaxPostSoa: function(ambientes,callback){
   	var self = this;
   	$.ajax({
-		  url : '/soa-comparer', 
+		  url : '/soa-comparer-artefactos', 
 	    method : 'POST',
 	    contentType : 'application/json',
 	    data : JSON.stringify(ambientes),
 	    success: function (data) {
-	      self.formatearData(data);
+        self.artefactos = data;
+        self.ordenarArtefactos('artefacto'); 
 	     	callback();
 		  }
 	 });
-  },
-
-  formatearData:function(data){    
-    for(var ambiente in data){    
-      for(var index in data[ambiente]){   
-         var artefacto = data[ambiente][index].artefacto;   
-         if(!this.artefactos[artefacto]){    
-          this.artefactos[artefacto] = {};    
-          this.artefactos[artefacto].particion = data[ambiente][index].particion;   
-          this.artefactos[artefacto].ambientes = {} ;   
-            for(var index2 in window.ambientes){    
-               this.artefactos[artefacto].ambientes[window.ambientes[index2]] = {};    
-            }   
-         }   
-        this.artefactos[artefacto].ambientes[ambiente] = {    
-          version : data[ambiente][index].version,    
-          fecha: data[ambiente][index].fechaDespliegue,   
-          diff: data[ambiente][index].diff    
-        };    
-      }   
-    }  
-    this.ordenarArtefactos('artefacto');   
   },
 
   render:function(){
@@ -101,8 +67,8 @@ EnvMan.Views.SOAComparer = Backbone.View.extend({
 
     // Ejemplo para consumir por POST
 
-  	/*var obj = {};
-  	obj.ambientes = ['DESA','IST'];
+    /*var obj = {};
+    obj.ambientes = ['DESA','IST'];
 
   	this.ajaxPostSoa(obj,function(){
     		self.$el.html(self.template({

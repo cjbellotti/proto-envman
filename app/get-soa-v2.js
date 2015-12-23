@@ -8,11 +8,11 @@ var utils = require('./utilsSoa');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-app.get('/soa-comparer', function (req, res) { 
+app.get('/soa-comparer-artefactos', function (req, res) { 
 	generarData(_.keys(config.ambientes),function(data){res.json(data).end();});	
 });
 
-app.post('/soa-comparer', function (req, res) {
+app.post('/soa-comparer-artefactos', function (req, res) {
 	generarData(req.body.ambientes,function(data){res.json(data).end();});
 });
 
@@ -24,7 +24,9 @@ function generarData(ambientes,callback){
 			next();
 		});
 		},function(){
-			callback(data);
+			utils.formatearData(data,function(response){
+				callback(response);
+			});
 		});
 }
 
