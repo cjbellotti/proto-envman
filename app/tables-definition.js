@@ -224,7 +224,8 @@ module.exports = {
       }
     },
     claves : {
-      ID_MESSAGE : {}
+      ID_MESSAGE : {},
+      ISO2CODE : {}
     }
   },
 

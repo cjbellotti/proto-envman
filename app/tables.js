@@ -186,7 +186,8 @@ module.exports = {
     },
     orderBy : 'ID_MESSAGE',
     claves : { 
-      "ID_MESSAGE" : Tipos.Numerico
+      "ID_MESSAGE" : Tipos.Numerico,
+      "ISO2CODE" : Tipos.Cadena
     }     
 
   },

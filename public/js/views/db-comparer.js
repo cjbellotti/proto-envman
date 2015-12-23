@@ -79,7 +79,8 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     };
     configuraciones.DVM_ENTIDAD_CANONICA = config;
-
+  
+    config = {};
     config.headers = {};
     config.headers.Id = {
       style : {
@@ -288,6 +289,7 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     };
     configuraciones.TBL_HOMOLOGATIONCATEGORIES = config;
 
+    config = {};
     config.headers = {};
     config.headers['Country Id'] = {
       style : {
@@ -657,8 +659,11 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
             async.each(data[ambiente][tabla].diferentes, function (registro, nextRegistro) {
 
-              registro.diff = true;
-              array.push(registro);
+              //registro.diff = true;
+              //array.push(registro);
+
+              var index = _.findIndex(array, registro);
+              array[index].diff = true;
               nextRegistro();
 
             }, function () {
