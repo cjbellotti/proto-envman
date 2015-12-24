@@ -49,7 +49,7 @@ manjob.save = function (jobData, callback) {
         return a.job - b.job;
       });
 
-      jobData.job = data[data.length - 1].job + 1;
+      jobData.job = (data.length > 0) ? data[data.length - 1].job + 1 : 1;
       data.push(jobData);
 
       fs.writeFile(path, JSON.stringify(data), function (err, data) {
