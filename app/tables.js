@@ -107,6 +107,111 @@ module.exports = {
 
   },
 
+  DVM_SISTEMA_MRIBS : {
+
+    alias : "DVM_SISTEMA_MRIBS",
+    esquema : 'DTVLA',
+    campos : {
+      NOMBRE : {
+        tipo : Tipos.Clave 
+      },
+      DESCRIPCION : {
+        tipo : Tipos.Normal 
+      },
+      PAIS : {
+        tipo : Tipos.Clave
+      }
+
+    },
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    }     
+
+  },
+
+  DVM_ENTIDAD_CANONICA_MRIBS : {
+
+    alias : "DVM_ENTIDAD_CANONICA_MRIBS", 
+    esquema : 'DTVLA',
+    campos : {
+      NOMBRE : {
+        tipo : Tipos.Clave
+      },
+      DESCRIPCION : {
+        tipo : Tipos.Normal
+      }
+    },
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    }     
+
+  },
+
+  DVM_VALOR_CANONICO_MRIBS : {
+  
+    alias : "DVM_VALOR_CANONICO_MRIBS",
+    esquema : 'DTVLA',
+    campos : {
+      ID_ENTIDAD_CANONICA : {
+        tipo : Tipos.Clave,
+        ref : "DVM_ENTIDAD_CANONICA_MRIBS",
+        camposRef : [ 
+          "ID"
+        ] 
+      },
+      VALOR_CANONICO : {
+        tipo : Tipos.Clave
+      },
+      DESCRIPCION : {
+        tipo : Tipos.Normal
+      }
+    },
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    }     
+
+  },
+
+  DVM_VALOR_SISTEMA_MRIBS : {
+
+    alias : "DVM_VALOR_SISTEMA_MRIBS",
+    esquema : 'DTVLA',
+    campos : {
+      ID_SISTEMA : {
+        tipo : Tipos.Clave,
+        ref : "DVM_SISTEMA_MRIBS",
+        camposRef : [
+          "ID"    
+        ]
+      },
+      ID_ENTIDAD_CANONICA : {
+        tipo : Tipos.Clave,
+        ref : "DVM_ENTIDAD_CANONICA_MRIBS",
+        camposRef : [
+          "ID"
+        ]
+      },
+      ID_VALOR_CANONICO : {
+        tipo : Tipos.Clave,
+        ref : "DVM_VALOR_CANONICO_MRIBS",
+        camposRef : [
+          "ID"
+        ]
+      },
+      VALOR_SISTEMA : {
+        tipo : Tipos.Normal
+      }
+    },
+    orderBy : 'ID',
+    claves : { 
+      "ID" : Tipos.Numerico
+    } 
+
+  },
+
   TBL_HOMOLOGATIONCATEGORIES : {
 
     alias : 'TBL_HOMOLOGATIONCATEGORIES',

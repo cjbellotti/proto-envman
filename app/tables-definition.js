@@ -135,6 +135,139 @@ module.exports = {
       'ID' : {}
     }
   },
+  DVM_SISTEMA_MRIBS : {
+
+    alias : 'DVM_SISTEMA_MRIBS',
+    esquema : 'DTVLA',
+    campoInfo : 'NOMBRE', 
+    campos : {
+      ID : {
+        tipo : Tipos.Numerico,
+        comprobar : false,
+        saltear : true
+      },
+      NOMBRE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      DESCRIPCION : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      },
+      PAIS : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      }
+    },
+    claves : {
+      'ID' : {}
+    }
+  },
+
+  DVM_ENTIDAD_CANONICA_MRIBS : {
+    
+    alias : 'DVM_ENTIDAD_CANONICA_MRIBS',
+    esquema : 'DTVLA',
+    campoInfo : 'NOMBRE',
+    campos : {
+
+      ID : {
+        tipo : Tipos.Numerico,
+        comprobar : false,
+        saltear : true
+      },
+      NOMBRE : {
+        tipo : Tipos.Cadena,
+        comprobar : true
+      },
+      DESCRIPCION : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      }
+    },
+    claves : {
+      'ID' : {}
+    }
+  },
+
+  DVM_VALOR_CANONICO_MRIBS : {
+
+    alias : 'DVM_VALOR_CANONICO_MRIBS',
+    esquema : 'DTVLA',
+    campoInfo : 'VALOR_CANONICO',
+    campos : {
+
+      ID : {
+        tipo : Tipos.Numerico,
+        comprobar : false,
+        saltear : true
+      },
+      ID_ENTIDAD_CANONICA : {
+        tipo : Tipos.Numerico,
+        comprobar : true,
+        ref : 'DVM_ENTIDAD_CANONICA_MRIBS',
+        camposRef : [
+          'ID'
+        ]
+      },
+      VALOR_CANONICO : {
+        tipo : Tipos.Cadena,
+        comprobar : true,
+      },
+      DESCRIPCION : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      }
+    },
+    claves : {
+      'ID' : {}
+    }
+  },
+
+  DVM_VALOR_SISTEMA_MRIBS : {
+
+    alias : 'DVM_VALOR_SISTEMA_MRIBS',
+    esquema : 'DTVLA',
+    campoInfo : 'VALOR_SISTEMA',
+    campos : {
+      ID : {
+        tipo : Tipos.Numerico,
+        comprobar : false,
+        saltear : true
+      },
+      ID_SISTEMA : {
+        tipo : Tipos.Numerico,
+        comprobar : true,
+        ref : 'DVM_SISTEMA_MRIBS',
+        camposRef : [
+          'ID'
+        ]
+      },
+      ID_ENTIDAD_CANONICA : {
+        tipo : Tipos.Numerico,
+        comprobar : true,
+        ref : 'DVM_ENTIDAD_CANONICA_MRIBS',
+        camposRef : [
+          'ID'
+        ]
+      },
+      ID_VALOR_CANONICO : {
+        tipo : Tipos.Numerico,
+        comprobar : true,
+        ref : 'DVM_VALOR_CANONICO_MRIBS',
+        camposRef : [
+          'ID'
+        ]
+      },
+      VALOR_SISTEMA : {
+        tipo : Tipos.Cadena,
+        comprobar : false
+      }
+    },
+    claves : {
+      'ID' : {}
+    }
+  },
 
   TBL_HOMOLOGATIONCATEGORIES : {
 

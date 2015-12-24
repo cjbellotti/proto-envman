@@ -14,45 +14,6 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
         success : function () {
 
           window.generales.cargarColeccionesV2();
-          /*var self = this;
-          $.post('/verificar/' + window.job.job, function (data) {
-
-              var dc = _.keys(data)[0];
-              
-              for (var tabla in data[dc]) {
-
-                for (var index in data[dc][tabla]) {
-
-                  var modelData = {};
-                  for (var field in data[dc][tabla][index]) {
-
-                    if (field != 'IDN' && field != 'origen') {
-
-                      modelData[field] = data[dc][tabla][index][field];
-
-                    }
-
-                  }
-
-                  var model = new window.manageData.colecciones[tabla].model(modelData);
-
-                  if (data[dc][tabla][index].IDN) {
-
-                    window.manageData.colecciones[tabla].add(model);
-
-                  } else if (data[dc][tabla][index].MOD) {
-
-                    window.manageData.colecciones[tabla].set(model, { remove : false });
-                    
-                  }
-
-                }
-
-              }
-
-              window.job.registros = data[dc];
-
-          });*/
 
         }
 
@@ -145,6 +106,49 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
+	mostrarTablaDVM_SISTEMA_MRIBS : function (e) {
+
+		var configTable = {};
+                configTable.headers = {};
+                configTable.headers.Id = {
+                  style : {
+                    width : '6%'
+                  },
+                  dataField : 'ID'
+                };
+                configTable.headers.Pais = {
+                  style : {
+                    width : '14%'
+                  },
+                  dataField : 'PAIS'
+                };
+                configTable.headers.Nombre = {
+                  style : {
+                    width : '30%'
+                  },
+                  dataField : 'NOMBRE'
+                };
+                configTable.headers.Descripcion = {
+                  style : {
+                    width : '45%'
+                  },
+                  dataField : 'DESCRIPCION'
+                };
+		configTable.arrayData = job.registros.DVM_SISTEMA_MRIBS;
+		configTable.title = "Sistema (MRIBS)";
+		configTable.table = "DVM_SISTEMA_MRIBS";
+		configTable.model = manageData.colecciones.DVM_SISTEMA_MRIBS.model;
+		configTable.view = EnvMan.Views.SistemaMRIBS;
+		configTable.viewImport = EnvMan.Views.SistemaImportarMRIBS;
+
+		var sistemasTable = crearTabla(configTable);
+
+		sistemasTable.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(sistemasTable.$el);
+
+	},
+
 	mostrarTablaDVM_ENTIDAD_CANONICA : function (e) {
 
 		var configTable = {};
@@ -174,6 +178,44 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 		configTable.model = manageData.colecciones.DVM_ENTIDAD_CANONICA.model; 
 		configTable.view = EnvMan.Views.Entidad;
 		configTable.viewImport = EnvMan.Views.EntidadImportar;
+
+		var entidadesTable = crearTabla(configTable);
+
+		entidadesTable.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(entidadesTable.$el);
+
+	},
+
+	mostrarTablaDVM_ENTIDAD_CANONICA_MRIBS : function (e) {
+
+		var configTable = {};
+
+    configTable.headers = {};
+    configTable.headers.Id = {
+        style : {
+          width : '6%'
+        },
+        dataField : 'ID'
+    };
+    configTable.headers.Nombre = {
+        style : {
+          width : '29%'
+        },
+        dataField : 'NOMBRE'
+    };
+    configTable.headers.Descripcion = {
+        style : {
+          width : '61%'
+        },
+        dataField : 'DESCRIPCION'
+    };
+		configTable.arrayData = job.registros.DVM_ENTIDAD_CANONICA_MRIBS;
+		configTable.title = "Entidad Canonica (MRIBS)";
+		configTable.table = "DVM_ENTIDAD_CANONICA_MRIBS";
+		configTable.model = manageData.colecciones.DVM_ENTIDAD_CANONICA_MRIBS.model; 
+		configTable.view = EnvMan.Views.EntidadMRIBS;
+		configTable.viewImport = EnvMan.Views.EntidadImportarMRIBS;
 
 		var entidadesTable = crearTabla(configTable);
 
@@ -281,6 +323,104 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 
 	},
 
+	mostrarTablaDVM_VALOR_SISTEMA_MRIBS : function (e) {
+
+		var configTable = {};
+
+    configTable.headers = {};
+    configTable.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    configTable.headers.Sistema = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'ID_SISTEMA'
+    };
+    configTable.headers.Pais = {
+      style : {
+        width : '9%'
+      },
+      dataField : 'PAIS'
+    };
+    configTable.headers['Entidad Canonica'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    configTable.headers['Valor Canonico'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'ID_VALOR_CANONICO'
+    };
+    configTable.headers['Valor Sistema'] = {
+      style : {
+        width : '20%',
+        'margin-left' : '5px',
+        'text-align' : 'center'
+
+      },
+      dataField : 'VALOR_SISTEMA'
+    };
+		configTable.arrayData = job.registros.DVM_VALOR_SISTEMA_MRIBS;
+		configTable.title = "Valor Sistema (MRIBS)";
+		configTable.table = "DVM_VALOR_SISTEMA_MRIBS";
+		configTable.model = manageData.colecciones.DVM_VALOR_SISTEMA_MRIBS.model;
+		configTable.view = EnvMan.Views.ValorSistemaMRIBS;
+		configTable.viewImport = EnvMan.Views.ValorSistemaImportarMRIBS;
+		configTable.processCell = function (field, content, rowData) {
+
+			var nombre = content;
+			if (field == "ID_ENTIDAD_CANONICA"){
+
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA_MRIBS',{ ID : content});
+				if (!entidad)
+					nombre = "Entidad " + content + " inexistente.";
+				else
+					nombre = entidad.get('NOMBRE');
+
+			} else if (field == "ID_SISTEMA") {
+
+				var sistema = window.manageData.get('DVM_SISTEMA_MRIBS', { ID : content });
+				if (!sistema)
+					nombre = "Sistema " + content + " inexistente.";
+				else
+					nombre = sistema.get('NOMBRE');
+
+			} else if (field == "ID_VALOR_CANONICO") {
+
+				var valorCanonico = window.manageData.get('DVM_VALOR_CANONICO_MRIBS', { ID : content });
+				if (!valorCanonico)
+					nombre = "Valor Canonico " + content + " inexistente.";
+				else
+					nombre = valorCanonico.get('VALOR_CANONICO');
+
+			} else if (field == 'PAIS') {
+
+				var sistema = window.manageData.get('DVM_SISTEMA_MRIBS', { ID : rowData.ID_SISTEMA });
+				if (!sistema)
+					nombre = "Sin Pais";
+				else
+					nombre = sistema.get('PAIS');		
+			}
+
+			return nombre;
+
+		}
+
+		var valorSistemaTable = new crearTabla(configTable);
+
+		valorSistemaTable.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(valorSistemaTable.$el);
+
+	},
+
 	mostrarTablaDVM_VALOR_CANONICO : function (e) {
 
 		var configTable = {};
@@ -322,6 +462,68 @@ EnvMan.Views.JobV2 = Backbone.View.extend({
 			if (field == "ID_ENTIDAD_CANONICA"){
 
 				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA', { ID : content });
+
+				if (!entidad)
+					nombre = "Entidad " + content + " inexistente.";
+				else
+					nombre = entidad.get('NOMBRE');
+
+
+			}
+
+			return nombre;
+
+		}
+
+		var valorCanonicoTable = new crearTabla(configTable);
+
+		valorCanonicoTable.render();
+		this.$el.find('.tab-content').html('');
+		this.$el.find('.tab-content').append(valorCanonicoTable.el);
+
+	},
+
+	mostrarTablaDVM_VALOR_CANONICO_MRIBS : function (e) {
+
+		var configTable = {};
+
+    configTable.headers = {};
+    configTable.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    configTable.headers['Entidad Canonica'] = {
+      style : {
+        width : '29%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    configTable.headers['Descripcion'] = {
+      style : {
+        width : '40%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+    configTable.headers['Valor Canonico'] = {
+      style : {
+        width : '20%'
+      },
+      dataField : 'VALOR_CANONICO'
+    };
+		configTable.arrayData = job.registros.DVM_VALOR_CANONICO_MRIBS;
+		configTable.title = "Valor Canonico (MRIBS)";
+		configTable.table = "DVM_VALOR_CANONICO_MRIBS";
+		configTable.model = manageData.colecciones.DVM_VALOR_CANONICO_MRIBS.model;
+		configTable.view = EnvMan.Views.ValorCanonicoMRIBS;
+		configTable.viewImport = EnvMan.Views.ValorCanonicoImportarMRIBS;
+		configTable.processCell = function (field, content) {
+
+			var nombre = content;
+			if (field == "ID_ENTIDAD_CANONICA"){
+
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA_MRIBS', { ID : content });
 
 				if (!entidad)
 					nombre = "Entidad " + content + " inexistente.";

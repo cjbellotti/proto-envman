@@ -1,0 +1,131 @@
+EnvMan.Views.ValorCanonicoImportarMRIBS = Backbone.View.extend({
+
+	className : "modal fade",
+	attributes : {
+		"aria-hidden" : "true",
+		"style" : "z-index: 1100"
+	},
+
+	initialize : function (config) {
+		
+		this.template = swig.compile(getTemplate('templates/valor-canonico-importar.html'));
+		this.onImportarFunction = config.onImportar || function (env) { console.log("No Implementado.")};
+		this.env = config.env;
+
+		var config = {}
+    config.tableName = "DVM_VALOR_CANONICO_MRIBS";
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers['Entidad Canonica'] = {
+      style : {
+        width : '40%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '30%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+    config.headers['Valor Canonico'] = {
+      style : {
+        width : '18%'
+      },
+      dataField : 'VALOR_CANONICO'
+    };
+		config.selectable = true;
+		config.processCell = function (field, content) {
+
+			var nombre = content;
+			if (field == "ID_ENTIDAD_CANONICA"){
+
+				var entidad = window.manageData.get('DVM_ENTIDAD_CANONICA_MRIBS',{ ID : content});
+				if (entidad)
+					nombre = entidad.get('NOMBRE');
+				else
+					nombre = content;
+
+			} 
+
+			return nombre;
+
+		}
+
+		this.table = MyTable(config);
+
+	},
+
+	events : {
+
+		"change #ambiente" : "cargarTabla",		
+		"change #id-entidad" : "cargarTabla",
+		"click #importar" : "onImportar"
+
+	},
+
+	onImportar : function (e) {
+
+		this.onImportarFunction(this);
+
+	},
+
+	cargarTabla : function (e) {
+
+			var lista;
+			var ambiente = this.$el.find('#ambiente').val();
+			var entidad = this.$el.find('#id-entidad').val();
+
+			var espera = new EnvMan.Views.Espera();
+			$('#modals').append(espera.el);
+			espera.render();
+			espera.show();
+      var self = this;
+      window.generales.datosTabla('DVM_VALOR_CANONICO_MRIBS', ambiente, function (lista) {
+
+          var arrayData = [];
+          for (var index in lista) {
+            if ((_.findIndex(job.registros.sistema, lista[index]) < 0 &&
+                    lista[index].ID_ENTIDAD_CANONICA == entidad) || entidad == '*')
+              arrayData.push(lista[index]);
+          }
+
+          self.table.setArrayData(arrayData);
+          espera.hide();
+
+      });
+			
+	},
+
+	render : function () {
+
+		// Solo cargo en la tabla los sistemas que NO se encuentren en el Job.
+
+		this.$el.html(this.template());
+
+		window.generales.cargarComboAmbientes(this.$el.find('#ambiente'));
+
+		this.$el.find('#ambiente').val(window.job.target);
+
+		window.generales.cargarComboEntidades(this.$el.find('#id-entidad'), window.job.target, '*');
+
+		if (window.job.target != 'DESA')
+			this.$el.find('#ambiente').attr('disabled', 'disabled');
+
+		this.$el.find('.table-valor-canonico-importar').append(this.table);
+
+		this.cargarTabla();
+
+		var self = this;
+		this.$el.on('hidden.bs.modal', function () {
+			self.$el.remove();
+		});
+
+	}
+
+});

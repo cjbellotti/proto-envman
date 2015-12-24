@@ -50,6 +50,46 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
     config.headers = {};
     config.headers.Id = {
       style : {
+        width : '5%'
+      },
+      dataField : 'ID'
+    };
+    config.headers.Pais = {
+      style : {
+        width : '7%'
+      },
+      dataField : 'PAIS'
+    };
+    config.headers.Nombre = {
+      style : {
+        width : '35%'
+      },
+      dataField : 'NOMBRE'
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '54%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+    config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
+    configuraciones.DVM_SISTEMA_MRIBS = config;
+
+    config = {};
+    config.headers = {};
+    config.headers.Id = {
+      style : {
         width : '6%'
       },
       dataField : 'ID'
@@ -79,7 +119,41 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     };
     configuraciones.DVM_ENTIDAD_CANONICA = config;
-  
+
+    config = {};
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers.Nombre = {
+      style : {
+        width : '35%'
+      },
+      dataField : 'NOMBRE'
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '60%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+    config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
+    configuraciones.DVM_ENTIDAD_CANONICA_MRIBS = config;
+
     config = {};
     config.headers = {};
     config.headers.Id = {
@@ -136,6 +210,63 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     };
     configuraciones.DVM_VALOR_CANONICO = config;
+
+    config = {};
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers['Entidad Canonica'] = {
+      style : {
+        width : '40%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    config.headers.Descripcion = {
+      style : {
+        width : '30%'
+      },
+      dataField : 'DESCRIPCION'
+    };
+    config.headers['Valor Canonico'] = {
+      style : {
+        width : '25%'
+      },
+      dataField : 'VALOR_CANONICO'
+    };
+    config.processCell = function (field, content, data, scope) {
+
+      var nombre = content;
+      if (field == "ID_ENTIDAD_CANONICA"){
+
+        var entidad = scope.colecciones.DVM_ENTIDAD_CANONICA_MRIBS.get(content);
+        if (entidad)
+          nombre = entidad.get('NOMBRE');
+        else
+          nombre = content;
+
+      } 
+
+      return nombre;
+
+    };
+
+    config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
+    configuraciones.DVM_VALOR_CANONICO_MRIBS = config;
 
     config = {};
     config.headers = {};
@@ -247,6 +378,117 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
 
     };
     configuraciones.DVM_VALOR_SISTEMA = config;
+
+    config = {};
+    config.headers = {};
+    config.headers.Id = {
+      style : {
+        width : '6%'
+      },
+      dataField : 'ID'
+    };
+    config.headers.Sistema = {
+      style : {
+        width : '15%'
+      },
+      dataField : 'ID_SISTEMA'
+    };
+    config.headers.Pais = {
+      style : {
+        width : '10%'
+      },
+      dataField : 'PAIS'
+    };
+    config.headers['Entidad Canonica'] = {
+      style : {
+        width : '26%'
+      },
+      dataField : 'ID_ENTIDAD_CANONICA'
+    };
+    config.headers['Valor Canonico'] = {
+      style : {
+        width : '20%',
+        'margin-left' : '10px'
+      },
+      dataField : 'ID_VALOR_CANONICO'
+    };
+    config.headers['Valor Sistema'] = {
+      style : {
+        width : '24%',
+        'margin-left' : '10px'
+      },
+      dataField : 'VALOR_SISTEMA'
+    };
+    config.processCell = function (field, content, rowData, scope) {
+
+      var nombre = content;
+      if (field == "ID_ENTIDAD_CANONICA"){
+
+        if (parseInt(content)) {
+
+          var entidad = scope.colecciones.DVM_ENTIDAD_CANONICA_MRIBS.get(content);
+          if (entidad)
+            nombre = entidad.get('NOMBRE');
+          else
+            nombre = content;
+
+        }
+
+
+      } else if (field == "ID_SISTEMA") {
+
+        if (parseInt(content)) {
+
+          var sistema = scope.colecciones.DVM_SISTEMA_MRIBS.get(content);
+          if (sistema)
+            nombre = sistema.get('NOMBRE');
+          else
+            nombre = content;
+
+        }
+
+      } else if (field == "PAIS") {
+
+        var sistema = scope.colecciones.DVM_SISTEMA_MRIBS.get(rowData.ID_SISTEMA);
+        if (!sistema)
+          nombre = "Sin Pais";
+        else
+          nombre = sistema.get('PAIS');		
+
+      } else if (field == "ID_VALOR_CANONICO") {
+
+        if (parseInt(content)) {	
+
+          var valorCanonico = scope.colecciones.DVM_VALOR_CANONICO_MRIBS.get(content);
+          if (valorCanonico)
+            nombre = valorCanonico.get('VALOR_CANONICO');
+          else
+            nombre = content;
+
+        }
+
+      } 
+
+      if (!rowData[field])
+        rowData[field] = nombre;
+
+      return nombre;
+
+    }
+
+    config.filterable = true;
+    config.processRow = function (rowDiv, data) {
+
+      if (data.diff) {
+        rowDiv.css('background', '#3385FF');
+        rowDiv.addClass('dt-tab-diff');
+      } else if (data.new) {
+        rowDiv.css('background', '#47D147');
+        rowDiv.addClass('dt-tab-new');
+      }
+
+    };
+    configuraciones.DVM_VALOR_SISTEMA_MRIBS = config;
 
     config = {};
     config.headers = {};
@@ -663,7 +905,10 @@ EnvMan.Views.DBComparer = Backbone.View.extend({
               //array.push(registro);
 
               var index = _.findIndex(array, registro);
-              array[index].diff = true;
+	      if (index >= 0)
+           	   array[index].diff = true;
+		else
+		  console.log('No existe', registro);
               nextRegistro();
 
             }, function () {
