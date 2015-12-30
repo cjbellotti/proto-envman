@@ -1,0 +1,111 @@
+.contacto {
+	position : relative;
+	width : 150px;
+	float : right;
+}
+
+.contacto div {
+	width : 1.1em;
+	display : inline-block;
+	margin: 0;
+	vertical-align : top;
+	font-size : 1.7em;
+	color:white;
+}
+
+.contacto h3 {
+	display : inline-block;
+	margin: 0;
+	line-height : 1.1em;
+	color:black;
+}
+
+.logo img {
+	width : 50px;
+	display : inline-block;
+	margin: 0;
+	vertical-align : top;
+}
+
+.logo h2 {
+	display : inline-block;
+	margin: 0;
+	line-height : 1em;
+	color:black;
+	letter-spacing: 2px;
+}
+
+.panel-heading{
+	background-color: #337ab7;
+}
+
+.bordes{
+	border: 1px solid black;
+}
+
+.espacio{
+	margin-bottom: 10px;
+}
+
+.borde-lateral{
+	border-left: 2px solid black;
+ 	margin-top: 20px;
+}
+
+.borde-superior{
+	border-top: 2px solid black;
+	padding-top: 15px;
+	margin-bottom: 15px;
+}
+
+a{
+	color: black;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color: #66b2ff;
+    border-radius: 0;
+}
+
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+}
+
+.nav-tabs {
+    text-align:center;
+}
+
+.input-group-addon {
+  	border-right: 0;
+  	background-color: white;
+}
+
+p{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-right: 0;
+}
+
+#button-buscar{
+	text-align: center;
+	float: left;
+}
+
+.row {
+ 	display: flex;
+}
+
+.table-soa{
+	width: 100%;
+	margin: auto;
+}
+
+.table-soa, th, td {
+	border: 1px solid #C0C0C0;
+	text-align: center;
+	vertical-align: bottom;
+}
